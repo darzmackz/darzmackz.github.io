@@ -27,6 +27,23 @@ Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to coll
   </div>
 
   <div class="portfolio-card">
+    <div class="portfolio-card-image">☁️</div>
+    <div class="portfolio-card-body">
+      <h3>NextCloud Server Deployment</h3>
+      <p><strong>Crown Regency Hotels and Resorts</strong> — System Administration Project</p>
+      <p>Set up and deployed a self-hosted NextCloud server for Crown Regency Hotels and Resorts, providing secure cloud storage and file collaboration. The instance is accessible at <a href="https://regencydrive.crownregency.net/" target="_blank" rel="noopener">regencydrive.crownregency.net</a>.</p>
+      <div class="tech-stack">
+        <span class="tech-badge">NextCloud</span>
+        <span class="tech-badge">Linux Server</span>
+        <span class="tech-badge">Nginx</span>
+        <span class="tech-badge">SSL/TLS</span>
+        <span class="tech-badge">Self-Hosted</span>
+      </div>
+      <a href="https://regencydrive.crownregency.net/" target="_blank" rel="noopener" class="btn btn-primary">View Instance</a>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
     <div class="portfolio-card-image">💻</div>
     <div class="portfolio-card-body">
       <h3>System Analyst</h3>
