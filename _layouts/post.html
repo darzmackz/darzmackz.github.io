@@ -35,9 +35,15 @@ layout: default
   </div>
   {% endif %}
 
+  <!-- Top Post Ad Slot -->
+  {% include adsense-post.html %}
+
   <div class="post-content">
     {{ content }}
   </div>
+
+  <!-- Bottom Post Ad Slot -->
+  {% include adsense-post.html %}
 
   <div class="post-navigation">
     {% if page.previous.url %}
