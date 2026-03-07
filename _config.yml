@@ -1,6 +1,6 @@
-title: "DarzMackz"
+title: "METAXENOPY"
 description: "Personal blog, portfolio, and more."
-author: "DarzMackz"
+author: "Kenji Plando"
 email: ""
 url: "https://darzmackz.github.io"
 baseurl: ""
@@ -8,7 +8,7 @@ baseurl: ""
 # Social links (fill in your own)
 github_username: darzmackz
 twitter_username: ""
-youtube_channel: ""
+youtube_channel: "https://www.youtube.com/@metaxenopy?sub_confirmation=1"
 
 # Build settings
 markdown: kramdown
