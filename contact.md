@@ -17,8 +17,7 @@ or reach out through one of the other channels listed here.
       <span class="contact-item-icon">📧</span>
       <div>
         <strong>Email</strong>
-        <!-- Replace with your actual email address -->
-        <p><a href="mailto:hello@darzmackz.github.io">hello@darzmackz.github.io</a></p>
+        <p><a href="mailto:darzmackz@gmail.com">darzmackz@gmail.com</a></p>
       </div>
     </div>
 
@@ -34,19 +33,10 @@ or reach out through one of the other channels listed here.
       <span class="contact-item-icon">🎬</span>
       <div>
         <strong>YouTube</strong>
-        <!-- Replace with your YouTube channel URL -->
-        <p><a href="#" target="_blank" rel="noopener">Visit my channel</a></p>
+        <p><a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener">@metaxenopy</a></p>
       </div>
     </div>
 
-    <div class="contact-item">
-      <span class="contact-item-icon">🐦</span>
-      <div>
-        <strong>Twitter / X</strong>
-        <!-- Replace with your Twitter handle -->
-        <p><a href="#" target="_blank" rel="noopener">@darzmackz</a></p>
-      </div>
-    </div>
   </div>
 
   <div class="contact-form">
@@ -80,3 +70,4 @@ or reach out through one of the other channels listed here.
 
 > **Note:** The contact form uses [Formspree](https://formspree.io) for handling submissions.
 > Replace `YOUR_FORM_ID` in the HTML source with your own Formspree form ID to activate it.
+
