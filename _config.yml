@@ -1,0 +1,34 @@
+title: "DarzMackz"
+description: "Personal blog, portfolio, and more."
+author: "DarzMackz"
+email: ""
+url: "https://darzmackz.github.io"
+baseurl: ""
+
+# Social links (fill in your own)
+github_username: darzmackz
+twitter_username: ""
+youtube_channel: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - vendor
+
+# Google AdSense (replace with your publisher ID)
+google_adsense_publisher_id: "ca-pub-XXXXXXXXXXXXXXXXX"
+
+
