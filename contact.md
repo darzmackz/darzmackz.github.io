@@ -41,9 +41,7 @@ or reach out through one of the other channels listed here.
 
   <div class="contact-form">
     <h3>✉️ Send a Message</h3>
-    <!-- This form uses Formspree — replace YOUR_FORM_ID with your actual Formspree form ID -->
-    <!-- Sign up at https://formspree.io to get a form ID -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form action="https://formspree.io/f/xpqyzezn" method="POST">
       <div class="form-group">
         <label for="contact-name">Your Name</label>
         <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
@@ -68,6 +66,5 @@ or reach out through one of the other channels listed here.
 
 ---
 
-> **Note:** The contact form uses [Formspree](https://formspree.io) for handling submissions.
-> Replace `YOUR_FORM_ID` in the HTML source with your own Formspree form ID to activate it.
+> **Note:** This contact form is powered by [Formspree](https://formspree.io).
 
