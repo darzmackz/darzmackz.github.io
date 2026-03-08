@@ -78,7 +78,7 @@ Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to coll
     <div class="portfolio-card-image">🎬</div>
     <div class="portfolio-card-body">
       <h3>YouTube — METAXENOPY</h3>
-      <p>Tech videos, tutorials, and walkthroughs on topics like SQL, system administration, and IT tips.</p>
+      <p>Lyrics and Karaoke videos</p>
       <div class="tech-stack">
         <span class="tech-badge">YouTube</span>
         <span class="tech-badge">Tech Content</span>
