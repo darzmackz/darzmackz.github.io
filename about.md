@@ -28,7 +28,7 @@ permalink: /about/
       what I've been working on, or head over to the <a href="{{ '/blog/' | relative_url }}">blog</a>
       for tutorials and updates. You can also find me on
       <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener">YouTube</a>
-      where I share tech content.
+      where I share lyrics and karaoke contents.
     </p>
   </div>
 </div>
