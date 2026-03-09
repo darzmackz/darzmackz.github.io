@@ -4,11 +4,10 @@ title: "Getting Started with Jekyll on GitHub Pages"
 date: 2025-01-15 10:00:00 +0000
 categories: [tutorial, web-dev]
 tags: [jekyll, github-pages, static-site]
-youtube_id: "jEvql7s14kE"
 excerpt: "In this tutorial I walk you through setting up a Jekyll blog site from scratch and deploying it to GitHub Pages — completely free."
 ---
 
-In this post (and accompanying video above), I walk you through **setting up a Jekyll site on GitHub Pages** from absolute zero — no prior Ruby or Jekyll experience required.
+In this post, I walk you through **setting up a Jekyll site on GitHub Pages** from absolute zero — no prior Ruby or Jekyll experience required.
 
 ## What You'll Learn
 
@@ -77,9 +76,9 @@ After the front matter, write the content in Markdown.
 
 That's it! 🎉
 
-## Watch the Full Video
+## Watch on YouTube
 
-I've embedded the full walkthrough video at the top of this post. Make sure to check it out for a visual, step-by-step guide.
+Check out the [METAXENOPY YouTube channel](https://www.youtube.com/@metaxenopy?sub_confirmation=1) for video tutorials and more content.
 
 ---
 
