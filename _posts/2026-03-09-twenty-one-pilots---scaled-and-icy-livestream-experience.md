@@ -5,10 +5,7 @@ date: 2026-03-09 12:00:00 +0800
 categories: [music, concert, live-performance]
 tags: [twenty-one-pilots, scaled-and-icy, tyler-joseph, josh-dun, livestream, alternative-rock]
 youtube_id: "KIrTPrPTy0E"
-excerpt: "Relive the unforgettable Scaled and Icy Livestream Experience by Twenty One Pilots — a visually stunning virtual concert filled with incredible performances and creative storytelling."
 ---
-
-# Twenty One Pilots – Scaled and Icy Livestream Experience
 
 In May 2021, **Twenty One Pilots** delivered one of the most creative and immersive virtual concerts ever produced — the **Scaled and Icy Livestream Experience**. The event combined music, cinematic storytelling, and surreal visuals to create a performance that felt more like a live musical film than a typical livestream.
 
