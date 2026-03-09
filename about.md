@@ -8,7 +8,13 @@ permalink: /about/
 <div class="about-grid">
 
   <div class="about-avatar">
-    🎤
+    <img
+      src="https://github.com/darzmackz.png"
+      alt="KENJI (Kent Harvey Plando)"
+      class="about-avatar-img"
+      loading="lazy"
+      onerror="this.parentElement.innerHTML='🎤'"
+    />
   </div>
 
   <div class="about-bio">

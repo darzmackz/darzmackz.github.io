@@ -980,28 +980,9 @@ ul, ol {
 }
 
 /* ==========================================================================
-   Responsive
+   Responsive — mobile nav and slide animation
    ========================================================================== */
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-avatar {
-    width: 160px;
-    font-size: 3.5rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
-  }
-
   .site-nav {
     display: none;
     position: absolute;
@@ -1040,26 +1021,6 @@ ul, ol {
 
   .hero {
     padding: var(--spacing-2xl) 0;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -1133,4 +1094,260 @@ ul, ol {
 ::selection {
   background: rgba(37,99,235,0.2);
   color: var(--color-text);
+}
+
+/* ==========================================================================
+   Hero Profile Avatar
+   ========================================================================== */
+.hero-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 0 6px rgba(96,165,250,0.25), var(--shadow-lg);
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  animation: avatarPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+.hero-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 8px rgba(96,165,250,0.35), var(--shadow-lg);
+}
+
+@keyframes avatarPop {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   About Page — Avatar with real photo
+   ========================================================================== */
+.about-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  display: block;
+}
+
+/* ==========================================================================
+   Scroll-to-top button
+   ========================================================================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Reading progress bar
+   ========================================================================== */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   Enhanced hero typing cursor
+   ========================================================================== */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  background: currentColor;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: baseline;
+  height: 0.85em;
+  border-radius: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ==========================================================================
+   Enhanced card hover gradient border
+   ========================================================================== */
+.card {
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--border-radius-lg) + 1px);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  z-index: -1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Footer social — coloured on hover
+   ========================================================================== */
+.footer-social a[aria-label="X (Twitter)"]:hover { color: #e7e7e7; }
+.footer-social a[aria-label="Facebook"]:hover      { color: #1877f2; }
+.footer-social a[aria-label="GitHub"]:hover        { color: #f0f6ff; }
+.footer-social a[aria-label="YouTube"]:hover       { color: #ff0000; }
+
+/* ==========================================================================
+   Enhanced Responsive — full coverage
+   ========================================================================== */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .about-avatar {
+    width: 160px;
+    height: 160px;
+    font-size: 3.5rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .hero-avatar { width: 96px; height: 96px; }
+
+  .scroll-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .post-navigation {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .contact-form {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: var(--spacing-2xl) 0; }
+
+  .hero-avatar { width: 80px; height: 80px; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .skills-list li {
+    font-size: 0.82rem;
+    padding: 3px 10px;
+  }
+
+  .tech-stack {
+    justify-content: flex-start;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .footer-social {
+    gap: var(--spacing-lg);
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-form .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  html { font-size: 15px; }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
 }
