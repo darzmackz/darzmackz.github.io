@@ -765,6 +765,10 @@ ul, ol {
 .contact-item-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
 }
 
 .contact-item p {
