@@ -86,7 +86,7 @@ permalink: /about/
 - Managed database infrastructures and enhanced data organization.
 - Acted as System Administrator for server maintenance and operations.
 
-**System Analyst** — Just Click Integrated Solution, Cebu City, Cebu _(12/2017 – 02/2023)_
+**System Analyst / Administrator** — Just Click Integrated Solution, Cebu City, Cebu _(12/2017 – 02/2023)_
 
 - Migrated databases and resolved system issues.
 - Maintained workstations and installed servers.
