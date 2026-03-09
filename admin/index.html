@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — METAXENOPY.TY</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0f172a;
+      --bg2:          #1e293b;
+      --bg3:          #334155;
+      --text:         #f1f5f9;
+      --text-muted:   #94a3b8;
+      --border:       #334155;
+      --primary:      #3b82f6;
+      --primary-dark: #2563eb;
+      --success:      #22c55e;
+      --danger:       #ef4444;
+      --radius:       8px;
+      --radius-sm:    4px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ── Auth ── */
+    .auth-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .auth-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .auth-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-logo .icon { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+    .auth-logo h1   { font-size: 1.5rem; font-weight: 700; }
+    .auth-logo p    { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 1rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.375rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: 0.9375rem;
+      font-family: inherit;
+      padding: 0.625rem 0.875rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--primary); }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-group textarea.editor {
+      min-height: 420px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+
+    .helper-text { font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-primary   { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { background: var(--bg3); color: var(--text); }
+    .btn-secondary:hover { background: #475569; }
+    .btn-danger    { background: var(--danger); color: #fff; }
+    .btn-danger:hover { background: #dc2626; }
+    .btn-success   { background: var(--success); color: #fff; }
+    .btn-success:hover { background: #16a34a; }
+    .btn-ghost     { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
+    .btn-sm        { padding: 0.35rem 0.75rem; font-size: 0.8125rem; }
+    .btn-full      { width: 100%; }
+
+    /* ── Alerts ── */
+    .alert {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-error   { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
+    .alert-success { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
+    .alert-info    { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+
+    /* ── Admin Layout ── */
+    .admin-layout { display: flex; flex-direction: column; min-height: 100vh; }
+
+    .admin-header {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .admin-header .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .admin-header .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .admin-header .spacer { flex: 1; }
+
+    .admin-content {
+      flex: 1;
+      padding: 2rem 1.5rem;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .page-header h2 { font-size: 1.4rem; font-weight: 700; flex: 1; }
+
+    /* ── Posts list ── */
+    .posts-list { display: flex; flex-direction: column; gap: 0.625rem; }
+
+    .post-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .post-item-info { flex: 1; min-width: 0; }
+
+    .post-item-title {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .post-item-meta { font-size: 0.8125rem; color: var(--text-muted); }
+    .post-item-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+    /* ── Editor ── */
+    .editor-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .editor-section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .toolbar-btn {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      padding: 0.25rem 0.625rem;
+      transition: all 0.15s;
+    }
+
+    .toolbar-btn:hover { color: var(--text); background: #475569; }
+
+    /* ── Settings ── */
+    .settings-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .settings-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+
+    .settings-card.danger { border-color: rgba(239,68,68,0.35); }
+    .settings-card.danger h3 { color: var(--danger); }
+
+    /* ── Spinner / loading ── */
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+    }
+
+    .loading-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .editor-layout { grid-template-columns: 1fr; }
+      .admin-content { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================================
+     AUTH VIEW
+     ===================================================================== -->
+<div id="view-auth">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <span class="icon">🛡️</span>
+        <h1>Admin Panel</h1>
+        <p>METAXENOPY.TY</p>
+      </div>
+      <div id="auth-content"><!-- filled by JS --></div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================================
+     ADMIN VIEW
+     ===================================================================== -->
+<div id="view-admin" class="hidden">
+  <div class="admin-layout">
+
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="brand">
+        <span>🛡️</span>
+        <span>Admin</span>
+        <span class="brand-sub">METAXENOPY.TY</span>
+      </div>
+      <div class="spacer"></div>
+      <nav style="display:flex;gap:0.5rem;">
+        <button class="btn btn-ghost btn-sm" id="nav-posts-btn"    onclick="showSection('posts')">Posts</button>
+        <button class="btn btn-ghost btn-sm" id="nav-settings-btn" onclick="showSection('settings')">Settings</button>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="admin-content">
+
+      <!-- POSTS SECTION -->
+      <div id="section-posts" class="hidden">
+        <div class="page-header">
+          <h2>📝 Blog Posts</h2>
+          <button class="btn btn-primary" onclick="openEditor(null)">+ New Post</button>
+        </div>
+        <div id="posts-list-wrap">
+          <div class="loading-state"><span class="spinner"></span> Loading posts…</div>
+        </div>
+      </div>
+
+      <!-- EDITOR SECTION -->
+      <div id="section-editor" class="hidden">
+        <div class="page-header">
+          <button class="btn btn-ghost btn-sm" onclick="showSection('posts')">← Back</button>
+          <h2 id="editor-heading">New Post</h2>
+          <button class="btn btn-success" id="save-btn" onclick="savePost()">Save Post</button>
+        </div>
+        <div id="editor-alert"></div>
+
+        <div class="editor-layout">
+          <!-- Sidebar: metadata -->
+          <div>
+            <div class="editor-section-label">Post Details</div>
+            <div class="form-group">
+              <label>Title *</label>
+              <input type="text" id="post-title" placeholder="Post title">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" id="post-date">
+            </div>
+            <div class="form-group">
+              <label>Categories</label>
+              <input type="text" id="post-categories" placeholder="e.g. tutorial, web-dev">
+              <p class="helper-text">Comma-separated</p>
+            </div>
+            <div class="form-group">
+              <label>Tags</label>
+              <input type="text" id="post-tags" placeholder="e.g. jekyll, github">
+              <p class="helper-text">Comma-separated</p>
+            </div>
+            <div class="form-group">
+              <label>YouTube Video ID</label>
+              <input type="text" id="post-youtube" placeholder="e.g. dQw4w9WgXcQ">
+            </div>
+            <div class="form-group">
+              <label>Excerpt / Description</label>
+              <textarea id="post-excerpt" rows="3" placeholder="Short description…"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Filename</label>
+              <input type="text" id="post-filename" placeholder="auto-generated">
+              <p class="helper-text">Leave blank to auto-generate</p>
+            </div>
+          </div>
+
+          <!-- Main: content editor -->
+          <div>
+            <div class="editor-section-label">Content (Markdown)</div>
+            <div class="editor-toolbar">
+              <button class="toolbar-btn" title="Bold"          onclick="insertWrap('**','**','bold text')"><b>B</b></button>
+              <button class="toolbar-btn" title="Italic"        onclick="insertWrap('*','*','italic text')"><i>I</i></button>
+              <button class="toolbar-btn" title="Heading 2"     onclick="insertLine('## ','Heading')">H2</button>
+              <button class="toolbar-btn" title="Heading 3"     onclick="insertLine('### ','Heading')">H3</button>
+              <button class="toolbar-btn" title="Link"          onclick="insertWrap('[','](https://)','link text')">🔗</button>
+              <button class="toolbar-btn" title="Image"         onclick="insertWrap('![alt](',')'  ,'image-url')">🖼</button>
+              <button class="toolbar-btn" title="Bullet list"   onclick="insertLine('- ','item')">• List</button>
+              <button class="toolbar-btn" title="Blockquote"    onclick="insertLine('> ','quote')">❝</button>
+              <button class="toolbar-btn" title="Inline code"   onclick="insertWrap('`','`','code')">`code`</button>
+              <button class="toolbar-btn" title="Code block"    onclick="insertBlock('```\n','code here','\n```')">``` block</button>
+              <button class="toolbar-btn" title="Horizontal rule" onclick="insertLine('---')">—</button>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <textarea id="post-content" class="editor" placeholder="Write your post in Markdown…"
+                onkeydown="handleTabKey(event)"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS SECTION -->
+      <div id="section-settings" class="hidden">
+        <div class="page-header">
+          <h2>⚙️ Settings</h2>
+        </div>
+        <div id="settings-alert"></div>
+
+        <div class="settings-card">
+          <h3>GitHub Access Token</h3>
+          <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
+            A Personal Access Token with <strong>repo</strong> scope is required to read and write blog posts.<br>
+            <a href="https://github.com/settings/tokens/new?scopes=repo&description=METAXENOPY+Admin" target="_blank"
+               rel="noopener" style="color:var(--primary)">Generate one here ↗</a>
+          </p>
+          <div class="form-group">
+            <label>Personal Access Token</label>
+            <input type="password" id="settings-token" placeholder="ghp_…">
+          </div>
+          <button class="btn btn-primary" onclick="saveToken()">Save Token</button>
+        </div>
+
+        <div class="settings-card">
+          <h3>Change Password</h3>
+          <div class="form-group">
+            <label>Current Password</label>
+            <input type="password" id="settings-old-pwd" placeholder="Current password">
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input type="password" id="settings-new-pwd" placeholder="New password">
+          </div>
+          <div class="form-group">
+            <label>Confirm New Password</label>
+            <input type="password" id="settings-confirm-pwd" placeholder="Confirm">
+          </div>
+          <button class="btn btn-primary" onclick="changePassword()">Change Password</button>
+        </div>
+
+        <div class="settings-card danger">
+          <h3>Danger Zone</h3>
+          <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
+            Remove all admin credentials stored in this browser. You will be asked to set up again.
+          </p>
+          <button class="btn btn-danger" onclick="resetAdmin()">Reset Credentials</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* =========================================================
+   Constants
+   ========================================================= */
+var REPO_OWNER   = 'darzmackz';
+var REPO_NAME    = 'darzmackz.github.io';
+var REPO_BRANCH  = 'main';
+var POSTS_DIR    = '_posts';
+
+var TIMEZONE_OFFSET = '+0800';          /* Philippine Standard Time */
+var SESSION_TTL_MS  = 7 * 24 * 3600 * 1000; /* 7-day session */
+
+var KEY_HASH    = 'admin_pwd_hash';
+var KEY_TOKEN   = 'admin_github_token';
+var KEY_SESSION = 'admin_session';
+var KEY_SESSION_EXP = 'admin_session_exp';
+
+/* Active post being edited: { path, sha, filename } | null */
+var currentPost = null;
+
+/* Cached post list from GitHub */
+var postsCache = [];
+
+/* =========================================================
+   Utility
+   ========================================================= */
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function sha256(msg) {
+  var buf  = new TextEncoder().encode(msg);
+  var hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash))
+    .map(function(b) { return b.toString(16).padStart(2, '0'); })
+    .join('');
+}
+
+function store(key, val) {
+  try { localStorage.setItem(key, val); } catch(e) {}
+}
+
+function load(key) {
+  try { return localStorage.getItem(key); } catch(e) { return null; }
+}
+
+function remove(key) {
+  try { localStorage.removeItem(key); } catch(e) {}
+}
+
+function today() {
+  var d = new Date();
+  return [
+    d.getFullYear(),
+    String(d.getMonth() + 1).padStart(2, '0'),
+    String(d.getDate()).padStart(2, '0')
+  ].join('-');
+}
+
+function slugify(text) {
+  return text.toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function showAlert(id, type, msg) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = '<div class="alert alert-' + type + '">' + msg + '</div>';
+  setTimeout(function() { if (el) el.innerHTML = ''; }, 6000);
+}
+
+/* =========================================================
+   Front matter helpers
+   ========================================================= */
+function parseFrontMatter(raw) {
+  var match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!match) return { meta: {}, content: raw };
+
+  var meta = {};
+  match[1].split('\n').forEach(function(line) {
+    var idx = line.indexOf(':');
+    if (idx === -1) return;
+    var key = line.slice(0, idx).trim();
+    var val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+    meta[key] = val;
+  });
+  return { meta: meta, content: match[2].replace(/^\n+/, '') };
+}
+
+function buildFrontMatter(m) {
+  var lines = ['---', 'layout: post'];
+  lines.push('title: "' + m.title.replace(/"/g, '\\"') + '"');
+  lines.push('date: ' + m.date + ' 12:00:00 ' + TIMEZONE_OFFSET);
+  if (m.categories) lines.push('categories: [' + m.categories + ']');
+  if (m.tags)       lines.push('tags: ['       + m.tags       + ']');
+  if (m.youtube_id) lines.push('youtube_id: "' + m.youtube_id + '"');
+  if (m.description) lines.push('description: "' + m.description.replace(/"/g, '\\"') + '"');
+  lines.push('---');
+  return lines.join('\n');
+}
+
+/* =========================================================
+   GitHub API
+   ========================================================= */
+async function ghRequest(method, path, body) {
+  var token = load(KEY_TOKEN);
+  if (!token) throw new Error('No GitHub token. Go to Settings and add your token.');
+
+  var url  = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + path;
+  var opts = {
+    method: method,
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Accept':        'application/vnd.github.v3+json',
+      'Content-Type':  'application/json'
+    }
+  };
+  if (body) opts.body = JSON.stringify(body);
+
+  var res = await fetch(url, opts);
+  if (!res.ok) {
+    var err = await res.json().catch(function() { return { message: res.statusText }; });
+    throw new Error(err.message || ('GitHub API error: ' + res.status));
+  }
+  return res.status === 204 ? null : res.json();
+}
+
+async function ghListPosts() {
+  var files = await ghRequest('GET', POSTS_DIR);
+  return Array.isArray(files) ? files.filter(function(f) { return f.name.endsWith('.md'); }) : [];
+}
+
+async function ghGetFile(path) {
+  var file = await ghRequest('GET', path);
+  /* GitHub returns content as base64; decode to UTF-8 string */
+  var bytes = Uint8Array.from(atob(file.content.replace(/\n/g, '')), function(c) { return c.charCodeAt(0); });
+  var raw   = new TextDecoder().decode(bytes);
+  return { raw: raw, sha: file.sha };
+}
+
+async function ghPutFile(path, content, sha, message) {
+  var bytes   = new TextEncoder().encode(content);
+  var encoded = btoa(String.fromCharCode.apply(null, bytes));
+  var body    = { message: message, content: encoded, branch: REPO_BRANCH };
+  if (sha) body.sha = sha;
+  return ghRequest('PUT', path, body);
+}
+
+/* =========================================================
+   Auth
+   ========================================================= */
+function randomToken() {
+  var arr = new Uint8Array(32);
+  crypto.getRandomValues(arr);
+  return Array.from(arr).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+}
+
+function createSession() {
+  var token = randomToken();
+  store(KEY_SESSION,     token);
+  store(KEY_SESSION_EXP, String(Date.now() + SESSION_TTL_MS));
+  return token;
+}
+
+function isAuthenticated() {
+  var session = load(KEY_SESSION);
+  var expStr  = load(KEY_SESSION_EXP);
+  var hash    = load(KEY_HASH);
+  if (!session || !expStr || !hash) return false;
+  if (Date.now() > Number(expStr)) {
+    remove(KEY_SESSION);
+    remove(KEY_SESSION_EXP);
+    return false;
+  }
+  return true;
+}
+
+async function initAuth() {
+  var hash    = load(KEY_HASH);
+  var content = document.getElementById('auth-content');
+
+  if (!hash) {
+    content.innerHTML =
+      '<div class="alert alert-info" style="margin-bottom:1.25rem">' +
+        '<strong>First-time setup</strong><br>' +
+        'Set a password and enter your GitHub Personal Access Token.' +
+      '</div>' +
+      '<div id="setup-alert"></div>' +
+      '<div class="form-group">' +
+        '<label>Admin Password</label>' +
+        '<input type="password" id="setup-pwd" placeholder="Choose a strong password">' +
+      '</div>' +
+      '<div class="form-group">' +
+        '<label>Confirm Password</label>' +
+        '<input type="password" id="setup-confirm" placeholder="Confirm password">' +
+      '</div>' +
+      '<div class="form-group">' +
+        '<label>GitHub Personal Access Token</label>' +
+        '<input type="password" id="setup-token" placeholder="ghp_…">' +
+        '<p class="helper-text">Needs <strong>repo</strong> scope — ' +
+          '<a href="https://github.com/settings/tokens/new?scopes=repo&description=METAXENOPY+Admin" ' +
+             'target="_blank" rel="noopener" style="color:var(--primary)">generate one here ↗</a></p>' +
+      '</div>' +
+      '<button class="btn btn-primary btn-full" onclick="doSetup()">Set Up Admin Panel</button>';
+  } else {
+    content.innerHTML =
+      '<div id="login-alert"></div>' +
+      '<div class="form-group">' +
+        '<label>Password</label>' +
+        '<input type="password" id="login-pwd" placeholder="Admin password" autofocus ' +
+               'onkeydown="if(event.key===\'Enter\') doLogin()">' +
+      '</div>' +
+      '<button class="btn btn-primary btn-full" onclick="doLogin()">Login</button>';
+  }
+}
+
+async function doSetup() {
+  var pwd     = document.getElementById('setup-pwd').value;
+  var confirm = document.getElementById('setup-confirm').value;
+  var token   = document.getElementById('setup-token').value.trim();
+
+  if (!pwd)           return showAlert('setup-alert', 'error', 'Password is required.');
+  if (pwd !== confirm) return showAlert('setup-alert', 'error', 'Passwords do not match.');
+  if (!token)         return showAlert('setup-alert', 'error', 'GitHub token is required.');
+
+  var hash = await sha256(pwd);
+  store(KEY_HASH, hash);
+  store(KEY_TOKEN, token);
+  createSession();
+  enterAdmin();
+}
+
+async function doLogin() {
+  var pwd  = document.getElementById('login-pwd').value;
+  if (!pwd) return showAlert('login-alert', 'error', 'Enter your password.');
+
+  var hash   = await sha256(pwd);
+  var stored = load(KEY_HASH);
+  if (hash !== stored) return showAlert('login-alert', 'error', 'Incorrect password.');
+
+  createSession();
+  enterAdmin();
+}
+
+function logout() {
+  remove(KEY_SESSION);
+  remove(KEY_SESSION_EXP);
+  document.getElementById('view-admin').classList.add('hidden');
+  document.getElementById('view-auth').classList.remove('hidden');
+  initAuth();
+}
+
+function enterAdmin() {
+  document.getElementById('view-auth').classList.add('hidden');
+  document.getElementById('view-admin').classList.remove('hidden');
+  showSection('posts');
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+function showSection(name) {
+  ['posts', 'editor', 'settings'].forEach(function(s) {
+    document.getElementById('section-' + s).classList.add('hidden');
+  });
+  document.getElementById('section-' + name).classList.remove('hidden');
+
+  if (name === 'posts')    loadPostsList();
+  if (name === 'settings') prefillSettings();
+}
+
+/* =========================================================
+   Posts list
+   ========================================================= */
+async function loadPostsList() {
+  var wrap = document.getElementById('posts-list-wrap');
+  wrap.innerHTML = '<div class="loading-state"><span class="spinner"></span> Loading posts…</div>';
+
+  try {
+    postsCache = await ghListPosts();
+    postsCache.sort(function(a, b) { return b.name.localeCompare(a.name); });
+
+    if (postsCache.length === 0) {
+      wrap.innerHTML =
+        '<p style="color:var(--text-muted);text-align:center;padding:3rem">No posts yet. Create your first post!</p>';
+      return;
+    }
+
+    var html = postsCache.map(function(p, i) {
+      var parts   = p.name.replace('.md', '').split('-');
+      var dateStr = parts.slice(0, 3).join('-');
+      var slug    = parts.slice(3).join('-');
+      var viewUrl = '/' + parts.slice(0, 3).join('/') + '/' + slug + '/';
+
+      return (
+        '<div class="post-item">' +
+          '<div class="post-item-info">' +
+            '<div class="post-item-title">' + esc(p.name) + '</div>' +
+            '<div class="post-item-meta">' + esc(dateStr) + ' &bull; ' +
+              '<a href="' + esc(viewUrl) + '" target="_blank" rel="noopener" ' +
+                 'style="color:var(--primary)">View post ↗</a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="post-item-actions">' +
+            '<button class="btn btn-secondary btn-sm" onclick="editPost(' + i + ')">Edit</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    wrap.innerHTML = '<div class="posts-list">' + html + '</div>';
+  } catch (err) {
+    wrap.innerHTML = '<div class="alert alert-error">' + esc(err.message) + '</div>';
+  }
+}
+
+/* =========================================================
+   Editor — open
+   ========================================================= */
+function openEditor(post) {
+  currentPost = post;
+  document.getElementById('editor-heading').textContent = post ? 'Edit Post' : 'New Post';
+  document.getElementById('editor-alert').innerHTML = '';
+  document.getElementById('post-title').value      = '';
+  document.getElementById('post-date').value       = today();
+  document.getElementById('post-categories').value = '';
+  document.getElementById('post-tags').value       = '';
+  document.getElementById('post-youtube').value    = '';
+  document.getElementById('post-excerpt').value    = '';
+  document.getElementById('post-filename').value   = '';
+  document.getElementById('post-content').value    = '';
+
+  ['posts', 'editor', 'settings'].forEach(function(s) {
+    document.getElementById('section-' + s).classList.add('hidden');
+  });
+  document.getElementById('section-editor').classList.remove('hidden');
+}
+
+async function editPost(index) {
+  var p = postsCache[index];
+  if (!p) return;
+  openEditor({ path: p.path, sha: p.sha, filename: p.name });
+  document.getElementById('post-content').value = 'Loading…';
+
+  try {
+    var result = await ghGetFile(p.path);
+    currentPost = { path: p.path, sha: result.sha, filename: p.name };
+
+    var parsed = parseFrontMatter(result.raw);
+    var meta   = parsed.meta;
+
+    document.getElementById('post-title').value      = meta.title || '';
+    document.getElementById('post-date').value       = (meta.date || today()).slice(0, 10);
+    document.getElementById('post-categories').value = (meta.categories || '').replace(/[\[\]]/g, '').trim();
+    document.getElementById('post-tags').value       = (meta.tags || '').replace(/[\[\]]/g, '').trim();
+    document.getElementById('post-youtube').value    = meta.youtube_id || '';
+    document.getElementById('post-excerpt').value    = meta.description || '';
+    document.getElementById('post-filename').value   = p.name;
+    document.getElementById('post-content').value    = parsed.content;
+  } catch (err) {
+    showAlert('editor-alert', 'error', esc(err.message));
+    document.getElementById('post-content').value = '';
+  }
+}
+
+/* =========================================================
+   Editor — save
+   ========================================================= */
+async function savePost() {
+  var title   = document.getElementById('post-title').value.trim();
+  if (!title) return showAlert('editor-alert', 'error', 'Title is required.');
+
+  var date     = document.getElementById('post-date').value || today();
+  var cats     = document.getElementById('post-categories').value.trim();
+  var tags     = document.getElementById('post-tags').value.trim();
+  var youtube  = document.getElementById('post-youtube').value.trim();
+  var excerpt  = document.getElementById('post-excerpt').value.trim();
+  var content  = document.getElementById('post-content').value;
+
+  var fm       = buildFrontMatter({ title: title, date: date, categories: cats,
+                                    tags: tags, youtube_id: youtube, description: excerpt });
+  var fullText = fm + '\n\n' + content;
+
+  var filename = document.getElementById('post-filename').value.trim();
+  if (!filename) filename = date + '-' + slugify(title) + '.md';
+  var filePath = POSTS_DIR + '/' + filename;
+
+  var saveBtn = document.getElementById('save-btn');
+  saveBtn.disabled = true;
+  saveBtn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
+
+  try {
+    var sha        = currentPost ? currentPost.sha : null;
+    var commitMsg  = currentPost ? ('Update: ' + title) : ('Add: ' + title);
+    await ghPutFile(filePath, fullText, sha, commitMsg);
+
+    /* Refresh SHA so subsequent saves work without a page reload */
+    var refreshed  = await ghGetFile(filePath);
+    currentPost    = { path: filePath, sha: refreshed.sha, filename: filename };
+    document.getElementById('post-filename').value = filename;
+
+    showAlert('editor-alert', 'success',
+      'Post saved! GitHub Pages will rebuild in ~1 minute.');
+  } catch (err) {
+    showAlert('editor-alert', 'error', esc(err.message));
+  } finally {
+    saveBtn.disabled = false;
+    saveBtn.textContent = 'Save Post';
+  }
+}
+
+/* =========================================================
+   Markdown toolbar helpers
+   ========================================================= */
+function getEditor() { return document.getElementById('post-content'); }
+
+function insertWrap(before, after, placeholder) {
+  var ta    = getEditor();
+  var start = ta.selectionStart;
+  var end   = ta.selectionEnd;
+  var sel   = ta.value.slice(start, end) || placeholder;
+  var rep   = before + sel + after;
+  ta.value  = ta.value.slice(0, start) + rep + ta.value.slice(end);
+  ta.focus();
+  ta.selectionStart = start + before.length;
+  ta.selectionEnd   = start + before.length + sel.length;
+}
+
+function insertLine(prefix, placeholder) {
+  placeholder = placeholder || '';
+  var ta        = getEditor();
+  var start     = ta.selectionStart;
+  var lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
+  var insert    = prefix + placeholder;
+  ta.value      = ta.value.slice(0, lineStart) + insert + ta.value.slice(lineStart);
+  ta.focus();
+  ta.selectionStart = ta.selectionEnd = lineStart + insert.length;
+}
+
+function insertBlock(before, placeholder, after) {
+  var ta    = getEditor();
+  var start = ta.selectionStart;
+  var end   = ta.selectionEnd;
+  var sel   = ta.value.slice(start, end) || placeholder;
+  var rep   = before + sel + after;
+  ta.value  = ta.value.slice(0, start) + rep + ta.value.slice(end);
+  ta.focus();
+  ta.selectionStart = ta.selectionEnd = start + rep.length;
+}
+
+function handleTabKey(e) {
+  if (e.key !== 'Tab') return;
+  e.preventDefault();
+  var ta    = getEditor();
+  var start = ta.selectionStart;
+  ta.value  = ta.value.slice(0, start) + '  ' + ta.value.slice(ta.selectionEnd);
+  ta.selectionStart = ta.selectionEnd = start + 2;
+}
+
+/* =========================================================
+   Settings
+   ========================================================= */
+function prefillSettings() {
+  var tok = load(KEY_TOKEN);
+  if (tok) document.getElementById('settings-token').value = tok;
+}
+
+function saveToken() {
+  var token = document.getElementById('settings-token').value.trim();
+  if (!token) return showAlert('settings-alert', 'error', 'Token cannot be empty.');
+  store(KEY_TOKEN, token);
+  showAlert('settings-alert', 'success', 'GitHub token saved.');
+}
+
+async function changePassword() {
+  var oldPwd  = document.getElementById('settings-old-pwd').value;
+  var newPwd  = document.getElementById('settings-new-pwd').value;
+  var confirm = document.getElementById('settings-confirm-pwd').value;
+  var stored  = load(KEY_HASH);
+  var oldHash = await sha256(oldPwd);
+
+  if (oldHash !== stored) return showAlert('settings-alert', 'error', 'Current password is incorrect.');
+  if (!newPwd)             return showAlert('settings-alert', 'error', 'New password is required.');
+  if (newPwd !== confirm)  return showAlert('settings-alert', 'error', 'Passwords do not match.');
+
+  var newHash = await sha256(newPwd);
+  store(KEY_HASH, newHash);
+  createSession();
+  showAlert('settings-alert', 'success', 'Password changed successfully.');
+  ['settings-old-pwd', 'settings-new-pwd', 'settings-confirm-pwd'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+}
+
+function resetAdmin() {
+  var btn = document.querySelector('.settings-card.danger .btn-danger');
+  if (!btn) return;
+  if (btn.dataset.confirmed !== 'yes') {
+    btn.textContent = '⚠️ Click again to confirm reset';
+    btn.dataset.confirmed = 'yes';
+    setTimeout(function() {
+      if (btn) { btn.textContent = 'Reset Credentials'; delete btn.dataset.confirmed; }
+    }, 4000);
+    return;
+  }
+  [KEY_HASH, KEY_TOKEN, KEY_SESSION, KEY_SESSION_EXP].forEach(remove);
+  logout();
+}
+
+/* =========================================================
+   Bootstrap
+   ========================================================= */
+if (isAuthenticated()) {
+  enterAdmin();
+} else {
+  initAuth();
+}
+</script>
+</body>
+</html>
