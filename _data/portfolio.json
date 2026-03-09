@@ -5,7 +5,13 @@
     "title": "Senior System Analyst",
     "subtitle": "Crown Regency Hotels and Resorts — Cebu City, Cebu (02/2023 – Present)",
     "description": "Optimized and maintained database systems, troubleshot SQL issues, managed database infrastructures, enhanced data organization, and acted as System Administrator for server maintenance.",
-    "tech": ["SQL", "SQL Server", "Windows Server", "Linux", "Networking"],
+    "tech": [
+      "SQL",
+      "SQL Server",
+      "Windows Server",
+      "Linux",
+      "Networking"
+    ],
     "link": "",
     "link_text": ""
   },
@@ -15,7 +21,13 @@
     "title": "NextCloud Server Deployment",
     "subtitle": "Crown Regency Hotels and Resorts — System Administration Project",
     "description": "Set up and deployed a self-hosted NextCloud server for Crown Regency Hotels and Resorts, providing secure cloud storage and file collaboration. The instance is accessible at <a href=\"https://regencydrive.crownregency.net/\" target=\"_blank\" rel=\"noopener\">regencydrive.crownregency.net</a>.",
-    "tech": ["NextCloud", "Linux Server", "Nginx", "SSL/TLS", "Self-Hosted"],
+    "tech": [
+      "NextCloud",
+      "Linux Server",
+      "Nginx",
+      "SSL/TLS",
+      "Self-Hosted"
+    ],
     "link": "https://regencydrive.crownregency.net/",
     "link_text": "View Instance"
   },
@@ -25,19 +37,15 @@
     "title": "System Analyst",
     "subtitle": "Just Click Integrated Solution — Cebu City, Cebu (12/2017 – 02/2023)",
     "description": "Migrated databases, resolved system issues, maintained workstations, installed servers, and conducted software deployments and on-site support.",
-    "tech": ["SQL", "Windows OS", "Linux OS", "Hardware", "Deployment"],
+    "tech": [
+      "SQL",
+      "Windows OS",
+      "Linux OS",
+      "Hardware",
+      "Deployment"
+    ],
     "link": "",
     "link_text": ""
-  },
-  {
-    "id": "personal-blog-site",
-    "icon": "🌐",
-    "title": "Personal Blog Site",
-    "subtitle": "",
-    "description": "This very site — a Jekyll-powered blog deployed on GitHub Pages, featuring a clean responsive design and AdSense integration.",
-    "tech": ["Jekyll", "HTML", "CSS", "GitHub Pages"],
-    "link": "/",
-    "link_text": "View Site"
   },
   {
     "id": "youtube-metaxenopy",
@@ -45,8 +53,29 @@
     "title": "YouTube — METAXENOPY",
     "subtitle": "",
     "description": "Filipino, OPM, and international <strong>Lyrics &amp; Karaoke</strong> videos — sing along, learn the words, and enjoy the music!",
-    "tech": ["YouTube", "Lyrics", "Karaoke", "OPM", "Music"],
+    "tech": [
+      "YouTube",
+      "Lyrics",
+      "Karaoke",
+      "OPM",
+      "Music"
+    ],
     "link": "https://www.youtube.com/@metaxenopy?sub_confirmation=1",
     "link_text": "Watch Videos"
+  },
+  {
+    "id": "personal-blog-site",
+    "icon": "🌐",
+    "title": "Personal Blog Site",
+    "subtitle": "",
+    "description": "This very site — a Jekyll-powered blog deployed on GitHub Pages, featuring a clean responsive design and AdSense integration.",
+    "tech": [
+      "Jekyll",
+      "HTML",
+      "CSS",
+      "GitHub Pages"
+    ],
+    "link": "/",
+    "link_text": "View Site"
   }
 ]
