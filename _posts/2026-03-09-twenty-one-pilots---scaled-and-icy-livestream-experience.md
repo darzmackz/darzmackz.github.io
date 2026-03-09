@@ -1,18 +1,10 @@
 ---
 layout: post
-title: "Twenty One Pilots - Scaled and Icy Livestream Experience"
-date: 2026-03-09 12:00:00 +0800
-categories: [Music Video, Cinema, Movie, Full Performance, Concert]
-tags: [Twenty One Pilots, Scaled and Icy, 4K, Full Performance, Josh Dun, Tyler Joseph, Live Concert]
-youtube_id: "KIrTPrPTy0E"
-description: "Relive the unforgettable Scaled and Icy Livestream Experience by Twenty One Pilots. Watch the electrifying performance, creative visuals, and iconic moments from the unique virtual concert event that brought fans together worldwide."
----
-
----
 title: "Twenty One Pilots – Scaled and Icy Livestream Experience"
-date: 2026-03-09
-categories: [music, concerts, twenty-one-pilots]
-tags: [twenty one pilots, scaled and icy, scaled and icy livestream experience, tyler joseph, josh dun, twenty one pilots livestream, alternative rock]
+date: 2026-03-09 12:00:00 +0800
+categories: [music, concert, live-performance]
+tags: [twenty-one-pilots, scaled-and-icy, tyler-joseph, josh-dun, livestream, alternative-rock]
+youtube_id: "KIrTPrPTy0E"
 excerpt: "Relive the unforgettable Scaled and Icy Livestream Experience by Twenty One Pilots — a visually stunning virtual concert filled with incredible performances and creative storytelling."
 ---
 
@@ -21,12 +13,6 @@ excerpt: "Relive the unforgettable Scaled and Icy Livestream Experience by Twent
 In May 2021, **Twenty One Pilots** delivered one of the most creative and immersive virtual concerts ever produced — the **Scaled and Icy Livestream Experience**. The event combined music, cinematic storytelling, and surreal visuals to create a performance that felt more like a live musical film than a typical livestream.
 
 For fans around the world, it was a moment where music, art, and storytelling came together in a completely new way.
-
----
-
-## Watch the Performance
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" title="Twenty One Pilots - Scaled and Icy Livestream Experience" frameborder="0" allowfullscreen></iframe>
 
 ---
 
