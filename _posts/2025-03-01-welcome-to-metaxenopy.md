@@ -19,7 +19,7 @@ This blog is a place where I share:
 - **Tech tutorials** — SQL tips, database management, server administration tricks.
 - **Career insights** — lessons learned from real-world IT projects.
 - **IT how-tos** — step-by-step guides for common system analyst tasks.
-- **YouTube content highlights** — summaries and links to my videos.
+- **YouTube content highlights** — lyrics and karaoke video summaries and links.
 
 ## My Background
 
@@ -37,8 +37,7 @@ My toolbox includes:
 
 ## Follow Me on YouTube
 
-I'm also creating video content on the **METAXENOPY** YouTube channel — tech walkthroughs,
-career advice, and IT tutorials.
+I'm also creating video content on the **METAXENOPY** YouTube channel — lyrics and karaoke videos.
 
 👉 [Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
 
