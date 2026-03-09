@@ -299,10 +299,91 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ── Pages cards ── */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .page-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: center;
+    }
+
+    .page-card:hover { border-color: var(--primary); background: #1e2d4a; }
+    .page-card .page-card-icon { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+    .page-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .page-card p  { font-size: 0.8125rem; color: var(--text-muted); }
+
+    /* ── Portfolio items ── */
+    .portfolio-list { display: flex; flex-direction: column; gap: 0.625rem; }
+
+    .portfolio-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .portfolio-item-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .portfolio-item-info { flex: 1; min-width: 0; }
+    .portfolio-item-title { font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.2rem; }
+    .portfolio-item-meta  { font-size: 0.8125rem; color: var(--text-muted); }
+    .portfolio-item-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+    /* ── Tags / badge chips input ── */
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      padding: 0.375rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      min-height: 42px;
+      cursor: text;
+    }
+
+    .tags-wrap:focus-within { border-color: var(--primary); }
+
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: var(--bg3);
+      border-radius: 3px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.8125rem;
+    }
+
+    .tag-chip button {
+      background: none; border: none; color: var(--text-muted);
+      cursor: pointer; padding: 0; font-size: 0.9rem; line-height: 1;
+    }
+
+    .tag-chip button:hover { color: var(--danger); }
+
+    .tags-input {
+      background: none; border: none; outline: none; color: var(--text);
+      font-family: inherit; font-size: 0.875rem; min-width: 80px; flex: 1; padding: 0.2rem 0.25rem;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .editor-layout { grid-template-columns: 1fr; }
       .admin-content { padding: 1rem; }
+      .admin-header nav { gap: 0.25rem; }
+      .admin-header nav .btn-sm { padding: 0.3rem 0.5rem; font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -338,9 +419,11 @@
         <span class="brand-sub">METAXENOPY.TY</span>
       </div>
       <div class="spacer"></div>
-      <nav style="display:flex;gap:0.5rem;">
-        <button class="btn btn-ghost btn-sm" id="nav-posts-btn"    onclick="showSection('posts')">Posts</button>
-        <button class="btn btn-ghost btn-sm" id="nav-settings-btn" onclick="showSection('settings')">Settings</button>
+      <nav style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn btn-ghost btn-sm" id="nav-posts-btn"     onclick="showSection('posts')">Posts</button>
+        <button class="btn btn-ghost btn-sm" id="nav-portfolio-btn" onclick="showSection('portfolio')">Portfolio</button>
+        <button class="btn btn-ghost btn-sm" id="nav-pages-btn"     onclick="showSection('pages')">Pages</button>
+        <button class="btn btn-ghost btn-sm" id="nav-settings-btn"  onclick="showSection('settings')">Settings</button>
         <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
       </nav>
     </header>
@@ -352,21 +435,21 @@
       <div id="section-posts" class="hidden">
         <div class="page-header">
           <h2>📝 Blog Posts</h2>
-          <button class="btn btn-primary" onclick="openEditor(null)">+ New Post</button>
+          <button class="btn btn-primary" onclick="openPostEditor(null)">+ New Post</button>
         </div>
         <div id="posts-list-wrap">
           <div class="loading-state"><span class="spinner"></span> Loading posts…</div>
         </div>
       </div>
 
-      <!-- EDITOR SECTION -->
-      <div id="section-editor" class="hidden">
+      <!-- POST EDITOR SECTION -->
+      <div id="section-post-editor" class="hidden">
         <div class="page-header">
           <button class="btn btn-ghost btn-sm" onclick="showSection('posts')">← Back</button>
-          <h2 id="editor-heading">New Post</h2>
-          <button class="btn btn-success" id="save-btn" onclick="savePost()">Save Post</button>
+          <h2 id="post-editor-heading">New Post</h2>
+          <button class="btn btn-success" id="save-post-btn" onclick="savePost()">Save Post</button>
         </div>
-        <div id="editor-alert"></div>
+        <div id="post-editor-alert"></div>
 
         <div class="editor-layout">
           <!-- Sidebar: metadata -->
@@ -429,6 +512,113 @@
         </div>
       </div>
 
+      <!-- PORTFOLIO SECTION -->
+      <div id="section-portfolio" class="hidden">
+        <div class="page-header">
+          <h2>💼 Portfolio</h2>
+          <button class="btn btn-primary" onclick="openPortfolioEditor(null)">+ Add Item</button>
+        </div>
+        <div id="portfolio-alert"></div>
+        <div id="portfolio-list-wrap">
+          <div class="loading-state"><span class="spinner"></span> Loading portfolio…</div>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO EDITOR SECTION -->
+      <div id="section-portfolio-editor" class="hidden">
+        <div class="page-header">
+          <button class="btn btn-ghost btn-sm" onclick="showSection('portfolio')">← Back</button>
+          <h2 id="portfolio-editor-heading">New Portfolio Item</h2>
+          <button class="btn btn-success" id="save-portfolio-btn" onclick="savePortfolioItem()">Save Item</button>
+        </div>
+        <div id="portfolio-editor-alert"></div>
+
+        <div style="max-width:680px">
+          <div class="form-group">
+            <label>Icon / Emoji *</label>
+            <input type="text" id="pf-icon" placeholder="e.g. 🎤 or 🌐" maxlength="8">
+            <p class="helper-text">One emoji or symbol displayed as the card image</p>
+          </div>
+          <div class="form-group">
+            <label>Title *</label>
+            <input type="text" id="pf-title" placeholder="e.g. Senior System Analyst">
+          </div>
+          <div class="form-group">
+            <label>Subtitle</label>
+            <input type="text" id="pf-subtitle" placeholder="e.g. Company Name — Location (Date)">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="pf-description" rows="4" placeholder="Describe this project or role… (HTML is allowed)"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tech / Skills Badges</label>
+            <div class="tags-wrap" id="pf-tech-wrap" onclick="document.getElementById('pf-tech-input').focus()">
+              <input type="text" id="pf-tech-input" class="tags-input" placeholder="Type and press Enter or comma…"
+                onkeydown="handleTechInput(event)">
+            </div>
+            <p class="helper-text">Press Enter or comma to add each badge</p>
+          </div>
+          <div class="form-group">
+            <label>Button Link (URL)</label>
+            <input type="text" id="pf-link" placeholder="e.g. https://example.com or /about/">
+          </div>
+          <div class="form-group">
+            <label>Button Label</label>
+            <input type="text" id="pf-link-text" placeholder="e.g. View Project">
+            <p class="helper-text">Leave both fields blank to hide the button</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGES SECTION -->
+      <div id="section-pages" class="hidden">
+        <div class="page-header">
+          <h2>📄 Pages</h2>
+        </div>
+        <div id="pages-alert"></div>
+        <div class="pages-grid">
+          <div class="page-card" onclick="openPageEditor('home')">
+            <span class="page-card-icon">🏠</span>
+            <h3>Home</h3>
+            <p>Edit the homepage hero and content (<code>index.html</code>)</p>
+          </div>
+          <div class="page-card" onclick="openPageEditor('about')">
+            <span class="page-card-icon">🙋</span>
+            <h3>About</h3>
+            <p>Edit the about page content (<code>about.md</code>)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE EDITOR SECTION -->
+      <div id="section-page-editor" class="hidden">
+        <div class="page-header">
+          <button class="btn btn-ghost btn-sm" onclick="showSection('pages')">← Back</button>
+          <h2 id="page-editor-heading">Edit Page</h2>
+          <button class="btn btn-success" id="save-page-btn" onclick="savePage()">Save Page</button>
+        </div>
+        <div id="page-editor-alert"></div>
+        <div>
+          <div class="editor-toolbar">
+            <button class="toolbar-btn" title="Bold"           onclick="insertPageWrap('**','**','bold text')"><b>B</b></button>
+            <button class="toolbar-btn" title="Italic"         onclick="insertPageWrap('*','*','italic text')"><i>I</i></button>
+            <button class="toolbar-btn" title="Heading 2"      onclick="insertPageLine('## ','Heading')">H2</button>
+            <button class="toolbar-btn" title="Heading 3"      onclick="insertPageLine('### ','Heading')">H3</button>
+            <button class="toolbar-btn" title="Link"           onclick="insertPageWrap('[','](https://)','link text')">🔗</button>
+            <button class="toolbar-btn" title="Bullet list"    onclick="insertPageLine('- ','item')">• List</button>
+            <button class="toolbar-btn" title="Blockquote"     onclick="insertPageLine('> ','quote')">❝</button>
+            <button class="toolbar-btn" title="Inline code"    onclick="insertPageWrap('`','`','code')">`code`</button>
+            <button class="toolbar-btn" title="Horizontal rule" onclick="insertPageLine('---')">—</button>
+          </div>
+          <p class="helper-text" style="margin-bottom:0.5rem">Editing the raw file content including front matter. Be careful with the YAML front matter between the <code>---</code> delimiters.</p>
+          <div class="form-group" style="margin-bottom:0">
+            <textarea id="page-content" class="editor" style="min-height:560px"
+              placeholder="Loading…" onkeydown="handleTabKey(event)"></textarea>
+          </div>
+        </div>
+      </div>
+
       <!-- SETTINGS SECTION -->
       <div id="section-settings" class="hidden">
         <div class="page-header">
@@ -439,7 +629,7 @@
         <div class="settings-card">
           <h3>GitHub Access Token</h3>
           <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
-            A Personal Access Token with <strong>repo</strong> scope is required to read and write blog posts.<br>
+            A Personal Access Token with <strong>repo</strong> scope is required to read and write files.<br>
             <a href="https://github.com/settings/tokens/new?scopes=repo&description=METAXENOPY+Admin" target="_blank"
                rel="noopener" style="color:var(--primary)">Generate one here ↗</a>
           </p>
@@ -490,6 +680,9 @@ var REPO_OWNER   = 'darzmackz';
 var REPO_NAME    = 'darzmackz.github.io';
 var REPO_BRANCH  = 'main';
 var POSTS_DIR    = '_posts';
+var PORTFOLIO_FILE = '_data/portfolio.json';
+var HOME_FILE    = 'index.html';
+var ABOUT_FILE   = 'about.md';
 
 var TIMEZONE_OFFSET = '+0800';          /* Philippine Standard Time */
 var SESSION_TTL_MS  = 7 * 24 * 3600 * 1000; /* 7-day session */
@@ -504,6 +697,16 @@ var currentPost = null;
 
 /* Cached post list from GitHub */
 var postsCache = [];
+
+/* Portfolio state */
+var portfolioCache        = [];
+var portfolioFileSha      = null;
+var techBadges            = [];
+var currentPortfolioIndex = null;
+
+/* Page editor state */
+var currentPageKey = null;
+var pageFileSha    = null;
 
 /* =========================================================
    Utility
@@ -636,6 +839,25 @@ async function ghPutFile(path, content, sha, message) {
   return ghRequest('PUT', path, body);
 }
 
+async function ghDeleteFile(path, sha, message) {
+  var token = load(KEY_TOKEN);
+  if (!token) throw new Error('No GitHub token. Go to Settings and add your token.');
+  var url = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + path;
+  var res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Accept':        'application/vnd.github.v3+json',
+      'Content-Type':  'application/json'
+    },
+    body: JSON.stringify({ message: message, sha: sha, branch: REPO_BRANCH })
+  });
+  if (!res.ok) {
+    var err = await res.json().catch(function() { return { message: res.statusText }; });
+    throw new Error(err.message || ('GitHub API error: ' + res.status));
+  }
+}
+
 /* =========================================================
    Auth
    ========================================================= */
@@ -749,14 +971,17 @@ function enterAdmin() {
 /* =========================================================
    Navigation
    ========================================================= */
+var ALL_SECTIONS = ['posts','post-editor','portfolio','portfolio-editor','pages','page-editor','settings'];
+
 function showSection(name) {
-  ['posts', 'editor', 'settings'].forEach(function(s) {
+  ALL_SECTIONS.forEach(function(s) {
     document.getElementById('section-' + s).classList.add('hidden');
   });
   document.getElementById('section-' + name).classList.remove('hidden');
 
-  if (name === 'posts')    loadPostsList();
-  if (name === 'settings') prefillSettings();
+  if (name === 'posts')     loadPostsList();
+  if (name === 'portfolio') loadPortfolioList();
+  if (name === 'settings')  prefillSettings();
 }
 
 /* =========================================================
@@ -793,6 +1018,7 @@ async function loadPostsList() {
           '</div>' +
           '<div class="post-item-actions">' +
             '<button class="btn btn-secondary btn-sm" onclick="editPost(' + i + ')">Edit</button>' +
+            '<button class="btn btn-danger btn-sm"    onclick="deletePost(' + i + ')">Delete</button>' +
           '</div>' +
         '</div>'
       );
@@ -805,12 +1031,12 @@ async function loadPostsList() {
 }
 
 /* =========================================================
-   Editor — open
+   Post Editor — open
    ========================================================= */
-function openEditor(post) {
+function openPostEditor(post) {
   currentPost = post;
-  document.getElementById('editor-heading').textContent = post ? 'Edit Post' : 'New Post';
-  document.getElementById('editor-alert').innerHTML = '';
+  document.getElementById('post-editor-heading').textContent = post ? 'Edit Post' : 'New Post';
+  document.getElementById('post-editor-alert').innerHTML = '';
   document.getElementById('post-title').value      = '';
   document.getElementById('post-date').value       = today();
   document.getElementById('post-categories').value = '';
@@ -820,16 +1046,16 @@ function openEditor(post) {
   document.getElementById('post-filename').value   = '';
   document.getElementById('post-content').value    = '';
 
-  ['posts', 'editor', 'settings'].forEach(function(s) {
+  ALL_SECTIONS.forEach(function(s) {
     document.getElementById('section-' + s).classList.add('hidden');
   });
-  document.getElementById('section-editor').classList.remove('hidden');
+  document.getElementById('section-post-editor').classList.remove('hidden');
 }
 
 async function editPost(index) {
   var p = postsCache[index];
   if (!p) return;
-  openEditor({ path: p.path, sha: p.sha, filename: p.name });
+  openPostEditor({ path: p.path, sha: p.sha, filename: p.name });
   document.getElementById('post-content').value = 'Loading…';
 
   try {
@@ -848,17 +1074,17 @@ async function editPost(index) {
     document.getElementById('post-filename').value   = p.name;
     document.getElementById('post-content').value    = parsed.content;
   } catch (err) {
-    showAlert('editor-alert', 'error', esc(err.message));
+    showAlert('post-editor-alert', 'error', esc(err.message));
     document.getElementById('post-content').value = '';
   }
 }
 
 /* =========================================================
-   Editor — save
+   Post Editor — save
    ========================================================= */
 async function savePost() {
   var title   = document.getElementById('post-title').value.trim();
-  if (!title) return showAlert('editor-alert', 'error', 'Title is required.');
+  if (!title) return showAlert('post-editor-alert', 'error', 'Title is required.');
 
   var date     = document.getElementById('post-date').value || today();
   var cats     = document.getElementById('post-categories').value.trim();
@@ -875,7 +1101,7 @@ async function savePost() {
   if (!filename) filename = date + '-' + slugify(title) + '.md';
   var filePath = POSTS_DIR + '/' + filename;
 
-  var saveBtn = document.getElementById('save-btn');
+  var saveBtn = document.getElementById('save-post-btn');
   saveBtn.disabled = true;
   saveBtn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
 
@@ -889,14 +1115,318 @@ async function savePost() {
     currentPost    = { path: filePath, sha: refreshed.sha, filename: filename };
     document.getElementById('post-filename').value = filename;
 
-    showAlert('editor-alert', 'success',
+    showAlert('post-editor-alert', 'success',
       'Post saved! GitHub Pages will rebuild in ~1 minute.');
   } catch (err) {
-    showAlert('editor-alert', 'error', esc(err.message));
+    showAlert('post-editor-alert', 'error', esc(err.message));
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = 'Save Post';
   }
+}
+
+/* =========================================================
+   Post — delete
+   ========================================================= */
+async function deletePost(index) {
+  var p = postsCache[index];
+  if (!p) return;
+  if (!confirm('Delete "' + p.name + '"? This cannot be undone.')) return;
+
+  try {
+    await ghDeleteFile(p.path, p.sha, 'Delete: ' + p.name);
+    loadPostsList();
+  } catch (err) {
+    alert('Error: ' + err.message);
+  }
+}
+
+/* =========================================================
+   Portfolio list
+   ========================================================= */
+async function loadPortfolioList() {
+  var wrap = document.getElementById('portfolio-list-wrap');
+  wrap.innerHTML = '<div class="loading-state"><span class="spinner"></span> Loading portfolio…</div>';
+  try {
+    var result       = await ghGetFile(PORTFOLIO_FILE);
+    portfolioFileSha = result.sha;
+    portfolioCache   = JSON.parse(result.raw);
+
+    if (portfolioCache.length === 0) {
+      wrap.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:3rem">No portfolio items yet. Add your first item!</p>';
+      return;
+    }
+
+    var html = portfolioCache.map(function(item, i) {
+      var badges = Array.isArray(item.tech) ? item.tech.map(function(t) {
+        return '<span style="background:var(--bg3);border-radius:3px;padding:0.15rem 0.4rem;font-size:0.75rem;margin-right:0.25rem">' + esc(t) + '</span>';
+      }).join('') : '';
+      return (
+        '<div class="portfolio-item">' +
+          '<div class="portfolio-item-icon">' + esc(item.icon || '📌') + '</div>' +
+          '<div class="portfolio-item-info">' +
+            '<div class="portfolio-item-title">' + esc(item.title) + '</div>' +
+            '<div class="portfolio-item-meta">' + badges + '</div>' +
+          '</div>' +
+          '<div class="portfolio-item-actions">' +
+            '<button class="btn btn-secondary btn-sm" onclick="movePortfolioItem(' + i + ',-1)" title="Move up">↑</button>' +
+            '<button class="btn btn-secondary btn-sm" onclick="movePortfolioItem(' + i + ',1)"  title="Move down">↓</button>' +
+            '<button class="btn btn-secondary btn-sm" onclick="editPortfolioItem(' + i + ')">Edit</button>' +
+            '<button class="btn btn-danger btn-sm"    onclick="deletePortfolioItem(' + i + ')">Delete</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    wrap.innerHTML = '<div class="portfolio-list">' + html + '</div>';
+  } catch (err) {
+    wrap.innerHTML = '<div class="alert alert-error">' + esc(err.message) + '</div>';
+  }
+}
+
+/* =========================================================
+   Portfolio Editor — open
+   ========================================================= */
+function openPortfolioEditor(index) {
+  currentPortfolioIndex = index;
+  techBadges = [];
+
+  if (index !== null && portfolioCache[index]) {
+    var item = portfolioCache[index];
+    document.getElementById('portfolio-editor-heading').textContent = 'Edit Portfolio Item';
+    document.getElementById('pf-icon').value        = item.icon || '';
+    document.getElementById('pf-title').value       = item.title || '';
+    document.getElementById('pf-subtitle').value    = item.subtitle || '';
+    document.getElementById('pf-description').value = item.description || '';
+    document.getElementById('pf-link').value        = item.link || '';
+    document.getElementById('pf-link-text').value   = item.link_text || '';
+    techBadges = Array.isArray(item.tech) ? item.tech.slice() : [];
+  } else {
+    document.getElementById('portfolio-editor-heading').textContent = 'New Portfolio Item';
+    ['pf-icon','pf-title','pf-subtitle','pf-description','pf-link','pf-link-text'].forEach(function(id) {
+      document.getElementById(id).value = '';
+    });
+  }
+
+  renderTechBadges();
+  document.getElementById('portfolio-editor-alert').innerHTML = '';
+
+  ALL_SECTIONS.forEach(function(s) { document.getElementById('section-' + s).classList.add('hidden'); });
+  document.getElementById('section-portfolio-editor').classList.remove('hidden');
+}
+
+function editPortfolioItem(index) { openPortfolioEditor(index); }
+
+/* =========================================================
+   Portfolio Editor — tech badge chips
+   ========================================================= */
+function renderTechBadges() {
+  var wrap  = document.getElementById('pf-tech-wrap');
+  var input = document.getElementById('pf-tech-input');
+  Array.from(wrap.querySelectorAll('.tag-chip')).forEach(function(c) { c.remove(); });
+  techBadges.forEach(function(badge, i) {
+    var chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.innerHTML = esc(badge) + ' <button onclick="removeTechBadge(' + i + ')" aria-label="Remove">&#x00D7;</button>';
+    wrap.insertBefore(chip, input);
+  });
+}
+
+function addTechBadge(val) {
+  val = val.trim();
+  if (val && !techBadges.includes(val)) { techBadges.push(val); renderTechBadges(); }
+}
+
+function removeTechBadge(i) { techBadges.splice(i, 1); renderTechBadges(); }
+
+function handleTechInput(e) {
+  var input = document.getElementById('pf-tech-input');
+  if (e.key === 'Enter' || e.key === ',') {
+    e.preventDefault();
+    addTechBadge(input.value.replace(/,/g, ''));
+    input.value = '';
+  } else if (e.key === 'Backspace' && input.value === '' && techBadges.length) {
+    techBadges.pop(); renderTechBadges();
+  }
+}
+
+/* =========================================================
+   Portfolio Editor — save
+   ========================================================= */
+async function savePortfolioItem() {
+  var title = document.getElementById('pf-title').value.trim();
+  if (!title) return showAlert('portfolio-editor-alert', 'error', 'Title is required.');
+
+  /* Flush any partial badge still in the text input */
+  var input = document.getElementById('pf-tech-input');
+  if (input.value.trim()) { addTechBadge(input.value); input.value = ''; }
+
+  var item = {
+    id:          slugify(title),
+    icon:        document.getElementById('pf-icon').value.trim() || '📌',
+    title:       title,
+    subtitle:    document.getElementById('pf-subtitle').value.trim(),
+    description: document.getElementById('pf-description').value.trim(),
+    tech:        techBadges.slice(),
+    link:        document.getElementById('pf-link').value.trim(),
+    link_text:   document.getElementById('pf-link-text').value.trim()
+  };
+
+  var isNew = (currentPortfolioIndex === null);
+  /* Snapshot the original entry so we can roll back on error */
+  var originalItem = (!isNew && portfolioCache[currentPortfolioIndex])
+    ? JSON.parse(JSON.stringify(portfolioCache[currentPortfolioIndex]))
+    : null;
+
+  if (!isNew) {
+    portfolioCache[currentPortfolioIndex] = item;
+  } else {
+    portfolioCache.push(item);
+  }
+
+  var btn = document.getElementById('save-portfolio-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
+
+  try {
+    var json = JSON.stringify(portfolioCache, null, 2) + '\n';
+    await ghPutFile(PORTFOLIO_FILE, json, portfolioFileSha,
+      (isNew ? 'Add portfolio item: ' : 'Update portfolio item: ') + title);
+    var refreshed    = await ghGetFile(PORTFOLIO_FILE);
+    portfolioFileSha = refreshed.sha;
+    portfolioCache   = JSON.parse(refreshed.raw);
+    if (isNew) currentPortfolioIndex = portfolioCache.length - 1;
+    showAlert('portfolio-editor-alert', 'success', 'Saved! GitHub Pages will rebuild in ~1 minute.');
+  } catch (err) {
+    /* Roll back the optimistic update */
+    if (isNew) {
+      portfolioCache.pop();
+    } else {
+      portfolioCache[currentPortfolioIndex] = originalItem;
+    }
+    showAlert('portfolio-editor-alert', 'error', esc(err.message));
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save Item';
+  }
+}
+
+/* =========================================================
+   Portfolio — delete
+   ========================================================= */
+async function deletePortfolioItem(index) {
+  var item = portfolioCache[index];
+  if (!item || !confirm('Delete "' + item.title + '"? This cannot be undone.')) return;
+
+  var removed = portfolioCache.splice(index, 1);
+  try {
+    var json = JSON.stringify(portfolioCache, null, 2) + '\n';
+    await ghPutFile(PORTFOLIO_FILE, json, portfolioFileSha, 'Delete portfolio item: ' + item.title);
+    var refreshed    = await ghGetFile(PORTFOLIO_FILE);
+    portfolioFileSha = refreshed.sha;
+    portfolioCache   = JSON.parse(refreshed.raw);
+    loadPortfolioList();
+  } catch (err) {
+    portfolioCache.splice(index, 0, removed[0]);
+    alert('Error: ' + err.message);
+  }
+}
+
+/* =========================================================
+   Portfolio — reorder
+   ========================================================= */
+async function movePortfolioItem(index, dir) {
+  var newIndex = index + dir;
+  if (newIndex < 0 || newIndex >= portfolioCache.length) return;
+
+  var tmp = portfolioCache[index];
+  portfolioCache[index]    = portfolioCache[newIndex];
+  portfolioCache[newIndex] = tmp;
+
+  try {
+    var json = JSON.stringify(portfolioCache, null, 2) + '\n';
+    await ghPutFile(PORTFOLIO_FILE, json, portfolioFileSha, 'Reorder portfolio items');
+    var refreshed    = await ghGetFile(PORTFOLIO_FILE);
+    portfolioFileSha = refreshed.sha;
+    portfolioCache   = JSON.parse(refreshed.raw);
+    loadPortfolioList();
+  } catch (err) {
+    /* Rollback */
+    portfolioCache[newIndex] = portfolioCache[index];
+    portfolioCache[index]    = tmp;
+    alert('Error: ' + err.message);
+  }
+}
+
+/* =========================================================
+   Page Editor — open
+   ========================================================= */
+var PAGE_FILES  = { home: 'index.html', about: 'about.md' };
+var PAGE_TITLES = { home: '🏠 Edit Home Page', about: '🙋 Edit About Page' };
+
+function openPageEditor(pageKey) {
+  currentPageKey = pageKey;
+  pageFileSha    = null;
+
+  document.getElementById('page-editor-heading').textContent = PAGE_TITLES[pageKey] || 'Edit Page';
+  document.getElementById('page-editor-alert').innerHTML     = '';
+  document.getElementById('page-content').value              = 'Loading…';
+
+  ALL_SECTIONS.forEach(function(s) { document.getElementById('section-' + s).classList.add('hidden'); });
+  document.getElementById('section-page-editor').classList.remove('hidden');
+
+  ghGetFile(PAGE_FILES[pageKey]).then(function(result) {
+    pageFileSha = result.sha;
+    document.getElementById('page-content').value = result.raw;
+  }).catch(function(err) {
+    showAlert('page-editor-alert', 'error', esc(err.message));
+    document.getElementById('page-content').value = '';
+  });
+}
+
+/* =========================================================
+   Page Editor — save
+   ========================================================= */
+async function savePage() {
+  var content  = document.getElementById('page-content').value;
+  var filePath = PAGE_FILES[currentPageKey];
+  var btn      = document.getElementById('save-page-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
+
+  try {
+    await ghPutFile(filePath, content, pageFileSha, 'Update ' + filePath);
+    var refreshed = await ghGetFile(filePath);
+    pageFileSha   = refreshed.sha;
+    showAlert('page-editor-alert', 'success', 'Page saved! GitHub Pages will rebuild in ~1 minute.');
+  } catch (err) {
+    showAlert('page-editor-alert', 'error', esc(err.message));
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save Page';
+  }
+}
+
+/* =========================================================
+   Page editor toolbar helpers
+   ========================================================= */
+function getPageEditor() { return document.getElementById('page-content'); }
+
+function insertPageWrap(before, after, placeholder) {
+  var ta = getPageEditor(), start = ta.selectionStart, end = ta.selectionEnd;
+  var sel = ta.value.slice(start, end) || placeholder;
+  var rep = before + sel + after;
+  ta.value = ta.value.slice(0, start) + rep + ta.value.slice(end);
+  ta.focus(); ta.selectionStart = start + before.length; ta.selectionEnd = start + before.length + sel.length;
+}
+
+function insertPageLine(prefix, placeholder) {
+  placeholder = placeholder || '';
+  var ta = getPageEditor(), start = ta.selectionStart;
+  var lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
+  var insert = prefix + placeholder;
+  ta.value = ta.value.slice(0, lineStart) + insert + ta.value.slice(lineStart);
+  ta.focus(); ta.selectionStart = ta.selectionEnd = lineStart + insert.length;
 }
 
 /* =========================================================
@@ -941,7 +1471,7 @@ function insertBlock(before, placeholder, after) {
 function handleTabKey(e) {
   if (e.key !== 'Tab') return;
   e.preventDefault();
-  var ta    = getEditor();
+  var ta    = e.target;
   var start = ta.selectionStart;
   ta.value  = ta.value.slice(0, start) + '  ' + ta.value.slice(ta.selectionEnd);
   ta.selectionStart = ta.selectionEnd = start + 2;

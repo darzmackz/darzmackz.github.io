@@ -9,87 +9,24 @@ Here's a snapshot of my professional background, technical expertise, and creati
 Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to collaborate or learn more!
 
 <div class="portfolio-grid">
-
+{% for item in site.data.portfolio %}
   <div class="portfolio-card">
-    <div class="portfolio-card-image">🏨</div>
+    <div class="portfolio-card-image">{{ item.icon }}</div>
     <div class="portfolio-card-body">
-      <h3>Senior System Analyst</h3>
-      <p><strong>Crown Regency Hotels and Resorts</strong> — Cebu City, Cebu <em>(02/2023 – Present)</em></p>
-      <p>Optimized and maintained database systems, troubleshot SQL issues, managed database infrastructures, enhanced data organization, and acted as System Administrator for server maintenance.</p>
+      <h3>{{ item.title }}</h3>
+      {% if item.subtitle != "" %}<p>{{ item.subtitle }}</p>{% endif %}
+      <p>{{ item.description }}</p>
+      {% if item.tech.size > 0 %}
       <div class="tech-stack">
-        <span class="tech-badge">SQL</span>
-        <span class="tech-badge">SQL Server</span>
-        <span class="tech-badge">Windows Server</span>
-        <span class="tech-badge">Linux</span>
-        <span class="tech-badge">Networking</span>
+        {% for badge in item.tech %}<span class="tech-badge">{{ badge }}</span>{% endfor %}
       </div>
+      {% endif %}
+      {% if item.link != "" and item.link_text != "" %}
+      <a href="{{ item.link }}" {% unless item.link contains 'http' %}{% else %}target="_blank" rel="noopener"{% endunless %} class="btn btn-primary">{{ item.link_text }}</a>
+      {% endif %}
     </div>
   </div>
-
-  <div class="portfolio-card">
-    <div class="portfolio-card-image">☁️</div>
-    <div class="portfolio-card-body">
-      <h3>NextCloud Server Deployment</h3>
-      <p><strong>Crown Regency Hotels and Resorts</strong> — System Administration Project</p>
-      <p>Set up and deployed a self-hosted NextCloud server for Crown Regency Hotels and Resorts, providing secure cloud storage and file collaboration. The instance is accessible at <a href="https://regencydrive.crownregency.net/" target="_blank" rel="noopener">regencydrive.crownregency.net</a>.</p>
-      <div class="tech-stack">
-        <span class="tech-badge">NextCloud</span>
-        <span class="tech-badge">Linux Server</span>
-        <span class="tech-badge">Nginx</span>
-        <span class="tech-badge">SSL/TLS</span>
-        <span class="tech-badge">Self-Hosted</span>
-      </div>
-      <a href="https://regencydrive.crownregency.net/" target="_blank" rel="noopener" class="btn btn-primary">View Instance</a>
-    </div>
-  </div>
-
-  <div class="portfolio-card">
-    <div class="portfolio-card-image">💻</div>
-    <div class="portfolio-card-body">
-      <h3>System Analyst</h3>
-      <p><strong>Just Click Integrated Solution</strong> — Cebu City, Cebu <em>(12/2017 – 02/2023)</em></p>
-      <p>Migrated databases, resolved system issues, maintained workstations, installed servers, and conducted software deployments and on-site support.</p>
-      <div class="tech-stack">
-        <span class="tech-badge">SQL</span>
-        <span class="tech-badge">Windows OS</span>
-        <span class="tech-badge">Linux OS</span>
-        <span class="tech-badge">Hardware</span>
-        <span class="tech-badge">Deployment</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="portfolio-card">
-    <div class="portfolio-card-image">🌐</div>
-    <div class="portfolio-card-body">
-      <h3>Personal Blog Site</h3>
-      <p>This very site — a Jekyll-powered blog deployed on GitHub Pages, featuring a clean responsive design and AdSense integration.</p>
-      <div class="tech-stack">
-        <span class="tech-badge">Jekyll</span>
-        <span class="tech-badge">HTML</span>
-        <span class="tech-badge">CSS</span>
-        <span class="tech-badge">GitHub Pages</span>
-      </div>
-      <a href="{{ '/' | relative_url }}" class="btn btn-primary">View Site</a>
-    </div>
-  </div>
-
-  <div class="portfolio-card">
-    <div class="portfolio-card-image">🎤</div>
-    <div class="portfolio-card-body">
-      <h3>YouTube — METAXENOPY</h3>
-      <p>Filipino, OPM, and international <strong>Lyrics &amp; Karaoke</strong> videos — sing along, learn the words, and enjoy the music!</p>
-      <div class="tech-stack">
-        <span class="tech-badge">YouTube</span>
-        <span class="tech-badge">Lyrics</span>
-        <span class="tech-badge">Karaoke</span>
-        <span class="tech-badge">OPM</span>
-        <span class="tech-badge">Music</span>
-      </div>
-      <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">Watch Videos</a>
-    </div>
-  </div>
-
+{% endfor %}
 </div>
 
 ---
