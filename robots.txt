@@ -1,6 +1,6 @@
 # Allow Googlebot to crawl everything
 User-agent: Googlebot
-Disallow:
+Disallow: /admin/
 
 # Block all other crawlers
 User-agent: *
