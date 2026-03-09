@@ -72,5 +72,14 @@ The **Scaled and Icy Livestream Experience** stands as one of the most innovativ
 Whether you're a longtime fan or discovering the band for the first time, this performance is definitely worth watching.
 
 ---
+## 🎤 Follow METAXENOPY on YouTube
 
-🎵 *Stay tuned for more Twenty One Pilots content, live performances, and music highlights.*
+I create **lyrics and karaoke** videos on the **METAXENOPY** YouTube channel — OPM hits,
+international favourites, and sing-along tracks. New videos uploaded regularly!
+
+👉 [Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+---
+
+Stay tuned for more posts, and feel free to [get in touch]({{ '/contact/' | relative_url }})
+if you have a song request or a topic you'd like me to cover!
