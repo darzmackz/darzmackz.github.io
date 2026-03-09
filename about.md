@@ -1,35 +1,57 @@
 ---
 layout: page
 title: "About Me"
-description: "Senior System Analyst, tech enthusiast, and content creator."
+description: "KENJI (Kent Harvey Plando) — Senior System Analyst with 7+ years of experience, and creator of METAXENOPY, a YouTube channel for Filipino lyrics, OPM karaoke, and international music videos."
 permalink: /about/
 ---
 
 <div class="about-grid">
 
   <div class="about-avatar">
-    🧑‍💻
+    🎤
   </div>
 
   <div class="about-bio">
     <h2>Hello, I'm KENJI!</h2>
     <p><em>(Kent Harvey Plando)</em></p>
     <p>
-      As a seasoned Senior System Analyst boasting over seven years of professional experience,
-      I am well-versed in a multitude of technical disciplines. My expertise spans SQL, both
-      Windows and Linux operating systems, comprehensive data analysis, robust networking
-      capabilities, and meticulous hardware maintenance. I am enthusiastic about leveraging my
-      technical acumen and innovative problem-solving skills to contribute to the success of your
-      esteemed team. My dedication to my craft is matched only by my eagerness to drive impactful
-      results and my unwavering work ethic.
+      As a seasoned Senior System Analyst with over seven years of professional experience,
+      I am well-versed in a multitude of technical disciplines — SQL, Windows and Linux operating
+      systems, data analysis, networking, and hardware maintenance.
     </p>
     <p>
-      Feel free to explore my <a href="{{ '/portfolio/' | relative_url }}">portfolio</a> to see
-      what I've been working on, or head over to the <a href="{{ '/blog/' | relative_url }}">blog</a>
-      for tutorials and updates. You can also find me on
-      <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener">YouTube</a>
-      where I share lyrics and karaoke contents.
+      Beyond tech, I'm the creator of <strong>METAXENOPY</strong> — a YouTube channel dedicated to
+      <strong>OPM lyrics</strong>, <strong>karaoke videos</strong>, and international
+      sing-along tracks. Whether you're looking for the words to your favourite OPM song or want
+      a karaoke version to sing along to, METAXENOPY has you covered!
     </p>
+    <p>
+      Feel free to explore my <a href="{{ '/portfolio/' | relative_url }}">portfolio</a>,
+      browse the <a href="{{ '/blog/' | relative_url }}">blog</a> for lyrics highlights and
+      tech updates, or head directly to
+      <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener">METAXENOPY on YouTube</a>
+      to subscribe and sing along!
+    </p>
+  </div>
+</div>
+
+## 🎤 METAXENOPY — Lyrics &amp; Karaoke
+
+<div class="portfolio-card" style="max-width:480px;margin-bottom:2rem;">
+  <div class="portfolio-card-body">
+    <p>
+      <strong>METAXENOPY</strong> is my YouTube channel where I publish <strong>OPM lyrics
+      videos</strong>, <strong>karaoke tracks</strong>, and international music sing-alongs. New
+      content is uploaded regularly — subscribe so you never miss a song!
+    </p>
+    <div class="tech-stack">
+      <span class="tech-badge">Lyrics</span>
+      <span class="tech-badge">Karaoke</span>
+      <span class="tech-badge">OPM</span>
+      <span class="tech-badge">Filipino Music</span>
+      <span class="tech-badge">YouTube</span>
+    </div>
+    <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">▶ Subscribe on YouTube</a>
   </div>
 </div>
 
@@ -44,6 +66,8 @@ permalink: /about/
   <li>Server Administration</li>
   <li>Hardware Maintenance &amp; Computer Repair</li>
   <li>Microsoft Office</li>
+  <li>Lyrics &amp; Karaoke Video Creation</li>
+  <li>YouTube Content Creation</li>
   <li>Communication Skills</li>
   <li>Time Management</li>
 </ul>
