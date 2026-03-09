@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "Portfolio"
-description: "A showcase of my professional experience and technical skills."
+description: "Portfolio of KENJI (Kent Harvey Plando) — Senior System Analyst, and creator of METAXENOPY, a YouTube channel for Filipino lyrics, OPM karaoke, and international music videos."
 permalink: /portfolio/
 ---
 
-Here's a snapshot of my professional background and the technical areas I specialise in.
+Here's a snapshot of my professional background, technical expertise, and creative work — including my **METAXENOPY** YouTube channel featuring lyrics and karaoke content.
 Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to collaborate or learn more!
 
 <div class="portfolio-grid">
@@ -75,14 +75,16 @@ Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to coll
   </div>
 
   <div class="portfolio-card">
-    <div class="portfolio-card-image">🎬</div>
+    <div class="portfolio-card-image">🎤</div>
     <div class="portfolio-card-body">
       <h3>YouTube — METAXENOPY</h3>
-      <p>Lyrics and Karaoke videos</p>
+      <p>Filipino, OPM, and international <strong>Lyrics &amp; Karaoke</strong> videos — sing along, learn the words, and enjoy the music!</p>
       <div class="tech-stack">
         <span class="tech-badge">YouTube</span>
-        <span class="tech-badge">Tech Content</span>
-        <span class="tech-badge">Tutorials</span>
+        <span class="tech-badge">Lyrics</span>
+        <span class="tech-badge">Karaoke</span>
+        <span class="tech-badge">OPM</span>
+        <span class="tech-badge">Music</span>
       </div>
       <a href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">Watch Videos</a>
     </div>
