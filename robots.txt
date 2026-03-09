@@ -5,3 +5,6 @@ Disallow:
 # Block all other crawlers
 User-agent: *
 Disallow: /
+
+# Sitemap for Googlebot
+Sitemap: https://darzmackz.github.io/sitemap.xml
