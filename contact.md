@@ -37,6 +37,22 @@ or reach out through one of the other channels listed here.
       </div>
     </div>
 
+    <div class="contact-item">
+      <span class="contact-item-icon">𝕏</span>
+      <div>
+        <strong>X (Twitter)</strong>
+        <p><a href="https://x.com/darzmackz" target="_blank" rel="noopener">@darzmackz</a></p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-item-icon">📘</span>
+      <div>
+        <strong>Facebook</strong>
+        <p><a href="https://www.facebook.com/IAMKENJIXD" target="_blank" rel="noopener">IAMKENJIXD</a></p>
+      </div>
+    </div>
+
   </div>
 
   <div class="contact-form">

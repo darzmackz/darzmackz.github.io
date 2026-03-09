@@ -48,3 +48,42 @@
     });
   }
 })();
+
+// Scroll-to-top button
+(function () {
+  var btn = document.querySelector('.scroll-to-top');
+  if (!btn) return;
+
+  function onScroll() {
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// Reading progress bar (shown only on post pages)
+(function () {
+  var bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.prepend(bar);
+
+  var content = document.querySelector('.post-content') || document.querySelector('.page-content') || document.querySelector('.site-main');
+  if (!content) return;
+
+  function updateProgress() {
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0;
+    bar.style.width = progress + '%';
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
