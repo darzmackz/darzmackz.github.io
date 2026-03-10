@@ -1,10 +1,10 @@
 # Allow Googlebot to crawl everything
-User-agent: Googlebot
-Disallow: /admin/
+#User-agent: Googlebot
+#Disallow: /admin/
 
 # Block all other crawlers
-User-agent: *
-Disallow: /
+#User-agent: *
+#Disallow: /
 
 # Sitemap for Googlebot
 Sitemap: https://darzmackz.github.io/sitemap.xml
