@@ -7,9 +7,6 @@ tags: [twenty one pilots, backslide, clancy world tour, studio version, lyrics, 
 description: "A closer look at Backslide (The Clancy World Tour Studio Version) by Twenty One Pilots — a raw and emotionally charged performance that blends introspection, vulnerability, and the evolving narrative of the Clancy era."
 ---
 
-**Excerpt/Description**  
-A closer look at *Backslide (The Clancy World Tour Studio Version)* by Twenty One Pilots — a raw and emotionally charged performance that blends introspection, vulnerability, and the evolving narrative of the *Clancy* era.
-
 ---
 
 In 2024, Twenty One Pilots continued to expand their ever-evolving narrative with the release of **Backslide (The Clancy World Tour Studio Version)** — a performance that captures both emotional intensity and refined musical production.
