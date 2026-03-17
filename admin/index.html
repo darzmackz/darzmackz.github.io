@@ -1152,6 +1152,18 @@ async function savePost() {
   saveBtn.disabled = true;
   saveBtn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
 
+  // Check for duplicate filename on new posts
+  if (!currentPost) {
+    try {
+      await ghGetFile(filePath);
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save Post';
+      return showAlert('post-editor-alert', 'error', 'A post with this filename already exists. Please choose a different filename or date.');
+    } catch (e) {
+      // File doesn't exist, proceed
+    }
+  }
+
   try {
     var sha        = currentPost ? currentPost.sha : null;
     var commitMsg  = currentPost ? ('Update: ' + title) : ('Add: ' + title);
