@@ -12,8 +12,8 @@
       try { theme = localStorage.getItem('theme'); } catch (e) {}
       if (theme === 'dark' || theme === 'light') {
         document.documentElement.setAttribute('data-theme', theme);
-      } else {
-        document.documentElement.setAttribute('data-theme', '{{ site.theme | default: "light" }}');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
   </script>
@@ -21,9 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-  {% if site.favicon %}
-  <link rel="icon" type="image/x-icon" href="{{ site.favicon | relative_url }}" />
-  {% endif %}
   {% seo %}
   {% feed_meta %}
   <!-- Google AdSense -->
