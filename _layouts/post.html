@@ -56,34 +56,3 @@ layout: default
 
   <a class="back-link" href="{{ '/blog/' | relative_url }}">&larr; Back to Blog</a>
 </article>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ page.title | escape }}",
-  "description": "{{ page.excerpt | escape }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.author_fullname }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.title }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}/assets/images/logo.png"
-    }
-  },
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
-  "image": "{{ site.url }}/assets/images/default-post-image.jpg",
-  "url": "{{ page.url | absolute_url }}",
-  "keywords": "{{ page.tags | join: ', ' }}",
-  "articleSection": "{{ page.categories | join: ', ' }}"
-}
-</script>
