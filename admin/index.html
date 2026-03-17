@@ -667,6 +667,22 @@ sitemap: false
           <button class="btn btn-primary" onclick="changePassword()">Change Password</button>
         </div>
 
+        <div class="settings-card">
+          <h3>Site Customization</h3>
+          <div class="form-group">
+            <label>Favicon (.ico file)</label>
+            <input type="file" id="settings-favicon" accept=".ico">
+            <p class="helper-text">Upload a new favicon.ico (16x16 or 32x32 recommended)</p>
+          </div>
+          <button class="btn btn-primary" onclick="uploadFavicon()">Upload Favicon</button>
+          <div class="form-group" style="margin-top:1rem">
+            <label>Primary Color</label>
+            <input type="color" id="settings-primary-color" value="#2563eb">
+            <p class="helper-text">Change the site's primary color</p>
+          </div>
+          <button class="btn btn-primary" onclick="updateTheme()">Update Theme</button>
+        </div>
+
         <div class="settings-card danger">
           <h3>Danger Zone</h3>
           <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
@@ -1542,6 +1558,14 @@ function handleTabKey(e) {
 function prefillSettings() {
   var tok = load(KEY_TOKEN);
   if (tok) document.getElementById('settings-token').value = tok;
+
+  // Fetch current primary color
+  ghGetFile('assets/css/main.css').then(function(file) {
+    var match = file.raw.match(/--color-primary:\s*([^;]+)/);
+    if (match) document.getElementById('settings-primary-color').value = match[1].trim();
+  }).catch(function() {
+    // ignore
+  });
 }
 
 function saveToken() {
@@ -1584,6 +1608,46 @@ function resetAdmin() {
   }
   [KEY_HASH, KEY_TOKEN, KEY_SESSION, KEY_SESSION_EXP].forEach(remove);
   logout();
+}
+
+async function uploadFavicon() {
+  var fileInput = document.getElementById('settings-favicon');
+  var file = fileInput.files[0];
+  if (!file) return showAlert('settings-alert', 'error', 'Please select a favicon file.');
+  if (!file.name.endsWith('.ico')) return showAlert('settings-alert', 'error', 'File must be a .ico file.');
+
+  var reader = new FileReader();
+  reader.onload = async function(e) {
+    var content = e.target.result.split(',')[1]; // base64
+    try {
+      var existing = await ghGetFile('assets/images/favicon.ico');
+      await ghPutFile('assets/images/favicon.ico', atob(content), existing.sha, 'Update favicon');
+      showAlert('settings-alert', 'success', 'Favicon updated! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+      fileInput.value = '';
+    } catch (err) {
+      if (err.message.includes('404')) {
+        // File doesn't exist, create it
+        await ghPutFile('assets/images/favicon.ico', atob(content), null, 'Add favicon');
+        showAlert('settings-alert', 'success', 'Favicon uploaded! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+        fileInput.value = '';
+      } else {
+        showAlert('settings-alert', 'error', esc(err.message));
+      }
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+async function updateTheme() {
+  var color = document.getElementById('settings-primary-color').value;
+  try {
+    var cssFile = await ghGetFile('assets/css/main.css');
+    var updatedCss = cssFile.raw.replace(/(--color-primary:\s*)[^;]+/, '$1' + color);
+    await ghPutFile('assets/css/main.css', updatedCss, cssFile.sha, 'Update theme colors');
+    showAlert('settings-alert', 'success', 'Theme updated! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+  } catch (err) {
+    showAlert('settings-alert', 'error', esc(err.message));
+  }
 }
 
 /* =========================================================
