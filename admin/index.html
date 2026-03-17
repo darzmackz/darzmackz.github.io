@@ -762,6 +762,7 @@ function slugify(text) {
   return text.toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
 
@@ -1034,10 +1035,10 @@ async function loadPostsList() {
     }
 
     var html = postsCache.map(function(p, i) {
-      var parts   = p.name.replace('.md', '').split('-');
-      var dateStr = parts.slice(0, 3).join('-');
-      var slug    = parts.slice(3).join('-');
-      var viewUrl = '/' + parts.slice(0, 3).join('/') + '/' + slug + '/';
+      var filename = p.name.replace('.md', '');
+      var datePart = filename.substring(0, 10); // YYYY-MM-DD
+      var slug = filename.substring(11); // slug part
+      var viewUrl = '/' + datePart.replace(/-/g, '/') + '/' + slug + '/';
 
       // Parse front matter to get published status
       var published = true; // default
@@ -1054,7 +1055,7 @@ async function loadPostsList() {
         '<div class="post-item">' +
           '<div class="post-item-info">' +
             '<div class="post-item-title">' + esc(p.name) + ' ' + statusBadge + '</div>' +
-            '<div class="post-item-meta">' + esc(dateStr) + ' &bull; ' +
+            '<div class="post-item-meta">' + esc(datePart) + ' &bull; ' +
               '<a href="' + esc(viewUrl) + '" target="_blank" rel="noopener" ' +
                  'style="color:var(--primary)">View post ↗</a>' +
             '</div>' +
