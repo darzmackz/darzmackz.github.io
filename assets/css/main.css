@@ -1034,6 +1034,19 @@ ul, ol {
     position: relative;
   }
 
+  .site-logo {
+    flex-direction: row;
+    gap: var(--spacing-xs);
+  }
+
+  .logo-image {
+    height: 20px;
+  }
+
+  .logo-text {
+    font-size: 0.6rem;
+  }
+
   .hero {
     padding: var(--spacing-2xl) 0;
   }
@@ -1274,6 +1287,20 @@ ul, ol {
   }
 }
 
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
 
@@ -1352,6 +1379,22 @@ ul, ol {
 
   .contact-form .btn {
     width: 100%;
+  }
+
+  .post-list-item {
+    padding: var(--spacing-md) 0;
+  }
+
+  .post-list-item h2 {
+    font-size: 1.1rem;
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+  }
+
+  .post-excerpt {
+    font-size: 0.9rem;
   }
 }
 
