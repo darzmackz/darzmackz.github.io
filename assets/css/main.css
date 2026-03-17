@@ -99,6 +99,33 @@ a {
   transition: color var(--transition);
 }
 
+a:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
 a:hover {
   color: var(--color-primary-dark);
   text-decoration: underline;
