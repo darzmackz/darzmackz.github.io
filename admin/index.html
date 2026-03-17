@@ -674,6 +674,12 @@ sitemap: false
         <div class="settings-card">
           <h3>Site Customization</h3>
           <div class="form-group">
+            <label>Logo (.png file)</label>
+            <input type="file" id="settings-logo" accept=".png">
+            <p class="helper-text">Upload a new logo.png (recommended size: 200x50px or similar)</p>
+          </div>
+          <button class="btn btn-primary" onclick="uploadLogo()">Upload Logo</button>
+          <div class="form-group">
             <label>Favicon (.ico file)</label>
             <input type="file" id="settings-favicon" accept=".ico">
             <p class="helper-text">Upload a new favicon.ico (16x16 or 32x32 recommended)</p>
@@ -1652,6 +1658,34 @@ async function updateTheme() {
   } catch (err) {
     showAlert('settings-alert', 'error', esc(err.message));
   }
+}
+
+async function uploadLogo() {
+  var fileInput = document.getElementById('settings-logo');
+  var file = fileInput.files[0];
+  if (!file) return showAlert('settings-alert', 'error', 'Please select a logo file.');
+  if (!file.name.toLowerCase().endsWith('.png')) return showAlert('settings-alert', 'error', 'File must be a .png file.');
+
+  var reader = new FileReader();
+  reader.onload = async function(e) {
+    var content = e.target.result.split(',')[1]; // base64
+    try {
+      var existing = await ghGetFile('assets/images/logo.png');
+      await ghPutFile('assets/images/logo.png', atob(content), existing.sha, 'Update logo');
+      showAlert('settings-alert', 'success', 'Logo updated! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+      fileInput.value = '';
+    } catch (err) {
+      if (err.message.includes('404')) {
+        // File doesn't exist, create it
+        await ghPutFile('assets/images/logo.png', atob(content), null, 'Add logo');
+        showAlert('settings-alert', 'success', 'Logo uploaded! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+        fileInput.value = '';
+      } else {
+        showAlert('settings-alert', 'error', esc(err.message));
+      }
+    }
+  };
+  reader.readAsDataURL(file);
 }
 
 /* =========================================================
