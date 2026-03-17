@@ -19,7 +19,7 @@ For many listeners, it stands as a powerful reminder of the band’s ability to 
 
 ## 🎧 Watch: Lyrics Video
 
-<iframe width="100%" height="400" src="https://www.youtube.com/watch?v=SWyv4WbGmCs" 
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/SWyv4WbGmCs" 
 title="Backslide Lyrics Video" frameborder="0" 
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
@@ -28,7 +28,7 @@ allowfullscreen></iframe>
 
 ## 🎤 Sing Along: Karaoke Version
 
-<iframe width="100%" height="400" src="https://www.youtube.com/watch?v=lKU8M0xBQXg" 
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/lKU8M0xBQXg" 
 title="Backslide Karaoke Version" frameborder="0" 
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
