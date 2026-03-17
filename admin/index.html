@@ -1111,8 +1111,8 @@ async function editPost(index) {
 
     document.getElementById('post-title').value      = meta.title || '';
     document.getElementById('post-date').value       = (meta.date || today()).slice(0, 10);
-    document.getElementById('post-categories').value = (meta.categories || '').replace(/[\[\]]/g, '').trim();
-    document.getElementById('post-tags').value       = (meta.tags || '').replace(/[\[\]]/g, '').trim();
+    document.getElementById('post-categories').value = Array.isArray(meta.categories) ? meta.categories.join(', ') : (meta.categories || '').replace(/[\[\]]/g, '').trim();
+    document.getElementById('post-tags').value       = Array.isArray(meta.tags) ? meta.tags.join(', ') : (meta.tags || '').replace(/[\[\]]/g, '').trim();
     document.getElementById('post-youtube').value    = meta.youtube_id || '';
     document.getElementById('post-excerpt').value    = meta.description || '';
     document.getElementById('post-published').checked = meta.published !== false;
