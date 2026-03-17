@@ -485,6 +485,13 @@ sitemap: false
               <textarea id="post-excerpt" rows="3" placeholder="Short description…"></textarea>
             </div>
             <div class="form-group">
+              <label style="display:flex;align-items:center;gap:0.5rem;">
+                <input type="checkbox" id="post-published" checked>
+                Published
+              </label>
+              <p class="helper-text">Uncheck to hide this post from the blog</p>
+            </div>
+            <div class="form-group">
               <label>Filename</label>
               <input type="text" id="post-filename" placeholder="auto-generated">
               <p class="helper-text">Leave blank to auto-generate</p>
@@ -778,6 +785,13 @@ function parseFrontMatter(raw) {
     if (idx === -1) return;
     var key = line.slice(0, idx).trim();
     var val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+    // Parse boolean values
+    if (val === 'true') val = true;
+    else if (val === 'false') val = false;
+    // Parse arrays (basic)
+    else if (val.startsWith('[') && val.endsWith(']')) {
+      val = val.slice(1, -1).split(',').map(function(s) { return s.trim().replace(/^["']|["']$/g, ''); });
+    }
     meta[key] = val;
   });
   return { meta: meta, content: match[2].replace(/^\n+/, '') };
@@ -791,6 +805,7 @@ function buildFrontMatter(m) {
   if (m.tags)       lines.push('tags: ['       + m.tags       + ']');
   if (m.youtube_id) lines.push('youtube_id: "' + m.youtube_id + '"');
   if (m.description) lines.push('description: "' + m.description.replace(/"/g, '\\"') + '"');
+  lines.push('published: ' + (m.published !== false ? 'true' : 'false'));
   lines.push('---');
   return lines.join('\n');
 }
@@ -823,7 +838,21 @@ async function ghRequest(method, path, body) {
 
 async function ghListPosts() {
   var files = await ghRequest('GET', POSTS_DIR);
-  return Array.isArray(files) ? files.filter(function(f) { return f.name.endsWith('.md'); }) : [];
+  if (!Array.isArray(files)) return [];
+
+  var posts = files.filter(function(f) { return f.name.endsWith('.md'); });
+
+  // Fetch content for each post to get published status
+  for (var p of posts) {
+    try {
+      var file = await ghGetFile(p.path);
+      p.raw = file.raw;
+    } catch (e) {
+      p.raw = '';
+    }
+  }
+
+  return posts;
 }
 
 async function ghGetFile(path) {
@@ -1010,10 +1039,21 @@ async function loadPostsList() {
       var slug    = parts.slice(3).join('-');
       var viewUrl = '/' + parts.slice(0, 3).join('/') + '/' + slug + '/';
 
+      // Parse front matter to get published status
+      var published = true; // default
+      if (p.raw) {
+        var parsed = parseFrontMatter(p.raw);
+        published = parsed.meta.published !== false;
+      }
+
+      var statusBadge = published ?
+        '<span style="color:var(--success);font-size:0.75rem">● Published</span>' :
+        '<span style="color:var(--danger);font-size:0.75rem">● Draft</span>';
+
       return (
         '<div class="post-item">' +
           '<div class="post-item-info">' +
-            '<div class="post-item-title">' + esc(p.name) + '</div>' +
+            '<div class="post-item-title">' + esc(p.name) + ' ' + statusBadge + '</div>' +
             '<div class="post-item-meta">' + esc(dateStr) + ' &bull; ' +
               '<a href="' + esc(viewUrl) + '" target="_blank" rel="noopener" ' +
                  'style="color:var(--primary)">View post ↗</a>' +
@@ -1046,6 +1086,7 @@ function openPostEditor(post) {
   document.getElementById('post-tags').value       = '';
   document.getElementById('post-youtube').value    = '';
   document.getElementById('post-excerpt').value    = '';
+  document.getElementById('post-published').checked = true;
   document.getElementById('post-filename').value   = '';
   document.getElementById('post-content').value    = '';
 
@@ -1074,6 +1115,7 @@ async function editPost(index) {
     document.getElementById('post-tags').value       = (meta.tags || '').replace(/[\[\]]/g, '').trim();
     document.getElementById('post-youtube').value    = meta.youtube_id || '';
     document.getElementById('post-excerpt').value    = meta.description || '';
+    document.getElementById('post-published').checked = meta.published !== false;
     document.getElementById('post-filename').value   = p.name;
     document.getElementById('post-content').value    = parsed.content;
   } catch (err) {
@@ -1094,10 +1136,11 @@ async function savePost() {
   var tags     = document.getElementById('post-tags').value.trim();
   var youtube  = document.getElementById('post-youtube').value.trim();
   var excerpt  = document.getElementById('post-excerpt').value.trim();
+  var published = document.getElementById('post-published').checked;
   var content  = document.getElementById('post-content').value;
 
   var fm       = buildFrontMatter({ title: title, date: date, categories: cats,
-                                    tags: tags, youtube_id: youtube, description: excerpt });
+                                    tags: tags, youtube_id: youtube, description: excerpt, published: published });
   var fullText = fm + '\n\n' + content;
 
   var filename = document.getElementById('post-filename').value.trim();
