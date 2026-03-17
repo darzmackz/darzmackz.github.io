@@ -33,4 +33,9 @@ exclude:
 # Google AdSense (replace with your publisher ID)
 google_adsense_publisher_id: "ca-pub-9496975311042369"
 
+# Site customization
+favicon: "/favicon.ico"
+logo: "/logo.png"
+primary_color: "#2563eb"
+
 
