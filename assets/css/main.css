@@ -164,7 +164,8 @@ ul, ol {
 }
 
 .logo-text {
-  /* Site title text */
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .logo-icon {
