@@ -33,4 +33,9 @@ exclude:
 # Google AdSense (replace with your publisher ID)
 google_adsense_publisher_id: "ca-pub-9496975311042369"
 
+# Customization
+favicon: "/assets/images/favicon.ico"
+logo: "/assets/images/logo.png"
+theme: "light"  # light or dark
+
 
