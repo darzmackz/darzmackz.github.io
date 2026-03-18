@@ -694,10 +694,11 @@ sitemap: false
           <div class="form-group" style="margin-top:1rem">
             <label>Primary Color</label>
             <div style="display:flex;gap:0.5rem;align-items:center;">
+              <span style="font-size:1.5rem;line-height:1;">🎨</span>
               <input type="color" id="settings-primary-color" value="#2563eb" style="width:32px;height:32px;padding:0;border:none;background:none;">
-              <div id="color-preview-bar" style="height:24px;width:48px;border-radius:6px;background:#2563eb;border:1px solid var(--border);display:inline-block;"></div>
+              <span id="color-hex-text" style="font-size:1rem;font-family:monospace;background:var(--bg3);padding:2px 8px;border-radius:4px;border:1px solid var(--border);">#2563eb</span>
             </div>
-            <p class="helper-text">Pick a color. The preview bar shows the selected color. The site will update after clicking Update Theme.</p>
+            <p class="helper-text">Pick a color. The HEX code shows your selection. The site will update after clicking Update Theme.</p>
           </div>
           <button class="btn btn-primary" onclick="updateTheme()">Update Theme</button>
         </div>
@@ -1584,18 +1585,18 @@ function prefillSettings() {
     if (match) {
       var color = match[1].trim();
       document.getElementById('settings-primary-color').value = color;
-      document.getElementById('color-preview-bar').style.background = color;
+      document.getElementById('color-hex-text').textContent = color;
       // Do NOT update --primary until Update Theme is clicked
     }
   }).catch(function() {
     // ignore
   });
 
-  // Sync color picker and preview bar only
+  // Sync color picker and HEX text only
   var colorPicker = document.getElementById('settings-primary-color');
-  var previewBar = document.getElementById('color-preview-bar');
+  var hexText = document.getElementById('color-hex-text');
   colorPicker.addEventListener('input', function() {
-    previewBar.style.background = colorPicker.value;
+    hexText.textContent = colorPicker.value;
     // Do NOT update --primary here
   });
 }
