@@ -694,7 +694,7 @@ sitemap: false
           <div class="form-group" style="margin-top:1rem">
             <label>Primary Color</label>
             <input type="color" id="settings-primary-color" value="#2563eb">
-            <p class="helper-text">Change the site's primary color</p>
+            <p class="helper-text">Change the site's primary color theme. Preview will show on the main site after saving.</p>
           </div>
           <button class="btn btn-primary" onclick="updateTheme()">Update Theme</button>
         </div>
@@ -1578,7 +1578,12 @@ function prefillSettings() {
   // Fetch current primary color
   ghGetFile('assets/css/main.css').then(function(file) {
     var match = file.raw.match(/--color-primary:\s*([^;]+)/);
-    if (match) document.getElementById('settings-primary-color').value = match[1].trim();
+    if (match) {
+      var color = match[1].trim();
+      document.getElementById('settings-primary-color').value = color;
+      // Set admin preview
+      document.documentElement.style.setProperty('--primary', color);
+    }
   }).catch(function() {
     // ignore
   });
@@ -1660,7 +1665,9 @@ async function updateTheme() {
     var cssFile = await ghGetFile('assets/css/main.css');
     var updatedCss = cssFile.raw.replace(/(--color-primary:\s*)[^;]+/, '$1' + color);
     await ghPutFile('assets/css/main.css', updatedCss, cssFile.sha, 'Update theme colors');
-    showAlert('settings-alert', 'success', 'Theme updated! Changes will appear after GitHub Pages rebuilds (~1 minute).');
+    // Update admin panel preview
+    document.documentElement.style.setProperty('--primary', color);
+    showAlert('settings-alert', 'success', 'Theme updated! Admin preview updated. Site changes will appear after GitHub Pages rebuilds (~1 minute).');
   } catch (err) {
     showAlert('settings-alert', 'error', esc(err.message));
   }
