@@ -495,11 +495,11 @@ sitemap: false
               <textarea id="post-excerpt" rows="3" placeholder="Short description…"></textarea>
             </div>
             <div class="form-group">
-              <div class="published-row">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
                 <input type="checkbox" id="post-published" checked>
-                <label for="post-published" class="published-label">Published</label>
+                <label for="post-published" style="font-weight: 600; font-size: 1rem; color: var(--text);">Published</label>
               </div>
-              <div class="published-info">Uncheck to hide this post from the blog</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; margin-left: 2rem;">Uncheck to hide this post from the blog</div>
             </div>
             <div class="form-group">
               <label>Filename</label>
@@ -763,7 +763,7 @@ function esc(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
-}
+// Removed extra closing brace
 
 async function sha256(msg) {
   var buf  = new TextEncoder().encode(msg);
@@ -1127,20 +1127,50 @@ function openPostEditor(post) {
   currentPost = post;
   document.getElementById('post-editor-heading').textContent = post ? 'Edit Post' : 'New Post';
   document.getElementById('post-editor-alert').innerHTML = '';
-  document.getElementById('post-title').value      = '';
-  document.getElementById('post-date').value       = today();
-  document.getElementById('post-categories').value = '';
-  document.getElementById('post-tags').value       = '';
-  document.getElementById('post-youtube').value    = '';
-  document.getElementById('post-excerpt').value    = '';
-  document.getElementById('post-published').checked = true;
-  document.getElementById('post-filename').value   = '';
-  document.getElementById('post-content').value    = '';
-
+  // Restore autosaved values if present
+  var autosave = load('post_editor_autosave');
+  if (autosave) {
+    try {
+      var data = JSON.parse(autosave);
+      document.getElementById('post-title').value      = data.title || '';
+      document.getElementById('post-date').value       = data.date || today();
+      document.getElementById('post-categories').value = data.categories || '';
+      document.getElementById('post-tags').value       = data.tags || '';
+      document.getElementById('post-youtube').value    = data.youtube || '';
+      document.getElementById('post-excerpt').value    = data.excerpt || '';
+      document.getElementById('post-published').checked = (typeof data.published === 'boolean') ? data.published : true;
+      document.getElementById('post-filename').value   = data.filename || '';
+      document.getElementById('post-content').value    = data.content || '';
+    } catch(e) {
+      // fallback to blank
+      document.getElementById('post-title').value      = '';
+      document.getElementById('post-date').value       = today();
+      document.getElementById('post-categories').value = '';
+      document.getElementById('post-tags').value       = '';
+      document.getElementById('post-youtube').value    = '';
+      document.getElementById('post-excerpt').value    = '';
+      document.getElementById('post-published').checked = true;
+      document.getElementById('post-filename').value   = '';
+      document.getElementById('post-content').value    = '';
+    }
+  } else {
+    document.getElementById('post-title').value      = '';
+    document.getElementById('post-date').value       = today();
+    document.getElementById('post-categories').value = '';
+    document.getElementById('post-tags').value       = '';
+    document.getElementById('post-youtube').value    = '';
+    document.getElementById('post-excerpt').value    = '';
+    document.getElementById('post-published').checked = true;
+    document.getElementById('post-filename').value   = '';
+    document.getElementById('post-content').value    = '';
+  }
   ALL_SECTIONS.forEach(function(s) {
     document.getElementById('section-' + s).classList.add('hidden');
   });
   document.getElementById('section-post-editor').classList.remove('hidden');
+  // Store editor state for restore
+  store('admin_last_section', 'post-editor');
+}
 }
 
 async function editPost(index) {
@@ -1148,6 +1178,7 @@ async function editPost(index) {
   if (!p) return;
   openPostEditor({ path: p.path, sha: p.sha, filename: p.name });
   document.getElementById('post-content').value = 'Loading…';
+  store('post_editor_edit_index', index);
 
   try {
     var result = await ghGetFile(p.path);
@@ -1186,6 +1217,11 @@ async function savePost() {
   var published = document.getElementById('post-published').checked;
   var content  = document.getElementById('post-content').value;
 
+  // Autosave to localStorage
+  store('post_editor_autosave', JSON.stringify({
+    title, date, categories: cats, tags, youtube, excerpt, published, filename: document.getElementById('post-filename').value.trim(), content
+  }));
+
   var fm       = buildFrontMatter({ title: title, date: date, categories: cats,
                                     tags: tags, youtube_id: youtube, description: excerpt, published: published });
   var fullText = fm + '\n\n' + content;
@@ -1197,6 +1233,31 @@ async function savePost() {
   var saveBtn = document.getElementById('save-post-btn');
   saveBtn.disabled = true;
   saveBtn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Saving…';
+  // Add autosave listeners
+  var fields = ['post-title','post-date','post-categories','post-tags','post-youtube','post-excerpt','post-published','post-filename','post-content'];
+  fields.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var event = (el.type === 'checkbox') ? 'change' : 'input';
+    el.removeEventListener(event, autosavePostEditor); // Remove previous
+    el.addEventListener(event, autosavePostEditor);
+  });
+// Removed extra closing brace
+
+function autosavePostEditor() {
+  var title   = document.getElementById('post-title').value.trim();
+  var date    = document.getElementById('post-date').value || today();
+  var cats    = document.getElementById('post-categories').value.trim();
+  var tags    = document.getElementById('post-tags').value.trim();
+  var youtube = document.getElementById('post-youtube').value.trim();
+  var excerpt = document.getElementById('post-excerpt').value.trim();
+  var published = document.getElementById('post-published').checked;
+  var filename = document.getElementById('post-filename').value.trim();
+  var content = document.getElementById('post-content').value;
+  store('post_editor_autosave', JSON.stringify({
+    title, date, categories: cats, tags, youtube, excerpt, published, filename, content
+  }));
+}
 
   // Check for duplicate filename on new posts
   if (!currentPost) {
