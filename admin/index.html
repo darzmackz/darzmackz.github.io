@@ -495,7 +495,7 @@ sitemap: false
               <textarea id="post-excerpt" rows="3" placeholder="Short description…"></textarea>
             </div>
             <div class="form-group">
-              <div>
+              <div style="display: flex; align-items: row; gap: 0.5rem;">
                 <input type="checkbox" id="post-published" checked>
                 <label for="post-published" style="font-weight: 500; font-size: 1rem; color: var(--text);">Published</label>
               </div>
@@ -1240,7 +1240,6 @@ async function savePost() {
     el.removeEventListener(event, autosavePostEditor); // Remove previous
     el.addEventListener(event, autosavePostEditor);
   });
-// Removed extra closing brace
 
 function autosavePostEditor() {
   var title   = document.getElementById('post-title').value.trim();
