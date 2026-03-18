@@ -695,9 +695,9 @@ sitemap: false
             <label>Primary Color</label>
             <div style="display:flex;gap:0.5rem;align-items:center;">
               <input type="color" id="settings-primary-color" value="#2563eb">
-              <input type="text" id="settings-primary-color-text" placeholder="#2563eb" style="flex:1;">
+              <div id="color-preview-bar" style="height:18px;width:60px;border-radius:4px;background:#2563eb;border:1px solid var(--border);"></div>
             </div>
-            <p class="helper-text">Change the site's primary color theme. Preview will show on the main site after saving.</p>
+            <p class="helper-text">Pick a color. The preview bar shows the selected color. This is the main site accent color.</p>
           </div>
           <button class="btn btn-primary" onclick="updateTheme()">Update Theme</button>
         </div>
@@ -1584,26 +1584,19 @@ function prefillSettings() {
     if (match) {
       var color = match[1].trim();
       document.getElementById('settings-primary-color').value = color;
-      document.getElementById('settings-primary-color-text').value = color;
-      // Set admin preview
+      document.getElementById('color-preview-bar').style.background = color;
       document.documentElement.style.setProperty('--primary', color);
     }
   }).catch(function() {
     // ignore
   });
 
-  // Sync color picker and text input
+  // Sync color picker and preview bar
   var colorPicker = document.getElementById('settings-primary-color');
-  var colorText = document.getElementById('settings-primary-color-text');
+  var previewBar = document.getElementById('color-preview-bar');
   colorPicker.addEventListener('input', function() {
-    colorText.value = colorPicker.value;
+    previewBar.style.background = colorPicker.value;
     document.documentElement.style.setProperty('--primary', colorPicker.value);
-  });
-  colorText.addEventListener('input', function() {
-    if (/^#[0-9A-F]{6}$/i.test(colorText.value)) {
-      colorPicker.value = colorText.value;
-      document.documentElement.style.setProperty('--primary', colorText.value);
-    }
   });
 }
 
