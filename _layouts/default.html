@@ -68,8 +68,12 @@
   <meta name="google-adsense-account" content="{{ site.google_adsense_publisher_id }}" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense_publisher_id }}"
      crossorigin="anonymous"></script>
+  <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
 </head>
 <body>
+  <amp-auto-ads type="adsense"
+        data-ad-client="{{ site.google_adsense_publisher_id }}"></amp-auto-ads>
   <!-- Skip to main content -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
