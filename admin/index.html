@@ -1034,7 +1034,14 @@ function logout() {
 function enterAdmin() {
   document.getElementById('view-auth').classList.add('hidden');
   document.getElementById('view-admin').classList.remove('hidden');
-  showSection('posts');
+  // Restore last section or default to posts
+  var lastSection = null;
+  try { lastSection = localStorage.getItem('admin_last_section'); } catch(e) {}
+  if (lastSection && ALL_SECTIONS.includes(lastSection)) {
+    showSection(lastSection);
+  } else {
+    showSection('posts');
+  }
 }
 
 /* =========================================================
@@ -1047,6 +1054,9 @@ function showSection(name) {
     document.getElementById('section-' + s).classList.add('hidden');
   });
   document.getElementById('section-' + name).classList.remove('hidden');
+
+  // Store last section in localStorage
+  try { localStorage.setItem('admin_last_section', name); } catch(e) {}
 
   if (name === 'posts')     loadPostsList();
   if (name === 'portfolio') loadPortfolioList();
