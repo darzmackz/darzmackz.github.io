@@ -4,6 +4,7 @@ title: "Twenty One Pilots - Backslide (The Clancy World Tour Studio Version)"
 date: 2026-03-03 12:00:00 +0800
 categories: [music, karaoke, lyrics]
 tags: [twenty one pilots, backslide, clancy world tour, studio version, lyrics, karaoke]
+youtube_id: "SWyv4WbGmCs"
 description: "A closer look at Backslide (The Clancy World Tour Studio Version) by Twenty One Pilots — a raw and emotionally charged performance that blends introspection, vulnerability, and the evolving narrative of the Clancy era."
 published: true
 ---
@@ -15,15 +16,6 @@ In 2024, Twenty One Pilots continued to expand their ever-evolving narrative wit
 The studio tour version offers fans a fresh way to experience the track, blending the energy of a live session with the clarity of a studio recording.
 
 For many listeners, it stands as a powerful reminder of the band’s ability to turn vulnerability into art.
-
----
-
-## 🎧 Watch: Lyrics Video
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/SWyv4WbGmCs" 
-title="Backslide Lyrics Video" frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
 
 ---
 
