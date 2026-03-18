@@ -495,11 +495,11 @@ sitemap: false
               <textarea id="post-excerpt" rows="3" placeholder="Short description…"></textarea>
             </div>
             <div class="form-group">
-              <label style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="published-group">
                 <input type="checkbox" id="post-published" checked>
-                Published
-              </label>
-              <p class="helper-text">Uncheck to hide this post from the blog</p>
+                <label for="post-published" class="published-label">Published</label>
+                <span class="published-info">Uncheck to hide this post from the blog</span>
+              </div>
             </div>
             <div class="form-group">
               <label>Filename</label>
