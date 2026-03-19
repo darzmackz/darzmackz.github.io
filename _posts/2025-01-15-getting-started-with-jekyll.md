@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "Getting Started with Jekyll on GitHub Pages"
-date: 2025-01-15 10:00:00 +0000
+date: "2025-01-15 12:00:00 +0800"
 categories: [tutorial, web-dev]
 tags: [jekyll, github-pages, static-site]
-excerpt: "A practical introduction to setting up a Jekyll site and publishing it on GitHub Pages."
+description: "Learn how to quickly build and publish a fast static website using Jekyll and GitHub Pages, including setup, structure, and deployment basics."
+seo_title: "Jekyll Tutorial: Build and Deploy a Static Website with GitHub Pages"
+status: "published"
 published: true
 ---
 
