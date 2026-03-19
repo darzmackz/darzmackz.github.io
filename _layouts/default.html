@@ -23,11 +23,9 @@
   <meta property="twitter:image" content="{{ page.social_image | default: page.image | default: site.logo | absolute_url }}" />
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
-  <link rel="preload" href="{{ '/assets/fonts/inter-400.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin />
-  <link rel="preload" href="{{ '/assets/fonts/inter-700.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin />
-  <link rel="stylesheet" href="{{ '/assets/fonts/fonts.css' | relative_url }}" />
   {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %}
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
   {% endif %}
   <script type="application/ld+json">
   {

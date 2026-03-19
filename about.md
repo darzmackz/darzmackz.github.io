@@ -8,10 +8,11 @@ permalink: /about/
 <div class="about-grid">
   <div class="about-avatar">
     <img
-      src="{{ '/assets/images/kenji-avatar.png' | relative_url }}"
+      src="{{ '/assets/images/kenji-avatar-128.png' | relative_url }}"
       alt="Portrait of KENJI (Kent Harvey Plando)"
       class="about-avatar-img"
       loading="lazy"
+      decoding="async"
       onerror="this.parentElement.innerHTML='KENJI'"
     />
   </div>

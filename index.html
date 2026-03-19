@@ -8,12 +8,14 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
   <div class="container">
     <div class="hero-avatar-wrap">
       <img
-        src="{{ '/assets/images/kenji-avatar.png' | relative_url }}"
+        src="{{ '/assets/images/kenji-avatar-128.png' | relative_url }}"
         alt="KENJI profile photo"
         class="hero-avatar"
         width="120"
         height="120"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
         onerror="this.style.display='none'"
       />
     </div>
