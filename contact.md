@@ -1,17 +1,15 @@
 ---
 layout: page
 title: "Contact"
-description: "Get in touch — I'd love to hear from you."
+description: "Contact KENJI for collaboration, music-related requests, and professional inquiries."
 permalink: /contact/
 ---
 
-Have a question, want to collaborate, or just want to say hello? Fill in the form below
-or reach out through one of the other channels listed here.
+Have a question, want to collaborate, or need to reach me for a music or technical inquiry? Use the form below or contact me through one of the listed profiles.
 
 <div class="contact-grid">
-
   <div class="contact-info">
-    <h3>📬 Contact Details</h3>
+    <h3>Contact Details</h3>
 
     <div class="contact-item">
       <span class="contact-item-icon" role="img" aria-label="Email icon">
@@ -50,13 +48,13 @@ or reach out through one of the other channels listed here.
     </div>
 
     <div class="contact-item">
-      <span class="contact-item-icon" role="img" aria-label="X (Twitter) icon">
+      <span class="contact-item-icon" role="img" aria-label="X icon">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
         </svg>
       </span>
       <div>
-        <strong>X (Twitter)</strong>
+        <strong>X</strong>
         <p><a href="https://x.com/darzmackz" target="_blank" rel="noopener">@darzmackz</a></p>
       </div>
     </div>
@@ -72,11 +70,10 @@ or reach out through one of the other channels listed here.
         <p><a href="https://www.facebook.com/IAMKENJIXD" target="_blank" rel="noopener">IAMKENJIXD</a></p>
       </div>
     </div>
-
   </div>
 
   <div class="contact-form">
-    <h3>✉️ Send a Message</h3>
+    <h3>Send a Message</h3>
     <form action="https://formspree.io/f/xpqyzezn" method="POST">
       <div class="form-group">
         <label for="contact-name">Your Name</label>
@@ -88,19 +85,14 @@ or reach out through one of the other channels listed here.
       </div>
       <div class="form-group">
         <label for="contact-subject">Subject</label>
-        <input type="text" id="contact-subject" name="subject" placeholder="What's it about?" />
+        <input type="text" id="contact-subject" name="subject" placeholder="What is this about?" />
       </div>
       <div class="form-group">
         <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="message" placeholder="Your message here…" required></textarea>
+        <textarea id="contact-message" name="message" placeholder="Write your message here." required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Send Message 🚀</button>
+      <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
+    <p class="form-note">This form is powered by Formspree and is only used to receive direct inquiries.</p>
   </div>
-
 </div>
-
----
-
-> **Note:** This contact form is powered by [Formspree](https://formspree.io).
-

@@ -4,82 +4,47 @@ title: "Getting Started with Jekyll on GitHub Pages"
 date: 2025-01-15 10:00:00 +0000
 categories: [tutorial, web-dev]
 tags: [jekyll, github-pages, static-site]
-excerpt: "In this tutorial I walk you through setting up a Jekyll blog site from scratch and deploying it to GitHub Pages — completely free."
+excerpt: "A practical introduction to setting up a Jekyll site and publishing it on GitHub Pages."
+published: true
 ---
 
-In this post, I walk you through **setting up a Jekyll site on GitHub Pages** from absolute zero — no prior Ruby or Jekyll experience required.
+Jekyll is one of the simplest ways to publish a fast static website, especially when you want to deploy on GitHub Pages without a complex backend.
 
 ## What You'll Learn
 
-- What Jekyll is and why it's great for blogs
-- How to install Jekyll locally and preview your site
-- The basic folder structure (`_layouts`, `_includes`, `_posts`)
-- How to write your first blog post in Markdown
-- How to deploy everything to GitHub Pages for free
+- what Jekyll is and why it works well for blogs
+- how to install it locally
+- how the basic folder structure fits together
+- how to publish to GitHub Pages
 
-## Why Jekyll?
+## Why Jekyll Works Well
 
-Jekyll is a **static site generator** — it turns plain Markdown and HTML templates into a ready-to-deploy website. GitHub Pages has built-in support for Jekyll, so you can push your source files and GitHub will automatically build and host your site.
-
-Key benefits:
-
-- **Free hosting** on `username.github.io`
-- **Fast** — static HTML files, no database
-- **Simple** — write posts in Markdown
-- **Customizable** — full control over HTML/CSS
+Jekyll turns Markdown, layouts, and data files into a complete static site. That makes it a good fit for personal websites, blogs, and documentation pages where speed and low maintenance matter.
 
 ## Quick Start
 
-If you just want to get going locally, here are the key commands:
-
 ```bash
-# Install Jekyll
 gem install bundler jekyll
-
-# Create a new site
 jekyll new my-blog
-
-# Serve it locally
 cd my-blog
 bundle exec jekyll serve
 ```
 
-Then open [http://localhost:4000](http://localhost:4000) in your browser and you'll see your site live.
+After that, open `http://localhost:4000` to preview the site locally.
 
-## Creating a Post
+## Core Folder Structure
 
-Blog posts live in the `_posts` directory and follow this naming convention:
+The most common folders you will work with are:
 
-```
-_posts/YYYY-MM-DD-title-with-hyphens.md
-```
+- `_layouts` for page templates
+- `_includes` for reusable partials
+- `_posts` for blog posts
+- `assets` for CSS, JavaScript, and images
 
-Every post starts with **front matter** — a YAML block at the top:
+## Publishing on GitHub Pages
 
-```yaml
----
-layout: post
-title: "My First Post"
-date: 2025-01-15 10:00:00 +0000
-categories: [blog]
-tags: [welcome]
----
-```
+1. Push the repository to GitHub.
+2. Enable GitHub Pages in the repository settings.
+3. Let GitHub build and publish the site from the selected branch.
 
-After the front matter, write the content in Markdown.
-
-## Deploying to GitHub Pages
-
-1. Push your Jekyll project to a GitHub repository named `username.github.io`.
-2. Go to **Settings → Pages** and set the source to your main branch.
-3. GitHub will build and publish the site automatically.
-
-That's it! 🎉
-
-## Watch on YouTube
-
-Check out the [METAXENOPY YouTube channel](https://www.youtube.com/@metaxenopy?sub_confirmation=1) for video tutorials and more content.
-
----
-
-Have questions? [Get in touch]({{ '/contact/' | relative_url }}) or leave a comment below!
+That is often enough to launch a reliable personal site with minimal overhead.

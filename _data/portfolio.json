@@ -1,10 +1,10 @@
 [
   {
     "id": "senior-system-analyst",
-    "icon": "🏨",
+    "icon": "Systems",
     "title": "Senior System Analyst",
-    "subtitle": "Crown Regency Hotels and Resorts — Cebu City, Cebu (02/2023 – Present)",
-    "description": "Optimized and maintained database systems, troubleshot SQL issues, managed database infrastructures, enhanced data organization, and acted as System Administrator for server maintenance.",
+    "subtitle": "Crown Regency Hotels and Resorts, Cebu City (February 2023 to Present)",
+    "description": "Supports database operations, system troubleshooting, infrastructure maintenance, and day-to-day technical reliability for hotel operations.",
     "tech": [
       "SQL",
       "SQL Server",
@@ -17,30 +17,30 @@
   },
   {
     "id": "nextcloud-deployment",
-    "icon": "☁️",
-    "title": "NextCloud Server Deployment",
-    "subtitle": "Crown Regency Hotels and Resorts — System Administration Project",
-    "description": "Set up and deployed a self-hosted NextCloud server for Crown Regency Hotels and Resorts, providing secure cloud storage and file collaboration. The instance is accessible at <a href=\"https://regencydrive.crownregency.net/\" target=\"_blank\" rel=\"noopener\">regencydrive.crownregency.net</a>.",
+    "icon": "Cloud",
+    "title": "Nextcloud Server Deployment",
+    "subtitle": "Crown Regency Hotels and Resorts",
+    "description": "Planned and deployed a self-hosted Nextcloud environment for secure internal file storage and collaboration.",
     "tech": [
-      "NextCloud",
+      "Nextcloud",
       "Linux Server",
       "Nginx",
       "SSL/TLS",
       "Self-Hosted"
     ],
     "link": "https://regencydrive.crownregency.net/",
-    "link_text": "View Instance"
+    "link_text": "View instance"
   },
   {
     "id": "system-analyst-administrator",
-    "icon": "💻",
+    "icon": "Support",
     "title": "System Analyst / Administrator",
-    "subtitle": "Just Click Integrated Solution — Cebu City, Cebu (12/2017 – 02/2023)",
-    "description": "Migrated databases, resolved system issues, maintained workstations, installed servers, and conducted software deployments and on-site support.",
+    "subtitle": "Just Click Integrated Solution, Cebu City (December 2017 to February 2023)",
+    "description": "Handled migrations, workstation support, server installation, deployments, and on-site troubleshooting for business clients.",
     "tech": [
       "SQL",
-      "Windows OS",
-      "Linux OS",
+      "Windows",
+      "Linux",
       "Hardware",
       "Deployment"
     ],
@@ -49,26 +49,26 @@
   },
   {
     "id": "youtube-metaxenopy",
-    "icon": "🎤",
-    "title": "YouTube — METAXENOPY",
-    "subtitle": "",
-    "description": "Filipino, OPM, and international <strong>Lyrics &amp; Karaoke</strong> videos — sing along, learn the words, and enjoy the music!",
+    "icon": "Video",
+    "title": "METAXENOPY YouTube Channel",
+    "subtitle": "Lyrics and karaoke creator brand",
+    "description": "Publishes lyric videos, karaoke uploads, and music-focused content for Filipino and international audiences.",
     "tech": [
       "YouTube",
       "Lyrics",
       "Karaoke",
       "OPM",
-      "Music"
+      "Content Creation"
     ],
     "link": "https://www.youtube.com/@metaxenopy?sub_confirmation=1",
-    "link_text": "Watch Videos"
+    "link_text": "Watch videos"
   },
   {
     "id": "personal-blog-site",
-    "icon": "🌐",
-    "title": "Personal Blog Site",
-    "subtitle": "",
-    "description": "This very site — a Jekyll-powered blog deployed on GitHub Pages, featuring a clean responsive design and AdSense integration.",
+    "icon": "Web",
+    "title": "Personal Website",
+    "subtitle": "Jekyll site on GitHub Pages",
+    "description": "A lightweight Jekyll site that combines creator information, blog content, and portfolio pages in one maintained public website.",
     "tech": [
       "Jekyll",
       "HTML",
@@ -76,6 +76,6 @@
       "GitHub Pages"
     ],
     "link": "/",
-    "link_text": "View Site"
+    "link_text": "View site"
   }
 ]

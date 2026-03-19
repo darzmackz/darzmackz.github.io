@@ -241,6 +241,14 @@ ul, ol {
   transition: background var(--transition), border-color var(--transition);
 }
 
+.dark-mode-toggle .icon-sun,
+.dark-mode-toggle .icon-moon {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .dark-mode-toggle:hover {
   background: rgba(255,255,255,0.15);
   border-color: rgba(255,255,255,0.2);
@@ -367,6 +375,19 @@ ul, ol {
   flex-wrap: wrap;
 }
 
+.section-panel {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-intro {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-copy {
+  max-width: 760px;
+  color: var(--color-text-muted);
+}
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -482,6 +503,30 @@ ul, ol {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-primary);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.trust-card {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-card h3 {
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.05rem;
+}
+
+.trust-card p {
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -752,6 +797,11 @@ ul, ol {
   border-color: var(--color-primary);
 }
 
+.portfolio-card-inline {
+  max-width: 520px;
+  margin-bottom: var(--spacing-xl);
+}
+
 .portfolio-card-image {
   width: 100%;
   height: 180px;
@@ -846,6 +896,12 @@ ul, ol {
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border);
+}
+
+.form-note {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  margin-top: var(--spacing-md);
 }
 
 .form-group {

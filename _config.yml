@@ -1,18 +1,19 @@
 title: "METAXENOPY.TY"
-description: "Personal blog by KENJI — Filipino lyrics, OPM karaoke videos, and tech insights. Subscribe to METAXENOPY on YouTube for the latest music content."
+description: "Personal website and blog by KENJI covering OPM lyrics, karaoke videos, music features, and practical tech insights."
 author: "KENJI"
 author_fullname: "Kent Harvey Plando"
 email: "darzmackz@gmail.com"
+lang: "en"
+timezone: "Asia/Manila"
 url: "https://darzmackz.github.io"
 baseurl: ""
+logo: "/assets/images/logo.png"
 
-# Social links (fill in your own)
-github_username: darzmackz
+github_username: "darzmackz"
 twitter_username: "darzmackz"
 facebook_url: "https://www.facebook.com/IAMKENJIXD"
 youtube_channel: "https://www.youtube.com/@metaxenopy?sub_confirmation=1"
 
-# Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
@@ -22,7 +23,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Exclude from processing
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/logo.png"
+
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -30,5 +36,13 @@ exclude:
   - .gitignore
   - vendor
 
-# Google AdSense (replace with your publisher ID)
+google_adsense_enabled: true
 google_adsense_publisher_id: "ca-pub-9496975311042369"
+google_adsense_post_slot_id: ""
+google_adsense_header_slot_id: ""
+google_adsense_footer_slot_id: ""
+
+google_site_verification: ""
+
+webmaster_verifications:
+  google: ""

@@ -1,12 +1,11 @@
 ---
 layout: page
 title: "Portfolio"
-description: "Portfolio of KENJI (Kent Harvey Plando) — Senior System Analyst, and creator of METAXENOPY, a YouTube channel for Filipino lyrics, OPM karaoke, and international music videos."
+description: "Portfolio of KENJI (Kent Harvey Plando), including systems work, server deployment, and the METAXENOPY creator brand."
 permalink: /portfolio/
 ---
 
-Here's a snapshot of my professional background, technical expertise, and creative work — including my **METAXENOPY** YouTube channel featuring lyrics and karaoke content.
-Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to collaborate or learn more!
+This page highlights my professional background, technical experience, and creator-focused projects. For collaboration or questions, please use the [contact page]({{ '/contact/' | relative_url }}).
 
 <div class="portfolio-grid">
 {% for item in site.data.portfolio %}
@@ -22,14 +21,9 @@ Feel free to [reach out]({{ '/contact/' | relative_url }}) if you'd like to coll
       </div>
       {% endif %}
       {% if item.link != "" and item.link_text != "" %}
-      <a href="{{ item.link }}" {% unless item.link contains 'http' %}{% else %}target="_blank" rel="noopener"{% endunless %} class="btn btn-primary">{{ item.link_text }}</a>
+      <a href="{{ item.link }}" {% if item.link contains 'http' %}target="_blank" rel="noopener"{% endif %} class="btn btn-primary">{{ item.link_text }}</a>
       {% endif %}
     </div>
   </div>
 {% endfor %}
 </div>
-
----
-
-> 💡 **More coming soon.** [Contact me]({{ '/contact/' | relative_url }}) if you'd like to collaborate!
-
