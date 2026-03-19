@@ -60,10 +60,11 @@ sitemap: false
           <div class="grid g2">
             <div class="stack">
               <div class="card">
+                <div id="post-template-card">
                 <h3>Workflow</h3>
                 <div class="fg"><label>Status</label><select id="pe-status" onchange="onPostStatus()"><option value="published">Published</option><option value="draft">Draft</option><option value="scheduled">Scheduled</option></select><p class="muted">Scheduled posts use a future date.</p></div>
-                <div class="fg"><label>Template</label><select id="pe-template" onchange="if(this.value){applyTemplate(this.value);}"><option value="">Start from blank</option><option value="lyrics">Lyrics Post</option><option value="music">Music Feature</option><option value="tech">Tech Tutorial</option></select></div>
-                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><button class="btn" onclick="applyTemplate('lyrics')">Lyrics Template</button><button class="btn" onclick="applyTemplate('music')">Music Template</button><button class="btn" onclick="applyTemplate('tech')">Tech Template</button></div>
+                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><button class="btn" onclick="applyTemplate('blank')">Start from Blank</button><button class="btn" onclick="applyTemplate('lyrics')">Lyrics Template</button><button class="btn" onclick="applyTemplate('music')">Music Template</button><button class="btn" onclick="applyTemplate('tech')">Tech Template</button></div>
+                </div>
               </div>
               <div class="card">
                 <h3>Post Details</h3>
