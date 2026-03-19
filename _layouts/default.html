@@ -22,7 +22,7 @@
   <meta property="twitter:description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | escape }}{% else %}{{ site.description | escape }}{% endif %}" />
   <meta property="twitter:image" content="{{ page.social_image | default: page.image | default: site.logo | absolute_url }}" />
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
-  <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
+  <link rel="preload" href="{{ '/assets/css/main.min.css' | relative_url }}" as="style" />
   {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %}
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
@@ -53,7 +53,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.min.css' | relative_url }}" />
   {% seo %}
   {% feed_meta %}
   <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" />
@@ -76,7 +76,7 @@
 
   {% include footer.html %}
 
-  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/main.min.js' | relative_url }}" defer></script>
   <button class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
   </button>

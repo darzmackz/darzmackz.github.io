@@ -47,14 +47,18 @@
   }
 
   var ticking = false;
+  var scrollVisible = false;
   function updateScrollUI() {
     ticking = false;
     var total = document.documentElement.scrollHeight - window.innerHeight;
     var progress = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0;
-    progressBar.style.width = progress + '%';
+    progressBar.style.transform = 'scaleX(' + (progress / 100) + ')';
 
     if (scrollBtn) {
-      if (window.scrollY > 240) {
+      var shouldShow = window.scrollY > 240;
+      if (shouldShow === scrollVisible) return;
+      scrollVisible = shouldShow;
+      if (shouldShow) {
         scrollBtn.classList.add('visible');
       } else {
         scrollBtn.classList.remove('visible');
