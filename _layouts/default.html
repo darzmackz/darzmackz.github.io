@@ -61,10 +61,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}" />
   {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %}
   <meta name="google-adsense-account" content="{{ site.google_adsense_publisher_id }}" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense_publisher_id }}" crossorigin="anonymous"></script>
   {% endif %}
 </head>
-<body>
+<body{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %} data-adsense-client="{{ site.google_adsense_publisher_id }}"{% endif %}>
   <a href="#main" class="skip-link">Skip to main content</a>
 
   {% include header.html %}

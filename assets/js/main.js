@@ -77,4 +77,35 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  var adsClient = document.body.getAttribute('data-adsense-client');
+  if (adsClient) {
+    var adsLoaded = false;
+
+    function loadAdsense() {
+      if (adsLoaded) return;
+      adsLoaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsClient);
+      script.crossOrigin = 'anonymous';
+      document.head.appendChild(script);
+    }
+
+    function scheduleAdsense() {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadAdsense, { timeout: 4000 });
+      } else {
+        window.setTimeout(loadAdsense, 2500);
+      }
+    }
+
+    window.addEventListener('load', function () {
+      window.setTimeout(scheduleAdsense, 1200);
+    }, { once: true });
+
+    ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+      window.addEventListener(eventName, loadAdsense, { once: true, passive: true });
+    });
+  }
 })();
