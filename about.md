@@ -31,6 +31,7 @@ METAXENOPY is the creator brand I use for lyric videos, karaoke uploads, and mus
 
 <div class="portfolio-card portfolio-card-inline">
   <div class="portfolio-card-body">
+    <p class="text-muted"><span aria-hidden="true">&#127911;</span> Music creator profile</p>
     <p><strong>Channel focus:</strong> OPM lyrics, karaoke-style videos, and selected international tracks.</p>
     <div class="tech-stack">
       <span class="tech-badge">Lyrics</span>

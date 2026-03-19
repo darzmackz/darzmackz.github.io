@@ -18,7 +18,7 @@ permalink: /blog/
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     <div class="post-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-      {% if post.youtube_id %}<span class="youtube-badge">Video</span>{% endif %}
+      {% if post.youtube_id %}<span class="youtube-badge">&#9654; Video</span>{% endif %}
       {% for category in post.categories %}<span class="category">{{ category }}</span>{% endfor %}
       {% for tag in post.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
     </div>

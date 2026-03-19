@@ -1,7 +1,7 @@
 [
   {
     "id": "senior-system-analyst",
-    "icon": "Systems",
+    "icon": "🏨",
     "title": "Senior System Analyst",
     "subtitle": "Crown Regency Hotels and Resorts, Cebu City (February 2023 to Present)",
     "description": "Supports database operations, system troubleshooting, infrastructure maintenance, and day-to-day technical reliability for hotel operations.",
@@ -17,7 +17,7 @@
   },
   {
     "id": "nextcloud-deployment",
-    "icon": "Cloud",
+    "icon": "☁️",
     "title": "Nextcloud Server Deployment",
     "subtitle": "Crown Regency Hotels and Resorts",
     "description": "Planned and deployed a self-hosted Nextcloud environment for secure internal file storage and collaboration.",
@@ -33,7 +33,7 @@
   },
   {
     "id": "system-analyst-administrator",
-    "icon": "Support",
+    "icon": "💻",
     "title": "System Analyst / Administrator",
     "subtitle": "Just Click Integrated Solution, Cebu City (December 2017 to February 2023)",
     "description": "Handled migrations, workstation support, server installation, deployments, and on-site troubleshooting for business clients.",
@@ -49,7 +49,7 @@
   },
   {
     "id": "youtube-metaxenopy",
-    "icon": "Video",
+    "icon": "🎤",
     "title": "METAXENOPY YouTube Channel",
     "subtitle": "Lyrics and karaoke creator brand",
     "description": "Publishes lyric videos, karaoke uploads, and music-focused content for Filipino and international audiences.",
@@ -65,7 +65,7 @@
   },
   {
     "id": "personal-blog-site",
-    "icon": "Web",
+    "icon": "🌐",
     "title": "Personal Website",
     "subtitle": "Jekyll site on GitHub Pages",
     "description": "A lightweight Jekyll site that combines creator information, blog content, and portfolio pages in one maintained public website.",

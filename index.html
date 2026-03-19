@@ -36,28 +36,28 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
 
   <div class="cards-grid">
     <div class="card">
-      <div class="card-icon">Lyrics</div>
+      <div class="card-icon" aria-hidden="true">&#127926;</div>
       <h3>Lyrics and Karaoke Features</h3>
       <p>Posts around OPM, sing-along content, and music moments connected to the METAXENOPY YouTube channel.</p>
       <a class="card-link" href="{{ '/blog/' | relative_url }}">Explore posts &rarr;</a>
     </div>
 
     <div class="card">
-      <div class="card-icon">Tech</div>
+      <div class="card-icon" aria-hidden="true">&#128187;</div>
       <h3>Professional Background</h3>
       <p>Learn about KENJI's work in system analysis, server administration, troubleshooting, and production support.</p>
       <a class="card-link" href="{{ '/portfolio/' | relative_url }}">View portfolio &rarr;</a>
     </div>
 
     <div class="card">
-      <div class="card-icon">About</div>
+      <div class="card-icon" aria-hidden="true">&#128100;</div>
       <h3>Creator Profile</h3>
       <p>Get the full story behind the site, the channel, and the person publishing the content.</p>
       <a class="card-link" href="{{ '/about/' | relative_url }}">Read the profile &rarr;</a>
     </div>
 
     <div class="card">
-      <div class="card-icon">Video</div>
+      <div class="card-icon" aria-hidden="true">&#127909;</div>
       <h3>METAXENOPY on YouTube</h3>
       <p>Watch karaoke and lyric videos directly on YouTube and keep up with new uploads.</p>
       <a class="card-link" href="https://www.youtube.com/@metaxenopy?sub_confirmation=1" target="_blank" rel="noopener">Visit the channel &rarr;</a>
@@ -98,7 +98,7 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <div class="post-meta">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-        {% if post.youtube_id %}<span class="youtube-badge">Video</span>{% endif %}
+        {% if post.youtube_id %}<span class="youtube-badge">&#9654; Video</span>{% endif %}
         {% for tag in post.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
       </div>
       {% if post.excerpt %}
