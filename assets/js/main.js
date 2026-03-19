@@ -1,8 +1,27 @@
-// Mobile navigation toggle
 (function () {
+  var html = document.documentElement;
+
+  function updateThemeToggle(btn) {
+    if (!btn) return;
+    var theme = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = theme === 'dark' ? 'light' : 'dark';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+    btn.setAttribute('title', 'Switch to ' + next + ' mode');
+  }
+
+  var themeBtn = document.querySelector('.dark-mode-toggle');
+  if (themeBtn) {
+    updateThemeToggle(themeBtn);
+    themeBtn.addEventListener('click', function () {
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      updateThemeToggle(themeBtn);
+    });
+  }
+
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.site-nav');
-
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
       var expanded = this.getAttribute('aria-expanded') === 'true';
@@ -10,7 +29,6 @@
       nav.classList.toggle('open');
     });
 
-    // Close nav when a link is clicked
     nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         nav.classList.remove('open');
@@ -18,74 +36,45 @@
       });
     });
   }
-})();
 
-// Dark mode toggle
-(function () {
-  var STORAGE_KEY = 'theme';
-  var html = document.documentElement;
-
-  function applyTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+  var scrollBtn = document.querySelector('.scroll-to-top');
+  var progressBar = document.querySelector('.reading-progress');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    progressBar.setAttribute('aria-hidden', 'true');
+    document.body.prepend(progressBar);
   }
 
-  // Load saved preference, otherwise respect system preference
-  var saved;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  var ticking = false;
+  function updateScrollUI() {
+    ticking = false;
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0;
+    progressBar.style.width = progress + '%';
 
-  if (saved === 'dark' || saved === 'light') {
-    applyTheme(saved);
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    applyTheme('dark');
-  }
-
-  var btn = document.querySelector('.dark-mode-toggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      var current = html.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  }
-})();
-
-// Scroll-to-top button
-(function () {
-  var btn = document.querySelector('.scroll-to-top');
-  if (!btn) return;
-
-  function onScroll() {
-    if (window.scrollY > 200) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
+    if (scrollBtn) {
+      if (window.scrollY > 240) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
     }
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  // Check initial scroll position in case page loads already scrolled
-  onScroll();
-
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-
-// Reading progress bar (shown only on post pages)
-(function () {
-  var bar = document.createElement('div');
-  bar.className = 'reading-progress';
-  document.body.prepend(bar);
-
-  var content = document.querySelector('.post-content') || document.querySelector('.page-content') || document.querySelector('.site-main');
-  if (!content) return;
-
-  function updateProgress() {
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-    var progress = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0;
-    bar.style.width = progress + '%';
+  function requestScrollUpdate() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateScrollUI);
   }
 
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+  window.addEventListener('resize', requestScrollUpdate, { passive: true });
+  updateScrollUI();
+
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 })();
