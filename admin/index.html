@@ -24,8 +24,12 @@ sitemap: false
     <div class="layout">
       <header class="top">
         <div class="brand"><span>&#128737;&#65039;</span><span>Admin</span><span class="sub">METAXENOPY.TY</span></div>
-        <div class="sp"></div>
-        <div class="nav">
+        <button class="nav-toggle" id="admin-nav-toggle" type="button" aria-expanded="false" aria-controls="admin-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="admin-nav" aria-label="Admin navigation">
           <button class="btn g sm" id="nav-dashboard" type="button" data-action="show-section" data-section="dashboard">Dashboard</button>
           <button class="btn g sm" id="nav-posts" type="button" data-action="show-section" data-section="posts">Posts</button>
           <button class="btn g sm" id="nav-portfolio" type="button" data-action="show-section" data-section="portfolio">Portfolio</button>
@@ -33,7 +37,7 @@ sitemap: false
           <button class="btn g sm" id="nav-media" type="button" data-action="show-section" data-section="media">Media</button>
           <button class="btn g sm" id="nav-settings" type="button" data-action="show-section" data-section="settings">Settings</button>
           <button class="btn g sm" type="button" data-action="logout">Logout</button>
-        </div>
+        </nav>
       </header>
       <main class="main">
         <section id="sec-dashboard" class="hidden stack">
