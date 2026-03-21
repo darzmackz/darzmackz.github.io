@@ -1098,8 +1098,9 @@ button,
 .color-value{
   display:inline-flex;
   align-items:center;
-  min-height:48px;
-  flex:1 1 auto;
+  min-height:52px;
+  flex:0 0 auto;
+  min-width:108px;
   padding:0 14px;
   border-radius:12px;
   background:rgba(30,41,59,.92);
@@ -1194,10 +1195,10 @@ button,
   justify-content:flex-start;
   gap:12px;
   padding:12px;
-  min-height:76px;
+  min-height:unset;
   width:100%;
   border-radius:12px;
-  background:rgba(15,23,42,.88);
+  background:rgba(15,23,42,.86);
   border:1px solid rgba(71,85,105,.8);
 }
 
