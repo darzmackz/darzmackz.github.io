@@ -1,14 +1,14 @@
 ---
-layout: "post"
+layout: post
 title: "Twenty One Pilots - The Craving // Tear In My Heart (The Clancy World Tour Studio Version)"
 date: "2026-03-02 12:00:00 +0800"
-categories: ["music", "youtube", "lyrics", "karaoke"]
-tags: ["twenty", "one", "pilots", "the", "craving", "tear", "heart", "clancy", "world", "tour"]
+categories: [music, youtube, lyrics, karaoke]
+tags: [twenty, one, pilots, the, craving, tear, heart, clancy, world, tour]
 youtube_id: "3grP38qfRc8"
 description: "Listen to Twenty One Pilots - The Craving // Tear In My Heart (The Clancy World Tour Studio Version), then jump between the lyrics and karaoke versions in one organized post."
 seo_title: "Twenty One Pilots - The Craving // Tear In My Heart (The Clancy World Tour Studio Version) | METAXENOPY.TY"
-published: false
-status: "draft"
+status: "published"
+published: true
 ---
 
 This post collects the available Twenty One Pilots - The Craving // Tear In My Heart (The Clancy World Tour Studio Version) uploads from the METAXENOPY channel into one cleaner reading and listening page.
