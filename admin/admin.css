@@ -470,7 +470,7 @@ button,
   padding:0;
   border:none;
   background:transparent;
-  color:var(--text);
+  color:#e5eefc;
   outline:none;
 }
 
@@ -478,6 +478,17 @@ button,
   appearance:none;
   cursor:pointer;
   color-scheme:dark;
+}
+
+.field-shell select option{
+  background:#0f172a;
+  color:#e2e8f0;
+}
+
+.field-shell select option:checked,
+.field-shell select option:hover{
+  background:#2563eb;
+  color:#ffffff;
 }
 
 .field-shell input::placeholder{
@@ -545,6 +556,11 @@ button,
   background:var(--bg);
   color:var(--text);
   font:inherit;
+}
+
+.fg select option{
+  background:#0f172a;
+  color:#e2e8f0;
 }
 
 .fg textarea{
@@ -677,6 +693,37 @@ button,
 .posts .pill{
   background:rgba(51,65,85,.88);
   border-color:rgba(96,165,250,.18);
+}
+
+.posts-toolbar{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.posts-pagination{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.posts-pagination .btn{
+  min-width:44px;
+  min-height:40px;
+  justify-content:center;
+}
+
+.posts-pagination .btn[disabled]{
+  opacity:.45;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.posts-pagination .pager-current{
+  background:rgba(59,130,246,.18);
+  border-color:rgba(96,165,250,.38);
+  color:#dbeafe;
 }
 
 .pf-icon{
@@ -1211,6 +1258,12 @@ button,
   .filter-bar{
     grid-template-columns:minmax(0,1.4fr) minmax(220px,.7fr) auto;
     align-items:center;
+  }
+
+  .posts-toolbar{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
   }
 
   .settings-grid{
