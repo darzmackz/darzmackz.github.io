@@ -1,80 +1,50 @@
 ---
-layout: "post"
+layout: post
 title: "UA PRESENTS | Strings for Strength"
 date: "2025-11-28 12:00:00 +0800"
-categories: ["music", "youtube"]
-tags: ["presents", "strings", "for", "strength", "video", "metaxenopy"]
+categories: [music, live-session, charity, performance, youtube]
+tags: [strings-for-strength, ua-sessions, underground-apparel, dionela, midnasty, john-roa, project-romeo, live-music, charity-event]
 youtube_id: "HNsHpWkmBn0"
-description: "A structured draft post for UA PRESENTS | Strings for Strength based on the available YouTube upload."
+description: "Watch UA PRESENTS | Strings for Strength, a live session featuring Dionela, Midnasty, John Roa, and Project Romeo—all for a meaningful cause supporting children battling cancer."
 seo_title: "UA PRESENTS | Strings for Strength | METAXENOPY.TY"
-published: false
 status: "draft"
+published: false
 ---
 
-## SOURCE_DATA
+# UA PRESENTS | Strings for Strength
 
-- Final post title: UA PRESENTS | Strings for Strength
-- Channel: METAXENOPY
-- Blog post date: 2025-11-28
-- Available video types: video
+Music becomes even more powerful when it carries a purpose—and *Strings for Strength* is a perfect example of that. This live session brings together a group of talented artists for a performance that goes beyond entertainment, creating something meaningful for a greater cause.
 
-### Video Links
+Featuring performances from **Dionela**, **Midnasty**, **John Roa**, and **Project Romeo**, this session highlights not only musical talent but also the impact of coming together to support others.
 
-- UA PRESENTS | Strings for Strength: https://www.youtube.com/watch?v=HNsHpWkmBn0
+---
 
-### Source Description Snippets
+## Watch the Live Session
 
-- UA PRESENTS | Strings for Strength: UA Live session with Dionela | Midnasty | John Roa | Project Romeo. All proceeds will go to children battling with Cancer. CTTO: UA (Underground Apparel) https://www.facebook.com/UAfocalshopofficial #uasessions #Stringsforstrength
+This special UA live session delivers an intimate and engaging performance, capturing the energy of live music while staying grounded in its purpose—raising support for children battling cancer.
 
-## AI_DRAFT_PROMPT
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/HNsHpWkmBn0" frameborder="0" allowfullscreen></iframe>
 
-```text
-Create a unique blog post in Markdown.
+---
 
-Requirements:
-- Keep the title exactly: "UA PRESENTS | Strings for Strength"
-- Use the blog post date exactly: 2025-11-28
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Focus naturally on the single available video
+## Music with a Purpose
 
-Available source data:
-- Final post title: UA PRESENTS | Strings for Strength
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2025-11-28
-- Available video types: video
+What makes *Strings for Strength* stand out is its mission. All proceeds from this project go toward helping children fighting cancer, turning every performance into something that truly matters beyond the stage.
 
-Video sources:
-- UA PRESENTS | Strings for Strength => https://www.youtube.com/watch?v=HNsHpWkmBn0
+Organized by **UA (Underground Apparel)**, the session reflects how music and community can come together to create real impact.
 
-Source description snippets:
-- UA PRESENTS | Strings for Strength: UA Live session with Dionela | Midnasty | John Roa | Project Romeo. All proceeds will go to children battling with Cancer. CTTO: UA (Underground Apparel) https://www.facebook.com/UAfocalshopofficial #uasessions #Stringsforstrength
+---
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+## Final Thoughts
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+*Strings for Strength* is more than just a live session—it’s a reminder of how music can be used to inspire, support, and bring people together for a meaningful cause.
 
-## CONTENT
+---
 
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+## Follow METAXENOPY on YouTube
+
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
+
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
