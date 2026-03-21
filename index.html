@@ -8,7 +8,7 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
   <div class="container">
     <div class="hero-avatar-wrap">
       <img
-        src="{{ '/assets/images/kenji-avatar-128.png' | relative_url }}"
+        src="{{ site.profile_image | default: '/assets/images/kenji-avatar-128.png' | relative_url }}"
         alt="KENJI profile photo"
         class="hero-avatar"
         width="120"
@@ -27,6 +27,18 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">About KENJI</a>
       <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">Read the Blog</a>
     </div>
+    {% if site.hero_image and site.hero_image != "" %}
+    <div class="hero-feature-wrap">
+      <img
+        src="{{ site.hero_image | relative_url }}"
+        alt="{{ site.title }} featured hero image"
+        class="hero-feature-image"
+        loading="eager"
+        decoding="async"
+        data-image-error="hide"
+      />
+    </div>
+    {% endif %}
   </div>
 </section>
 

@@ -1577,3 +1577,4 @@ ul, ol {
     font-size: 1.8rem;
   }
 }
+ .hero-feature-wrap{margin:var(--spacing-xl) auto 0;max-width:760px}.hero-feature-image{display:block;width:100%;border-radius:calc(var(--border-radius-lg) + 4px);border:1px solid rgba(255,255,255,0.12);box-shadow:var(--shadow-lg);object-fit:cover;max-height:420px;background:rgba(255,255,255,0.06)}@media (max-width:768px){.hero-feature-wrap{margin-top:var(--spacing-lg)}.hero-feature-image{max-height:280px}}@media (max-width:480px){.hero-feature-image{max-height:220px}}

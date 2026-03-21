@@ -15,15 +15,24 @@ sitemap: false
   <div id="auth-view">
     <div class="auth-wrap">
       <div class="auth-card">
-        <div class="auth-logo"><span class="icon">&#128737;&#65039;</span><h1>Admin Panel</h1><p class="muted">METAXENOPY.TY</p></div>
+        <div class="auth-logo">
+          <span class="icon">&#128737;&#65039;</span>
+          <h1>Admin Panel</h1>
+          <p class="muted">METAXENOPY.TY</p>
+        </div>
         <div id="auth-content"></div>
       </div>
     </div>
   </div>
+
   <div id="admin-view" class="hidden">
     <div class="layout">
       <header class="top">
-        <div class="brand"><span>&#128737;&#65039;</span><span>Admin</span><span class="sub">METAXENOPY.TY</span></div>
+        <div class="brand">
+          <span aria-hidden="true">&#128737;&#65039;</span>
+          <span>Admin</span>
+          <span class="sub">METAXENOPY.TY</span>
+        </div>
         <button class="nav-toggle" id="admin-nav-toggle" type="button" aria-expanded="false" aria-controls="admin-nav" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -39,37 +48,113 @@ sitemap: false
           <button class="btn g sm" type="button" data-action="logout">Logout</button>
         </nav>
       </header>
+
       <main class="main">
         <section id="sec-dashboard" class="hidden stack">
-          <div class="header"><h2>Dashboard</h2><div class="row"><button class="btn" type="button" data-action="refresh-dashboard">Refresh</button><button class="btn p" type="button" data-action="export-backup" data-export-type="full">Export Full Backup</button></div></div>
+          <div class="header">
+            <div>
+              <h2>Dashboard</h2>
+              <p class="muted section-copy">A quick operational view of the site, content quality, and publishing workflow.</p>
+            </div>
+            <div class="row">
+              <button class="btn" type="button" data-action="refresh-dashboard">Refresh</button>
+              <button class="btn p" type="button" data-action="export-backup" data-export-type="full">Export Full Backup</button>
+            </div>
+          </div>
           <div id="dashboard-alert"></div>
           <div id="dash-stats" class="grid stats"></div>
           <div class="grid g2">
-            <div class="card"><h3>Content Health</h3><div id="dash-health" class="list section-offset-sm"></div></div>
-            <div class="card"><h3>Analytics Snapshot</h3><div id="dash-analytics" class="list section-offset-sm"></div></div>
+            <div class="card">
+              <h3>Content Health</h3>
+              <div id="dash-health" class="list section-offset-sm"></div>
+            </div>
+            <div class="card">
+              <h3>Analytics Snapshot</h3>
+              <div id="dash-analytics" class="list section-offset-sm"></div>
+            </div>
           </div>
           <div class="grid g3">
-            <div class="card"><h3>Backups</h3><div class="stack section-offset-sm"><button class="btn" type="button" data-action="export-backup" data-export-type="posts">Export Posts JSON</button><button class="btn" type="button" data-action="export-backup" data-export-type="pages">Export Pages JSON</button><button class="btn" type="button" data-action="export-backup" data-export-type="portfolio">Export Portfolio JSON</button><button class="btn" type="button" data-action="export-backup" data-export-type="settings">Export Site Settings</button></div></div>
-            <div class="card"><h3>Publishing Status</h3><div id="dash-summary" class="list section-offset-sm"></div></div>
-            <div class="card"><h3>Quick Actions</h3><div class="stack section-offset-sm"><button class="btn p" type="button" data-action="open-post-editor">New Post</button><button class="btn" type="button" data-action="show-section" data-section="media">Open Media Library</button><button class="btn" type="button" data-action="show-section" data-section="settings">Open Integrations</button></div></div>
+            <div class="card">
+              <h3>Backups</h3>
+              <div class="stack section-offset-sm">
+                <button class="btn" type="button" data-action="export-backup" data-export-type="posts">Export Posts JSON</button>
+                <button class="btn" type="button" data-action="export-backup" data-export-type="pages">Export Pages JSON</button>
+                <button class="btn" type="button" data-action="export-backup" data-export-type="portfolio">Export Portfolio JSON</button>
+                <button class="btn" type="button" data-action="export-backup" data-export-type="settings">Export Site Settings</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Publishing Status</h3>
+              <div id="dash-summary" class="list section-offset-sm"></div>
+            </div>
+            <div class="card">
+              <h3>Quick Actions</h3>
+              <div class="stack section-offset-sm">
+                <button class="btn p" type="button" data-action="open-post-editor">New Post</button>
+                <button class="btn" type="button" data-action="show-section" data-section="media">Open Media Library</button>
+                <button class="btn" type="button" data-action="show-section" data-section="settings">Open Integrations</button>
+              </div>
+            </div>
           </div>
         </section>
+
         <section id="sec-posts" class="hidden stack">
-          <div class="header"><h2>Posts</h2><div class="row"><input id="post-search" placeholder="Search posts"><select id="post-filter"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Draft</option><option value="scheduled">Scheduled</option></select><button class="btn p" type="button" data-action="open-post-editor">+ New Post</button></div></div>
-          <div id="posts-wrap"><div class="loading"><span class="spin"></span> Loading posts...</div></div>
+          <div class="header">
+            <div>
+              <h2>Posts</h2>
+              <p class="muted section-copy">Manage drafts, scheduled posts, and published content in one place.</p>
+            </div>
+            <div class="row">
+              <input id="post-search" placeholder="Search posts">
+              <select id="post-filter">
+                <option value="all">All statuses</option>
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="scheduled">Scheduled</option>
+              </select>
+              <button class="btn p" type="button" data-action="open-post-editor">+ New Post</button>
+            </div>
+          </div>
+          <div id="posts-wrap">
+            <div class="loading"><span class="spin"></span> Loading posts...</div>
+          </div>
         </section>
+
         <section id="sec-post-editor" class="hidden stack">
-          <div class="header"><button class="btn g sm" type="button" data-action="show-section" data-section="posts">&larr; Back</button><h2 id="post-editor-title">New Post</h2><div class="row"><button class="btn s" id="save-post-btn" type="button" data-action="save-post">Save Post</button></div></div>
+          <div class="header">
+            <button class="btn g sm" type="button" data-action="show-section" data-section="posts">&larr; Back</button>
+            <div>
+              <h2 id="post-editor-title">New Post</h2>
+              <p class="muted section-copy">Write, preview, optimize, and publish blog content with the full post workflow.</p>
+            </div>
+            <div class="row">
+              <button class="btn s" id="save-post-btn" type="button" data-action="save-post">Save Post</button>
+            </div>
+          </div>
           <div id="post-editor-alert"></div>
           <div class="grid g2">
             <div class="stack">
               <div class="card">
                 <div id="post-template-card">
-                <h3>Workflow</h3>
-                <div class="fg"><label>Status</label><select id="pe-status"><option value="published">Published</option><option value="draft">Draft</option><option value="scheduled">Scheduled</option></select><p class="muted">Scheduled posts use a future date.</p></div>
-                <div class="grid template-grid"><button class="btn" type="button" data-action="apply-template" data-template="blank">Start from Blank</button><button class="btn" type="button" data-action="apply-template" data-template="lyrics">Lyrics Template</button><button class="btn" type="button" data-action="apply-template" data-template="music">Music Template</button><button class="btn" type="button" data-action="apply-template" data-template="tech">Tech Template</button></div>
+                  <h3>Workflow</h3>
+                  <div class="fg">
+                    <label>Status</label>
+                    <select id="pe-status">
+                      <option value="published">Published</option>
+                      <option value="draft">Draft</option>
+                      <option value="scheduled">Scheduled</option>
+                    </select>
+                    <p class="muted">Scheduled posts use a future date.</p>
+                  </div>
+                  <div class="grid template-grid">
+                    <button class="btn" type="button" data-action="apply-template" data-template="blank">Start from Blank</button>
+                    <button class="btn" type="button" data-action="apply-template" data-template="lyrics">Lyrics Template</button>
+                    <button class="btn" type="button" data-action="apply-template" data-template="music">Music Template</button>
+                    <button class="btn" type="button" data-action="apply-template" data-template="tech">Tech Template</button>
+                  </div>
                 </div>
               </div>
+
               <div class="card">
                 <h3>Post Details</h3>
                 <div class="fg"><label>Title *</label><input id="pe-title"></div>
@@ -80,6 +165,7 @@ sitemap: false
                 <div class="fg"><label>Tags</label><input id="pe-tags" placeholder="lyrics, opm"></div>
                 <div class="fg"><label>YouTube Video ID</label><input id="pe-youtube"></div>
               </div>
+
               <div class="card">
                 <h3>SEO Fields</h3>
                 <div class="fg"><label>Meta Description / Excerpt</label><textarea id="pe-desc"></textarea></div>
@@ -87,31 +173,95 @@ sitemap: false
                 <div class="fg"><label>Social Image</label><input id="pe-social" placeholder="/assets/images/example.png"></div>
                 <div class="fg"><label>Canonical URL</label><input id="pe-canonical" placeholder="https://example.com/post-url"></div>
               </div>
-              <div class="card"><h3>Publish Checklist</h3><div id="post-checks" class="checks section-offset-sm"></div></div>
-              <div class="card"><h3>Quick Media Upload</h3><div class="fg"><label>Image Upload</label><input type="file" id="pe-media" accept="image/*"></div><button class="btn" type="button" data-action="upload-editor-media">Upload and Insert Image</button></div>
+
+              <div class="card">
+                <h3>Publish Checklist</h3>
+                <div id="post-checks" class="checks section-offset-sm"></div>
+              </div>
+
+              <div class="card">
+                <h3>Quick Media Upload</h3>
+                <div class="fg">
+                  <label>Image Upload</label>
+                  <input type="file" id="pe-media" accept="image/*">
+                </div>
+                <button class="btn" type="button" data-action="upload-editor-media">Upload and Insert Image</button>
+              </div>
             </div>
+
             <div class="stack">
               <div class="card">
                 <h3>Content</h3>
-                <div class="toolbar"><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="**" data-after="**" data-placeholder="bold text"><b>B</b></button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="*" data-after="*" data-placeholder="italic text"><i>I</i></button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="## " data-placeholder="Heading">H2</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="### " data-placeholder="Heading">H3</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="[" data-after="](https://)" data-placeholder="link text">Link</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="![alt](" data-after=")" data-placeholder="/assets/images/example.png">Image</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="- " data-placeholder="item">List</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="> " data-placeholder="quote">Quote</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="`" data-after="`" data-placeholder="code">Code</button><button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="block" data-before="```&#10;" data-after="&#10;```" data-placeholder="code here">Code Block</button></div>
+                <div class="toolbar">
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="**" data-after="**" data-placeholder="bold text"><b>B</b></button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="*" data-after="*" data-placeholder="italic text"><i>I</i></button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="## " data-placeholder="Heading">H2</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="### " data-placeholder="Heading">H3</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="[" data-after="](https://)" data-placeholder="link text">Link</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="![alt](" data-after=")" data-placeholder="/assets/images/example.png">Image</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="- " data-placeholder="item">List</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="line" data-before="> " data-placeholder="quote">Quote</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="wrap" data-before="`" data-after="`" data-placeholder="code">Code</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="post" data-command="block" data-before="```&#10;" data-after="&#10;```" data-placeholder="code here">Code Block</button>
+                </div>
                 <textarea id="pe-content" class="editor"></textarea>
               </div>
-              <div class="preview"><h3>Live Preview</h3><div id="post-preview" class="surface"></div></div>
+
+              <div class="preview">
+                <h3>Live Preview</h3>
+                <div id="post-preview" class="surface"></div>
+              </div>
             </div>
           </div>
         </section>
+
         <section id="sec-portfolio" class="hidden stack">
-          <div class="header"><h2>Portfolio</h2><button class="btn p" type="button" data-action="open-portfolio-editor">+ Add Item</button></div>
+          <div class="header">
+            <div>
+              <h2>Portfolio</h2>
+              <p class="muted section-copy">Present work samples, technical capabilities, and featured projects in a cleaner grid.</p>
+            </div>
+            <button class="btn p" type="button" data-action="open-portfolio-editor">+ Add Item</button>
+          </div>
           <div id="portfolio-alert"></div>
-          <div id="portfolio-wrap"><div class="loading"><span class="spin"></span> Loading portfolio...</div></div>
+          <div id="portfolio-wrap">
+            <div class="loading"><span class="spin"></span> Loading portfolio...</div>
+          </div>
         </section>
+
         <section id="sec-portfolio-editor" class="hidden stack">
-          <div class="header"><button class="btn g sm" type="button" data-action="show-section" data-section="portfolio">&larr; Back</button><h2 id="pf-editor-title">New Portfolio Item</h2><button class="btn s" id="save-pf-btn" type="button" data-action="save-portfolio-item">Save Item</button></div>
+          <div class="header">
+            <button class="btn g sm" type="button" data-action="show-section" data-section="portfolio">&larr; Back</button>
+            <div>
+              <h2 id="pf-editor-title">New Portfolio Item</h2>
+              <p class="muted section-copy">Control how portfolio cards appear on the frontend.</p>
+            </div>
+            <button class="btn s" id="save-pf-btn" type="button" data-action="save-portfolio-item">Save Item</button>
+          </div>
           <div id="pf-editor-alert"></div>
-          <div class="card card-narrow"><div class="fg"><label>Icon / Emoji *</label><input id="pf-icon" maxlength="8" placeholder="e.g. &#127908;"></div><div class="fg"><label>Title *</label><input id="pf-title"></div><div class="fg"><label>Subtitle</label><input id="pf-subtitle"></div><div class="fg"><label>Description</label><textarea id="pf-description"></textarea></div><div class="fg"><label>Tech / Skills Badges</label><div class="tags" id="pf-tags-box"><input id="pf-tags" placeholder="Type and press Enter or comma"></div></div><div class="fg"><label>Button Link</label><input id="pf-link"></div><div class="fg"><label>Button Label</label><input id="pf-link-text"></div></div>
+          <div class="card card-narrow">
+            <div class="fg"><label>Icon / Emoji *</label><input id="pf-icon" maxlength="8" placeholder="e.g. &#127908;"></div>
+            <div class="fg"><label>Title *</label><input id="pf-title"></div>
+            <div class="fg"><label>Subtitle</label><input id="pf-subtitle"></div>
+            <div class="fg"><label>Description</label><textarea id="pf-description"></textarea></div>
+            <div class="fg">
+              <label>Tech / Skills Badges</label>
+              <div class="tags" id="pf-tags-box">
+                <input id="pf-tags" placeholder="Type and press Enter or comma">
+              </div>
+            </div>
+            <div class="fg"><label>Button Link</label><input id="pf-link"></div>
+            <div class="fg"><label>Button Label</label><input id="pf-link-text"></div>
+          </div>
         </section>
+
         <section id="sec-pages" class="hidden stack">
-          <div class="header"><h2>Pages</h2></div>
+          <div class="header">
+            <div>
+              <h2>Pages</h2>
+              <p class="muted section-copy">Update static pages, SEO metadata, and content structure.</p>
+            </div>
+          </div>
           <div class="pages">
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="home"><div class="page-head"><span class="icon">&#127968;</span><span class="pill">Core Page</span></div><h3>Home</h3><p class="muted">Homepage hero, featured sections, and SEO content.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="about"><div class="page-head"><span class="icon">&#128100;</span><span class="pill">Profile</span></div><h3>About</h3><p class="muted">Personal profile, biography, background, and brand story.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
@@ -120,45 +270,176 @@ sitemap: false
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="disclosure"><div class="page-head"><span class="icon">&#128196;</span><span class="pill">Policy</span></div><h3>Disclosure</h3><p class="muted">Advertising and disclosure information for transparency.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
           </div>
         </section>
+
         <section id="sec-page-editor" class="hidden stack">
-          <div class="header"><button class="btn g sm" type="button" data-action="show-section" data-section="pages">&larr; Back</button><h2 id="page-editor-title">Edit Page</h2><div class="row"><button class="btn s" id="save-page-btn" type="button" data-action="save-page">Save Page</button></div></div>
+          <div class="header">
+            <button class="btn g sm" type="button" data-action="show-section" data-section="pages">&larr; Back</button>
+            <div>
+              <h2 id="page-editor-title">Edit Page</h2>
+              <p class="muted section-copy">Edit copy, SEO fields, and validate important static pages before publishing.</p>
+            </div>
+            <div class="row">
+              <button class="btn s" id="save-page-btn" type="button" data-action="save-page">Save Page</button>
+            </div>
+          </div>
           <div id="page-editor-alert"></div>
           <div class="grid g2">
             <div class="stack">
-              <div class="card"><h3>Page SEO</h3><div class="fg"><label>Title</label><input id="pg-title"></div><div class="fg"><label>Description</label><textarea id="pg-desc"></textarea></div><div class="fg"><label>SEO Title</label><input id="pg-seo"></div><div class="fg"><label>Social Image</label><input id="pg-social"></div><div class="fg"><label>Canonical URL</label><input id="pg-canonical"></div><div class="fg"><label>Permalink</label><input id="pg-permalink"></div><div class="fg"><label><input type="checkbox" id="pg-noindex"> Noindex page</label></div></div>
-              <div class="card"><h3>Checklist</h3><div id="page-checks" class="checks section-offset-sm"></div></div>
+              <div class="card">
+                <h3>Page SEO</h3>
+                <div class="fg"><label>Title</label><input id="pg-title"></div>
+                <div class="fg"><label>Description</label><textarea id="pg-desc"></textarea></div>
+                <div class="fg"><label>SEO Title</label><input id="pg-seo"></div>
+                <div class="fg"><label>Social Image</label><input id="pg-social"></div>
+                <div class="fg"><label>Canonical URL</label><input id="pg-canonical"></div>
+                <div class="fg"><label>Permalink</label><input id="pg-permalink"></div>
+                <div class="fg fg-checkbox"><label><input type="checkbox" id="pg-noindex"> Noindex page</label></div>
+              </div>
+              <div class="card">
+                <h3>Checklist</h3>
+                <div id="page-checks" class="checks section-offset-sm"></div>
+              </div>
             </div>
             <div class="stack">
-              <div class="card"><h3>Content</h3><div class="toolbar"><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="**" data-after="**" data-placeholder="bold text"><b>B</b></button><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="*" data-after="*" data-placeholder="italic text"><i>I</i></button><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="line" data-before="## " data-placeholder="Heading">H2</button><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="line" data-before="### " data-placeholder="Heading">H3</button><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="[" data-after="](https://)" data-placeholder="link text">Link</button><button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="![alt](" data-after=")" data-placeholder="/assets/images/example.png">Image</button></div><textarea id="pg-content" class="editor"></textarea></div>
-              <div class="preview"><h3>Live Preview</h3><div id="page-preview" class="surface"></div></div>
+              <div class="card">
+                <h3>Content</h3>
+                <div class="toolbar">
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="**" data-after="**" data-placeholder="bold text"><b>B</b></button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="*" data-after="*" data-placeholder="italic text"><i>I</i></button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="line" data-before="## " data-placeholder="Heading">H2</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="line" data-before="### " data-placeholder="Heading">H3</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="[" data-after="](https://)" data-placeholder="link text">Link</button>
+                  <button class="tool" type="button" data-action="editor-command" data-editor="page" data-command="wrap" data-before="![alt](" data-after=")" data-placeholder="/assets/images/example.png">Image</button>
+                </div>
+                <textarea id="pg-content" class="editor"></textarea>
+              </div>
+              <div class="preview">
+                <h3>Live Preview</h3>
+                <div id="page-preview" class="surface"></div>
+              </div>
             </div>
           </div>
         </section>
+
         <section id="sec-media" class="hidden stack">
-          <div class="header"><h2>Media Library</h2><div class="row"><input type="file" id="media-upload" accept="image/*" multiple><button class="btn p" type="button" data-action="upload-media">Upload Images</button><button class="btn" type="button" data-action="load-media">Refresh</button></div></div>
+          <div class="header">
+            <div>
+              <h2>Media Library</h2>
+              <p class="muted section-copy">Upload, copy, and reuse brand and content assets from one gallery.</p>
+            </div>
+            <div class="row">
+              <input type="file" id="media-upload" accept="image/*" multiple>
+              <button class="btn p" type="button" data-action="upload-media">Upload Images</button>
+              <button class="btn" type="button" data-action="load-media">Refresh</button>
+            </div>
+          </div>
           <div id="media-alert"></div>
-          <div class="card"><p class="muted">Images are uploaded to <code>assets/images/</code>. Each item includes copy buttons for Markdown and direct paths.</p></div>
+          <div class="card">
+            <p class="muted">Images are uploaded to <code>assets/images/</code>. Each item includes copy buttons for Markdown and direct paths.</p>
+          </div>
           <div id="media-wrap" class="grid media"></div>
         </section>
+
         <section id="sec-settings" class="hidden stack">
-          <div class="header"><h2>Settings</h2></div>
+          <div class="header">
+            <div>
+              <h2>Settings</h2>
+              <p class="muted section-copy">Manage tokens, integrations, theme assets, and branding used across the site.</p>
+            </div>
+          </div>
           <div id="settings-alert"></div>
           <div class="grid g2">
             <div class="stack">
-              <div class="card"><h3>GitHub Access Token</h3><div class="fg"><label>Personal Access Token</label><input type="password" id="st-token" placeholder="ghp_..."></div><button class="btn p" type="button" data-action="save-token">Save Token</button></div>
-              <div class="card"><h3>Search Console and AdSense</h3><div class="fg"><label>Google Site Verification</label><input id="st-verify"></div><div class="fg"><label>AdSense Publisher ID</label><input id="st-pub"></div><div class="fg"><label>Post Ad Slot ID</label><input id="st-post-slot"></div><div class="fg"><label>Header Ad Slot ID</label><input id="st-head-slot"></div><div class="fg"><label>Footer Ad Slot ID</label><input id="st-foot-slot"></div><button class="btn p" type="button" data-action="save-integrations">Save Integrations</button></div>
-              <div class="card"><h3>robots.txt and ads.txt</h3><div class="fg"><label>robots.txt</label><textarea id="st-robots" class="large"></textarea></div><div class="fg"><label>ads.txt</label><textarea id="st-ads" class="large"></textarea></div><button class="btn p" type="button" data-action="save-text-files">Save robots.txt and ads.txt</button></div>
+              <div class="card">
+                <h3>GitHub Access Token</h3>
+                <div class="fg"><label>Personal Access Token</label><input type="password" id="st-token" placeholder="ghp_..."></div>
+                <button class="btn p" type="button" data-action="save-token">Save Token</button>
+              </div>
+
+              <div class="card">
+                <h3>Search Console and AdSense</h3>
+                <div class="fg"><label>Google Site Verification</label><input id="st-verify"></div>
+                <div class="fg"><label>AdSense Publisher ID</label><input id="st-pub"></div>
+                <div class="fg"><label>Post Ad Slot ID</label><input id="st-post-slot"></div>
+                <div class="fg"><label>Header Ad Slot ID</label><input id="st-head-slot"></div>
+                <div class="fg"><label>Footer Ad Slot ID</label><input id="st-foot-slot"></div>
+                <button class="btn p" type="button" data-action="save-integrations">Save Integrations</button>
+              </div>
+
+              <div class="card">
+                <h3>robots.txt and ads.txt</h3>
+                <div class="fg"><label>robots.txt</label><textarea id="st-robots" class="large"></textarea></div>
+                <div class="fg"><label>ads.txt</label><textarea id="st-ads" class="large"></textarea></div>
+                <button class="btn p" type="button" data-action="save-text-files">Save robots.txt and ads.txt</button>
+              </div>
             </div>
+
             <div class="stack">
-              <div class="card"><h3>Theme and Branding</h3><div class="fg"><label>Logo (.png)</label><input type="file" id="st-logo" accept=".png"></div><button class="btn p" type="button" data-action="upload-logo">Upload Logo</button><div class="fg section-offset-md"><label>Favicon (.ico)</label><input type="file" id="st-favicon" accept=".ico"></div><button class="btn p" type="button" data-action="upload-favicon">Upload Favicon</button><div class="fg section-offset-md"><label>Primary Color</label><div class="row"><input type="color" id="st-color" value="#2563eb" class="color-input"><span id="st-color-text" class="code color-value">#2563eb</span></div></div><button class="btn p" type="button" data-action="update-theme">Update Theme</button></div>
-              <div class="card"><h3>Change Password</h3><div class="fg"><label>Current Password</label><input type="password" id="st-old"></div><div class="fg"><label>New Password</label><input type="password" id="st-new"></div><div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm"></div><button class="btn p" type="button" data-action="change-password">Change Password</button></div>
-              <div class="card"><h3>Danger Zone</h3><p class="muted mb-sm">Remove locally stored admin credentials from this browser.</p><button class="btn d" type="button" data-action="reset-admin">Reset Credentials</button></div>
+              <div class="card">
+                <h3>Theme and Branding</h3>
+                <p class="muted">These assets affect the public-facing site and previews inside the admin panel.</p>
+
+                <div class="brand-preview-grid">
+                  <div class="brand-preview-card">
+                    <span class="brand-preview-label">Logo</span>
+                    <img id="st-logo-preview" class="brand-preview-image brand-preview-image-logo" alt="Current site logo">
+                  </div>
+                  <div class="brand-preview-card">
+                    <span class="brand-preview-label">Favicon</span>
+                    <img id="st-favicon-preview" class="brand-preview-image brand-preview-image-favicon" alt="Current favicon">
+                  </div>
+                  <div class="brand-preview-card">
+                    <span class="brand-preview-label">Profile Picture</span>
+                    <img id="st-profile-preview" class="brand-preview-image brand-preview-image-avatar" alt="Current profile picture">
+                  </div>
+                  <div class="brand-preview-card brand-preview-card-wide">
+                    <span class="brand-preview-label">Hero Image</span>
+                    <img id="st-hero-preview" class="brand-preview-image brand-preview-image-hero" alt="Current hero image">
+                  </div>
+                </div>
+
+                <div class="fg"><label>Logo (.png, .jpg, .webp, .svg)</label><input type="file" id="st-logo" accept=".png,.jpg,.jpeg,.webp,.svg"></div>
+                <button class="btn p" type="button" data-action="upload-logo">Upload Logo</button>
+
+                <div class="fg section-offset-md"><label>Favicon (.ico)</label><input type="file" id="st-favicon" accept=".ico"></div>
+                <button class="btn p" type="button" data-action="upload-favicon">Upload Favicon</button>
+
+                <div class="fg section-offset-md"><label>Profile Picture (.png, .jpg, .webp)</label><input type="file" id="st-profile-image" accept=".png,.jpg,.jpeg,.webp"></div>
+                <button class="btn p" type="button" data-action="upload-profile-image">Upload Profile Picture</button>
+
+                <div class="fg section-offset-md"><label>Hero Image (.png, .jpg, .webp)</label><input type="file" id="st-hero-image" accept=".png,.jpg,.jpeg,.webp"></div>
+                <button class="btn p" type="button" data-action="upload-hero-image">Upload Hero Image</button>
+
+                <div class="fg section-offset-md">
+                  <label>Primary Color</label>
+                  <div class="row">
+                    <input type="color" id="st-color" value="#2563eb" class="color-input">
+                    <span id="st-color-text" class="code color-value">#2563eb</span>
+                  </div>
+                </div>
+                <button class="btn p" type="button" data-action="update-theme">Update Theme</button>
+              </div>
+
+              <div class="card">
+                <h3>Change Password</h3>
+                <div class="fg"><label>Current Password</label><input type="password" id="st-old"></div>
+                <div class="fg"><label>New Password</label><input type="password" id="st-new"></div>
+                <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm"></div>
+                <button class="btn p" type="button" data-action="change-password">Change Password</button>
+              </div>
+
+              <div class="card">
+                <h3>Danger Zone</h3>
+                <p class="muted mb-sm">Remove locally stored admin credentials from this browser.</p>
+                <button class="btn d" type="button" data-action="reset-admin">Reset Credentials</button>
+              </div>
             </div>
           </div>
         </section>
       </main>
     </div>
   </div>
+
   <script src="{{ '/admin/admin.js' | relative_url }}"></script>
 </body>
 </html>
