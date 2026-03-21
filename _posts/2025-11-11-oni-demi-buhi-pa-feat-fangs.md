@@ -1,80 +1,42 @@
 ---
-layout: "post"
+layout: post
 title: "Oni Demi - Buhi Pa (feat. Fangs)"
 date: "2025-11-11 12:00:00 +0800"
-categories: ["music", "youtube"]
-tags: ["oni", "demi", "buhi", "feat", "fangs", "video", "metaxenopy"]
+categories: [music, youtube, opm, community]
+tags: [oni, demi, buhi, feat, fangs, video, metaxenopy, opm, filipino-music, support, community, charity]
 youtube_id: "LrpfVJsXfiM"
-description: "A structured draft post for Oni Demi - Buhi Pa (feat. Fangs) based on the available YouTube upload."
+description: "Watch “Buhi Pa” by Oni Demi featuring Fangs—a powerful release tied to real-life struggles and a call for support for those affected by recent tragedies."
 seo_title: "Oni Demi - Buhi Pa (feat. Fangs) | METAXENOPY.TY"
-published: false
-status: "draft"
+status: "published"
+published: true
 ---
 
-## SOURCE_DATA
+# Oni Demi - Buhi Pa (feat. Fangs)
 
-- Final post title: Oni Demi - Buhi Pa (feat. Fangs)
-- Channel: METAXENOPY
-- Blog post date: 2025-11-11
-- Available video types: video
+Some songs carry more than just melody—they carry real stories, real struggles, and real emotions. *Buhi Pa* by **Oni Demi** featuring **Fangs** is one of those tracks that feels grounded in something deeper, reflecting moments that go beyond music itself.
 
-### Video Links
+This release comes with a message tied to real-life events, reminding listeners that music can also serve as a way to reach out, support, and connect during difficult times.
 
-- Oni Demi - Buhi Pa (feat. Fangs): https://www.youtube.com/watch?v=LrpfVJsXfiM
+---
 
-### Source Description Snippets
+## Music with a Real Story
 
-- Oni Demi - Buhi Pa (feat. Fangs): Sorry for the late upload. I, too, am among those affected by the recent tragedies. To willing to donate, you can send your donations to the following accounts: 09777869428 Kent Harvey Plando GCash darzmackz@gmail.com Kent Harvey Plando PayPal 0993099410621 Kent Harvey Plando Metrobank 016525270219 Kent Harvey Plando GoTyme All donations will be given 100% to help my fellow victims of: Bogo City, 
+What makes this track stand out is the context behind it. The release is connected to ongoing challenges faced by communities, with efforts directed toward helping those affected by recent tragedies.
 
-## AI_DRAFT_PROMPT
+It’s a reminder that music can be more than expression—it can also be a way to bring attention, support, and unity.
 
-```text
-Create a unique blog post in Markdown.
+---
 
-Requirements:
-- Keep the title exactly: "Oni Demi - Buhi Pa (feat. Fangs)"
-- Use the blog post date exactly: 2025-11-11
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Focus naturally on the single available video
+## Final Thoughts
 
-Available source data:
-- Final post title: Oni Demi - Buhi Pa (feat. Fangs)
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2025-11-11
-- Available video types: video
+*Buhi Pa* is more than just a song—it’s a reflection of resilience and connection. Whether you’re here for the music or the message behind it, it’s a track that leaves a lasting impression.
 
-Video sources:
-- Oni Demi - Buhi Pa (feat. Fangs) => https://www.youtube.com/watch?v=LrpfVJsXfiM
+---
 
-Source description snippets:
-- Oni Demi - Buhi Pa (feat. Fangs): Sorry for the late upload. I, too, am among those affected by the recent tragedies. To willing to donate, you can send your donations to the following accounts: 09777869428 Kent Harvey Plando GCash darzmackz@gmail.com Kent Harvey Plando PayPal 0993099410621 Kent Harvey Plando Metrobank 016525270219 Kent Harvey Plando GoTyme All donations will be given 100% to help my fellow victims of: Bogo City, 
+## Follow METAXENOPY on YouTube
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
 
-## CONTENT
-
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
