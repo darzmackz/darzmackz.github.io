@@ -104,15 +104,24 @@ sitemap: false
               <h2>Posts</h2>
               <p class="muted section-copy">Manage drafts, scheduled posts, and published content in one place.</p>
             </div>
-            <div class="row">
-              <input id="post-search" placeholder="Search posts">
-              <select id="post-filter">
-                <option value="all">All statuses</option>
-                <option value="published">Published</option>
-                <option value="draft">Draft</option>
-                <option value="scheduled">Scheduled</option>
-              </select>
-              <button class="btn p" type="button" data-action="open-post-editor">+ New Post</button>
+            <div class="filter-bar">
+              <label class="field-shell field-shell-search" for="post-search">
+                <span class="field-shell-icon" aria-hidden="true">&#128269;</span>
+                <input id="post-search" placeholder="Search posts by title or filename">
+              </label>
+              <label class="field-shell field-shell-select" for="post-filter">
+                <span class="field-shell-label">Status</span>
+                <select id="post-filter">
+                  <option value="all">All statuses</option>
+                  <option value="published">Published</option>
+                  <option value="draft">Draft</option>
+                  <option value="scheduled">Scheduled</option>
+                </select>
+              </label>
+              <button class="btn p btn-add" type="button" data-action="open-post-editor">
+                <span aria-hidden="true">+</span>
+                <span>New Post</span>
+              </button>
             </div>
           </div>
           <div id="posts-wrap">
@@ -221,7 +230,10 @@ sitemap: false
               <h2>Portfolio</h2>
               <p class="muted section-copy">Present work samples, technical capabilities, and featured projects in a cleaner grid.</p>
             </div>
-            <button class="btn p" type="button" data-action="open-portfolio-editor">+ Add Item</button>
+            <button class="btn p btn-add portfolio-add-btn" type="button" data-action="open-portfolio-editor">
+              <span aria-hidden="true">+</span>
+              <span>Add Item</span>
+            </button>
           </div>
           <div id="portfolio-alert"></div>
           <div id="portfolio-wrap">
@@ -393,7 +405,7 @@ sitemap: false
                     <img id="st-profile-preview" class="brand-preview-image brand-preview-image-avatar" alt="Current profile picture">
                   </div>
                   <div class="brand-preview-card brand-preview-card-wide">
-                    <span class="brand-preview-label">Hero Image</span>
+                    <span class="brand-preview-label">Hero Image Mirror</span>
                     <img id="st-hero-preview" class="brand-preview-image brand-preview-image-hero" alt="Current hero image">
                   </div>
                 </div>
@@ -406,9 +418,7 @@ sitemap: false
 
                 <div class="fg section-offset-md"><label>Profile Picture (.png, .jpg, .webp)</label><input type="file" id="st-profile-image" accept=".png,.jpg,.jpeg,.webp"></div>
                 <button class="btn p" type="button" data-action="upload-profile-image">Upload Profile Picture</button>
-
-                <div class="fg section-offset-md"><label>Hero Image (.png, .jpg, .webp)</label><input type="file" id="st-hero-image" accept=".png,.jpg,.jpeg,.webp"></div>
-                <button class="btn p" type="button" data-action="upload-hero-image">Upload Hero Image</button>
+                <p class="muted section-offset-sm">The hero image now mirrors the profile picture automatically so the brand stays consistent across the site.</p>
 
                 <div class="fg section-offset-md">
                   <label>Primary Color</label>

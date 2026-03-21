@@ -363,6 +363,25 @@ button,
   width:100%;
 }
 
+.btn-add{
+  gap:10px;
+  padding:11px 16px;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(37,99,235,.18);
+}
+
+.btn-add span:first-child{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  font-size:16px;
+  line-height:1;
+}
+
 .nav .btn{
   width:100%;
   justify-content:flex-start;
@@ -382,6 +401,76 @@ button,
 .row>select,
 .row>.code{
   width:100%;
+}
+
+.filter-bar{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  padding:14px;
+  background:linear-gradient(180deg, rgba(30,41,59,.92), rgba(15,23,42,.92));
+  border:1px solid rgba(96,165,250,.14);
+  border-radius:16px;
+  box-shadow:0 18px 36px rgba(2,6,23,.18);
+}
+
+.field-shell{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:52px;
+  padding:0 14px;
+  background:rgba(15,23,42,.92);
+  border:1px solid rgba(71,85,105,.9);
+  border-radius:12px;
+  transition:border-color .2s,box-shadow .2s,background-color .2s;
+}
+
+.field-shell:focus-within{
+  border-color:rgba(96,165,250,.9);
+  box-shadow:0 0 0 4px rgba(59,130,246,.14);
+  background:rgba(15,23,42,.98);
+}
+
+.field-shell input,
+.field-shell select{
+  width:100%;
+  min-height:48px;
+  padding:0;
+  border:none;
+  background:transparent;
+  color:var(--text);
+  outline:none;
+}
+
+.field-shell select{
+  appearance:none;
+  cursor:pointer;
+}
+
+.field-shell-icon{
+  color:#93c5fd;
+  font-size:15px;
+}
+
+.field-shell-label{
+  flex:0 0 auto;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.field-shell-select::after{
+  content:"";
+  flex:0 0 auto;
+  width:10px;
+  height:10px;
+  border-right:2px solid rgba(191,219,254,.9);
+  border-bottom:2px solid rgba(191,219,254,.9);
+  transform:rotate(45deg) translateY(-1px);
+  margin-left:6px;
 }
 
 .fg{
@@ -537,6 +626,10 @@ button,
   font-size:28px;
 }
 
+.portfolio-add-btn{
+  align-self:flex-start;
+}
+
 .info{
   flex:1;
   min-width:0;
@@ -564,6 +657,31 @@ button,
 
 .actions .btn{
   flex:1 1 8rem;
+}
+
+.actions-compact .btn{
+  min-height:38px;
+  padding:8px 12px;
+  gap:8px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.actions-compact .btn .action-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  font-size:11px;
+  line-height:1;
+}
+
+.actions-compact .btn.d .action-icon{
+  background:rgba(255,255,255,.14);
 }
 
 .pill{
@@ -964,6 +1082,11 @@ button,
     flex:1 1 12rem;
   }
 
+  .filter-bar{
+    grid-template-columns:minmax(0,1.4fr) minmax(220px,.7fr) auto;
+    align-items:center;
+  }
+
   .g2{
     grid-template-columns:minmax(0,1fr);
   }
@@ -992,6 +1115,10 @@ button,
 
   .actions .btn{
     flex:0 0 auto;
+  }
+
+  .portfolio-add-btn{
+    align-self:center;
   }
 
   .template-grid{

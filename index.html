@@ -27,10 +27,11 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">About KENJI</a>
       <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">Read the Blog</a>
     </div>
-    {% if site.hero_image and site.hero_image != "" %}
+    {% assign shared_hero_image = site.hero_image | default: site.profile_image %}
+    {% if shared_hero_image and shared_hero_image != "" %}
     <div class="hero-feature-wrap">
       <img
-        src="{{ site.hero_image | relative_url }}"
+        src="{{ shared_hero_image | relative_url }}"
         alt="{{ site.title }} featured hero image"
         class="hero-feature-image"
         loading="eager"
@@ -39,6 +40,27 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       />
     </div>
     {% endif %}
+  </div>
+</section>
+
+<section class="section-panel">
+  <div class="section-intro">
+    <h2 class="section-title">Why Visitors Can Trust This Site</h2>
+    <p class="section-copy">This website is maintained as a real creator and professional profile, with clear ownership, contact channels, policy pages, and regularly updated content.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>Named Publisher</h3>
+      <p>The site clearly identifies KENJI, also known as Kent Harvey Plando, as the publisher and provides profile and contact pages for verification.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Direct Contact Options</h3>
+      <p>Visitors can reach out through the contact form, email, and linked public social profiles for collaboration or legitimate inquiries.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Policy Transparency</h3>
+      <p>Privacy and advertising disclosure pages are available for visitors, review teams, and ad policy checks.</p>
+    </div>
   </div>
 </section>
 
@@ -98,6 +120,7 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       <p>Privacy and advertising disclosure pages are available in the footer for visitors and review teams.</p>
     </div>
   </div>
+  <p class="mt-lg"><a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Contact the Publisher</a></p>
 </section>
 
 {% if site.posts.size > 0 %}

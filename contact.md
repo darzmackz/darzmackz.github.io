@@ -7,6 +7,8 @@ permalink: /contact/
 
 Have a question, want to collaborate, or need to reach me for a music or technical inquiry? Use the form below or contact me through one of the listed profiles.
 
+This page exists so visitors, collaborators, and review teams have a direct way to confirm ownership of the site and reach the publisher when needed.
+
 <div class="contact-grid">
   <div class="contact-info">
     <h3>Contact Details</h3>
@@ -74,6 +76,7 @@ Have a question, want to collaborate, or need to reach me for a music or technic
 
   <div class="contact-form">
     <h3>Send a Message</h3>
+    <p class="form-note">Use this form for collaboration requests, music-related questions, business contact, or technical inquiries.</p>
     <form action="https://formspree.io/f/xpqyzezn" method="POST">
       <div class="form-group">
         <label for="contact-name">Your Name</label>
@@ -93,6 +96,12 @@ Have a question, want to collaborate, or need to reach me for a music or technic
       </div>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
-    <p class="form-note">This form is powered by Formspree and is only used to receive direct inquiries.</p>
+    <p class="form-note">This form is powered by Formspree and is only used to receive direct inquiries. Messages are not sold or shared for unrelated purposes.</p>
   </div>
 </div>
+
+## Response Notes
+
+- Most legitimate inquiries are reviewed manually.
+- Spam, abusive messages, and unrelated solicitations may be ignored.
+- For privacy details about submitted information, please review the [privacy policy]({{ '/privacy/' | relative_url }}).

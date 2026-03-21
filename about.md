@@ -52,6 +52,12 @@ METAXENOPY is the creator brand I use for lyric videos, karaoke uploads, and mus
 - Former System Analyst and Administrator at Just Click Integrated Solution from December 2017 to February 2023.
 - Experienced in database maintenance, system support, server administration, deployments, and hardware troubleshooting.
 
+## What This Website Is For
+
+- To publish music-related articles, karaoke and lyrics features, and creator updates under the METAXENOPY brand.
+- To present a real professional background in systems analysis, troubleshooting, server work, and technical operations.
+- To provide a trustworthy point of contact for collaborations, inquiries, and policy review.
+
 ## Core Skills
 
 <ul class="skills-list">
