@@ -1,21 +1,5 @@
 [
   {
-    "id": "nextcloud-deployment",
-    "icon": "☁️",
-    "title": "Nextcloud Server Deployment",
-    "subtitle": "Crown Regency Hotels and Resorts",
-    "description": "Planned and deployed a self-hosted Nextcloud environment for secure internal file storage and collaboration.",
-    "tech": [
-      "Nextcloud",
-      "Linux Server",
-      "Nginx",
-      "SSL/TLS",
-      "Self-Hosted"
-    ],
-    "link": "https://regencydrive.crownregency.net/",
-    "link_text": "View instance"
-  },
-  {
     "id": "senior-system-analyst",
     "icon": "🏨",
     "title": "Senior System Analyst",
@@ -30,6 +14,22 @@
     ],
     "link": "",
     "link_text": ""
+  },
+  {
+    "id": "nextcloud-deployment",
+    "icon": "☁️",
+    "title": "Nextcloud Server Deployment",
+    "subtitle": "Crown Regency Hotels and Resorts",
+    "description": "Planned and deployed a self-hosted Nextcloud environment for secure internal file storage and collaboration.",
+    "tech": [
+      "Nextcloud",
+      "Linux Server",
+      "Nginx",
+      "SSL/TLS",
+      "Self-Hosted"
+    ],
+    "link": "https://regencydrive.crownregency.net/",
+    "link_text": "View instance"
   },
   {
     "id": "system-analyst-administrator",
