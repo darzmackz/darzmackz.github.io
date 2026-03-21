@@ -1,6 +1,35 @@
 (function () {
   var html = document.documentElement;
 
+  function bindImageFallbacks() {
+    document.querySelectorAll('[data-image-error="hide"]').forEach(function (img) {
+      img.addEventListener('error', function () {
+        img.classList.add('is-hidden');
+      }, { once: true });
+    });
+
+    document.querySelectorAll('[data-image-error="avatar-fallback"]').forEach(function (img) {
+      img.addEventListener('error', function () {
+        var fallbackText = img.getAttribute('data-fallback-text') || '';
+        var container = img.parentElement;
+        if (!container) return;
+        container.textContent = fallbackText;
+      }, { once: true });
+    });
+  }
+
+  function queueAdsenseSlots() {
+    window.adsbygoogle = window.adsbygoogle || [];
+    document.querySelectorAll('.adsbygoogle[data-ads-slot-state="pending"]').forEach(function (slot) {
+      slot.setAttribute('data-ads-slot-state', 'queued');
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        slot.setAttribute('data-ads-slot-state', 'pending');
+      }
+    });
+  }
+
   function updateThemeToggle(btn) {
     if (!btn) return;
     var theme = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
@@ -82,6 +111,8 @@
     });
   }
 
+  bindImageFallbacks();
+
   var adsClient = document.body.getAttribute('data-adsense-client');
   if (adsClient) {
     var adsLoaded = false;
@@ -93,6 +124,7 @@
       script.async = true;
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsClient);
       script.crossOrigin = 'anonymous';
+      script.addEventListener('load', queueAdsenseSlots, { once: true });
       document.head.appendChild(script);
     }
 
@@ -104,7 +136,10 @@
       }
     }
 
+    queueAdsenseSlots();
+
     window.addEventListener('load', function () {
+      queueAdsenseSlots();
       window.setTimeout(scheduleAdsense, 1200);
     }, { once: true });
 

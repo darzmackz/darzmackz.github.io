@@ -1,13 +1,10 @@
 {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" and site.google_adsense_post_slot_id != "" %}
 <div class="ad-slot ad-slot-post" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
+  <ins class="adsbygoogle adsbygoogle-block"
+       data-ads-slot-state="pending"
        data-ad-client="{{ site.google_adsense_publisher_id }}"
        data-ad-slot="{{ site.google_adsense_post_slot_id }}"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </div>
 {% endif %}

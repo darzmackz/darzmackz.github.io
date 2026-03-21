@@ -13,7 +13,8 @@ permalink: /about/
       class="about-avatar-img"
       loading="lazy"
       decoding="async"
-      onerror="this.parentElement.innerHTML='KENJI'"
+      data-image-error="avatar-fallback"
+      data-fallback-text="KENJI"
     />
   </div>
 
