@@ -1085,7 +1085,7 @@ button,
 }
 
 .color-input{
-  width:52px;
+  width:72px;
   height:52px;
   padding:0;
   border:1px solid rgba(96,165,250,.18);
@@ -1095,17 +1095,33 @@ button,
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
 }
 
+.color-input::-webkit-color-swatch-wrapper{
+  padding:0;
+}
+
+.color-input::-webkit-color-swatch{
+  border:none;
+  border-radius:13px;
+}
+
+.color-input::-moz-color-swatch{
+  border:none;
+  border-radius:13px;
+}
+
 .color-value{
   display:inline-flex;
   align-items:center;
   min-height:52px;
   flex:0 0 auto;
-  min-width:108px;
-  padding:0 14px;
+  min-width:88px;
+  width:auto;
+  padding:0 12px;
   border-radius:12px;
   background:rgba(30,41,59,.92);
   border:1px solid rgba(71,85,105,.78);
   color:#dbeafe;
+  white-space:nowrap;
 }
 
 .settings-card{
@@ -1190,16 +1206,21 @@ button,
 }
 
 .color-swatch{
-  display:flex;
+  display:grid;
+  grid-template-columns:72px 14px max-content;
   align-items:center;
   justify-content:flex-start;
   gap:12px;
   padding:12px;
-  min-height:unset;
+  min-height:96px;
   width:100%;
   border-radius:12px;
   background:rgba(15,23,42,.86);
   border:1px solid rgba(71,85,105,.8);
+}
+
+#post-checks{
+  min-height:3.25rem;
 }
 
 .color-preview-dot{
