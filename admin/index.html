@@ -12,11 +12,38 @@ sitemap: false
   <link rel="stylesheet" href="{{ '/admin/admin.css' | relative_url }}">
 </head>
 <body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 2 5 5v6c0 5 3.4 9.6 7 11 3.6-1.4 7-6 7-11V5l-7-3Z" fill="currentColor"/><path d="M12 7.2a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4Zm-3.5 8.2c.3-1.8 1.8-3 3.5-3s3.2 1.2 3.5 3" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4Zm9 0h7v7h-7ZM4 13h7v7H4Zm9 0h7v7h-7Z" fill="currentColor"/></symbol>
+    <symbol id="icon-posts" viewBox="0 0 24 24"><path d="M6 4h12a2 2 0 0 1 2 2v12H4V6a2 2 0 0 1 2-2Z" fill="currentColor"/><path d="M8 9h8M8 13h8M8 17h5" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><path d="M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a2 2 0 0 1 2-2h3Zm2 0h4V5h-4v1Z" fill="currentColor"/></symbol>
+    <symbol id="icon-pages" viewBox="0 0 24 24"><path d="M7 3h8l4 4v13a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" fill="currentColor"/><path d="M15 3v5h5" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" fill="currentColor"/><circle cx="9" cy="9" r="2" fill="#fff"/><path d="m5 18 5-5 3 3 2-2 4 4" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><path d="m12 2 1.4 2.8 3.1.5.7 3 2.6 1.8-1 3 1 3-2.6 1.8-.7 3-3.1.5L12 22l-1.4-2.8-3.1-.5-.7-3L4.2 14l1-3-1-3 2.6-1.8.7-3 3.1-.5L12 2Z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#fff"/></symbol>
+    <symbol id="icon-logout" viewBox="0 0 24 24"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path d="M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"/></symbol>
+    <symbol id="icon-back" viewBox="0 0 24 24"><path d="M15 5 8 12l7 7M9 12h10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/></symbol>
+    <symbol id="icon-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" fill="currentColor"/><path d="M8 4v6h7V4M8 20v-6h8v6" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0 2 5.3M20 4v7h-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 4v10M8 10l4 4 4-4M5 19h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-edit" viewBox="0 0 24 24"><path d="m4 20 4.2-1 9.4-9.4a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z" fill="currentColor"/><path d="m13.5 6.5 4 4" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M6 7h12M9 7V5h6v2m-7 3v7m4-7v7m4-7v7M8 20h8a2 2 0 0 0 2-2V7H6v11a2 2 0 0 0 2 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="m12 5-6 6M12 5l6 6M12 5v14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="m12 19-6-6M12 19l6-6M12 19V5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V5M7.5 9.5 12 5l4.5 4.5M5 19h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2" fill="currentColor"/><path d="M8 10V7a4 4 0 1 1 8 0v3" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h4a5 5 0 0 0 0-10h-4Z" fill="currentColor"/><circle cx="7.5" cy="10" r="1.2" fill="#fff"/><circle cx="10" cy="7.2" r="1.2" fill="#fff"/><circle cx="14" cy="7.2" r="1.2" fill="#fff"/></symbol>
+    <symbol id="icon-token" viewBox="0 0 24 24"><path d="M14.5 3a6.5 6.5 0 0 1 5.2 10.4L13 20.1a3.5 3.5 0 0 1-5-5l2-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/><path d="M9.5 21A6.5 6.5 0 0 1 4.3 10.6L11 3.9a3.5 3.5 0 0 1 5 5l-2 2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/></symbol>
+    <symbol id="icon-warning" viewBox="0 0 24 24"><path d="M12 3 2.8 19a1.2 1.2 0 0 0 1 1.8h16.4a1.2 1.2 0 0 0 1-1.8L12 3Z" fill="currentColor"/><path d="M12 9v4.5M12 17h.01" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/></symbol>
+  </svg>
   <div id="auth-view">
     <div class="auth-wrap">
       <div class="auth-card">
         <div class="auth-logo">
-          <span class="icon">&#128737;&#65039;</span>
+          <span class="icon"><svg class="ui-icon ui-icon-lg"><use href="#icon-shield"></use></svg></span>
           <h1>Admin Panel</h1>
           <p class="muted">METAXENOPY.TY</p>
         </div>
@@ -29,23 +56,22 @@ sitemap: false
     <div class="layout">
       <header class="top">
         <div class="brand">
-          <span aria-hidden="true">&#128737;&#65039;</span>
+          <svg class="ui-icon brand-icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
           <span>Admin</span>
           <span class="sub">METAXENOPY.TY</span>
         </div>
         <button class="nav-toggle" id="admin-nav-toggle" type="button" aria-expanded="false" aria-controls="admin-nav" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
+          <svg class="ui-icon nav-toggle-icon nav-toggle-open" aria-hidden="true"><use href="#icon-menu"></use></svg>
+          <svg class="ui-icon nav-toggle-icon nav-toggle-close" aria-hidden="true"><use href="#icon-close"></use></svg>
         </button>
         <nav class="nav" id="admin-nav" aria-label="Admin navigation">
-          <button class="btn g sm" id="nav-dashboard" type="button" data-action="show-section" data-section="dashboard">Dashboard</button>
-          <button class="btn g sm" id="nav-posts" type="button" data-action="show-section" data-section="posts">Posts</button>
-          <button class="btn g sm" id="nav-portfolio" type="button" data-action="show-section" data-section="portfolio">Portfolio</button>
-          <button class="btn g sm" id="nav-pages" type="button" data-action="show-section" data-section="pages">Pages</button>
-          <button class="btn g sm" id="nav-media" type="button" data-action="show-section" data-section="media">Media</button>
-          <button class="btn g sm" id="nav-settings" type="button" data-action="show-section" data-section="settings">Settings</button>
-          <button class="btn g sm" type="button" data-action="logout">Logout</button>
+          <button class="btn g sm has-icon" id="nav-dashboard" type="button" data-action="show-section" data-section="dashboard"><svg class="ui-icon" aria-hidden="true"><use href="#icon-grid"></use></svg><span>Dashboard</span></button>
+          <button class="btn g sm has-icon" id="nav-posts" type="button" data-action="show-section" data-section="posts"><svg class="ui-icon" aria-hidden="true"><use href="#icon-posts"></use></svg><span>Posts</span></button>
+          <button class="btn g sm has-icon" id="nav-portfolio" type="button" data-action="show-section" data-section="portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg><span>Portfolio</span></button>
+          <button class="btn g sm has-icon" id="nav-pages" type="button" data-action="show-section" data-section="pages"><svg class="ui-icon" aria-hidden="true"><use href="#icon-pages"></use></svg><span>Pages</span></button>
+          <button class="btn g sm has-icon" id="nav-media" type="button" data-action="show-section" data-section="media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-image"></use></svg><span>Media</span></button>
+          <button class="btn g sm has-icon" id="nav-settings" type="button" data-action="show-section" data-section="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-settings"></use></svg><span>Settings</span></button>
+          <button class="btn g sm has-icon" type="button" data-action="logout"><svg class="ui-icon" aria-hidden="true"><use href="#icon-logout"></use></svg><span>Logout</span></button>
         </nav>
       </header>
 
@@ -57,8 +83,8 @@ sitemap: false
               <p class="muted section-copy">A quick operational view of the site, content quality, and publishing workflow.</p>
             </div>
             <div class="row">
-              <button class="btn" type="button" data-action="refresh-dashboard">Refresh</button>
-              <button class="btn p" type="button" data-action="export-backup" data-export-type="full">Export Full Backup</button>
+              <button class="btn has-icon" type="button" data-action="refresh-dashboard"><svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg><span>Refresh</span></button>
+              <button class="btn p has-icon" type="button" data-action="export-backup" data-export-type="full"><svg class="ui-icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Export Full Backup</span></button>
             </div>
           </div>
           <div id="dashboard-alert"></div>
@@ -77,10 +103,10 @@ sitemap: false
             <div class="card">
               <h3>Backups</h3>
               <div class="stack section-offset-sm">
-                <button class="btn" type="button" data-action="export-backup" data-export-type="posts">Export Posts JSON</button>
-                <button class="btn" type="button" data-action="export-backup" data-export-type="pages">Export Pages JSON</button>
-                <button class="btn" type="button" data-action="export-backup" data-export-type="portfolio">Export Portfolio JSON</button>
-                <button class="btn" type="button" data-action="export-backup" data-export-type="settings">Export Site Settings</button>
+                <button class="btn has-icon" type="button" data-action="export-backup" data-export-type="posts"><svg class="ui-icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Export Posts JSON</span></button>
+                <button class="btn has-icon" type="button" data-action="export-backup" data-export-type="pages"><svg class="ui-icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Export Pages JSON</span></button>
+                <button class="btn has-icon" type="button" data-action="export-backup" data-export-type="portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Export Portfolio JSON</span></button>
+                <button class="btn has-icon" type="button" data-action="export-backup" data-export-type="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Export Site Settings</span></button>
               </div>
             </div>
             <div class="card">
@@ -90,9 +116,9 @@ sitemap: false
             <div class="card">
               <h3>Quick Actions</h3>
               <div class="stack section-offset-sm">
-                <button class="btn p" type="button" data-action="open-post-editor">New Post</button>
-                <button class="btn" type="button" data-action="show-section" data-section="media">Open Media Library</button>
-                <button class="btn" type="button" data-action="show-section" data-section="settings">Open Integrations</button>
+                <button class="btn p has-icon" type="button" data-action="open-post-editor"><svg class="ui-icon" aria-hidden="true"><use href="#icon-plus"></use></svg><span>New Post</span></button>
+                <button class="btn has-icon" type="button" data-action="show-section" data-section="media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-image"></use></svg><span>Open Media Library</span></button>
+                <button class="btn has-icon" type="button" data-action="show-section" data-section="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-settings"></use></svg><span>Open Integrations</span></button>
               </div>
             </div>
           </div>
@@ -106,7 +132,7 @@ sitemap: false
             </div>
             <div class="filter-bar">
               <label class="field-shell field-shell-search" for="post-search">
-                <span class="field-shell-icon" aria-hidden="true">&#128269;</span>
+                <svg class="ui-icon field-shell-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
                 <input id="post-search" placeholder="Search posts by title or filename">
               </label>
               <label class="field-shell field-shell-select" for="post-filter">
@@ -118,8 +144,8 @@ sitemap: false
                   <option value="scheduled">Scheduled</option>
                 </select>
               </label>
-              <button class="btn p btn-add" type="button" data-action="open-post-editor">
-                <span aria-hidden="true">+</span>
+              <button class="btn p btn-add has-icon" type="button" data-action="open-post-editor">
+                <svg class="ui-icon" aria-hidden="true"><use href="#icon-plus"></use></svg>
                 <span>New Post</span>
               </button>
             </div>
@@ -131,13 +157,13 @@ sitemap: false
 
         <section id="sec-post-editor" class="hidden stack">
           <div class="header">
-            <button class="btn g sm" type="button" data-action="show-section" data-section="posts">&larr; Back</button>
+            <button class="btn g sm has-icon" type="button" data-action="show-section" data-section="posts"><svg class="ui-icon" aria-hidden="true"><use href="#icon-back"></use></svg><span>Back</span></button>
             <div>
               <h2 id="post-editor-title">New Post</h2>
               <p class="muted section-copy">Write, preview, optimize, and publish blog content with the full post workflow.</p>
             </div>
             <div class="row">
-              <button class="btn s" id="save-post-btn" type="button" data-action="save-post">Save Post</button>
+              <button class="btn s has-icon" id="save-post-btn" type="button" data-action="save-post"><svg class="ui-icon" aria-hidden="true"><use href="#icon-save"></use></svg><span>Save Post</span></button>
             </div>
           </div>
           <div id="post-editor-alert"></div>
@@ -194,7 +220,7 @@ sitemap: false
                   <label>Image Upload</label>
                   <input type="file" id="pe-media" accept="image/*">
                 </div>
-                <button class="btn" type="button" data-action="upload-editor-media">Upload and Insert Image</button>
+                <button class="btn has-icon" type="button" data-action="upload-editor-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload and Insert Image</span></button>
               </div>
             </div>
 
@@ -230,8 +256,8 @@ sitemap: false
               <h2>Portfolio</h2>
               <p class="muted section-copy">Present work samples, technical capabilities, and featured projects in a cleaner grid.</p>
             </div>
-            <button class="btn p btn-add portfolio-add-btn" type="button" data-action="open-portfolio-editor">
-              <span aria-hidden="true">+</span>
+            <button class="btn p btn-add portfolio-add-btn has-icon" type="button" data-action="open-portfolio-editor">
+              <svg class="ui-icon" aria-hidden="true"><use href="#icon-plus"></use></svg>
               <span>Add Item</span>
             </button>
           </div>
@@ -243,12 +269,12 @@ sitemap: false
 
         <section id="sec-portfolio-editor" class="hidden stack">
           <div class="header">
-            <button class="btn g sm" type="button" data-action="show-section" data-section="portfolio">&larr; Back</button>
+            <button class="btn g sm has-icon" type="button" data-action="show-section" data-section="portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-back"></use></svg><span>Back</span></button>
             <div>
               <h2 id="pf-editor-title">New Portfolio Item</h2>
               <p class="muted section-copy">Control how portfolio cards appear on the frontend.</p>
             </div>
-            <button class="btn s" id="save-pf-btn" type="button" data-action="save-portfolio-item">Save Item</button>
+            <button class="btn s has-icon" id="save-pf-btn" type="button" data-action="save-portfolio-item"><svg class="ui-icon" aria-hidden="true"><use href="#icon-save"></use></svg><span>Save Item</span></button>
           </div>
           <div id="pf-editor-alert"></div>
           <div class="card card-narrow">
@@ -275,7 +301,7 @@ sitemap: false
             </div>
           </div>
           <div class="pages">
-            <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="home"><div class="page-head"><span class="icon">&#127968;</span><span class="pill">Core Page</span></div><h3>Home</h3><p class="muted">Homepage hero, featured sections, and SEO content.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
+            <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="home"><div class="page-head"><span class="icon">&#127968;</span><span class="pill">Core Page</span></div><h3>Home</h3><p class="muted">Homepage introduction, featured sections, and SEO content.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="about"><div class="page-head"><span class="icon">&#128100;</span><span class="pill">Profile</span></div><h3>About</h3><p class="muted">Personal profile, biography, background, and brand story.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="contact"><div class="page-head"><span class="icon">&#128233;</span><span class="pill">Support</span></div><h3>Contact</h3><p class="muted">Contact details, inquiry copy, and collaboration messaging.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
             <div class="page" role="button" tabindex="0" data-action="open-page-editor" data-page="privacy"><div class="page-head"><span class="icon">&#128274;</span><span class="pill">Policy</span></div><h3>Privacy</h3><p class="muted">Privacy policy details for visitors, partners, and review teams.</p><div class="page-foot"><span>Edit page</span><span>&rarr;</span></div></div>
@@ -285,13 +311,13 @@ sitemap: false
 
         <section id="sec-page-editor" class="hidden stack">
           <div class="header">
-            <button class="btn g sm" type="button" data-action="show-section" data-section="pages">&larr; Back</button>
+            <button class="btn g sm has-icon" type="button" data-action="show-section" data-section="pages"><svg class="ui-icon" aria-hidden="true"><use href="#icon-back"></use></svg><span>Back</span></button>
             <div>
               <h2 id="page-editor-title">Edit Page</h2>
               <p class="muted section-copy">Edit copy, SEO fields, and validate important static pages before publishing.</p>
             </div>
             <div class="row">
-              <button class="btn s" id="save-page-btn" type="button" data-action="save-page">Save Page</button>
+              <button class="btn s has-icon" id="save-page-btn" type="button" data-action="save-page"><svg class="ui-icon" aria-hidden="true"><use href="#icon-save"></use></svg><span>Save Page</span></button>
             </div>
           </div>
           <div id="page-editor-alert"></div>
@@ -341,8 +367,8 @@ sitemap: false
             </div>
             <div class="row">
               <input type="file" id="media-upload" accept="image/*" multiple>
-              <button class="btn p" type="button" data-action="upload-media">Upload Images</button>
-              <button class="btn" type="button" data-action="load-media">Refresh</button>
+              <button class="btn p has-icon" type="button" data-action="upload-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload Images</span></button>
+              <button class="btn has-icon" type="button" data-action="load-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg><span>Refresh</span></button>
             </div>
           </div>
           <div id="media-alert"></div>
@@ -387,61 +413,90 @@ sitemap: false
             </div>
 
             <div class="stack">
-              <div class="card">
-                <h3>Theme and Branding</h3>
-                <p class="muted">These assets affect the public-facing site and previews inside the admin panel.</p>
-
-                <div class="brand-preview-grid">
-                  <div class="brand-preview-card">
-                    <span class="brand-preview-label">Logo</span>
-                    <img id="st-logo-preview" class="brand-preview-image brand-preview-image-logo" alt="Current site logo">
-                  </div>
-                  <div class="brand-preview-card">
-                    <span class="brand-preview-label">Favicon</span>
-                    <img id="st-favicon-preview" class="brand-preview-image brand-preview-image-favicon" alt="Current favicon">
-                  </div>
-                  <div class="brand-preview-card">
-                    <span class="brand-preview-label">Profile Picture</span>
-                    <img id="st-profile-preview" class="brand-preview-image brand-preview-image-avatar" alt="Current profile picture">
-                  </div>
-                  <div class="brand-preview-card brand-preview-card-wide">
-                    <span class="brand-preview-label">Hero Image Mirror</span>
-                    <img id="st-hero-preview" class="brand-preview-image brand-preview-image-hero" alt="Current hero image">
-                  </div>
+              <div class="card settings-card">
+                <div class="settings-card-head">
+                  <h3>Theme and Branding</h3>
+                  <p class="muted">Compact controls for the public site identity, previews, and color system.</p>
                 </div>
+                <div class="settings-grid">
+                  <section class="setting-block">
+                    <div class="setting-block-head">
+                      <div>
+                        <h4>Logo</h4>
+                        <p class="muted">Used in the site header and brand identity areas.</p>
+                      </div>
+                      <img id="st-logo-preview" class="brand-preview-image brand-preview-image-logo" alt="Current site logo">
+                    </div>
+                    <div class="file-picker">
+                      <label for="st-logo">Select logo file</label>
+                      <input type="file" id="st-logo" accept=".png,.jpg,.jpeg,.webp,.svg">
+                    </div>
+                    <button class="btn p has-icon" type="button" data-action="upload-logo"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload Logo</span></button>
+                  </section>
 
-                <div class="fg"><label>Logo (.png, .jpg, .webp, .svg)</label><input type="file" id="st-logo" accept=".png,.jpg,.jpeg,.webp,.svg"></div>
-                <button class="btn p" type="button" data-action="upload-logo">Upload Logo</button>
+                  <section class="setting-block">
+                    <div class="setting-block-head">
+                      <div>
+                        <h4>Favicon</h4>
+                        <p class="muted">Displayed in browser tabs and bookmarks.</p>
+                      </div>
+                      <img id="st-favicon-preview" class="brand-preview-image brand-preview-image-favicon" alt="Current favicon">
+                    </div>
+                    <div class="file-picker">
+                      <label for="st-favicon">Select favicon file</label>
+                      <input type="file" id="st-favicon" accept=".ico">
+                    </div>
+                    <button class="btn p has-icon" type="button" data-action="upload-favicon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload Favicon</span></button>
+                  </section>
 
-                <div class="fg section-offset-md"><label>Favicon (.ico)</label><input type="file" id="st-favicon" accept=".ico"></div>
-                <button class="btn p" type="button" data-action="upload-favicon">Upload Favicon</button>
+                  <section class="setting-block">
+                    <div class="setting-block-head">
+                      <div>
+                        <h4>Profile Picture</h4>
+                        <p class="muted">This is the shared main brand image used across the site.</p>
+                      </div>
+                      <img id="st-profile-preview" class="brand-preview-image brand-preview-image-avatar" alt="Current profile picture">
+                    </div>
+                    <div class="file-picker">
+                      <label for="st-profile-image">Select profile image</label>
+                      <input type="file" id="st-profile-image" accept=".png,.jpg,.jpeg,.webp">
+                    </div>
+                    <button class="btn p has-icon" type="button" data-action="upload-profile-image"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload Profile Picture</span></button>
+                  </section>
 
-                <div class="fg section-offset-md"><label>Profile Picture (.png, .jpg, .webp)</label><input type="file" id="st-profile-image" accept=".png,.jpg,.jpeg,.webp"></div>
-                <button class="btn p" type="button" data-action="upload-profile-image">Upload Profile Picture</button>
-                <p class="muted section-offset-sm">The hero image now mirrors the profile picture automatically so the brand stays consistent across the site.</p>
-
-                <div class="fg section-offset-md">
-                  <label>Primary Color</label>
-                  <div class="row">
-                    <input type="color" id="st-color" value="#2563eb" class="color-input">
-                    <span id="st-color-text" class="code color-value">#2563eb</span>
-                  </div>
+                  <section class="setting-block">
+                    <div class="setting-block-head">
+                      <div>
+                        <h4>Primary Color</h4>
+                        <p class="muted">Controls the main call-to-action and accent color across the theme.</p>
+                      </div>
+                      <div class="color-swatch">
+                        <input type="color" id="st-color" value="#2563eb" class="color-input" aria-label="Select primary color">
+                        <span id="st-color-text" class="code color-value">#2563eb</span>
+                      </div>
+                    </div>
+                    <button class="btn p has-icon" type="button" data-action="update-theme"><svg class="ui-icon" aria-hidden="true"><use href="#icon-palette"></use></svg><span>Update Theme</span></button>
+                  </section>
                 </div>
-                <button class="btn p" type="button" data-action="update-theme">Update Theme</button>
               </div>
 
-              <div class="card">
-                <h3>Change Password</h3>
-                <div class="fg"><label>Current Password</label><input type="password" id="st-old"></div>
-                <div class="fg"><label>New Password</label><input type="password" id="st-new"></div>
-                <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm"></div>
-                <button class="btn p" type="button" data-action="change-password">Change Password</button>
+              <div class="card settings-card">
+                <div class="settings-card-head">
+                  <h3>Change Password</h3>
+                  <p class="muted">Keep local admin access secure on this device.</p>
+                </div>
+                <div class="settings-form-grid">
+                  <div class="fg"><label>Current Password</label><input type="password" id="st-old"></div>
+                  <div class="fg"><label>New Password</label><input type="password" id="st-new"></div>
+                  <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm"></div>
+                </div>
+                <button class="btn p has-icon" type="button" data-action="change-password"><svg class="ui-icon" aria-hidden="true"><use href="#icon-lock"></use></svg><span>Change Password</span></button>
               </div>
 
               <div class="card">
                 <h3>Danger Zone</h3>
                 <p class="muted mb-sm">Remove locally stored admin credentials from this browser.</p>
-                <button class="btn d" type="button" data-action="reset-admin">Reset Credentials</button>
+                <button class="btn d has-icon" type="button" data-action="reset-admin"><svg class="ui-icon" aria-hidden="true"><use href="#icon-warning"></use></svg><span>Reset Credentials</span></button>
               </div>
             </div>
           </div>

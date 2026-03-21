@@ -27,19 +27,6 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
       <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">About KENJI</a>
       <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">Read the Blog</a>
     </div>
-    {% assign shared_hero_image = site.hero_image | default: site.profile_image %}
-    {% if shared_hero_image and shared_hero_image != "" %}
-    <div class="hero-feature-wrap">
-      <img
-        src="{{ shared_hero_image | relative_url }}"
-        alt="{{ site.title }} featured hero image"
-        class="hero-feature-image"
-        loading="eager"
-        decoding="async"
-        data-image-error="hide"
-      />
-    </div>
-    {% endif %}
   </div>
 </section>
 
@@ -60,6 +47,27 @@ description: "METAXENOPY.TY is the home of KENJI's OPM lyrics, karaoke videos, a
     <div class="trust-card">
       <h3>Policy Transparency</h3>
       <p>Privacy and advertising disclosure pages are available for visitors, review teams, and ad policy checks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-panel">
+  <div class="section-intro">
+    <h2 class="section-title">Editorial Standards</h2>
+    <p class="section-copy">Every public page on this site is meant to be useful, transparent, and clearly connected to the publisher's music or technical background.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>Original Purpose</h3>
+      <p>Articles and pages are created to support the METAXENOPY brand, music-related content, and real technical experience rather than thin placeholder content.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Useful Navigation</h3>
+      <p>Visitors can move easily between the homepage, profile, portfolio, blog, contact details, and policy pages without hidden or unfinished sections.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Review-Friendly Structure</h3>
+      <p>Ownership, contact information, privacy disclosures, and advertising transparency are all linked publicly to support trust and platform review checks.</p>
     </div>
   </div>
 </section>
