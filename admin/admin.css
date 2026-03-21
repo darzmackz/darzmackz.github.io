@@ -1085,15 +1085,25 @@ button,
 }
 
 .color-input{
-  width:48px;
-  height:48px;
+  width:52px;
+  height:52px;
   padding:0;
-  border:none;
+  border:1px solid rgba(96,165,250,.18);
+  border-radius:14px;
   background:none;
+  overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
 }
 
 .color-value{
-  padding:10px 12px;
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:12px;
+  background:rgba(30,41,59,.92);
+  border:1px solid rgba(71,85,105,.78);
+  color:#dbeafe;
 }
 
 .settings-card{
@@ -1186,6 +1196,33 @@ button,
   border-radius:12px;
   background:rgba(15,23,42,.88);
   border:1px solid rgba(71,85,105,.8);
+}
+
+.color-control-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(15,23,42,.86);
+  border:1px solid rgba(71,85,105,.8);
+}
+
+.color-control-label{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.color-preview-dot{
+  width:14px;
+  height:14px;
+  border-radius:999px;
+  background:var(--primary);
+  box-shadow:0 0 0 4px rgba(59,130,246,.14);
+  flex:0 0 auto;
 }
 
 .settings-form-grid{
