@@ -19,5 +19,8 @@ Use [`scripts/publish_content.rb`](scripts/publish_content.rb) to generate struc
 - `ruby scripts/publish_content.rb youtube --input data/youtube.json`
 - `ruby scripts/publish_content.rb youtube --api-key YOUR_KEY --channel-id YOUR_CHANNEL_ID`
 - `ruby scripts/publish_content.rb news --topic "Zero trust access update" --source-name "Vendor Advisory" --source-url "https://example.com/advisory"`
+- `ruby scripts/publish_content.rb youtube --input data/youtube.json --use-ai --openai-api-key YOUR_OPENAI_API_KEY`
+- `ruby scripts/publish_content.rb news --topic "Zero trust access update" --source-name "Vendor Advisory" --source-url "https://example.com/advisory" --use-ai --openai-api-key YOUR_OPENAI_API_KEY`
 
 The YouTube flow groups matching `[Lyrics]` and `[Karaoke]` uploads into a single blog draft when they share the same base performance title, uses the upload date for the post date, and skips duplicates when a matching post already exists.
+If `--use-ai` is enabled, the script asks OpenAI to generate a more unique SEO-focused title, description, tags, categories, and Markdown body instead of relying only on the built-in fallback templates.

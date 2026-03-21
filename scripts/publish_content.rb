@@ -14,6 +14,7 @@ ROOT = Pathname.new(__dir__).join('..').expand_path
 POSTS_DIR = ROOT.join('_posts')
 CONFIG_PATH = ROOT.join('_config.yml')
 
+
 def slugify(text)
   text.to_s.downcase.gsub(/[^a-z0-9\s-]/, '').strip.gsub(/\s+/, '-').gsub(/-+/, '-')
 end
@@ -39,12 +40,94 @@ def load_site_config
   YAML.safe_load(File.read(CONFIG_PATH), permitted_classes: [], aliases: false) || {}
 end
 
+def ai_enabled?(options)
+  options[:use_ai] || options[:openai_api_key] || ENV['OPENAI_API_KEY']
+end
+
+def openai_api_key(options)
+  options[:openai_api_key] || ENV['OPENAI_API_KEY']
+end
+
+def openai_model(options)
+  options[:openai_model] || ENV['OPENAI_MODEL'] || 'gpt-4.1-mini'
+end
+
+def compact_text(value)
+  value.to_s.gsub(/\s+/, ' ').strip
+end
+
+def extract_json_payload(text)
+  value = text.to_s.strip
+  value = value.sub(/\A```json\s*/i, '').sub(/\A```\s*/i, '').sub(/\s*```\z/, '')
+  JSON.parse(value)
+end
+
 def fetch_json(url)
   uri = URI(url)
   response = Net::HTTP.get_response(uri)
   raise "Request failed for #{uri}: #{response.code} #{response.message}" unless response.is_a?(Net::HTTPSuccess)
 
   JSON.parse(response.body)
+end
+
+def openai_chat_completion(messages, options)
+  api_key = openai_api_key(options)
+  raise 'OPENAI_API_KEY or --openai-api-key is required when --use-ai is enabled.' unless api_key
+
+  uri = URI('https://api.openai.com/v1/chat/completions')
+  request = Net::HTTP::Post.new(uri)
+  request['Authorization'] = "Bearer #{api_key}"
+  request['Content-Type'] = 'application/json'
+  request.body = JSON.generate(
+    model: openai_model(options),
+    messages: messages,
+    response_format: { type: 'json_object' }
+  )
+
+  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(request) }
+  raise "OpenAI API request failed: #{response.code} #{response.message} #{response.body}" unless response.is_a?(Net::HTTPSuccess)
+
+  payload = JSON.parse(response.body)
+  content = payload.dig('choices', 0, 'message', 'content')
+  raise 'OpenAI API response did not include generated content.' if content.to_s.strip.empty?
+
+  extract_json_payload(content)
+end
+
+def ai_post_prompt(kind:, site_config:, input:)
+  {
+    role: 'system',
+    content: <<~PROMPT
+      You are writing a single original blog post for #{site_config['title']} by #{site_config['author_fullname'] || site_config['author']}.
+      Return valid JSON only with these keys:
+      title, description, seo_title, categories, tags, body.
+      Requirements:
+      - body must be Markdown
+      - make the article feel human, useful, and specific
+      - avoid generic filler, repetition, and empty hype
+      - write for SEO without keyword stuffing
+      - categories must be an array of 2 to 4 short category names
+      - tags must be an array of 4 to 10 short tags
+      - description should be around 140 to 160 characters when practical
+      - preserve factual constraints provided in the input
+      - do not invent unavailable links or unsupported claims
+      - for YouTube pair posts, mention the lyrics and karaoke versions naturally if available
+      - for news posts, keep the angle practical and original instead of paraphrased filler
+      Context type: #{kind}
+      Input:
+      #{JSON.pretty_generate(input)}
+    PROMPT
+  }
+end
+
+def ai_generate_post(kind:, site_config:, input:, options:)
+  openai_chat_completion(
+    [
+      ai_post_prompt(kind: kind, site_config: site_config, input: input),
+      { role: 'user', content: 'Generate the article JSON now.' }
+    ],
+    options
+  )
 end
 
 def resolve_upload_playlist(api_key, channel_id)
@@ -78,7 +161,21 @@ def fetch_playlist_items(api_key:, playlist_id:)
 end
 
 def load_video_items(options)
-  return JSON.parse(File.read(options[:input])) if options[:input]
+  if options[:input]
+    parsed = JSON.parse(File.read(options[:input]))
+    source_items = parsed.is_a?(Hash) ? parsed.fetch('items', []) : parsed
+    return source_items.map do |item|
+      snippet = item.fetch('snippet', item)
+      video_id = snippet['videoId'] || snippet.dig('resourceId', 'videoId')
+      {
+        'title' => snippet['title'],
+        'description' => snippet['description'],
+        'publishedAt' => snippet['publishedAt'],
+        'videoId' => video_id,
+        'url' => snippet['url'] || "https://www.youtube.com/watch?v=#{video_id}"
+      }
+    end
+  end
 
   api_key = options[:api_key] || ENV['YOUTUBE_API_KEY']
   raise 'Provide --input or set --api-key / YOUTUBE_API_KEY.' unless api_key
@@ -147,9 +244,9 @@ def build_youtube_post(group_title, versions, site_config)
   body << ''
   body << '## What This Post Covers'
   body << ''
-  body << "- Basic context around the track or performance"
-  body << "- Quick links to the available video versions"
-  body << "- A short explanation of why the upload may be useful for listeners or sing-along viewers"
+  body << '- Basic context around the track or performance'
+  body << '- Quick links to the available video versions'
+  body << '- A short explanation of why the upload may be useful for listeners or sing-along viewers'
   body << ''
   body << '## Available Video Versions'
   body << ''
@@ -186,6 +283,49 @@ def build_youtube_post(group_title, versions, site_config)
   [date, build_front_matter(meta), body.join("\n")]
 end
 
+def build_ai_youtube_post(group_title, versions, site_config, options)
+  sorted = versions.sort_by { |item| item['publishedAt'].to_s }
+  date = Date.parse(sorted.first.fetch('publishedAt')).strftime('%Y-%m-%d')
+  lyrics = sorted.find { |item| classify_video_type(item['title']) == 'lyrics' }
+  karaoke = sorted.find { |item| classify_video_type(item['title']) == 'karaoke' }
+  primary = lyrics || karaoke || sorted.first
+
+  ai = ai_generate_post(
+    kind: 'youtube',
+    site_config: site_config,
+    input: {
+      required_title: group_title,
+      site_description: site_config['description'],
+      publisher: site_config['author_fullname'] || site_config['author'],
+      versions: sorted.map do |item|
+        {
+          title: item['title'],
+          type: classify_video_type(item['title']),
+          published_at: item['publishedAt'],
+          video_url: item['url'],
+          description: compact_text(item['description'])[0, 400]
+        }
+      end
+    },
+    options: options
+  )
+
+  meta = {
+    'layout' => 'post',
+    'title' => compact_text(ai['title']).empty? ? group_title : compact_text(ai['title']),
+    'date' => "#{date} 12:00:00 +0800",
+    'categories' => Array(ai['categories']).map { |value| compact_text(value) }.reject(&:empty?).first(4),
+    'tags' => Array(ai['tags']).map { |value| compact_text(value) }.reject(&:empty?).first(10),
+    'youtube_id' => primary['videoId'],
+    'description' => compact_text(ai['description']),
+    'seo_title' => compact_text(ai['seo_title']).empty? ? "#{group_title} | #{site_config['title']}" : compact_text(ai['seo_title']),
+    'published' => false,
+    'status' => 'draft'
+  }
+
+  [date, build_front_matter(meta), ai['body'].to_s.strip]
+end
+
 def write_post_file(date, title, front_matter, body, dry_run: false)
   filename = "#{date}-#{slugify(title)}.md"
   path = POSTS_DIR.join(filename)
@@ -213,7 +353,11 @@ def run_youtube(options)
       next
     end
 
-    date, front_matter, body = build_youtube_post(group_title, versions, site_config)
+    date, front_matter, body = if ai_enabled?(options)
+      build_ai_youtube_post(group_title, versions, site_config, options)
+    else
+      build_youtube_post(group_title, versions, site_config)
+    end
     write_post_file(date, group_title, front_matter, body, dry_run: options[:dry_run])
   end
 end
@@ -273,9 +417,53 @@ def build_news_post(options, site_config)
   [date, title, build_front_matter(meta), body]
 end
 
+def build_ai_news_post(options, site_config)
+  topic = options.fetch(:topic)
+  source_name = options[:source_name] || 'Primary source'
+  source_url = options[:source_url] || ''
+  angle = options[:angle] || 'Explain the update clearly, focus on practical meaning, and avoid recycled filler.'
+  date = options[:date] || Date.today.strftime('%Y-%m-%d')
+
+  ai = ai_generate_post(
+    kind: 'news',
+    site_config: site_config,
+    input: {
+      required_topic: topic,
+      suggested_title: options[:title],
+      source_name: source_name,
+      source_url: source_url,
+      editorial_angle: angle,
+      preferred_categories: options[:categories],
+      preferred_tags: options[:tags],
+      publisher: site_config['author_fullname'] || site_config['author'],
+      site_description: site_config['description']
+    },
+    options: options
+  )
+
+  title = compact_text(ai['title']).empty? ? (options[:title] || topic) : compact_text(ai['title'])
+  meta = {
+    'layout' => 'post',
+    'title' => title,
+    'date' => "#{date} 12:00:00 +0800",
+    'categories' => Array(ai['categories']).map { |value| compact_text(value) }.reject(&:empty?).first(4),
+    'tags' => Array(ai['tags']).map { |value| compact_text(value) }.reject(&:empty?).first(10),
+    'description' => compact_text(ai['description']),
+    'seo_title' => compact_text(ai['seo_title']).empty? ? "#{title} | #{site_config['title']}" : compact_text(ai['seo_title']),
+    'published' => false,
+    'status' => 'draft'
+  }
+
+  [date, title, build_front_matter(meta), ai['body'].to_s.strip]
+end
+
 def run_news(options)
   site_config = load_site_config
-  date, title, front_matter, body = build_news_post(options, site_config)
+  date, title, front_matter, body = if ai_enabled?(options)
+    build_ai_news_post(options, site_config)
+  else
+    build_news_post(options, site_config)
+  end
   write_post_file(date, title, front_matter, body, dry_run: options[:dry_run])
 end
 
@@ -290,6 +478,9 @@ def parse_command(argv)
       opts.on('--api-key KEY', 'YouTube Data API key') { |value| options[:api_key] = value }
       opts.on('--channel-id ID', 'YouTube channel ID') { |value| options[:channel_id] = value }
       opts.on('--playlist-id ID', 'Uploads playlist ID') { |value| options[:playlist_id] = value }
+      opts.on('--use-ai', 'Use OpenAI to generate more unique SEO-friendly post content') { options[:use_ai] = true }
+      opts.on('--openai-api-key KEY', 'OpenAI API key for AI-assisted generation') { |value| options[:openai_api_key] = value }
+      opts.on('--openai-model MODEL', 'OpenAI model name for AI-assisted generation') { |value| options[:openai_model] = value }
       opts.on('--dry-run', 'Preview output without writing files') { options[:dry_run] = true }
     end.parse!(argv)
     [:youtube, options]
@@ -305,6 +496,9 @@ def parse_command(argv)
       opts.on('--date YYYY-MM-DD', 'Draft date') { |value| options[:date] = value }
       opts.on('--categories CSV', 'Comma-separated categories') { |value| options[:categories] = value }
       opts.on('--tags CSV', 'Comma-separated tags') { |value| options[:tags] = value }
+      opts.on('--use-ai', 'Use OpenAI to generate more unique SEO-friendly post content') { options[:use_ai] = true }
+      opts.on('--openai-api-key KEY', 'OpenAI API key for AI-assisted generation') { |value| options[:openai_api_key] = value }
+      opts.on('--openai-model MODEL', 'OpenAI model name for AI-assisted generation') { |value| options[:openai_model] = value }
       opts.on('--dry-run', 'Preview output without writing files') { options[:dry_run] = true }
     end.parse!(argv)
     raise OptionParser::MissingArgument, '--topic is required' unless options[:topic]
