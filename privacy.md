@@ -7,6 +7,8 @@ permalink: /privacy/
 
 METAXENOPY.TY respects your privacy. This page explains the information that may be collected when you browse the site, view content, or contact the publisher directly.
 
+This website is published through GitHub Pages and may also use third-party services for search verification, contact handling, and advertising operations. The purpose of this page is to explain those relationships clearly.
+
 ## Information Collected
 
 - Basic usage data may be collected by website infrastructure and third-party services such as GitHub Pages, Google Search Console, and Google AdSense.
@@ -35,6 +37,10 @@ Google Search Console may be used to understand search performance, indexing sta
 - Formspree processes contact form submissions on behalf of this site.
 - Google services may process limited technical, analytics, or advertising-related data where enabled.
 
+## Content and Embedded Media
+
+Some pages may embed or link to third-party content such as YouTube videos. Those platforms may collect their own technical or usage information according to their own policies when you interact with that content.
+
 ## Your Choices
 
 - You can choose not to submit the contact form if you do not want to share your contact information.
@@ -43,4 +49,4 @@ Google Search Console may be used to understand search performance, indexing sta
 
 ## Contact
 
-If you have privacy questions, please use the [contact page]({{ '/contact/' | relative_url }}).
+If you have privacy questions, please use the [contact page]({{ '/contact/' | relative_url }}). For related advertising transparency details, you can also review the [advertising disclosure]({{ '/disclosure/' | relative_url }}).

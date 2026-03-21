@@ -9,6 +9,8 @@ Have a question, want to collaborate, or need to reach me for a music or technic
 
 This page exists so visitors, collaborators, and review teams have a direct way to confirm ownership of the site and reach the publisher when needed.
 
+If you are contacting the site for policy, copyright, or advertising-related reasons, please include enough detail to identify the page or issue you are referring to so the request can be reviewed properly.
+
 <div class="contact-grid">
   <div class="contact-info">
     <h3>Contact Details</h3>
@@ -104,4 +106,6 @@ This page exists so visitors, collaborators, and review teams have a direct way 
 
 - Most legitimate inquiries are reviewed manually.
 - Spam, abusive messages, and unrelated solicitations may be ignored.
+- Policy, copyright, or correction requests should include relevant URLs whenever possible.
 - For privacy details about submitted information, please review the [privacy policy]({{ '/privacy/' | relative_url }}).
+- For advertising and editorial transparency, you can also review the [advertising disclosure]({{ '/disclosure/' | relative_url }}) and [editorial policy]({{ '/editorial-policy/' | relative_url }}).

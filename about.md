@@ -27,6 +27,17 @@ permalink: /about/
   </div>
 </div>
 
+## Publisher Identity and Trust
+
+This site is maintained as a real personal publishing property rather than an anonymous content site. The public-facing pages are meant to make it easy to understand:
+
+- who publishes the content
+- what topics the site focuses on
+- how to contact the publisher
+- where to find the site's policy and disclosure pages
+
+If you are reviewing the quality or legitimacy of the website, the [contact page]({{ '/contact/' | relative_url }}), [privacy policy]({{ '/privacy/' | relative_url }}), [editorial policy]({{ '/editorial-policy/' | relative_url }}), and [advertising disclosure]({{ '/disclosure/' | relative_url }}) provide additional context.
+
 ## About METAXENOPY
 
 METAXENOPY is the creator brand I use for lyric videos, karaoke uploads, and music-related blog posts. The goal is simple: make songs easier to follow, easier to sing, and easier to revisit.
@@ -57,6 +68,7 @@ METAXENOPY is the creator brand I use for lyric videos, karaoke uploads, and mus
 - To publish music-related articles, karaoke and lyrics features, and creator updates under the METAXENOPY brand.
 - To present a real professional background in systems analysis, troubleshooting, server work, and technical operations.
 - To provide a trustworthy point of contact for collaborations, inquiries, and policy review.
+- To maintain a readable archive of original pages and blog posts that are more useful than thin placeholder content.
 
 ## Core Skills
 

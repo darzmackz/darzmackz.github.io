@@ -1,4 +1,4 @@
 User-agent: *
+Allow: /
 Disallow: /admin/
-Allow: /ads.txt
 Sitemap: https://darzmackz.github.io/sitemap.xml

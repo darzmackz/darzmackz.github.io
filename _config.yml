@@ -1,9 +1,12 @@
 title: "METAXENOPY.TY"
 description: "Personal website and blog by KENJI covering OPM lyrics, karaoke videos, music features, and practical tech insights."
+tagline: "Original music features, karaoke-friendly posts, and practical technology insights."
 author: "KENJI"
 author_fullname: "Kent Harvey Plando"
+organization_name: "METAXENOPY"
 email: "darzmackz@gmail.com"
 lang: "en"
+locale: "en_PH"
 timezone: "Asia/Manila"
 url: "https://darzmackz.github.io"
 baseurl: ""
@@ -18,16 +21,32 @@ youtube_channel: "https://www.youtube.com/@metaxenopy?sub_confirmation=1"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
+future: false
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
+social:
+  name: "KENJI"
+  links:
+    - "https://github.com/darzmackz"
+    - "https://x.com/darzmackz"
+    - "https://www.facebook.com/IAMKENJIXD"
+    - "https://www.youtube.com/@metaxenopy?sub_confirmation=1"
+
 defaults:
   - scope:
       path: ""
     values:
+      image: "/assets/images/logo.png"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "KENJI"
       image: "/assets/images/logo.png"
 
 exclude:

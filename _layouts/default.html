@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.seo_title %}{{ page.seo_title }} | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | escape }}{% else %}{{ site.description | escape }}{% endif %}" />
+  {% assign meta_title = page.seo_title | default: page.title | default: site.title %}
+  {% assign meta_description = page.description | default: site.description %}
+  {% assign meta_image = page.social_image | default: page.image | default: site.profile_image | default: site.logo %}
+  <title>{{ meta_title }}{% unless meta_title == site.title %} | {{ site.title }}{% endunless %}</title>
+  <meta name="description" content="{{ meta_description | strip_html | normalize_whitespace | escape }}" />
+  <meta name="author" content="{{ page.author | default: site.author_fullname | default: site.author }}" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="color-scheme" content="dark light" />
   {% if page.noindex %}
   <meta name="robots" content="noindex, nofollow" />
   {% endif %}
   {% if site.google_site_verification != "" %}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}" />
   {% endif %}
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}" />
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }} | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | escape }}{% else %}{{ site.description | escape }}{% endif %}" />
-  <meta property="og:image" content="{{ page.social_image | default: page.image | default: site.profile_image | default: site.logo | absolute_url }}" />
+  <meta property="og:title" content="{{ meta_title }}{% unless meta_title == site.title %} | {{ site.title }}{% endunless %}" />
+  <meta property="og:description" content="{{ meta_description | strip_html | normalize_whitespace | escape }}" />
+  <meta property="og:image" content="{{ meta_image | absolute_url }}" />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="{{ page.url | absolute_url }}" />
-  <meta property="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }} | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta property="twitter:description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | escape }}{% else %}{{ site.description | escape }}{% endif %}" />
-  <meta property="twitter:image" content="{{ page.social_image | default: page.image | default: site.profile_image | default: site.logo | absolute_url }}" />
+  <meta property="twitter:title" content="{{ meta_title }}{% unless meta_title == site.title %} | {{ site.title }}{% endunless %}" />
+  <meta property="twitter:description" content="{{ meta_description | strip_html | normalize_whitespace | escape }}" />
+  <meta property="twitter:image" content="{{ meta_image | absolute_url }}" />
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
   {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %}
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
@@ -30,15 +39,31 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "{{ site.author_fullname }}",
-    "alternateName": "{{ site.author }}",
-    "url": "{{ site.url }}",
-    "email": "{{ site.email }}",
-    "sameAs": [
-      "https://github.com/{{ site.github_username }}",
-      "{{ site.facebook_url }}",
-      "{{ site.youtube_channel }}"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}#publisher",
+        "name": "{{ site.author_fullname }}",
+        "alternateName": "{{ site.author }}",
+        "url": "{{ site.url }}",
+        "email": "{{ site.email }}",
+        "image": "{{ site.profile_image | absolute_url }}",
+        "sameAs": [
+          "https://github.com/{{ site.github_username }}",
+          "{{ site.facebook_url }}",
+          "{{ site.youtube_channel }}"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}#website",
+        "url": "{{ site.url }}",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description | escape }}",
+        "publisher": {
+          "@id": "{{ site.url }}#publisher"
+        }
+      }
     ]
   }
   </script>
