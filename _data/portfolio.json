@@ -1,21 +1,5 @@
 [
   {
-    "id": "senior-system-analyst",
-    "icon": "🏨",
-    "title": "Senior System Analyst",
-    "subtitle": "Crown Regency Hotels and Resorts, Cebu City (February 2023 to Present)",
-    "description": "Supports database operations, system troubleshooting, infrastructure maintenance, and day-to-day technical reliability for hotel operations.",
-    "tech": [
-      "SQL",
-      "SQL Server",
-      "Windows Server",
-      "Linux",
-      "Networking"
-    ],
-    "link": "",
-    "link_text": ""
-  },
-  {
     "id": "nextcloud-deployment",
     "icon": "☁️",
     "title": "Nextcloud Server Deployment",
@@ -30,6 +14,22 @@
     ],
     "link": "https://regencydrive.crownregency.net/",
     "link_text": "View instance"
+  },
+  {
+    "id": "senior-system-analyst",
+    "icon": "🏨",
+    "title": "Senior System Analyst",
+    "subtitle": "Crown Regency Hotels and Resorts, Cebu City (February 2023 to Present)",
+    "description": "Supports database operations, system troubleshooting, infrastructure maintenance, and day-to-day technical reliability for hotel operations.",
+    "tech": [
+      "SQL",
+      "SQL Server",
+      "Windows Server",
+      "Linux",
+      "Networking"
+    ],
+    "link": "",
+    "link_text": ""
   },
   {
     "id": "system-analyst-administrator",
