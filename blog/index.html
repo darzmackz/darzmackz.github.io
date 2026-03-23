@@ -25,11 +25,78 @@ permalink: /blog/
   </div>
 </section>
 
-{% if site.posts.size > 0 %}
-<ul class="post-list">
-  {% for post in site.posts %}
-    {% unless post.published == false %}
-  <li class="post-list-item">
+{% assign published_posts = site.posts | where_exp: "post", "post.published != false" %}
+{% if published_posts.size > 0 %}
+<section class="blog-archive" aria-label="Blog archive" data-blog-archive>
+  <div class="blog-tools card">
+    <div class="blog-tools-head">
+      <div>
+        <h2>Browse the Archive</h2>
+        <p class="muted">Search by title, or narrow the list by year and category.</p>
+      </div>
+      <p class="blog-results" data-blog-results>{{ published_posts.size }} posts</p>
+    </div>
+
+    <div class="blog-filters" role="search">
+      <label class="blog-filter-field blog-filter-search">
+        <span class="screen-reader-text">Search posts</span>
+        <input
+          type="search"
+          id="blog-search"
+          placeholder="Search posts by title, category, or tag"
+          autocomplete="off"
+          data-blog-filter="search"
+        >
+      </label>
+
+      <label class="blog-filter-field">
+        <span>Year</span>
+        <select data-blog-filter="year">
+          <option value="">All years</option>
+          {% assign previous_year = '' %}
+          {% for post in published_posts %}
+            {% assign post_year = post.date | date: "%Y" %}
+            {% unless post_year == previous_year %}
+          <option value="{{ post_year }}">{{ post_year }}</option>
+              {% assign previous_year = post_year %}
+            {% endunless %}
+          {% endfor %}
+        </select>
+      </label>
+
+      <label class="blog-filter-field">
+        <span>Category</span>
+        <select data-blog-filter="category">
+          <option value="">All categories</option>
+          {% assign seen_categories = '|' %}
+          {% for post in published_posts %}
+            {% for category in post.categories %}
+              {% assign normalized_category = category | downcase %}
+              {% assign category_token = '|' | append: normalized_category | append: '|' %}
+              {% unless seen_categories contains category_token %}
+          <option value="{{ normalized_category }}">{{ category }}</option>
+                {% assign seen_categories = seen_categories | append: normalized_category | append: '|' %}
+              {% endunless %}
+            {% endfor %}
+          {% endfor %}
+        </select>
+      </label>
+
+      <button class="btn btn-outline blog-filter-reset" type="button" data-blog-filter="reset">Clear filters</button>
+    </div>
+  </div>
+
+  <p class="blog-empty text-muted is-hidden" data-blog-empty>No posts match the current search and filters.</p>
+
+  <ul class="post-list" data-blog-list>
+  {% for post in published_posts %}
+  <li
+    class="post-list-item"
+    data-post-item
+    data-post-year="{{ post.date | date: '%Y' }}"
+    data-post-categories="{{ post.categories | join: '|' | downcase | escape }}"
+    data-post-search="{{ post.title | append: ' ' | append: post.categories | append: ' ' | append: post.tags | downcase | strip_html | normalize_whitespace | escape }}"
+  >
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     <div class="post-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
@@ -42,9 +109,9 @@ permalink: /blog/
     {% endif %}
     <a class="read-more" href="{{ post.url | relative_url }}">Read more &rarr;</a>
   </li>
-    {% endunless %}
   {% endfor %}
 </ul>
+</section>
 {% else %}
 <p class="text-muted">No posts yet. Check back soon for new content.</p>
 {% endif %}
