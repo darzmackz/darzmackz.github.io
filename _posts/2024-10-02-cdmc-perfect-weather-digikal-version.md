@@ -11,19 +11,17 @@ status: "published"
 published: true
 ---
 
+## Sing Along with the Karaoke Version
+
+This karaoke version lets you step into the rhythm and bring your own voice into the track. Whether you're practicing, performing, or just having fun, it’s a great way to experience the song on a more personal level.
+
+---
+
 # CDMC - Perfect Weather (Digikal Version)
 
 Sometimes the best way to enjoy a song is to make it your own—and *Perfect Weather (Digikal Version)* by **CDMC (CoolieDread and the Microphone Commanders)** gives you exactly that opportunity.
 
 Coming from a local band based in Cebu City, this track carries a distinct vibe that reflects its roots while offering a sound that’s easy to connect with and enjoy.
-
----
-
-## Sing Along with the Karaoke Version
-
-This karaoke version lets you step into the rhythm and bring your own voice into the track. Whether you're practicing, performing, or just having fun, it’s a great way to experience the song on a more personal level.
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/hxOJll7D5e4" frameborder="0" allowfullscreen></iframe>
 
 ---
 
