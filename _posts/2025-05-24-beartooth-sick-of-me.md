@@ -1,86 +1,54 @@
 ---
-layout: "post"
+layout: post
 title: "Beartooth - Sick of Me"
 date: "2025-05-24 12:00:00 +0800"
-categories: ["music", "youtube", "lyrics", "karaoke"]
-tags: ["beartooth", "sick", "karaoke", "lyrics", "metaxenopy"]
+categories: [music, youtube, lyrics, karaoke, alternative]
+tags: [beartooth, sick-of-me, karaoke, lyrics, alternative-rock, post-hardcore, metalcore, sing-along]
 youtube_id: "CF_NKg54DfU"
 description: "A draft post for Beartooth - Sick of Me that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Beartooth - Sick of Me | METAXENOPY.TY"
-published: false
-status: "draft"
+seo_title: "Beartooth - Sick of Me | METAXENOPY.TY| Lyrics & Karaoke (Sing Along Version)"
+status: "published"
+published: true
 ---
 
-## SOURCE_DATA
+## Watch the Lyrics Version
 
-- Final post title: Beartooth - Sick of Me
-- Channel: METAXENOPY
-- Blog post date: 2025-05-24
-- Available video types: karaoke, lyrics
+If you want to fully connect with the raw emotion behind *Sick of Me*, the lyrics version is the best place to start. It lets you follow every line and feel the intensity of the song as it unfolds.
 
-### Video Links
+---
 
-- Beartooth - Sick of Me (Karaoke): https://www.youtube.com/watch?v=XE6coLPjPj0
-- Beartooth - Sick of Me (Lyrics): https://www.youtube.com/watch?v=CF_NKg54DfU
+# Beartooth - Sick of Me
 
-### Source Description Snippets
+Some songs don’t hold back—and *Sick of Me* by **Beartooth** is one of them. With its heavy sound and emotionally charged delivery, the track captures a sense of inner struggle that hits hard from the very beginning.
 
-- Beartooth - Sick of Me (Karaoke): 🎤 Sick of Me – Beartooth | Karaoke Version by METAXENOPY (No Vocals) 🎵 Song: "Sick of Me" (Karaoke Version) 🎤 Artist: Beartooth 🎙️ Karaoke track + on-screen lyrics 🎥 Created by: METAXENOPY Want to sing it yourself? This karaoke version of Beartooth’s “Sick of Me” features no vocals and synced lyrics so you can take the mic and let your voice shine. Whether you're jamming solo or sharing with frien
-- Beartooth - Sick of Me (Lyrics): 🎧 Sick of Me – Beartooth | Lyric Video by METAXENOPY 🎵 Song: "Sick of Me" 🎤 Artist: Beartooth 📽️ Lyric Video created by: METAXENOPY The powerful, emotional intensity of Beartooth’s "Sick of Me" hits hard—and I brought the lyrics to life in this custom lyric video. If you’ve ever battled with self-doubt or struggled with your inner demons, this song will speak to you. 🔥 Like, comment, and subscribe
+It’s a song that speaks to moments of self-doubt and frustration, wrapped in powerful instrumentation and an unapologetic tone.
 
-## AI_DRAFT_PROMPT
+---
 
-```text
-Create a unique blog post in Markdown.
+## Sing Along with the Karaoke Version
 
-Requirements:
-- Keep the title exactly: "Beartooth - Sick of Me"
-- Use the blog post date exactly: 2025-05-24
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Since both lyrics and karaoke versions exist, combine them naturally into one post
-- Mention the lyrics version as the one for readers who want to follow the words
-- Mention the karaoke version as the one for readers who want to sing along
+If you want to release that energy yourself, the karaoke version gives you the perfect chance to step in and take control. Whether you're practicing or just letting it all out, it’s built for a full, expressive performance.
 
-Available source data:
-- Final post title: Beartooth - Sick of Me
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2025-05-24
-- Available video types: karaoke, lyrics
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/XE6coLPjPj0" frameborder="0" allowfullscreen></iframe>
 
-Video sources:
-- Beartooth - Sick of Me (Karaoke) => https://www.youtube.com/watch?v=XE6coLPjPj0
-- Beartooth - Sick of Me (Lyrics) => https://www.youtube.com/watch?v=CF_NKg54DfU
+---
 
-Source description snippets:
-- Beartooth - Sick of Me (Karaoke): 🎤 Sick of Me – Beartooth | Karaoke Version by METAXENOPY (No Vocals) 🎵 Song: "Sick of Me" (Karaoke Version) 🎤 Artist: Beartooth 🎙️ Karaoke track + on-screen lyrics 🎥 Created by: METAXENOPY Want to sing it yourself? This karaoke version of Beartooth’s “Sick of Me” features no vocals and synced lyrics so you can take the mic and let your voice shine. Whether you're jamming solo or sharing with frien
-- Beartooth - Sick of Me (Lyrics): 🎧 Sick of Me – Beartooth | Lyric Video by METAXENOPY 🎵 Song: "Sick of Me" 🎤 Artist: Beartooth 📽️ Lyric Video created by: METAXENOPY The powerful, emotional intensity of Beartooth’s "Sick of Me" hits hard—and I brought the lyrics to life in this custom lyric video. If you’ve ever battled with self-doubt or struggled with your inner demons, this song will speak to you. 🔥 Like, comment, and subscribe
+## A Track That Hits Hard
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+What makes *Sick of Me* stand out is its honesty. The intensity of the sound and delivery creates an experience that feels real, direct, and deeply personal.
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+---
 
-## CONTENT
+## Final Thoughts
 
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+*Sick of Me* is more than just a heavy track—it’s an outlet for emotion. Whether you're following the lyrics or singing along, it’s a song that lets you feel everything without holding back.
+
+---
+
+## Follow METAXENOPY on YouTube
+
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
+
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
