@@ -1,86 +1,54 @@
 ---
-layout: "post"
+layout: post
 title: "Beartooth - Hated (Acoustic)"
 date: "2025-05-23 12:00:00 +0800"
-categories: ["music", "youtube", "lyrics", "karaoke"]
-tags: ["beartooth", "hated", "acoustic", "karaoke", "lyrics", "metaxenopy"]
+categories: [music, youtube, lyrics, karaoke, alternative]
+tags: [beartooth, hated-acoustic, karaoke, lyrics, acoustic, alternative-rock, emotional, sing-along]
 youtube_id: "ehlIAq22rRo"
-description: "A draft post for Beartooth - Hated (Acoustic) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Beartooth - Hated (Acoustic) | METAXENOPY.TY"
-published: false
-status: "draft"
+description: "Experience “Hated (Acoustic)” by Beartooth with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this stripped-down and emotional version."
+seo_title: "Beartooth - Hated (Acoustic) | METAXENOPY.TY | Lyrics & Karaoke Version"
+status: "published"
+published: true
 ---
 
-## SOURCE_DATA
+## Watch the Lyrics Version
 
-- Final post title: Beartooth - Hated (Acoustic)
-- Channel: METAXENOPY
-- Blog post date: 2025-05-23
-- Available video types: karaoke, lyrics
+If you want to fully connect with the stripped-down emotion of *Hated (Acoustic)*, the lyrics version is the best place to start. It lets you follow every word while feeling the raw and personal tone of the track.
 
-### Video Links
+---
 
-- Beartooth - Hated (Acoustic) [Karaoke]: https://www.youtube.com/watch?v=e-fyLA8-MTM
-- Beartooth - Hated (Acoustic) [Lyrics]: https://www.youtube.com/watch?v=ehlIAq22rRo
+# Beartooth - Hated (Acoustic)
 
-### Source Description Snippets
+Some songs reveal a different side when everything is stripped back—and *Hated (Acoustic)* shows exactly that. Without the heavy instrumentation, the focus shifts entirely to the emotion behind the lyrics, making the message feel more direct and personal.
 
-- Beartooth - Hated (Acoustic) [Karaoke]: 🔴 Sing the karaoke video for Beartooth’s "Hated" 🔴 Beartooth’s raw, intense energy comes to life in this powerful track, and now you can experience every word with this lyric video! "Hated" is a brutal anthem for anyone who’s ever felt misunderstood or pushed to the edge. Whether you’re screaming along or just vibing to the intense riffs, this track hits hard. 🔥 Don't forget to like, comment, and 
-- Beartooth - Hated (Acoustic) [Lyrics]: 🔴 Watch the lyric video for Beartooth’s "Hated" 🔴 Beartooth’s raw, intense energy comes to life in this powerful track, and now you can experience every word with this lyric video! "Hated" is a brutal anthem for anyone who’s ever felt misunderstood or pushed to the edge. Whether you’re screaming along or just vibing to the intense riffs, this track hits hard. 🔥 Don't forget to like, comment, and s
+This version highlights a quieter intensity, where every word carries more weight and every moment feels more intimate.
 
-## AI_DRAFT_PROMPT
+---
 
-```text
-Create a unique blog post in Markdown.
+## Sing Along with the Karaoke Version
 
-Requirements:
-- Keep the title exactly: "Beartooth - Hated (Acoustic)"
-- Use the blog post date exactly: 2025-05-23
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Since both lyrics and karaoke versions exist, combine them naturally into one post
-- Mention the lyrics version as the one for readers who want to follow the words
-- Mention the karaoke version as the one for readers who want to sing along
+If you want to express that emotion yourself, the karaoke version gives you the perfect space to do so. Whether you're singing softly or pouring everything into it, it’s a powerful way to connect with the track.
 
-Available source data:
-- Final post title: Beartooth - Hated (Acoustic)
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2025-05-23
-- Available video types: karaoke, lyrics
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/e-fyLA8-MTM" frameborder="0" allowfullscreen></iframe>
 
-Video sources:
-- Beartooth - Hated (Acoustic) [Karaoke] => https://www.youtube.com/watch?v=e-fyLA8-MTM
-- Beartooth - Hated (Acoustic) [Lyrics] => https://www.youtube.com/watch?v=ehlIAq22rRo
+---
 
-Source description snippets:
-- Beartooth - Hated (Acoustic) [Karaoke]: 🔴 Sing the karaoke video for Beartooth’s "Hated" 🔴 Beartooth’s raw, intense energy comes to life in this powerful track, and now you can experience every word with this lyric video! "Hated" is a brutal anthem for anyone who’s ever felt misunderstood or pushed to the edge. Whether you’re screaming along or just vibing to the intense riffs, this track hits hard. 🔥 Don't forget to like, comment, and 
-- Beartooth - Hated (Acoustic) [Lyrics]: 🔴 Watch the lyric video for Beartooth’s "Hated" 🔴 Beartooth’s raw, intense energy comes to life in this powerful track, and now you can experience every word with this lyric video! "Hated" is a brutal anthem for anyone who’s ever felt misunderstood or pushed to the edge. Whether you’re screaming along or just vibing to the intense riffs, this track hits hard. 🔥 Don't forget to like, comment, and s
+## A Different Kind of Intensity
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+What makes the acoustic version stand out is how it transforms the energy of the original. Instead of loud and aggressive, it becomes reflective and emotionally driven, offering a new perspective on the song.
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+---
 
-## CONTENT
+## Final Thoughts
 
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+*Hated (Acoustic)* proves that sometimes less can say more. Whether you're following the lyrics or singing along, it’s a version that resonates on a deeper level.
+
+---
+
+## Follow METAXENOPY on YouTube
+
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
+
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
