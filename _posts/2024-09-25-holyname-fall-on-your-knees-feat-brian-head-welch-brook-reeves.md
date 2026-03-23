@@ -1,29 +1,80 @@
 ---
 layout: "post"
-title: 'HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)'
+title: "HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves)"
 date: "2024-09-25 12:00:00 +0800"
 categories: ["music", "youtube", "lyrics"]
-tags: ["holyname", "fall", "your", "knees", "feat", "brian", "head", "welch", "brook", "reeves", "lyrics", "metaxenopy"]
+tags: ["holyname", "fall", "your", "knees", "feat", "brian", "head", "welch", "brook", "reeves"]
 youtube_id: "NARu3oKhVEY"
-description: 'HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) is featured here with its lyrics-focused video on METAXENOPY, offering a clean place to follow the words and stay with the song from start to finish.'
-seo_title: 'HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) | METAXENOPY.TY'
-published: true
+description: "A draft post for HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves) focused on the available lyrics version with a cleaner reading and listening experience."
+seo_title: "HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves) | METAXENOPY.TY"
+published: false
+status: "draft"
 ---
 
-# HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)
+## SOURCE_DATA
 
-Some songs land harder when you can stay close to every line, and **HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)** is one of them. This lyrics-focused post keeps the attention on the words and flow, making it easier to follow the track without distractions.
+- Final post title: HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)
+- Channel: METAXENOPY
+- Blog post date: 2024-09-25
+- Available video types: lyrics
 
-## Watch on YouTube
+### Video Links
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/NARu3oKhVEY" frameborder="0" allowfullscreen></iframe>
+- HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) [Lyrics]: https://www.youtube.com/watch?v=NARu3oKhVEY
 
-## Why the Lyrics Version Helps
+### Source Description Snippets
 
-A lyrics video gives the song a different kind of focus. It helps readers stay with each line, catch the pacing more easily, and revisit the track when they want a clearer listening experience built around the words.
+- HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) [Lyrics]: #holyname #impendingdoom #brianheadwelch
 
-## Posted on METAXENOPY
+## AI_DRAFT_PROMPT
 
-This entry was published on **2024-09-25** and points back to the METAXENOPY YouTube upload for **HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)**.
+```text
+Create a unique blog post in Markdown.
 
-HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) is an easy one to keep bookmarked if you want a straightforward page for listening, reading, or singing along whenever the mood hits.
+Requirements:
+- Keep the title exactly: "HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)"
+- Use the blog post date exactly: 2024-09-25
+- Make it SEO-friendly but natural
+- Make it human, readable, and not robotic
+- Use the title as the main SEO topic naturally
+- Do not invent facts beyond the provided details
+- Write an engaging intro, not a generic one
+- Use clean section headings
+- Add a short natural closing paragraph
+- Make the article feel handcrafted and useful to readers
+- Avoid generic filler and repetitive phrasing
+- Do not mention anything about AI, automation, or draft generation
+- Focus naturally on the lyrics version
+
+Available source data:
+- Final post title: HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)
+- Channel: METAXENOPY
+- Site title: METAXENOPY.TY
+- Site author: Kent Harvey Plando
+- YouTube publish date: 2024-09-25
+- Available video types: lyrics
+
+Video sources:
+- HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) [Lyrics] => https://www.youtube.com/watch?v=NARu3oKhVEY
+
+Source description snippets:
+- HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves) [Lyrics]: #holyname #impendingdoom #brianheadwelch
+
+Return the final answer in this exact order:
+1. SEO Title
+2. Excerpt/Description
+3. Categories
+4. Tags
+5. Markdown Content
+
+Formatting rules for your answer:
+- SEO Title: one line only
+- Excerpt/Description: one paragraph only
+- Categories: comma-separated list
+- Tags: comma-separated list
+- Markdown Content: full blog post only
+```
+
+## CONTENT
+
+Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
