@@ -1674,6 +1674,17 @@ ul, ol {
 .blog-filter-reset {
   min-height: 44px;
   align-self: end;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.blog-filter-reset:hover,
+.blog-filter-reset:focus-visible {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  text-decoration: none;
 }
 
 .blog-empty {
