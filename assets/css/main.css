@@ -1621,6 +1621,7 @@ ul, ol {
 .blog-tools-head h2 {
   margin-bottom: var(--spacing-xs);
   font-size: 1.15rem;
+  color: var(--color-text);
 }
 
 .blog-results {
@@ -1646,6 +1647,13 @@ ul, ol {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-muted);
+}
+
+.blog-tools:hover .blog-tools-head h2,
+.blog-tools:hover .blog-tools-head .muted,
+.blog-tools:hover .blog-results,
+.blog-tools:hover .blog-filter-field span {
+  color: var(--color-text);
 }
 
 .blog-filter-field input,
