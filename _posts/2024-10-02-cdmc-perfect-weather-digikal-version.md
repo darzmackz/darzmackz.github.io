@@ -1,80 +1,48 @@
 ---
-layout: "post"
+layout: post
 title: "CDMC - Perfect Weather (Digikal Version)"
 date: "2024-10-02 12:00:00 +0800"
-categories: ["music", "youtube", "karaoke"]
-tags: ["cdmc", "perfect", "weather", "digikal", "version", "karaoke", "metaxenopy"]
+categories: [music, youtube, karaoke, opm]
+tags: [cdmc, perfect-weather, digikal-version, karaoke, opm, cebu-band, reggae, local-music]
 youtube_id: "hxOJll7D5e4"
-description: "A draft post for CDMC - Perfect Weather (Digikal Version) focused on the karaoke version for sing-along readers and viewers."
+description: "Sing along to “Perfect Weather (Digikal Version)” by CDMC with this karaoke version—perfect for fans who want to enjoy and perform this local Cebu-based track."
 seo_title: "CDMC - Perfect Weather (Digikal Version) | METAXENOPY.TY"
-published: false
-status: "draft"
+status: "published"
+published: true
 ---
 
-## SOURCE_DATA
+# CDMC - Perfect Weather (Digikal Version)
 
-- Final post title: CDMC - Perfect Weather (Digikal Version)
-- Channel: METAXENOPY
-- Blog post date: 2024-10-02
-- Available video types: karaoke
+Sometimes the best way to enjoy a song is to make it your own—and *Perfect Weather (Digikal Version)* by **CDMC (CoolieDread and the Microphone Commanders)** gives you exactly that opportunity.
 
-### Video Links
+Coming from a local band based in Cebu City, this track carries a distinct vibe that reflects its roots while offering a sound that’s easy to connect with and enjoy.
 
-- CDMC - Perfect Weather (Digikal Version) [Karaoke]: https://www.youtube.com/watch?v=hxOJll7D5e4
+---
 
-### Source Description Snippets
+## Sing Along with the Karaoke Version
 
-- CDMC - Perfect Weather (Digikal Version) [Karaoke]: CDMC or CoolieDread and the Microphone Commanders is a local band form Cebu City.
+This karaoke version lets you step into the rhythm and bring your own voice into the track. Whether you're practicing, performing, or just having fun, it’s a great way to experience the song on a more personal level.
 
-## AI_DRAFT_PROMPT
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/hxOJll7D5e4" frameborder="0" allowfullscreen></iframe>
 
-```text
-Create a unique blog post in Markdown.
+---
 
-Requirements:
-- Keep the title exactly: "CDMC - Perfect Weather (Digikal Version)"
-- Use the blog post date exactly: 2024-10-02
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Focus naturally on the karaoke version
+## A Local Sound Worth Sharing
 
-Available source data:
-- Final post title: CDMC - Perfect Weather (Digikal Version)
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2024-10-02
-- Available video types: karaoke
+CDMC brings a unique style that highlights the diversity of local music. Tracks like *Perfect Weather (Digikal Version)* showcase how regional artists continue to contribute to the broader music scene with their own identity and sound.
 
-Video sources:
-- CDMC - Perfect Weather (Digikal Version) [Karaoke] => https://www.youtube.com/watch?v=hxOJll7D5e4
+---
 
-Source description snippets:
-- CDMC - Perfect Weather (Digikal Version) [Karaoke]: CDMC or CoolieDread and the Microphone Commanders is a local band form Cebu City.
+## Final Thoughts
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+*Perfect Weather (Digikal Version)* is more than just a song—it’s an invitation to participate. Whether you're singing along or simply enjoying the vibe, it’s a track that reflects the spirit of local music.
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+---
 
-## CONTENT
+## Follow METAXENOPY on YouTube
 
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
+
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
