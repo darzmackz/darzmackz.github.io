@@ -1,86 +1,54 @@
 ---
-layout: "post"
+layout: post
 title: "Iya Terra - Together"
 date: "2025-07-09 12:00:00 +0800"
-categories: ["music", "youtube", "lyrics", "karaoke"]
-tags: ["iya", "terra", "together", "lyrics", "karaoke", "metaxenopy"]
+categories: [music, youtube, lyrics, karaoke, reggae]
+tags: [iya-terra, together, reggae, karaoke, lyrics, chill-music, positive-vibes, unity]
 youtube_id: "ujSmVABRSt4"
-description: "A draft post for Iya Terra - Together that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Iya Terra - Together | METAXENOPY.TY"
-published: false
-status: "draft"
+description: "Experience “Together” by Iya Terra with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this uplifting reggae anthem."
+seo_title: "Iya Terra - Together | METAXENOPY.TY| Lyrics & Karaoke Reggae Vibes"
+status: "published"
+published: true
 ---
 
-## SOURCE_DATA
+## Watch the Lyrics Version
 
-- Final post title: Iya Terra - Together
-- Channel: METAXENOPY
-- Blog post date: 2025-07-09
-- Available video types: lyrics, karaoke
+If you want to fully embrace the message behind *Together*, the lyrics version is the best place to start. It lets you follow every word while soaking in the uplifting and peaceful vibe of the song.
 
-### Video Links
+---
 
-- Iya Terra - Together (Lyrics): https://www.youtube.com/watch?v=ujSmVABRSt4
-- Iya Terra - Together (Karaoke): https://www.youtube.com/watch?v=9iBDE9_TQAE
+# Iya Terra - Together
 
-### Source Description Snippets
+Some songs are meant to be felt—and *Together* by **Iya Terra** delivers exactly that. With its smooth reggae rhythm and positive energy, the track creates a calming atmosphere that encourages connection, unity, and reflection.
 
-- Iya Terra - Together (Lyrics): 🌞 Vibe Higher with Iya Terra – "Together" 🌞 Let the positive vibrations flow as you listen to "Together" by Iya Terra — a soulful reggae anthem about unity, healing, and rising as one. Whether you're here to unwind, find peace, or uplift your spirit, this track will move you in all the right ways. 🎶💛 🔔 Don't forget to LIKE, SHARE & SUBSCRIBE to join our growing community of music lovers and consci
-- Iya Terra - Together (Karaoke): 🌞 Vibe Higher with Iya Terra – "Together" 🌞 Let the positive vibrations flow as you listen to "Together" by Iya Terra — a soulful reggae anthem about unity, healing, and rising as one. Whether you're here to unwind, find peace, or uplift your spirit, this track will move you in all the right ways. 🎶💛 🔔 Don't forget to LIKE, SHARE & SUBSCRIBE to join our growing community of music lovers and consci
+It’s the kind of song that naturally lifts your mood, whether you're relaxing, unwinding, or simply taking a moment to breathe.
 
-## AI_DRAFT_PROMPT
+---
 
-```text
-Create a unique blog post in Markdown.
+## Sing Along with the Karaoke Version
 
-Requirements:
-- Keep the title exactly: "Iya Terra - Together"
-- Use the blog post date exactly: 2025-07-09
-- Make it SEO-friendly but natural
-- Make it human, readable, and not robotic
-- Use the title as the main SEO topic naturally
-- Do not invent facts beyond the provided details
-- Write an engaging intro, not a generic one
-- Use clean section headings
-- Add a short natural closing paragraph
-- Make the article feel handcrafted and useful to readers
-- Avoid generic filler and repetitive phrasing
-- Do not mention anything about AI, automation, or draft generation
-- Since both lyrics and karaoke versions exist, combine them naturally into one post
-- Mention the lyrics version as the one for readers who want to follow the words
-- Mention the karaoke version as the one for readers who want to sing along
+If you want to be part of that vibe, the karaoke version gives you the chance to sing along and make the song your own. It’s perfect for laid-back sessions, gatherings, or just enjoying the moment.
 
-Available source data:
-- Final post title: Iya Terra - Together
-- Channel: METAXENOPY
-- Site title: METAXENOPY.TY
-- Site author: Kent Harvey Plando
-- YouTube publish date: 2025-07-09
-- Available video types: lyrics, karaoke
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/9iBDE9_TQAE" frameborder="0" allowfullscreen></iframe>
 
-Video sources:
-- Iya Terra - Together (Lyrics) => https://www.youtube.com/watch?v=ujSmVABRSt4
-- Iya Terra - Together (Karaoke) => https://www.youtube.com/watch?v=9iBDE9_TQAE
+---
 
-Source description snippets:
-- Iya Terra - Together (Lyrics): 🌞 Vibe Higher with Iya Terra – "Together" 🌞 Let the positive vibrations flow as you listen to "Together" by Iya Terra — a soulful reggae anthem about unity, healing, and rising as one. Whether you're here to unwind, find peace, or uplift your spirit, this track will move you in all the right ways. 🎶💛 🔔 Don't forget to LIKE, SHARE & SUBSCRIBE to join our growing community of music lovers and consci
-- Iya Terra - Together (Karaoke): 🌞 Vibe Higher with Iya Terra – "Together" 🌞 Let the positive vibrations flow as you listen to "Together" by Iya Terra — a soulful reggae anthem about unity, healing, and rising as one. Whether you're here to unwind, find peace, or uplift your spirit, this track will move you in all the right ways. 🎶💛 🔔 Don't forget to LIKE, SHARE & SUBSCRIBE to join our growing community of music lovers and consci
+## A Song About Unity and Peace
 
-Return the final answer in this exact order:
-1. SEO Title
-2. Excerpt/Description
-3. Categories
-4. Tags
-5. Markdown Content
+What makes *Together* stand out is its message. It’s not just about the music—it’s about bringing people together, promoting positivity, and creating a sense of peace through sound.
 
-Formatting rules for your answer:
-- SEO Title: one line only
-- Excerpt/Description: one paragraph only
-- Categories: comma-separated list
-- Tags: comma-separated list
-- Markdown Content: full blog post only
-```
+---
 
-## CONTENT
+## Final Thoughts
 
-Paste the AI_DRAFT_PROMPT into ChatGPT, then replace this section with the final polished Markdown content.
+*Together* is more than just a track—it’s an experience built on good vibes and meaningful connection. Whether you're following the lyrics or singing along, it’s a song that leaves you feeling lighter and more grounded.
+
+---
+
+## Follow METAXENOPY on YouTube
+
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
+
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
+
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
