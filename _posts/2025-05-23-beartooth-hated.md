@@ -5,7 +5,7 @@ date: "2025-05-23 12:00:00 +0800"
 categories: [music, youtube, lyrics, karaoke, alternative]
 tags: [beartooth, hated, karaoke, lyrics, alternative-rock, post-hardcore, metalcore, sing-along]
 youtube_id: "DDKPvzHcR2c"
-description: "A draft post for Beartooth - Hated that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
+description: "Experience “Hated” by Beartooth with both lyrics and karaoke versions—perfect for fans who want to follow the words or unleash their voice on this intense anthem."
 seo_title: "Beartooth - Hated | METAXENOPY.TY | Lyrics & Karaoke (Sing Along Version)"
 status: "published"
 published: true
