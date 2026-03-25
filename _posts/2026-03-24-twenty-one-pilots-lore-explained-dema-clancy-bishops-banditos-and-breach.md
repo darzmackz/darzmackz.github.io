@@ -93,7 +93,7 @@ At its heart, the lore turns internal struggle into a physical geography:
 ### Banditos
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/63/Banditos_in_jumpsuit.png/revision/latest/scale-to-width-down/552?cb=20250303224355" alt="Banditos appearing on the cliff in Jumpsuit" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/63/Banditos_in_jumpsuit.png/revision/latest?cb=20250303224355" alt="Banditos appearing on the cliff in Jumpsuit" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
   <figcaption style="text-align:center;font-size:0.95rem;">The Banditos embody resistance, rescue, and the refusal to let Dema define reality.</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ At its heart, the lore turns internal struggle into a physical geography:
 </figure>
 
 **Descriptor:** Clancy's designated Bishop and the member of the Nine who breaks ranks.  
-**Lore relevance:** Keons is crucial because he helps create the opening that frees Clancy from Dema's control and enables the Voldsøy turning point.  
+**Lore relevance:** Keons is crucial because he helps create the opening that frees Clancy from Dema's control and enables the Voldsoy turning point.  
 **Connected chapters:** `Heavydirtysoul`, `Saturday`, `The Outside`.
 
 ### Trash the Dragon
@@ -131,8 +131,8 @@ At its heart, the lore turns internal struggle into a physical geography:
 </figure>
 
 **Descriptor:** Small antlered creature tied to imagination, creativity, and seizing.  
-**Lore relevance:** Ned is the character most closely associated with the power Clancy learns to use at Voldsøy. His presence turns the story from escape narrative into tactical return.  
-**Connected chapters:** `The Outside`, the Voldsøy section of the lore.
+**Lore relevance:** Ned is the character most closely associated with the power Clancy learns to use at Voldsoy. His presence turns the story from escape narrative into tactical return.  
+**Connected chapters:** `The Outside`, the Voldsoy section of the lore.
 
 ---
 
@@ -162,28 +162,28 @@ At its heart, the lore turns internal struggle into a physical geography:
 </figure>
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/e/e7/Full_trench_map_with_paladin_strait.png/revision/latest/scale-to-width-down/558?cb=20250227193508" alt="Map of Trench including Paladin Strait" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Trench is the dangerous landscape between captivity and freedom.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/63/Banditos_in_jumpsuit.png/revision/latest?cb=20250303224355" alt="Banditos moving through Trench from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Trench is the dangerous landscape between captivity and freedom, seen through the Banditos moving outside Dema.</figcaption>
 </figure>
 
 **Short descriptor:** Wild terrain surrounding Dema.  
 **Lore relevance:** Trench represents movement, risk, hardship, and the possibility of escape without comfort.  
 **Connections:** `Jumpsuit`, `Nico and the Niners`, `Levitate`, `Navigating`.
 
-### Voldsøy
+### Voldsoy
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/ae/Screenshot_2025-03-03_at_12.36.16_AM.png/revision/latest?cb=20250303053650" alt="Voldsøy eastern cove schematic from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The Voldsøy eastern cove schematic is one of the clearest lore visuals tied to Clancy's transformation into a seizer.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/ae/Screenshot_2025-03-03_at_12.36.16_AM.png/revision/latest?cb=20250303053650" alt="Voldsoy eastern cove schematic from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Voldsoy eastern cove schematic is one of the clearest lore visuals tied to Clancy's transformation into a seizer.</figcaption>
 </figure>
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/69/Clancy_psychokinesing.png/revision/latest?cb=20250306030822" alt="Clancy performing psychokinesis after reaching Voldsøy" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Voldsøy is where Clancy becomes more than a fugitive.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/69/Clancy_psychokinesing.png/revision/latest?cb=20250306030822" alt="Clancy performing psychokinesis after reaching Voldsoy" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Voldsoy is where Clancy becomes more than a fugitive.</figcaption>
 </figure>
 
 **Short descriptor:** The island where Clancy and Torchbearer wash ashore after the submarine attack.  
-**Lore relevance:** Voldsøy is the turning point where Clancy receives the means to seize vessels and return as something more dangerous to Dema.  
+**Lore relevance:** Voldsoy is the turning point where Clancy receives the means to seize vessels and return as something more dangerous to Dema.  
 **Connections:** `Saturday`, `The Outside`.
 
 ### Paladin Strait
@@ -279,10 +279,7 @@ The most reliable way to explore the `dmaorg` visuals is through the fandom arch
 
 ### Map and City Context
 
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/ae/Screenshot_2025-03-03_at_12.36.16_AM.png/revision/latest?cb=20250303053650" alt="Voldsøy eastern cove schematic from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The Voldsøy eastern cove schematic shows how the files began pointing Clancy toward a usable psychokinetic weapon.</figcaption>
-</figure>
+The archived maps and diagrams matter because they make the lore spatial. They turn Dema, Trench, and later Voldsoy into navigable places instead of abstract symbols.
 
 ### Why The Files Matter
 
@@ -293,8 +290,8 @@ The `dmaorg` materials matter because they move the lore inward. Music videos sh
 At first glance, *Scaled and Icy* looks colorful, polished, and lighter than *Trench*. That surface is part of the trap. This era reads as Dema-approved performance, where Clancy's creativity is exploited and packaged as spectacle.
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/5/5b/Dan_lisden_clancy_sally_sacarver.png/revision/latest/scale-to-width-down/506?cb=20250306030032" alt="Clancy framed by Dema hosts during propaganda programming" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The era's polished presentation hides the fact that Clancy is still inside Dema's machine.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/5/52/Scaled_and_Icy.png/revision/latest?cb=20250305152719" alt="Scaled and Icy album art from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The bright Scaled and Icy presentation is part of the propaganda, not an escape from it.</figcaption>
 </figure>
 
 <div style="padding:1rem 1.1rem;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(255,255,255,0.03);margin:1rem 0;">
@@ -329,7 +326,7 @@ This livestream is mandatory viewing if you want to understand how Dema turns pe
   <iframe src="https://www.youtube.com/embed/eNcvblM8-_o" title="Twenty One Pilots The Outside official video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-This is where the story turns. Voldsøy, Ned, psychokinesis, Keons' betrayal, and the fires in Dema all push the lore from passive survival toward active retaliation.
+This is where the story turns. Voldsoy, Ned, psychokinesis, Keons' betrayal, and the fires in Dema all push the lore from passive survival toward active retaliation.
 
 ### Clancy: Return To Dema
 
@@ -345,7 +342,7 @@ By the time *Clancy* arrives, the story is no longer hiding in hints alone. It i
   <iframe src="https://www.youtube.com/embed/53tgVlXBZVg" title="Twenty One Pilots Overcompensate official video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-This chapter matters because it shows Clancy using what he learned on Voldsøy to begin waking people up inside Dema itself.
+This chapter matters because it shows Clancy using what he learned on Voldsoy to begin waking people up inside Dema itself.
 
 #### `Navigating`
 
@@ -389,7 +386,7 @@ The post-*Clancy* reading keeps the story from resolving into easy triumph. The 
 3. `Jumpsuit`, `Nico and the Niners`, and `Levitate` establish Dema, Trench, the Banditos, and repeated recapture.
 4. `dmaorg` and citizen letters deepen the story through visual files, maps, scans, and hidden messages.
 5. *Scaled and Icy* reframes control as performance, image management, and propaganda.
-6. `Saturday` and `The Outside` move Clancy through betrayal, shipwreck, Voldsøy, and psychokinesis.
+6. `Saturday` and `The Outside` move Clancy through betrayal, shipwreck, Voldsoy, and psychokinesis.
 7. `Overcompensate`, `Navigating`, and `Paladin Strait` bring the conflict back to Dema and toward direct war.
 8. The post-*Clancy* reading suggests that the cycle survives the confrontation, even if the forms change.
 
