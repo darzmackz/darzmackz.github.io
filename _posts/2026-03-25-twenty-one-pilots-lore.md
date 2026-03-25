@@ -15,6 +15,8 @@ The twenty one pilots story is bigger than a single album cycle. It is a long-ru
 
 This guide is based on the detailed fan timeline assembled in the Reddit post ["An Updated (and Detailed) Explanation of The Lore"](https://www.reddit.com/r/twentyonepilots/comments/18nj865/an_updated_and_detailed_explanation_of_the_lore/) and cross-checked against the Twenty One Pilots Wiki's [Lore category](https://twentyonepilots.fandom.com/wiki/Category:Lore). Because the lore is intentionally symbolic, some pieces remain open to interpretation.
 
+If you are reading this as a full catch-up, the article below now includes a visual companion for each major phase of the story, using lore images from the fandom archive and official video chapters where the story becomes explicit on-screen.
+
 ---
 
 ## Start Here: Full Lore Video
@@ -43,6 +45,16 @@ That is why the story resonates so strongly. Even when it becomes fantastical, i
 ### Dema
 
 The city at the center of the lore. Dema is ruled by the Bishops and shaped by order, ritual, surveillance, and despair. In symbolic terms, it is the mental or spiritual place where a person becomes trapped.
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/1/18/Dema_city.jpg/revision/latest/scale-to-width-down/300?cb=20250303060214" alt="Bird's-eye view of Dema from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">A bird's-eye view of Dema from the fandom archive.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/0/0a/DEMA_Map.webp/revision/latest/scale-to-width-down/185?cb=20240206114415" alt="Map of Dema from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;background:#111;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Map of Dema and its structure inside the wider Trench landscape.</figcaption>
+</figure>
 
 ### The Bishops
 
@@ -98,6 +110,37 @@ This is the first major truth of the lore: escaping once is not the same thing a
   <figcaption style="text-align:center;font-size:0.95rem;">Banditos visual from the Twenty One Pilots Wiki fandom archive.</figcaption>
 </figure>
 
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/9/91/Jumpsuitclancy.png/revision/latest/scale-to-width-down/276?cb=20250306024119" alt="Clancy in Jumpsuit era imagery from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Clancy in the wilderness during the Jumpsuit phase of the story.</figcaption>
+</figure>
+
+The most important visual chapters from this stage are embedded below:
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/er571S0QcAo"
+    title="twenty one pilots: Heavydirtysoul official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/UOUBW8bkjQ4"
+    title="twenty one pilots - Jumpsuit official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 ### 3. The Letters, Dmaorg, And Clancy's Voice
@@ -113,6 +156,20 @@ Those materials turned Clancy from a possible side figure into the narrative's e
 
 If you want the lore in source form, the wiki pages for [Dmaorg.info](https://twentyonepilots.fandom.com/wiki/Dmaorg.info), [Clancy](https://twentyonepilots.fandom.com/wiki/Clancy_(character)), and [Citizen Letters](https://twentyonepilots.fandom.com/wiki/Citizen_Letters) are some of the most useful companion references.
 
+The lore break-out video for this middle stretch is **Nico and the Niners**, where Dema, the Banditos, and the escape plan are made far more concrete:
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/hMAPyGoqQVw"
+    title="twenty one pilots - Nico And The Niners official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 ### 4. Captivity In Disguise: *Scaled And Icy*
@@ -127,6 +184,18 @@ This is the era where a lot of fans began reading the band's bright pop surface 
   <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/d/d6/Bishop_Clancy.png/revision/latest?cb=20250912061436" alt="Clancy in red robes from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
   <figcaption style="text-align:center;font-size:0.95rem;">Clancy imagery from the fandom wiki, reflecting how the lore grows more explicit in later eras.</figcaption>
 </figure>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/FiXVRdotCEk"
+    title="Twenty One Pilots - Saturday official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ---
 
@@ -151,6 +220,33 @@ Useful companion pages:
 - [Trash the Dragon](https://twentyonepilots.fandom.com/wiki/Trash_the_Dragon)
 - [Vialism](https://twentyonepilots.fandom.com/wiki/Vialism)
 
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/0/04/Keons_psychokineseizing_trash_like_a_baller.png/revision/latest/scale-to-width-down/437?cb=20250303223109" alt="Keons seizing Trash the Dragon using psychokinesis from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Keons using psychokinesis on Trash the Dragon, one of the key turning points in the Scaled and Icy era.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/8/8e/Ned.jpeg/revision/latest/scale-to-width-down/229?cb=20200612162651" alt="Ned from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:360px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Ned, whose antlers are tied to Clancy's ability to seize vessels.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/69/Clancy_psychokinesing.png/revision/latest/scale-to-width-down/217?cb=20250306030822" alt="Clancy performing psychokinesis from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Clancy performing psychokinesis after reaching Voldsoy.</figcaption>
+</figure>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/m2w6GkV3U6Q"
+    title="Twenty One Pilots - The Outside lyric video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 ### 6. *Clancy*: Return, Rebellion, And Paladin Strait
@@ -167,6 +263,57 @@ The key beats include:
 
 In **Paladin Strait**, Clancy infiltrates the city, the Banditos clash with Dema's defenses, and Clancy finally reaches Nico. But instead of clean resolution, the saga leans into the idea that defeating fear is never as simple as one decisive victory.
 
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/3/36/Overcompensate.png/revision/latest/scale-to-width-down/267?cb=20250306031148" alt="Clancy teaching new recruits in Overcompensate from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Clancy recruiting and teaching inside Dema during Overcompensate.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/b/b8/Banditospreparing.png/revision/latest/scale-to-width-down/290?cb=20250306032229" alt="Clancy walking the Banditos through the battle plan from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The battle plan for Paladin Strait, as archived on the fandom wiki.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/f/fa/Battle_of_Paladin_Strait.png/revision/latest/scale-to-width-down/306?cb=20250303055419" alt="Banditos and Torchbearer facing the army of Glorious Gones in Paladin Strait" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Banditos facing the army of Glorious Gones in the Battle of Paladin Strait.</figcaption>
+</figure>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/53tgVlXBZVg"
+    title="Twenty One Pilots - Overcompensate official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/07YtBj3BEBQ"
+    title="Twenty One Pilots - Navigating official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="video-wrapper">
+  <iframe
+    src="https://www.youtube.com/embed/mix9YfaaNa0"
+    title="Twenty One Pilots - Paladin Strait official video"
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 ### 7. After *Clancy*: The Breach Reading
@@ -182,6 +329,11 @@ In that interpretation:
 - the cycle continues, with Clancy still needing to be found and fought for again
 
 This part of the lore is one of the strongest examples of why fans keep debating the story. It reframes the conflict from "beat the villain and move on" into something more painful: what if the struggle against Blurryface can be won for a moment, but never permanently escaped?
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/a6/Nico_grabbing_clancy.png/revision/latest/scale-to-width-down/281?cb=20250306031804" alt="Nico grabbing Clancy's throat at the end of Paladin Strait from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The confrontation with Nico at the end of Paladin Strait.</figcaption>
+</figure>
 
 ---
 
@@ -222,8 +374,8 @@ If you want to keep digging, these lore pages from the fandom archive are the be
 For video viewing, pair this article with:
 
 - Justadoody's full-lore breakdown: `https://www.youtube.com/watch?v=gX2ID2aGFik`
-- the official **I Am Clancy** recap
 - the canonical video run from **Heavydirtysoul** through **Paladin Strait**
+- the fandom archive pages above if you want screenshots, maps, and character references in one place
 
 ---
 
@@ -272,3 +424,4 @@ And that is why the ending keeps hitting so hard. Even when the lore looks like 
 - Reddit fan timeline: ["An Updated (and Detailed) Explanation of The Lore"](https://www.reddit.com/r/twentyonepilots/comments/18nj865/an_updated_and_detailed_explanation_of_the_lore/)
 - Fandom source hub: [Twenty One Pilots Wiki - Lore](https://twentyonepilots.fandom.com/wiki/Category:Lore)
 - Character and concept pages: [Clancy](https://twentyonepilots.fandom.com/wiki/Clancy_(character)), [Bishops](https://twentyonepilots.fandom.com/wiki/Bishops), [Dema](https://twentyonepilots.fandom.com/wiki/Dema), [Ned](https://twentyonepilots.fandom.com/wiki/Ned), [Trash the Dragon](https://twentyonepilots.fandom.com/wiki/Trash_the_Dragon), [Vialism](https://twentyonepilots.fandom.com/wiki/Vialism)
+- Official video references used in this post: [Heavydirtysoul](https://www.youtube.com/watch?v=er571S0QcAo), [Jumpsuit](https://www.youtube.com/watch?v=UOUBW8bkjQ4), [Nico and the Niners](https://www.youtube.com/watch?v=hMAPyGoqQVw), [Saturday](https://www.youtube.com/watch?v=FiXVRdotCEk), [The Outside lyric video](https://www.youtube.com/watch?v=m2w6GkV3U6Q), [Overcompensate](https://www.youtube.com/watch?v=53tgVlXBZVg), [Navigating](https://www.youtube.com/watch?v=07YtBj3BEBQ), [Paladin Strait](https://www.youtube.com/watch?v=mix9YfaaNa0), [Justadoody full lore breakdown](https://www.youtube.com/watch?v=gX2ID2aGFik)
