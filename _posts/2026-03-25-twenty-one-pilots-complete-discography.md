@@ -46,6 +46,50 @@ If you want the shortest biography possible, it is this: Twenty One Pilots began
 
 ---
 
+## Band Photos By Era
+
+Because the release history is so tied to visual identity, it helps to see the band in era-like snapshots too, not only through album covers. The gallery below mixes band portraits and performance photos so the post has a stronger visual arc across the catalog.
+
+### Album And Promo Eras
+
+<div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1.25rem 0;">
+  <figure style="margin:0;max-width:280px;text-align:center;">
+    <img src="/assets/images/top-discography/band-allmusic-portrait.jpg" alt="Twenty One Pilots portrait" style="width:280px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">Portrait view of the duo that fits the biographical, album-cycle side of the catalog.</figcaption>
+  </figure>
+  <figure style="margin:0;max-width:280px;text-align:center;">
+    <img src="/assets/images/top-discography/band-allmusic-portrait-2.jpg" alt="Twenty One Pilots promotional portrait" style="width:280px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">A second promo-style portrait that works well alongside the major-label and arena-era albums.</figcaption>
+  </figure>
+  <figure style="margin:0;max-width:420px;text-align:center;">
+    <img src="/assets/images/top-discography/band-allmusic-landscape.jpg" alt="Twenty One Pilots landscape band photo" style="width:420px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">A wider band image that gives the discography page a more editorial, era-overview feel.</figcaption>
+  </figure>
+  <figure style="margin:0;max-width:420px;text-align:center;">
+    <img src="/assets/images/top-discography/band-allmusic-landscape-2.jpg" alt="Twenty One Pilots modern promotional image" style="width:420px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">Another clean band shot that complements the later catalog phases and modern presentation.</figcaption>
+  </figure>
+</div>
+
+### Live Performances And Concert Years
+
+<div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1.25rem 0;">
+  <figure style="margin:0;max-width:420px;text-align:center;">
+    <img src="/assets/images/top-discography/band-2019.jpg" alt="Twenty One Pilots live in 2019" style="width:420px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">Live in 2019, during the years when <em>Trench</em> had already reshaped the band's scale and stage language.</figcaption>
+  </figure>
+  <figure style="margin:0;max-width:420px;text-align:center;">
+    <img src="/assets/images/top-discography/band-2022.jpg" alt="Twenty One Pilots live in 2022" style="width:420px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">Live in 2022, showing the festival-era version of the band after <em>Scaled and Icy</em>.</figcaption>
+  </figure>
+  <figure style="margin:0;max-width:420px;text-align:center;">
+    <img src="/assets/images/top-discography/band-allmusic-landscape-3.jpg" alt="Twenty One Pilots wide performance-oriented photo" style="width:420px;border-radius:14px;display:block;" />
+    <figcaption style="font-size:0.9rem;margin-top:0.55rem;">A wide band image that bridges the page between the portrait gallery and the bigger live-performance side of the catalog.</figcaption>
+  </figure>
+</div>
+
+---
+
 ## Songs That Define The Band
 
 The singles list later in this post is the detailed catalog. This section is the faster answer to a different question: which songs best explain why Twenty One Pilots became Twenty One Pilots?
