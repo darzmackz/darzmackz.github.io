@@ -289,9 +289,11 @@ The `dmaorg` materials matter because they move the lore inward. Music videos sh
 
 At first glance, *Scaled and Icy* looks colorful, polished, and lighter than *Trench*. That surface is part of the trap. This era reads as Dema-approved performance, where Clancy's creativity is exploited and packaged as spectacle.
 
+One of the most important fan and lore-community readings of this era is that **Scaled and Icy functions as Dema propaganda**, especially through the phrase **"Clancy Is Dead."** In that reading, the message is not just literal death. It is Dema's attempt to declare Clancy erased, neutralized, rebranded, or stripped of agency. The bright visuals, polished performances, and forced presentation all support that idea: Dema wants control to look harmless, complete, and final.
+
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/5/52/Scaled_and_Icy.png/revision/latest?cb=20250305152719" alt="Scaled and Icy album art from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The bright Scaled and Icy presentation is part of the propaganda, not an escape from it.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/9/9f/Trash_the_Dragon.jpg/revision/latest?cb=20250304030904" alt="Trash the Dragon from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Trash the Dragon became one of the defining visual symbols of the Scaled and Icy era's bright but deceptive presentation.</figcaption>
 </figure>
 
 <div style="padding:1rem 1.1rem;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(255,255,255,0.03);margin:1rem 0;">
@@ -303,6 +305,10 @@ At first glance, *Scaled and Icy* looks colorful, polished, and lighter than *Tr
 </div>
 
 This livestream is mandatory viewing if you want to understand how Dema turns performance into propaganda. It connects the bright stagecraft of the era to the deeper sense that Clancy is being used rather than simply performing.
+
+<div style="padding:1rem 1.1rem;border-left:4px solid #ff5a5f;background:rgba(255,90,95,0.08);margin:1.25rem 0;">
+  <strong>Lore connection:</strong> "Clancy Is Dead" works as one of the clearest propaganda slogans in the entire story. Whether read as literal, symbolic, or strategic disinformation, it shows Dema trying to control not only Clancy's body but also the narrative around him.
+</div>
 
 #### `Saturday`
 
