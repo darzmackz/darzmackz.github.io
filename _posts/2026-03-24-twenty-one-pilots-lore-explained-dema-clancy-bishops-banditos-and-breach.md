@@ -71,8 +71,8 @@ At its heart, the lore turns internal struggle into a physical geography:
 ### The Bishops
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/5/5b/Dan_lisden_clancy_sally_sacarver.png/revision/latest/scale-to-width-down/506?cb=20250306030032" alt="Dan Lisden, Clancy, and Sally Sacarver during Dema propaganda performances" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The Bishops govern Dema through ritual, propaganda, and psychological domination.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/3/34/The_bishops.png/revision/latest?cb=20250303222553" alt="The Bishops from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Bishops gathered in Nico's tower, representing the full authority structure of Dema.</figcaption>
 </figure>
 
 **Descriptor:** The nine rulers of Dema.  
@@ -101,21 +101,38 @@ At its heart, the lore turns internal struggle into a physical geography:
 **Lore relevance:** The Banditos are the communal answer to Dema's isolation. They pull the story outward, away from passive suffering and toward organized rebellion.  
 **Connected chapters:** `Jumpsuit`, `Nico and the Niners`, `Levitate`, `Navigating`, `Paladin Strait`.
 
-### Ned, Keons, and Trash
+### Keons
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/8/8e/Ned.jpeg/revision/latest/scale-to-width-down/229?cb=20200612162651" alt="Ned from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:320px;" />
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/0/04/Keons_psychokineseizing_trash_like_a_baller.png/revision/latest?cb=20250303223109" alt="Keons using psychokinesis from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Keons is the Bishop whose betrayal changes the direction of the story.</figcaption>
+</figure>
+
+**Descriptor:** Clancy's designated Bishop and the member of the Nine who breaks ranks.  
+**Lore relevance:** Keons is crucial because he helps create the opening that frees Clancy from Dema's control and enables the Voldsøy turning point.  
+**Connected chapters:** `Heavydirtysoul`, `Saturday`, `The Outside`.
+
+### Trash the Dragon
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/9/9f/Trash_the_Dragon.jpg/revision/latest?cb=20250304030904" alt="Trash the Dragon from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Trash the Dragon becomes both propaganda symbol and rescue mechanism in the Scaled and Icy era.</figcaption>
+</figure>
+
+**Descriptor:** Blue dragon tied to the Scaled and Icy aesthetic and later to Clancy's rescue.  
+**Lore relevance:** Trash starts as branding, then becomes a literal plot device when Keons uses the dragon's body in the attack that frees Clancy.  
+**Connected chapters:** `Shy Away`, `Saturday`, `The Outside`.
+
+### Ned
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/8/8e/Ned.jpeg/revision/latest?cb=20200612162651" alt="Ned from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
   <figcaption style="text-align:center;font-size:0.95rem;">Ned is tied to creativity, transformation, and Clancy's power to seize.</figcaption>
 </figure>
 
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/0/04/Keons_psychokineseizing_trash_like_a_baller.png/revision/latest/scale-to-width-down/437?cb=20250303223109" alt="Keons psychokineseizing Trash the Dragon" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Keons and Trash mark the point where the lore shifts from escape into weaponized rebellion.</figcaption>
-</figure>
-
-**Descriptor:** Ned is the creative catalyst, Keons is the Bishop who betrays the system, and Trash becomes part of the rescue that changes everything.  
-**Lore relevance:** These three figures reshape the stakes of the story. By the time Clancy reaches Voldsøy, the lore is no longer only about getting out. It becomes about coming back with power.  
-**Connected chapters:** `Saturday`, `The Outside`.
+**Descriptor:** Small antlered creature tied to imagination, creativity, and seizing.  
+**Lore relevance:** Ned is the character most closely associated with the power Clancy learns to use at Voldsøy. His presence turns the story from escape narrative into tactical return.  
+**Connected chapters:** `The Outside`, the Voldsøy section of the lore.
 
 ---
 
@@ -140,6 +157,11 @@ At its heart, the lore turns internal struggle into a physical geography:
 ### Trench
 
 <figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/d/d2/Trench.jpg/revision/latest?cb=20250307062355" alt="Trench album cover from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Trench era establishes the wilderness outside Dema as both danger and possibility.</figcaption>
+</figure>
+
+<figure>
   <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/e/e7/Full_trench_map_with_paladin_strait.png/revision/latest/scale-to-width-down/558?cb=20250227193508" alt="Map of Trench including Paladin Strait" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
   <figcaption style="text-align:center;font-size:0.95rem;">Trench is the dangerous landscape between captivity and freedom.</figcaption>
 </figure>
@@ -151,7 +173,12 @@ At its heart, the lore turns internal struggle into a physical geography:
 ### Voldsøy
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/69/Clancy_psychokinesing.png/revision/latest/scale-to-width-down/217?cb=20250306030822" alt="Clancy performing psychokinesis after reaching Voldsøy" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/ae/Screenshot_2025-03-03_at_12.36.16_AM.png/revision/latest?cb=20250303053650" alt="Voldsøy eastern cove schematic from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Voldsøy eastern cove schematic is one of the clearest lore visuals tied to Clancy's transformation into a seizer.</figcaption>
+</figure>
+
+<figure>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/69/Clancy_psychokinesing.png/revision/latest?cb=20250306030822" alt="Clancy performing psychokinesis after reaching Voldsøy" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:560px;" />
   <figcaption style="text-align:center;font-size:0.95rem;">Voldsøy is where Clancy becomes more than a fugitive.</figcaption>
 </figure>
 
@@ -189,14 +216,14 @@ This is where the lore becomes overtly narrative. Clancy escapes, is recaptured,
 #### `Heavydirtysoul`
 
 <div style="padding:0.8rem 1rem;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(255,255,255,0.03);margin:1rem 0;">
-  <strong>Official MV:</strong> <em>Heavydirtysoul</em>
+  <strong>Alternate Official Upload:</strong> <em>Heavydirtysoul (Circle)</em>
 </div>
 
 <div class="video-wrapper">
-  <iframe src="https://www.youtube.com/embed/er571S0QcAo" title="twenty one pilots Heavydirtysoul official video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/I5canBXoCyU" title="twenty one pilots Heavydirtysoul Circle official upload" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-This chapter feels like ignition. It kicks open the road out of symbolic fear and toward a story where Clancy's movement matters.
+This chapter feels like ignition. It kicks open the road out of symbolic fear and toward a story where Clancy's movement matters. The original `Heavydirtysoul` MV is widely reuploaded around YouTube, but this embed uses the official `twenty one pilots` channel upload to keep the article on official media only.
 
 #### `Jumpsuit`
 
@@ -242,71 +269,24 @@ The mood shifts here from rebellion's possibility to rebellion's cost. The captu
   <strong>Important:</strong> `dmaorg` is not just supporting text. The visuals are the delivery system. The maps, letters, image files, and poster fragments are part of how the story was told.
 </div>
 
-### Map Files
+### Visual Archive Links
+
+The most reliable way to explore the `dmaorg` visuals is through the fandom archive pages that collect the image sets together rather than depending on individual file URLs that can change over time. These pages hold the letters, scans, maps, posters, and termination-file material in one place:
+
+- [Dmaorg.info](https://twentyonepilots.fandom.com/wiki/Dmaorg.info)
+- [Citizen Letters](https://twentyonepilots.fandom.com/wiki/Citizen_Letters)
+- [Timeline](https://twentyonepilots.fandom.com/wiki/Timeline)
+
+### Map and City Context
 
 <figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/f/fd/Ti_su_p.png/revision/latest/scale-to-width-down/300?cb=20180722100927" alt="dmaorg map image pointing toward Dema and Trench" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Map file from dmaorg used to orient fans inside the Dema and Trench geography.</figcaption>
+  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/a/ae/Screenshot_2025-03-03_at_12.36.16_AM.png/revision/latest?cb=20250303053650" alt="Voldsøy eastern cove schematic from the Twenty One Pilots Wiki" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:720px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">The Voldsøy eastern cove schematic shows how the files began pointing Clancy toward a usable psychokinetic weapon.</figcaption>
 </figure>
 
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/e/e3/Terminating_files_Dema_map_inverted.png/revision/latest/scale-to-width-down/299?cb=20210403030019" alt="Inverted Dema map from the terminating files" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The inverted Dema map from the terminating files pushes the city into a more unstable, interrogated form.</figcaption>
-</figure>
+### Why The Files Matter
 
-These map visuals made the story feel navigable. They translated metaphor into territory.
-
-### Puzzle and Hidden-Message Images
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/8/85/Underscore_.jpg/revision/latest/scale-to-width-down/300?cb=20180722100734" alt="dmaorg yellow lines image" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">A yellow-lined dmaorg puzzle image that reinforced coded messaging and hidden direction.</figcaption>
-</figure>
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/6/66/2018_514_3_8.jpg/revision/latest/scale-to-width-down/300?cb=20180722101042" alt="Halftone Banditos image from dmaorg" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">A halftone Banditos-style image from the lore files, reinforcing the movement outside Dema.</figcaption>
-</figure>
-
-These are the files that made fans start reading every visual as a clue, not decoration.
-
-### Letters and Scans
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/7/7c/E_sr_eve_r_.jpg/revision/latest/scale-to-width-down/300?cb=20180722100756" alt="Clancy letter image from dmaorg" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">One of the early Clancy letter scans that helped define his voice and perspective.</figcaption>
-</figure>
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/c/ce/He_a_vy_.jpg/revision/latest/scale-to-width-down/300?cb=20180722100813" alt="Wake up Clancy note from dmaorg" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:420px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">A note connected to Clancy's warnings and fragmented communications.</figcaption>
-</figure>
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/e/e2/Page-15_.png/revision/latest/scale-to-width-down/411?cb=20250303215213" alt="Torchbearer to Clancy letter page 15" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Torchbearer to Clancy: one of the most important citizen-letter visuals in the newer phase of the story.</figcaption>
-</figure>
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/7/76/Letter024.png/revision/latest/scale-to-width-down/396?cb=20250514175156" alt="Late-era lore letter scan from the fandom archive" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:520px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">A later letter scan that pushes the story into its more explicit post-Clancy warnings.</figcaption>
-</figure>
-
-The letters matter because they move the lore inward. Music videos show the world. The letters tell us how it feels from the inside.
-
-### Posters and Termination Material
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/1/1c/Poster_1.png/revision/latest/scale-to-width-down/180?cb=20210406052417" alt="Scaled and Icy era propaganda poster from lore files" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:300px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Poster material tied to the propaganda-heavy Scaled and Icy era.</figcaption>
-</figure>
-
-<figure>
-  <img src="https://static.wikia.nocookie.net/twenty-one-pilots/images/c/c7/Poster_2.jpg/revision/latest/scale-to-width-down/180?cb=20210406052508" alt="Second propaganda poster from the lore files" style="display:block;margin:1.25rem auto;border-radius:14px;max-width:100%;width:300px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">The poster campaign pushed Dema's propaganda aesthetic into public-facing artifact form.</figcaption>
-</figure>
-
-These visuals are a big reason the *Scaled and Icy* era felt unsettling instead of simply bright. Dema did not disappear. It just learned branding.
+The `dmaorg` materials matter because they move the lore inward. Music videos show the world. The letters, scans, and maps tell us how that world feels from inside the system, and how fans were meant to uncover it piece by piece.
 
 ### Scaled and Icy: Propaganda With A Smile
 
@@ -430,4 +410,4 @@ That is why the lore stays with people. Dema is a city, but it also feels like a
 - Reddit fan timeline: ["An Updated (and Detailed) Explanation of The Lore"](https://www.reddit.com/r/twentyonepilots/comments/18nj865/an_updated_and_detailed_explanation_of_the_lore/)
 - Fandom source hub: [Twenty One Pilots Wiki - Lore](https://twentyonepilots.fandom.com/wiki/Category:Lore)
 - Key fandom pages: [Clancy](https://twentyonepilots.fandom.com/wiki/Clancy_(character)), [Bishops](https://twentyonepilots.fandom.com/wiki/Bishops), [Dema](https://twentyonepilots.fandom.com/wiki/Dema), [Ned](https://twentyonepilots.fandom.com/wiki/Ned), [Trash the Dragon](https://twentyonepilots.fandom.com/wiki/Trash_the_Dragon), [Dmaorg.info](https://twentyonepilots.fandom.com/wiki/Dmaorg.info), [Citizen Letters](https://twentyonepilots.fandom.com/wiki/Citizen_Letters)
-- Official media used here: [I Am Clancy](https://www.youtube.com/watch?v=ozlHHR_eSxc), [Heavydirtysoul](https://www.youtube.com/watch?v=er571S0QcAo), [Jumpsuit](https://www.youtube.com/watch?v=UOUBW8bkjQ4), [Nico and the Niners](https://www.youtube.com/watch?v=hMAPyGoqQVw), [Levitate](https://www.youtube.com/watch?v=uv_1AKKKJnk), [Scaled and Icy Livestream Experience](https://www.youtube.com/watch?v=KIrTPrPTy0E), [Saturday](https://www.youtube.com/watch?v=FiXVRdotCEk), [The Outside](https://www.youtube.com/watch?v=eNcvblM8-_o), [Overcompensate](https://www.youtube.com/watch?v=53tgVlXBZVg), [Navigating](https://www.youtube.com/watch?v=07YtBj3BEBQ), [Paladin Strait](https://www.youtube.com/watch?v=mix9YfaaNa0)
+- Official media used here: [I Am Clancy](https://www.youtube.com/watch?v=ozlHHR_eSxc), [Heavydirtysoul (Circle)](https://www.youtube.com/watch?v=I5canBXoCyU), [Jumpsuit](https://www.youtube.com/watch?v=UOUBW8bkjQ4), [Nico and the Niners](https://www.youtube.com/watch?v=hMAPyGoqQVw), [Levitate](https://www.youtube.com/watch?v=uv_1AKKKJnk), [Scaled and Icy Livestream Experience](https://www.youtube.com/watch?v=KIrTPrPTy0E), [Saturday](https://www.youtube.com/watch?v=FiXVRdotCEk), [The Outside](https://www.youtube.com/watch?v=eNcvblM8-_o), [Overcompensate](https://www.youtube.com/watch?v=53tgVlXBZVg), [Navigating](https://www.youtube.com/watch?v=07YtBj3BEBQ), [Paladin Strait](https://www.youtube.com/watch?v=mix9YfaaNa0)
