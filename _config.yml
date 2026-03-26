@@ -70,4 +70,4 @@ webmaster_verifications:
 utterances_repo: "darzmackz/darzmackz.github.io"
 utterances_issue_term: "pathname"
 utterances_theme: "github-dark"
-countapi_namespace: "metaxenopy-ty"
+engagement_api_base: "https://regencydrive.crownregency.net/github/post-engagement.php"

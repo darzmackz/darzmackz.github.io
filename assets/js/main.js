@@ -103,7 +103,7 @@
     var postUrl = root.getAttribute('data-post-url') || window.location.href;
     var postPath = root.getAttribute('data-post-path') || window.location.pathname;
     var postTitle = root.getAttribute('data-post-title') || document.title;
-    var namespace = root.getAttribute('data-counter-namespace') || 'metaxenopy-ty';
+    var engagementApi = (root.getAttribute('data-engagement-api') || '').trim();
     var viewCountEl = root.querySelector('[data-view-count]');
     var shareFeedback = root.querySelector('[data-share-feedback]');
     var reactionFeedback = root.querySelector('[data-reaction-feedback]');
@@ -112,7 +112,8 @@
     var utterancesIssueTerm = root.getAttribute('data-utterances-issue-term') || 'pathname';
     var utterancesTheme = root.getAttribute('data-utterances-theme') || 'github-dark';
     var reactionStorageKey = 'postReaction:' + postPath;
-    var counterUnavailable = false;
+    var visitorTokenKey = 'engagementVisitorToken';
+    var engagementUnavailable = false;
 
     function setFeedback(el, message, isError) {
       if (!el) return;
@@ -120,28 +121,66 @@
       el.classList.toggle('is-error', Boolean(isError));
     }
 
-    function counterUrl() {
-      return 'https://api.countapi.xyz';
+    function createVisitorToken() {
+      return 'visitor-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 12);
     }
 
-    function fetchCounter(method, key) {
-      if (counterUnavailable) {
-        return Promise.reject(new Error('Counter service unavailable'));
+    function getVisitorToken() {
+      var token = '';
+      try {
+        token = window.localStorage.getItem(visitorTokenKey) || '';
+        if (!token) {
+          token = createVisitorToken();
+          window.localStorage.setItem(visitorTokenKey, token);
+        }
+      } catch (e) {
+        token = createVisitorToken();
+      }
+      return token;
+    }
+
+    function apiUrl(action) {
+      var separator = engagementApi.indexOf('?') === -1 ? '?' : '&';
+      return engagementApi + separator + 'action=' + encodeURIComponent(action);
+    }
+
+    function requestEngagement(action, options) {
+      var requestOptions = options || {};
+      if (!engagementApi) {
+        engagementUnavailable = true;
+        return Promise.reject(new Error('Engagement API not configured'));
+      }
+      if (engagementUnavailable) {
+        return Promise.reject(new Error('Engagement API unavailable'));
       }
 
-      var url = counterUrl() + '/' + method + '/' + encodeURIComponent(namespace) + '/' + encodeURIComponent(key);
-      return window.fetch(url, {
-        method: 'GET',
+      var method = requestOptions.method || 'GET';
+      var fetchOptions = {
+        method: method,
         headers: {
           'Accept': 'application/json'
         }
-      }).then(function (response) {
+      };
+
+      if (method !== 'GET') {
+        fetchOptions.headers['Content-Type'] = 'application/json';
+        fetchOptions.body = JSON.stringify(requestOptions.body || {});
+      }
+
+      var url = apiUrl(action);
+      if (method === 'GET' && requestOptions.query) {
+        Object.keys(requestOptions.query).forEach(function (key) {
+          url += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(requestOptions.query[key]);
+        });
+      }
+
+      return window.fetch(url, fetchOptions).then(function (response) {
         if (!response.ok) {
-          throw new Error('Counter request failed');
+          throw new Error('Engagement request failed');
         }
         return response.json();
       }).catch(function (error) {
-        counterUnavailable = true;
+        engagementUnavailable = true;
         throw error;
       });
     }
@@ -161,14 +200,25 @@
         viewedThisSession = window.sessionStorage.getItem(sessionKey) === '1';
       } catch (e) {}
 
-      var method = viewedThisSession ? 'get' : 'hit';
-      fetchCounter(method, 'views:' + postPath).then(function (data) {
-        viewCountEl.textContent = formatCount(data.value);
+      var request = viewedThisSession ?
+        requestEngagement('get', { method: 'GET', query: { path: postPath } }) :
+        requestEngagement('view', {
+          method: 'POST',
+          body: {
+            path: postPath,
+            title: postTitle,
+            url: postUrl,
+            visitor_token: getVisitorToken()
+          }
+        });
+
+      request.then(function (data) {
+        viewCountEl.textContent = formatCount(data.views);
         if (!viewedThisSession) {
           try { window.sessionStorage.setItem(sessionKey, '1'); } catch (e) {}
         }
       }).catch(function () {
-        viewCountEl.textContent = 'Offline';
+        viewCountEl.textContent = engagementApi ? 'Offline' : 'Setup needed';
       });
     }
 
@@ -181,8 +231,13 @@
     }
 
     function updateReactionButtons() {
-      if (counterUnavailable) {
-        setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
+      if (!engagementApi) {
+        setReactionButtonsDisabled('Set engagement_api_base in _config.yml to enable reactions.');
+        return;
+      }
+
+      if (engagementUnavailable) {
+        setReactionButtonsDisabled('Reactions are temporarily unavailable because the engagement API cannot be reached.');
         return;
       }
 
@@ -191,17 +246,20 @@
         savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
       } catch (e) {}
 
-      root.querySelectorAll('[data-reaction]').forEach(function (button) {
-        var reaction = button.getAttribute('data-reaction');
-        button.classList.toggle('is-selected', reaction === savedReaction);
-        fetchCounter('get', 'reaction:' + postPath + ':' + reaction).then(function (data) {
+      requestEngagement('get', { method: 'GET', query: { path: postPath } }).then(function (data) {
+        var reactions = data.reactions || {};
+        root.querySelectorAll('[data-reaction]').forEach(function (button) {
+          var reaction = button.getAttribute('data-reaction');
+          button.classList.toggle('is-selected', reaction === savedReaction);
+          button.disabled = false;
+          button.classList.remove('is-disabled');
           var countEl = button.querySelector('[data-reaction-count]');
           if (countEl) {
-            countEl.textContent = formatCount(data.value);
+            countEl.textContent = formatCount(reactions[reaction]);
           }
-        }).catch(function () {
-          setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
         });
+      }).catch(function () {
+        setReactionButtonsDisabled('Reactions are temporarily unavailable because the engagement API cannot be reached.');
       });
     }
 
@@ -221,16 +279,25 @@
             return;
           }
 
-          fetchCounter('hit', 'reaction:' + postPath + ':' + reaction).then(function (data) {
+          requestEngagement('react', {
+            method: 'POST',
+            body: {
+              path: postPath,
+              title: postTitle,
+              url: postUrl,
+              reaction: reaction,
+              visitor_token: getVisitorToken()
+            }
+          }).then(function (data) {
             try { window.localStorage.setItem(reactionStorageKey, reaction); } catch (e) {}
             var countEl = button.querySelector('[data-reaction-count]');
             if (countEl) {
-              countEl.textContent = formatCount(data.value);
+              countEl.textContent = formatCount(data.reactions && data.reactions[reaction]);
             }
             updateReactionButtons();
             setFeedback(reactionFeedback, 'Reaction saved: ' + emoji, false);
           }).catch(function () {
-            setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
+            setReactionButtonsDisabled('Reactions are temporarily unavailable because the engagement API cannot be reached.');
           });
         });
       });

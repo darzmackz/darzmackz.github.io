@@ -37,7 +37,7 @@ Google Search Console may be used to understand search performance, indexing sta
 - Formspree processes contact form submissions on behalf of this site.
 - Google services may process limited technical, analytics, or advertising-related data where enabled.
 - Utterances may load GitHub-based comment threads on blog posts if comments are enabled.
-- CountAPI may be used to store lightweight public counters for post visits and reactions.
+- A self-hosted engagement API may process limited technical request data to store post visit and reaction counts.
 
 ## Content and Embedded Media
 

@@ -58,7 +58,7 @@ layout: default
     data-post-url="{{ page.url | absolute_url }}"
     data-post-path="{{ page.url }}"
     data-post-title="{{ page.title | escape }}"
-    data-counter-namespace="{{ site.countapi_namespace | default: 'metaxenopy-ty' }}"
+    data-engagement-api="{{ site.engagement_api_base }}"
     data-utterances-repo="{{ site.utterances_repo }}"
     data-utterances-issue-term="{{ site.utterances_issue_term | default: 'pathname' }}"
     data-utterances-theme="{{ site.utterances_theme | default: 'github-dark' }}"
@@ -67,7 +67,7 @@ layout: default
       <div class="engagement-stat-card">
         <span class="engagement-stat-label">Visitors</span>
         <strong class="engagement-stat-value" data-view-count>...</strong>
-        <span class="engagement-stat-note">Unique page opens tracked live for this post.</span>
+        <span class="engagement-stat-note">Tracked through your self-hosted engagement API for this post.</span>
       </div>
       <div class="engagement-stat-card">
         <span class="engagement-stat-label">Share this post</span>
