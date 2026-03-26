@@ -82,19 +82,19 @@ If you are contacting the site for policy, copyright, or advertising-related rea
     <form data-contact-form>
       <div class="form-group">
         <label for="contact-name">Your Name</label>
-        <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
+        <input type="text" id="contact-name" name="name" placeholder="Jane Smith" maxlength="120" autocomplete="name" required />
       </div>
       <div class="form-group">
         <label for="contact-email">Your Email</label>
-        <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required />
+        <input type="email" id="contact-email" name="email" placeholder="jane@example.com" maxlength="160" inputmode="email" autocomplete="email" required />
       </div>
       <div class="form-group">
         <label for="contact-subject">Subject</label>
-        <input type="text" id="contact-subject" name="subject" placeholder="What is this about?" />
+        <input type="text" id="contact-subject" name="subject" placeholder="What is this about?" maxlength="255" />
       </div>
       <div class="form-group">
         <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="message" placeholder="Write your message here." required></textarea>
+        <textarea id="contact-message" name="message" placeholder="Write your message here." maxlength="5000" required></textarea>
       </div>
       <div class="comment-form-honeypot" aria-hidden="true">
         <label for="contact-company">Company</label>
@@ -114,3 +114,4 @@ If you are contacting the site for policy, copyright, or advertising-related rea
 - Policy, copyright, or correction requests should include relevant URLs whenever possible.
 - For privacy details about submitted information, please review the [privacy policy]({{ '/privacy/' | relative_url }}).
 - For advertising and editorial transparency, you can also review the [advertising disclosure]({{ '/disclosure/' | relative_url }}) and [editorial policy]({{ '/editorial-policy/' | relative_url }}).
+

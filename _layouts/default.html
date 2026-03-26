@@ -10,6 +10,7 @@
   <meta name="description" content="{{ meta_description | strip_html | normalize_whitespace | escape }}" />
   <meta name="author" content="{{ page.author | default: site.author_fullname | default: site.author }}" />
   <meta name="theme-color" content="#2563eb" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="color-scheme" content="dark light" />
   {% if page.noindex %}
   <meta name="robots" content="noindex, nofollow" />
@@ -67,6 +68,7 @@
     ]
   }
   </script>
+  <script>if(window.top!==window.self){try{window.top.location=window.self.location;}catch(e){window.self.location=window.self.location;}}</script>
   <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   {% seo %}
@@ -97,3 +99,5 @@
   </button>
 </body>
 </html>
+
+

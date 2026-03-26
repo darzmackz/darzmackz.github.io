@@ -1483,3 +1483,147 @@ button,
     max-height:none;
   }
 }
+
+.inquiries-grid{
+  grid-template-columns:1fr;
+  align-items:start;
+}
+
+.inquiries-panel-head,
+.inquiry-detail-head,
+.inquiry-timeline-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.inquiries-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:18rem;
+}
+
+.inquiry-list-item{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  padding:14px;
+  border:1px solid rgba(96,165,250,.12);
+  border-radius:14px;
+  background:linear-gradient(180deg, rgba(15,23,42,.94), rgba(17,24,39,.9));
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+}
+
+.inquiry-list-item.is-active,
+.inquiry-list-item:hover{
+  border-color:rgba(96,165,250,.38);
+  box-shadow:0 14px 28px rgba(2,6,23,.2);
+}
+
+.inquiry-list-top,
+.inquiry-head-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+
+.inquiry-preview,
+.inquiry-list-date{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.inquiry-detail-card,
+.card-soft{
+  background:rgba(15,23,42,.92);
+}
+
+.inquiry-meta-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin:14px 0;
+}
+
+.inquiry-meta-grid span,
+.inquiry-message h4,
+.inquiry-history-grid h4{
+  display:block;
+  margin-bottom:6px;
+}
+
+.inquiry-message,
+.inquiry-actions-bar,
+.inquiry-history-grid{
+  margin-top:14px;
+}
+
+.inquiry-actions-bar{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.inquiry-actions-bar .fg{
+  margin-bottom:0;
+}
+
+.inquiry-detail-panels,
+.inquiry-history-grid{
+  grid-template-columns:1fr;
+}
+
+.inquiry-timeline-item{
+  padding:12px;
+  border:1px solid rgba(71,85,105,.7);
+  border-radius:12px;
+  background:rgba(15,23,42,.72);
+}
+
+.inquiry-timeline-item + .inquiry-timeline-item{
+  margin-top:10px;
+}
+
+.inquiry-status-new{color:#facc15;}
+.inquiry-status-read{color:#93c5fd;}
+.inquiry-status-replied{color:#86efac;}
+.inquiry-status-closed{color:#cbd5e1;}
+.inquiry-visibility-internal{color:#fda4af;}
+.inquiry-visibility-public{color:#93c5fd;}
+.inquiry-delivery-sent{color:#86efac;}
+.inquiry-delivery-failed{color:#fca5a5;}
+.inquiry-delivery-not_configured{color:#fcd34d;}
+
+@media (min-width: 1024px){
+  .inquiries-grid{
+    grid-template-columns:minmax(320px,380px) minmax(0,1fr);
+  }
+
+  .inquiry-meta-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .inquiry-actions-bar{
+    flex-direction:row;
+    align-items:end;
+  }
+
+  .inquiry-actions-bar .fg{
+    flex:1 1 14rem;
+  }
+
+  .inquiry-detail-panels,
+  .inquiry-history-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+.inquiry-status-spam{color:#fca5a5;}
+

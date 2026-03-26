@@ -1,58 +1,49 @@
 # Engagement API
 
-This folder contains a small PHP + MySQL backend for blog visitor counts, reactions, comments, post metadata, and contact inquiries.
+This folder contains the PHP + MySQL backend that powers visitor counts, reactions, post metadata sync, database-backed comments, and contact/inquiry management for the site and admin panel.
 
 ## What it does
 
-- Tracks per-post visitor counts
-- Tracks per-post reactions
+- Tracks per-post visitor counts with cooldown dedupe
+- Tracks one active reaction per visitor per post
 - Stores approved post comments
 - Stores contact and inquiry submissions
-- Syncs post metadata into MySQL
-- Limits repeat visitor increments with a cooldown window
-- Allows one active reaction per visitor token per post
-- Returns aggregate counts for the blog frontend and admin panel
+- Encrypts inquiry email addresses at rest
+- Lets the admin panel list, review, reply to, comment on, update, and delete inquiries
+- Syncs post metadata into MySQL for reporting and management
+- Applies per-endpoint rate limiting and audit logging
 
 ## Files
 
 - `config.example.php`: copy to `config.php` and fill in your server values
-- `schema.sql`: MySQL tables for aggregate counts and visitor dedupe
-- `post-engagement.php`: the API endpoint
+- `schema.sql`: full schema for fresh installs
+- `migrations/2026-03-26-inquiry-management.sql`: upgrade script for older installs
+- `post-engagement.php`: the public and admin API endpoint
+
+## Required config
+
+Add these values to `config.php`:
+
+- `encryption_key`: long random secret used to encrypt inquiry email addresses
+- `admin_api_key`: separate secret used only by the admin panel for admin-only inquiry actions
+- `allowed_origins`: GitHub Pages/admin origins allowed to call the API
+- `mail.enabled`: set to `true` only if PHP `mail()` is configured and working
 
 ## Deployment
 
-1. Import `schema.sql` into your MySQL database.
-2. Copy `config.example.php` to `config.php`.
-3. Fill in your database credentials and allowed origins.
-4. Upload both `config.php` and `post-engagement.php` to your PHP-capable server.
-5. Set `engagement_api_base` in `_config.yml` to the public URL of `post-engagement.php`.
+1. For a fresh install, import `schema.sql` into MySQL.
+2. For an existing install, run `migrations/2026-03-26-inquiry-management.sql` and then review `schema.sql`.
+3. Copy `config.example.php` to `config.php`.
+4. Fill in database credentials, `encryption_key`, `admin_api_key`, allowed origins, and optional mail settings.
+5. Upload `config.php` and `post-engagement.php` to your PHP-capable server.
+6. Set `engagement_api_base` in `_config.yml` to the public URL of `post-engagement.php`.
+7. In the admin panel Settings screen, save the same `admin_api_key` locally in the browser.
 
-Example:
-
-`https://your-nextcloud-server.example.com/post-engagement.php`
-
-## Frontend contract
+## Public endpoints
 
 ### Get counts
 
 `GET post-engagement.php?action=get&path=/2026/03/25/example-post/`
-
-Response:
-
-```json
-{
-  "ok": true,
-  "path": "/2026/03/25/example-post/",
-  "views": 12,
-  "reactions": {
-    "fire": 2,
-    "love": 5,
-    "mindblown": 1,
-    "helpful": 3
-  },
-  "total_reactions": 11
-}
-```
 
 ### Register a view
 
@@ -97,7 +88,6 @@ Response:
   "visitor_token": "visitor-abc123",
   "author_name": "Jane",
   "author_email": "jane@example.com",
-  "author_website": "https://example.com",
   "comment_body": "Great post!",
   "company": ""
 }
@@ -122,20 +112,27 @@ Response:
 
 `POST post-engagement.php?action=sync-post`
 
-```json
-{
-  "path": "/2026/03/25/example-post/",
-  "title": "Example Post",
-  "url": "https://example.com/2026/03/25/example-post/",
-  "description": "Post summary",
-  "published_at": "2026-03-25T00:00:00+08:00",
-  "categories": ["music", "feature"],
-  "tags": ["lyrics", "karaoke"]
-}
-```
+## Admin endpoints
 
-## Notes
+These require:
 
-- This API expects CORS requests from your GitHub Pages site and admin panel.
-- The visitor token is generated in the browser and combined with request metadata server-side.
-- Adjust the view cooldown in `config.php` if you want stricter or looser dedupe.
+- an allowed `Origin`
+- the `X-Admin-Key` header matching `admin_api_key`
+
+Endpoints:
+
+- `GET action=admin-list-inquiries`
+- `GET action=admin-get-inquiry&id=123`
+- `POST action=admin-update-inquiry`
+- `POST action=admin-add-inquiry-comment`
+- `POST action=admin-reply-inquiry`
+- `POST action=admin-delete-inquiry`
+
+## Security notes
+
+- All DB writes use prepared statements.
+- Inquiry email addresses are encrypted before storage.
+- Sensitive admin actions require a separate admin API key and allowed origin.
+- API responses use stricter headers, including `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and a restrictive API CSP.
+- Public-facing write endpoints use rate limiting and honeypot spam fields.
+- Production deployments should keep `debug` set to `false`.

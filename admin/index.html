@@ -8,6 +8,8 @@ sitemap: false
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | METAXENOPY.TY</title>
   <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com https:; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/admin/admin.css' | relative_url }}">
 </head>
@@ -70,6 +72,7 @@ sitemap: false
           <button class="btn g sm has-icon" id="nav-portfolio" type="button" data-action="show-section" data-section="portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg><span>Portfolio</span></button>
           <button class="btn g sm has-icon" id="nav-pages" type="button" data-action="show-section" data-section="pages"><svg class="ui-icon" aria-hidden="true"><use href="#icon-pages"></use></svg><span>Pages</span></button>
           <button class="btn g sm has-icon" id="nav-media" type="button" data-action="show-section" data-section="media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-image"></use></svg><span>Media</span></button>
+          <button class="btn g sm has-icon" id="nav-inquiries" type="button" data-action="show-section" data-section="inquiries"><svg class="ui-icon" aria-hidden="true"><use href="#icon-pages"></use></svg><span>Inquiries</span></button>
           <button class="btn g sm has-icon" id="nav-settings" type="button" data-action="show-section" data-section="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-settings"></use></svg><span>Settings</span></button>
           <button class="btn g sm has-icon" type="button" data-action="logout"><svg class="ui-icon" aria-hidden="true"><use href="#icon-logout"></use></svg><span>Logout</span></button>
         </nav>
@@ -386,6 +389,44 @@ sitemap: false
           <div id="media-wrap" class="grid media"></div>
         </section>
 
+        <section id="sec-inquiries" class="hidden stack">
+          <div class="header">
+            <div>
+              <h2>Inquiries</h2>
+              <p class="muted section-copy">Review contact submissions, reply to senders, keep internal notes, and close out conversations cleanly.</p>
+            </div>
+            <div class="filter-bar">
+              <label class="field-shell field-shell-search" for="inquiry-search">
+                <svg class="ui-icon field-shell-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+                <input id="inquiry-search" placeholder="Search by sender, subject, or message">
+              </label>
+              <label class="field-shell field-shell-select" for="inquiry-filter">
+                <span class="field-shell-label">Status</span>
+                <select id="inquiry-filter">
+                  <option value="all">All statuses</option>
+                  <option value="new">New</option>
+                  <option value="read">Read</option>
+                  <option value="replied">Replied</option>
+                  <option value="closed">Closed</option>
+                  <option value="spam">Spam</option>
+                </select>
+              </label>
+              <button class="btn has-icon" type="button" data-action="refresh-inquiries"><svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg><span>Refresh</span></button>
+            </div>
+          </div>
+          <div class="grid inquiries-grid">
+            <div class="card">
+              <div class="inquiries-panel-head">
+                <h3>Inbox</h3>
+                <p class="muted" id="inquiries-summary">Loading inquiries...</p>
+              </div>
+              <div id="inquiries-list" class="inquiries-list"></div>
+              <div id="inquiries-pagination" class="posts-pagination section-offset-sm"></div>
+            </div>
+            <div id="inquiry-detail" class="stack"></div>
+          </div>
+        </section>
+
         <section id="sec-settings" class="hidden stack">
           <div class="header">
             <div>
@@ -504,6 +545,13 @@ sitemap: false
               </div>
 
               <div class="card">
+                <h3>Inquiry Management Security</h3>
+                <div class="fg"><label>Admin API Key</label><input type="password" id="st-admin-api-key" placeholder="Configured only on your PHP server"></div>
+                <div class="fg"><label>Admin Display Name</label><input id="st-admin-name" placeholder="Admin"></div>
+                <button class="btn p" type="button" data-action="save-inquiry-settings">Save Inquiry Security Settings</button>
+              </div>
+
+              <div class="card">
                 <h3>Danger Zone</h3>
                 <p class="muted mb-sm">Remove locally stored admin credentials from this browser.</p>
                 <button class="btn d has-icon" type="button" data-action="reset-admin"><svg class="ui-icon" aria-hidden="true"><use href="#icon-warning"></use></svg><span>Reset Credentials</span></button>
@@ -515,6 +563,13 @@ sitemap: false
     </div>
   </div>
 
+  <script>if(window.top!==window.self){try{window.top.location=window.self.location;}catch(e){window.self.location=window.self.location;}}</script>
   <script src="{{ '/admin/admin.js' | relative_url }}"></script>
+  <script src="{{ '/admin/inquiries.js' | relative_url }}"></script>
 </body>
 </html>
+
+
+
+
+
