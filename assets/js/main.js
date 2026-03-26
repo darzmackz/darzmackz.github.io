@@ -96,6 +96,206 @@
     });
   }
 
+  function initPostEngagement() {
+    var root = document.querySelector('[data-post-engagement]');
+    if (!root) return;
+
+    var postUrl = root.getAttribute('data-post-url') || window.location.href;
+    var postPath = root.getAttribute('data-post-path') || window.location.pathname;
+    var postTitle = root.getAttribute('data-post-title') || document.title;
+    var namespace = root.getAttribute('data-counter-namespace') || 'metaxenopy-ty';
+    var viewCountEl = root.querySelector('[data-view-count]');
+    var shareFeedback = root.querySelector('[data-share-feedback]');
+    var reactionFeedback = root.querySelector('[data-reaction-feedback]');
+    var commentsHost = root.querySelector('[data-comments-host]');
+    var utterancesRepo = root.getAttribute('data-utterances-repo') || '';
+    var utterancesIssueTerm = root.getAttribute('data-utterances-issue-term') || 'pathname';
+    var utterancesTheme = root.getAttribute('data-utterances-theme') || 'github-dark';
+    var reactionStorageKey = 'postReaction:' + postPath;
+
+    function setFeedback(el, message, isError) {
+      if (!el) return;
+      el.textContent = message || '';
+      el.classList.toggle('is-error', Boolean(isError));
+    }
+
+    function counterUrl() {
+      return 'https://api.countapi.xyz';
+    }
+
+    function fetchCounter(method, key) {
+      var url = counterUrl() + '/' + method + '/' + encodeURIComponent(namespace) + '/' + encodeURIComponent(key);
+      return window.fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('Counter request failed');
+        }
+        return response.json();
+      });
+    }
+
+    function formatCount(value) {
+      var count = Number(value || 0);
+      return count.toLocaleString();
+    }
+
+    function updateViewCount() {
+      if (!viewCountEl) return;
+      viewCountEl.textContent = '...';
+
+      var sessionKey = 'viewed:' + postPath;
+      var viewedThisSession = false;
+      try {
+        viewedThisSession = window.sessionStorage.getItem(sessionKey) === '1';
+      } catch (e) {}
+
+      var method = viewedThisSession ? 'get' : 'hit';
+      fetchCounter(method, 'views:' + postPath).then(function (data) {
+        viewCountEl.textContent = formatCount(data.value);
+        if (!viewedThisSession) {
+          try { window.sessionStorage.setItem(sessionKey, '1'); } catch (e) {}
+        }
+      }).catch(function () {
+        viewCountEl.textContent = 'Unavailable';
+      });
+    }
+
+    function updateReactionButtons() {
+      var savedReaction = '';
+      try {
+        savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
+      } catch (e) {}
+
+      root.querySelectorAll('[data-reaction]').forEach(function (button) {
+        var reaction = button.getAttribute('data-reaction');
+        button.classList.toggle('is-selected', reaction === savedReaction);
+        fetchCounter('get', 'reaction:' + postPath + ':' + reaction).then(function (data) {
+          var countEl = button.querySelector('[data-reaction-count]');
+          if (countEl) {
+            countEl.textContent = formatCount(data.value);
+          }
+        }).catch(function () {
+          var countEl = button.querySelector('[data-reaction-count]');
+          if (countEl) {
+            countEl.textContent = '-';
+          }
+        });
+      });
+    }
+
+    function bindReactions() {
+      root.querySelectorAll('[data-reaction]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var reaction = button.getAttribute('data-reaction');
+          var emoji = button.getAttribute('data-reaction-emoji') || '';
+          var savedReaction = '';
+
+          try {
+            savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
+          } catch (e) {}
+
+          if (savedReaction === reaction) {
+            setFeedback(reactionFeedback, 'You already reacted with ' + emoji + '.', false);
+            return;
+          }
+
+          fetchCounter('hit', 'reaction:' + postPath + ':' + reaction).then(function (data) {
+            try { window.localStorage.setItem(reactionStorageKey, reaction); } catch (e) {}
+            var countEl = button.querySelector('[data-reaction-count]');
+            if (countEl) {
+              countEl.textContent = formatCount(data.value);
+            }
+            updateReactionButtons();
+            setFeedback(reactionFeedback, 'Reaction saved: ' + emoji, false);
+          }).catch(function () {
+            setFeedback(reactionFeedback, 'Reaction could not be saved right now.', true);
+          });
+        });
+      });
+    }
+
+    function bindShareActions() {
+      var nativeBtn = root.querySelector('[data-share-native]');
+      var copyBtn = root.querySelector('[data-share-copy]');
+
+      if (nativeBtn) {
+        if (!navigator.share) {
+          nativeBtn.hidden = true;
+        } else {
+          nativeBtn.addEventListener('click', function () {
+            navigator.share({
+              title: postTitle,
+              text: postTitle,
+              url: postUrl
+            }).then(function () {
+              setFeedback(shareFeedback, 'Thanks for sharing this post.', false);
+            }).catch(function (error) {
+              if (error && error.name === 'AbortError') return;
+              setFeedback(shareFeedback, 'Share dialog could not be opened.', true);
+            });
+          });
+        }
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          if (!navigator.clipboard || !navigator.clipboard.writeText) {
+            setFeedback(shareFeedback, 'Copy is not available in this browser.', true);
+            return;
+          }
+
+          navigator.clipboard.writeText(postUrl).then(function () {
+            setFeedback(shareFeedback, 'Post link copied to clipboard.', false);
+          }).catch(function () {
+            setFeedback(shareFeedback, 'The link could not be copied.', true);
+          });
+        });
+      }
+    }
+
+    function resolveUtterancesTheme() {
+      return html.getAttribute('data-theme') === 'dark' ? utterancesTheme : 'github-light';
+    }
+
+    function syncCommentsTheme() {
+      var frame = commentsHost ? commentsHost.querySelector('iframe.utterances-frame') : null;
+      if (!frame || !frame.contentWindow) return;
+      frame.contentWindow.postMessage({
+        type: 'set-theme',
+        theme: resolveUtterancesTheme()
+      }, 'https://utteranc.es');
+    }
+
+    function loadComments() {
+      if (!commentsHost || !utterancesRepo) return;
+      if (commentsHost.getAttribute('data-comments-loaded') === 'true') return;
+
+      var script = document.createElement('script');
+      script.src = 'https://utteranc.es/client.js';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.setAttribute('repo', utterancesRepo);
+      script.setAttribute('issue-term', utterancesIssueTerm);
+      script.setAttribute('label', 'blog-comment');
+      script.setAttribute('theme', resolveUtterancesTheme());
+      script.setAttribute('input-position', 'top');
+      commentsHost.appendChild(script);
+      commentsHost.setAttribute('data-comments-loaded', 'true');
+      window.setTimeout(syncCommentsTheme, 1200);
+    }
+
+    updateViewCount();
+    bindShareActions();
+    bindReactions();
+    updateReactionButtons();
+    loadComments();
+    document.addEventListener('site-theme-change', syncCommentsTheme);
+  }
+
   function queueAdsenseSlots() {
     window.adsbygoogle = window.adsbygoogle || [];
     document.querySelectorAll('.adsbygoogle[data-ads-slot-state="pending"]').forEach(function (slot) {
@@ -124,6 +324,7 @@
       html.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
       updateThemeToggle(themeBtn);
+      document.dispatchEvent(new CustomEvent('site-theme-change', { detail: { theme: next } }));
     });
   }
 
@@ -191,6 +392,7 @@
 
   bindImageFallbacks();
   initBlogArchive();
+  initPostEngagement();
 
   var adsClient = document.body.getAttribute('data-adsense-client');
   if (adsClient) {

@@ -51,6 +51,79 @@ layout: default
     {{ content }}
   </div>
 
+  <section
+    class="post-engagement"
+    aria-label="Reader engagement"
+    data-post-engagement
+    data-post-url="{{ page.url | absolute_url }}"
+    data-post-path="{{ page.url }}"
+    data-post-title="{{ page.title | escape }}"
+    data-counter-namespace="{{ site.countapi_namespace | default: 'metaxenopy-ty' }}"
+    data-utterances-repo="{{ site.utterances_repo }}"
+    data-utterances-issue-term="{{ site.utterances_issue_term | default: 'pathname' }}"
+    data-utterances-theme="{{ site.utterances_theme | default: 'github-dark' }}"
+  >
+    <div class="post-engagement-summary">
+      <div class="engagement-stat-card">
+        <span class="engagement-stat-label">Visitors</span>
+        <strong class="engagement-stat-value" data-view-count>...</strong>
+        <span class="engagement-stat-note">Unique page opens tracked live for this post.</span>
+      </div>
+      <div class="engagement-stat-card">
+        <span class="engagement-stat-label">Share this post</span>
+        <div class="post-share-actions">
+          <button class="btn btn-primary" type="button" data-share-native>Share</button>
+          <button class="btn post-share-copy" type="button" data-share-copy>Copy link</button>
+          <a class="btn post-share-link" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn post-share-link" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | uri_escape }}&text={{ page.title | uri_escape }}" target="_blank" rel="noopener">X</a>
+        </div>
+        <span class="engagement-feedback" data-share-feedback aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="post-reactions" aria-labelledby="post-reactions-title">
+      <div class="post-reactions-head">
+        <h2 id="post-reactions-title">React to this post</h2>
+        <p>Tap one reaction to show what kind of post you want more of.</p>
+      </div>
+      <div class="post-reaction-list" role="group" aria-label="Post reactions">
+        <button class="post-reaction-button" type="button" data-reaction="fire" data-reaction-emoji="🔥">
+          <span aria-hidden="true">🔥</span>
+          <span>Fire</span>
+          <strong data-reaction-count>0</strong>
+        </button>
+        <button class="post-reaction-button" type="button" data-reaction="love" data-reaction-emoji="❤️">
+          <span aria-hidden="true">❤️</span>
+          <span>Love</span>
+          <strong data-reaction-count>0</strong>
+        </button>
+        <button class="post-reaction-button" type="button" data-reaction="mindblown" data-reaction-emoji="🤯">
+          <span aria-hidden="true">🤯</span>
+          <span>Mind blown</span>
+          <strong data-reaction-count>0</strong>
+        </button>
+        <button class="post-reaction-button" type="button" data-reaction="helpful" data-reaction-emoji="👏">
+          <span aria-hidden="true">👏</span>
+          <span>Helpful</span>
+          <strong data-reaction-count>0</strong>
+        </button>
+      </div>
+      <span class="engagement-feedback" data-reaction-feedback aria-live="polite"></span>
+    </div>
+
+    <div class="post-comments" aria-labelledby="post-comments-title">
+      <div class="post-comments-head">
+        <h2 id="post-comments-title">Comments</h2>
+        <p>Comments are powered by GitHub Discussions-style issue threads through Utterances.</p>
+      </div>
+      {% if site.utterances_repo and site.utterances_repo != "" %}
+      <div class="post-comments-frame" data-comments-host></div>
+      {% else %}
+      <p class="post-comments-fallback">Set <code>utterances_repo</code> in <code>_config.yml</code> to enable comments.</p>
+      {% endif %}
+    </div>
+  </section>
+
   <section class="post-resource-panel" aria-label="Article trust and utility links">
     <h2>About This Article</h2>
     <p>This post is published under the METAXENOPY brand and is intended to be useful, readable, and clearly connected to the publisher's music or technical subject matter.</p>
