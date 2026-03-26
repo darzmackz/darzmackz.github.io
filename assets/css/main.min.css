@@ -1688,9 +1688,12 @@ ul, ol {
     gap: var(--spacing-sm);
   }
 
-  .post-engagement-summary,
-  .post-reaction-list {
+  .post-engagement-summary {
     grid-template-columns: 1fr;
+  }
+
+  .post-reaction-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact-form {
@@ -1747,6 +1750,10 @@ ul, ol {
     width: 100%;
   }
 
+  .post-reaction-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .post-list-item {
     padding: var(--spacing-md) 0;
   }
@@ -1761,6 +1768,12 @@ ul, ol {
 
   .post-excerpt {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .post-reaction-list {
+    grid-template-columns: 1fr;
   }
 }
 

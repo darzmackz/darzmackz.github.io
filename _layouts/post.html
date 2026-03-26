@@ -127,11 +127,7 @@ layout: default
         </div>
         <div class="form-group">
           <label for="comment-email">Email</label>
-          <input type="email" id="comment-email" name="email" maxlength="160" required />
-        </div>
-        <div class="form-group">
-          <label for="comment-website">Website</label>
-          <input type="url" id="comment-website" name="website" placeholder="https://example.com" />
+          <input type="email" id="comment-email" name="email" maxlength="160" inputmode="email" autocomplete="email" pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" required />
         </div>
         <div class="form-group">
           <label for="comment-message">Comment</label>

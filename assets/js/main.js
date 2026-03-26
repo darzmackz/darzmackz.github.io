@@ -186,7 +186,9 @@
         }
         return response.json();
       }).catch(function (error) {
-        engagementUnavailable = true;
+        if (error && error.name === 'TypeError') {
+          engagementUnavailable = true;
+        }
         throw error;
       });
     }
@@ -225,10 +227,9 @@
       commentsList.innerHTML = items.map(function (comment) {
         var author = escapeHtml(comment.author_name || 'Anonymous');
         var message = escapeHtml(comment.comment_body || '').replace(/\n/g, '<br>');
-        var website = comment.author_website ? '<a href="' + escapeHtml(comment.author_website) + '" target="_blank" rel="noopener">' + author + '</a>' : author;
         return '<article class="post-comment-item">' +
           '<header class="post-comment-head">' +
-          '<strong>' + website + '</strong>' +
+          '<strong>' + author + '</strong>' +
           '<time datetime="' + escapeHtml(comment.created_at || '') + '">' + escapeHtml(formatCommentDate(comment.created_at || '')) + '</time>' +
           '</header>' +
           '<p class="post-comment-body">' + message + '</p>' +
@@ -274,7 +275,6 @@
       if (!commentForm) return;
       var nameInput = commentForm.querySelector('[name="name"]');
       var emailInput = commentForm.querySelector('[name="email"]');
-      var websiteInput = commentForm.querySelector('[name="website"]');
       var messageInput = commentForm.querySelector('[name="message"]');
       var honeypotInput = commentForm.querySelector('[name="company"]');
 
@@ -296,7 +296,6 @@
           url: postUrl,
           author_name: nameInput ? nameInput.value.trim() : '',
           author_email: emailInput ? emailInput.value.trim() : '',
-          author_website: websiteInput ? websiteInput.value.trim() : '',
           comment_body: messageInput ? messageInput.value.trim() : '',
           company: honeypotInput ? honeypotInput.value.trim() : '',
           visitor_token: getVisitorToken()
@@ -308,7 +307,6 @@
             if (emailInput) window.localStorage.setItem(commenterEmailKey, emailInput.value.trim());
           } catch (e) {}
           if (messageInput) messageInput.value = '';
-          if (websiteInput) websiteInput.value = '';
           setFeedback(commentFeedback, data && data.message ? data.message : 'Comment posted successfully.', false);
           renderComments(data.comments || []);
         }).catch(function () {
