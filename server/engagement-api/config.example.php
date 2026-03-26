@@ -8,6 +8,7 @@ return [
     'db_pass' => 'replace-this-password',
     'debug' => false,
     'https_only' => true,
+    'request_timeout_seconds' => 10,
     'encryption_key' => 'replace-with-a-long-random-secret',
     'admin_api_key' => 'replace-with-a-separate-admin-api-key',
     'view_cooldown_seconds' => 21600,
@@ -20,10 +21,15 @@ return [
         'react' => ['window_seconds' => 3600, 'max_hits' => 40],
         'comment' => ['window_seconds' => 3600, 'max_hits' => 10],
         'inquiry' => ['window_seconds' => 3600, 'max_hits' => 8],
+        'admin-list-inquiries' => ['window_seconds' => 3600, 'max_hits' => 180],
+        'admin-get-inquiry' => ['window_seconds' => 3600, 'max_hits' => 240],
         'admin-update-inquiry' => ['window_seconds' => 3600, 'max_hits' => 200],
         'admin-delete-inquiry' => ['window_seconds' => 3600, 'max_hits' => 40],
         'admin-add-inquiry-comment' => ['window_seconds' => 3600, 'max_hits' => 120],
         'admin-reply-inquiry' => ['window_seconds' => 3600, 'max_hits' => 60],
+    ],
+    'request_limits' => [
+        'max_body_bytes' => 16384,
     ],
     'mail' => [
         'enabled' => false,

@@ -8,7 +8,11 @@ sitemap: false
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | METAXENOPY.TY</title>
   <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com https:; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  {% assign admin_api_origin = '' %}
+  {% if site.engagement_api_base and site.engagement_api_base != '' %}
+    {% assign admin_api_origin = site.engagement_api_base | split:'/' | slice:0,3 | join:'/' %}
+  {% endif %}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com{% if admin_api_origin != '' %} {{ admin_api_origin }}{% endif %}; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/admin/admin.css' | relative_url }}">

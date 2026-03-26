@@ -181,10 +181,12 @@
       }
 
       return window.fetch(url, fetchOptions).then(function (response) {
-        if (!response.ok) {
-          throw new Error('Engagement request failed');
-        }
-        return response.json();
+        return response.json().catch(function () { return {}; }).then(function (data) {
+          if (!response.ok || data.ok === false) {
+            throw new Error(data.error || data.message || 'Engagement request failed');
+          }
+          return data;
+        });
       }).catch(function (error) {
         if (error && error.name === 'TypeError') {
           engagementUnavailable = true;
@@ -283,8 +285,13 @@
         if (emailInput) emailInput.value = window.localStorage.getItem(commenterEmailKey) || '';
       } catch (e) {}
 
+      var submitBtn = commentForm.querySelector('[type="submit"]');
+
       commentForm.addEventListener('submit', function (event) {
         event.preventDefault();
+        if (typeof commentForm.reportValidity === 'function' && !commentForm.reportValidity()) {
+          return;
+        }
         if (!engagementApi) {
           setFeedback(commentFeedback, 'Comments are not configured yet.', true);
           return;
@@ -301,6 +308,8 @@
           visitor_token: getVisitorToken()
         };
 
+        if (submitBtn) submitBtn.disabled = true;
+
         requestEngagement('comment', { method: 'POST', body: payload }).then(function (data) {
           try {
             if (nameInput) window.localStorage.setItem(commenterNameKey, nameInput.value.trim());
@@ -309,8 +318,10 @@
           if (messageInput) messageInput.value = '';
           setFeedback(commentFeedback, data && data.message ? data.message : 'Comment posted successfully.', false);
           renderComments(data.comments || []);
-        }).catch(function () {
-          setFeedback(commentFeedback, 'Your comment could not be submitted right now.', true);
+        }).catch(function (error) {
+          setFeedback(commentFeedback, error && error.message ? error.message : 'Your comment could not be submitted right now.', true);
+        }).finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
         });
       });
     }
@@ -503,16 +514,25 @@
         },
         body: JSON.stringify(body || {})
       }).then(function (response) {
-        if (!response.ok) {
-          throw new Error('Contact request failed');
-        }
-        return response.json();
+        return response.json().catch(function () { return {}; }).then(function (data) {
+          if (!response.ok || data.ok === false) {
+            throw new Error(data.error || data.message || 'Contact request failed');
+          }
+          return data;
+        });
       });
     }
 
+    var contactSubmit = form.querySelector('[type="submit"]');
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+        return;
+      }
       var formData = new FormData(form);
+      if (contactSubmit) contactSubmit.disabled = true;
+
       requestContact('inquiry', {
         name: String(formData.get('name') || '').trim(),
         email: String(formData.get('email') || '').trim(),
@@ -523,8 +543,10 @@
       }).then(function (data) {
         form.reset();
         setContactFeedback(data && data.message ? data.message : 'Your message has been sent.', false);
-      }).catch(function () {
-        setContactFeedback(apiBase ? 'Your message could not be sent right now.' : 'Set engagement_api_base in _config.yml to enable inquiries.', true);
+      }).catch(function (error) {
+        setContactFeedback(apiBase ? (error && error.message ? error.message : 'Your message could not be sent right now.') : 'Set engagement_api_base in _config.yml to enable inquiries.', true);
+      }).finally(function () {
+        if (contactSubmit) contactSubmit.disabled = false;
       });
     });
   }

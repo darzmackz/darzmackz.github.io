@@ -1,7 +1,34 @@
-
 <?php
-
 declare(strict_types=1);
+
+const PUBLIC_GET_ACTIONS = ['get', 'get-comments'];
+const ADMIN_GET_ACTIONS = ['admin-list-inquiries', 'admin-get-inquiry'];
+const POST_ACTIONS = [
+    'sync-post',
+    'view',
+    'react',
+    'comment',
+    'inquiry',
+    'admin-update-inquiry',
+    'admin-delete-inquiry',
+    'admin-add-inquiry-comment',
+    'admin-reply-inquiry',
+];
+const ALL_ACTIONS = [
+    'get',
+    'get-comments',
+    'admin-list-inquiries',
+    'admin-get-inquiry',
+    'sync-post',
+    'view',
+    'react',
+    'comment',
+    'inquiry',
+    'admin-update-inquiry',
+    'admin-delete-inquiry',
+    'admin-add-inquiry-comment',
+    'admin-reply-inquiry',
+];
 
 $configPath = __DIR__ . '/config.php';
 if (!file_exists($configPath)) {
@@ -11,10 +38,12 @@ if (!file_exists($configPath)) {
 $config = require $configPath;
 $debug = !empty($config['debug']);
 
+bootstrapRuntime($config);
 handleCors($config);
 $action = trim((string)($_GET['action'] ?? ''));
 
 try {
+    ensureKnownAction($action);
     $pdo = createPdo($config);
 
     if ($action === '') {
@@ -45,6 +74,7 @@ try {
         $pageSize = max(1, min(100, (int)($_GET['page_size'] ?? 20)));
         $status = normalizeInquiryStatusFilter((string)($_GET['status'] ?? 'all'));
         $search = sanitizeSearchTerm((string)($_GET['search'] ?? ''));
+        ensureRateLimit($pdo, $config, 'admin-list-inquiries', clientFingerprint(), 3600, 180);
         $result = fetchInquiries($pdo, $status, $search, $page, $pageSize);
 
         respond(200, [
@@ -71,6 +101,7 @@ try {
 
         $inquiryId = (int)($_GET['id'] ?? 0);
         ensurePositiveId($inquiryId, 'Invalid inquiry id');
+        ensureRateLimit($pdo, $config, 'admin-get-inquiry', clientFingerprint(), 3600, 240);
         $inquiry = fetchInquiryDetail($pdo, $inquiryId, $config);
         if (!$inquiry) {
             respond(404, ['ok' => false, 'error' => 'Inquiry not found']);
@@ -86,6 +117,7 @@ try {
     }
 
     assertAllowedOrigin($config);
+    assertJsonRequest($config);
     $input = decodeJsonBody();
 
     if ($action === 'sync-post') {
@@ -96,7 +128,7 @@ try {
         upsertPostMetadata($pdo, [
             'path' => $path,
             'title' => limitString((string)($input['title'] ?? ''), 255),
-            'url' => limitString((string)($input['url'] ?? ''), 500),
+            'url' => normalizePageUrl((string)($input['url'] ?? '')),
             'description' => limitString(normalizeText((string)($input['description'] ?? '')), 5000),
             'published_at' => normalizeDateTime((string)($input['published_at'] ?? '')),
             'categories' => normalizeStringArray($input['categories'] ?? []),
@@ -110,7 +142,7 @@ try {
 
         $path = normalizePath((string)($input['path'] ?? ''));
         $title = limitString(normalizeText((string)($input['title'] ?? '')), 255);
-        $url = limitString((string)($input['url'] ?? ''), 500);
+        $url = normalizePageUrl((string)($input['url'] ?? ''));
         $visitorToken = trim((string)($input['visitor_token'] ?? ''));
         ensurePath($path);
         ensureVisitorToken($visitorToken);
@@ -124,7 +156,7 @@ try {
 
         $path = normalizePath((string)($input['path'] ?? ''));
         $title = limitString(normalizeText((string)($input['title'] ?? '')), 255);
-        $url = limitString((string)($input['url'] ?? ''), 500);
+        $url = normalizePageUrl((string)($input['url'] ?? ''));
         $visitorToken = trim((string)($input['visitor_token'] ?? ''));
         $reaction = trim((string)($input['reaction'] ?? ''));
         ensurePath($path);
@@ -140,7 +172,7 @@ try {
 
         $path = normalizePath((string)($input['path'] ?? ''));
         $title = limitString(normalizeText((string)($input['title'] ?? '')), 255);
-        $url = limitString((string)($input['url'] ?? ''), 500);
+        $url = normalizePageUrl((string)($input['url'] ?? ''));
         $visitorToken = trim((string)($input['visitor_token'] ?? ''));
         $authorName = limitString(normalizeText((string)($input['author_name'] ?? '')), 80);
         $authorEmail = normalizeEmail((string)($input['author_email'] ?? ''));
@@ -172,7 +204,7 @@ try {
         $email = normalizeEmail((string)($input['email'] ?? ''));
         $subject = limitString(normalizeText((string)($input['subject'] ?? '')), 255);
         $message = limitString(normalizeMultilineText((string)($input['message'] ?? '')), 5000);
-        $pageUrl = limitString((string)($input['page_url'] ?? ''), 500);
+        $pageUrl = normalizePageUrl((string)($input['page_url'] ?? ''));
         $honeypot = trim((string)($input['company'] ?? ''));
 
         ensureInquiryInput($name, $email, $message, $honeypot);
@@ -335,6 +367,7 @@ function handleCors(array $config): void
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     header('X-Frame-Options: DENY');
+    header('Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
     header("Content-Security-Policy: default-src 'none'; frame-ancestors 'none'; base-uri 'none'");
 
     if (!empty($config['https_only']) && isHttpsRequest()) {
@@ -344,6 +377,35 @@ function handleCors(array $config): void
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(204);
         exit;
+    }
+}
+
+function bootstrapRuntime(array $config): void
+{
+    if (!headers_sent()) {
+        header_remove('X-Powered-By');
+    }
+
+    ini_set('display_errors', !empty($config['debug']) ? '1' : '0');
+    ini_set('log_errors', '1');
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.cookie_httponly', '1');
+    ini_set('session.cookie_secure', !empty($config['https_only']) ? '1' : '0');
+    ini_set('session.cookie_samesite', 'Strict');
+
+    if (function_exists('set_time_limit')) {
+        @set_time_limit((int)($config['request_timeout_seconds'] ?? 10));
+    }
+}
+
+function ensureKnownAction(string $action): void
+{
+    if ($action === '') {
+        return;
+    }
+
+    if (!in_array($action, ALL_ACTIONS, true)) {
+        throw new RuntimeException('Unsupported action');
     }
 }
 
@@ -362,6 +424,23 @@ function assertAdminAuthorized(array $config): void
     $provided = trim((string)($_SERVER['HTTP_X_ADMIN_KEY'] ?? ''));
     if ($expected === '' || $provided === '' || !hash_equals($expected, $provided)) {
         throw new RuntimeException('Admin authorization failed');
+    }
+}
+
+function assertJsonRequest(array $config): void
+{
+    $maxBodyBytes = (int)($config['request_limits']['max_body_bytes'] ?? 16384);
+    $contentLength = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($contentLength < 1) {
+        throw new RuntimeException('Request body is required');
+    }
+    if ($contentLength > $maxBodyBytes) {
+        throw new RuntimeException('Request body too large');
+    }
+
+    $contentType = strtolower(trim((string)($_SERVER['CONTENT_TYPE'] ?? '')));
+    if ($contentType === '' || strpos($contentType, 'application/json') !== 0) {
+        throw new RuntimeException('Content-Type must be application/json');
     }
 }
 
@@ -435,7 +514,7 @@ function normalizeEmail(string $email): string
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         throw new RuntimeException('Invalid email address');
     }
-    return $email;
+    return strtolower($email);
 }
 
 function normalizeText(string $value): string
@@ -454,6 +533,25 @@ function normalizeMultilineText(string $value): string
 function sanitizeSearchTerm(string $value): string
 {
     return limitString(normalizeText($value), 120);
+}
+
+function normalizePageUrl(string $value): string
+{
+    $value = trim($value);
+    if ($value === '') {
+        return '';
+    }
+    if (!filter_var($value, FILTER_VALIDATE_URL)) {
+        throw new RuntimeException('Invalid URL');
+    }
+
+    $parts = parse_url($value);
+    $scheme = strtolower((string)($parts['scheme'] ?? ''));
+    if (!in_array($scheme, ['http', 'https'], true)) {
+        throw new RuntimeException('Invalid URL');
+    }
+
+    return limitString($value, 500);
 }
 
 function normalizeInquiryStatus(string $status): string
@@ -539,6 +637,15 @@ function ensureInquiryInput(string $name, string $email, string $message, string
     }
     if ($name === '' || $email === '' || $message === '') {
         throw new RuntimeException('Missing required inquiry fields');
+    }
+}
+
+function requireExistingInquiry(PDO $pdo, int $inquiryId): void
+{
+    $statement = $pdo->prepare('SELECT id FROM contact_inquiries WHERE id = :id LIMIT 1');
+    $statement->execute([':id' => $inquiryId]);
+    if (!$statement->fetchColumn()) {
+        throw new RuntimeException('Inquiry not found');
     }
 }
 
@@ -657,55 +764,59 @@ function upsertPostMetadata(PDO $pdo, array $post): void
 function registerView(PDO $pdo, string $path, string $visitorHash, int $cooldownSeconds): void
 {
     $pdo->beginTransaction();
-
-    $select = $pdo->prepare(
-        'SELECT id, UNIX_TIMESTAMP(last_viewed_at) AS last_seen
-         FROM post_engagement_views
-         WHERE post_path = :post_path AND visitor_hash = :visitor_hash
-         LIMIT 1'
-    );
-    $select->execute([
-        ':post_path' => $path,
-        ':visitor_hash' => $visitorHash,
-    ]);
-    $row = $select->fetch();
-
-    $shouldIncrement = true;
-    if ($row) {
-        $lastSeen = (int)$row['last_seen'];
-        if ((time() - $lastSeen) < $cooldownSeconds) {
-            $shouldIncrement = false;
-        }
-    }
-
-    if ($row) {
-        $update = $pdo->prepare(
-            'UPDATE post_engagement_views
-             SET last_viewed_at = CURRENT_TIMESTAMP
-             WHERE id = :id'
+    try {
+        $select = $pdo->prepare(
+            'SELECT id, UNIX_TIMESTAMP(last_viewed_at) AS last_seen
+             FROM post_engagement_views
+             WHERE post_path = :post_path AND visitor_hash = :visitor_hash
+             LIMIT 1'
         );
-        $update->execute([':id' => $row['id']]);
-    } else {
-        $insert = $pdo->prepare(
-            'INSERT INTO post_engagement_views (post_path, visitor_hash)
-             VALUES (:post_path, :visitor_hash)'
-        );
-        $insert->execute([
+        $select->execute([
             ':post_path' => $path,
             ':visitor_hash' => $visitorHash,
         ]);
-    }
+        $row = $select->fetch();
 
-    if ($shouldIncrement) {
-        $increment = $pdo->prepare(
-            'UPDATE post_engagement_totals
-             SET views = views + 1
-             WHERE post_path = :post_path'
-        );
-        $increment->execute([':post_path' => $path]);
-    }
+        $shouldIncrement = true;
+        if ($row) {
+            $lastSeen = (int)$row['last_seen'];
+            if ((time() - $lastSeen) < $cooldownSeconds) {
+                $shouldIncrement = false;
+            }
+        }
 
-    $pdo->commit();
+        if ($row) {
+            $update = $pdo->prepare(
+                'UPDATE post_engagement_views
+                 SET last_viewed_at = CURRENT_TIMESTAMP
+                 WHERE id = :id'
+            );
+            $update->execute([':id' => $row['id']]);
+        } else {
+            $insert = $pdo->prepare(
+                'INSERT INTO post_engagement_views (post_path, visitor_hash)
+                 VALUES (:post_path, :visitor_hash)'
+            );
+            $insert->execute([
+                ':post_path' => $path,
+                ':visitor_hash' => $visitorHash,
+            ]);
+        }
+
+        if ($shouldIncrement) {
+            $increment = $pdo->prepare(
+                'UPDATE post_engagement_totals
+                 SET views = views + 1
+                 WHERE post_path = :post_path'
+            );
+            $increment->execute([':post_path' => $path]);
+        }
+
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
+    }
 }
 
 function registerReaction(PDO $pdo, string $path, string $visitorHash, string $reaction): void
@@ -718,67 +829,71 @@ function registerReaction(PDO $pdo, string $path, string $visitorHash, string $r
     ];
 
     $pdo->beginTransaction();
+    try {
+        $select = $pdo->prepare(
+            'SELECT id, reaction
+             FROM post_engagement_reactions
+             WHERE post_path = :post_path AND visitor_hash = :visitor_hash
+             LIMIT 1'
+        );
+        $select->execute([
+            ':post_path' => $path,
+            ':visitor_hash' => $visitorHash,
+        ]);
+        $existing = $select->fetch();
 
-    $select = $pdo->prepare(
-        'SELECT id, reaction
-         FROM post_engagement_reactions
-         WHERE post_path = :post_path AND visitor_hash = :visitor_hash
-         LIMIT 1'
-    );
-    $select->execute([
-        ':post_path' => $path,
-        ':visitor_hash' => $visitorHash,
-    ]);
-    $existing = $select->fetch();
+        if ($existing && $existing['reaction'] === $reaction) {
+            $pdo->commit();
+            return;
+        }
 
-    if ($existing && $existing['reaction'] === $reaction) {
-        $pdo->commit();
-        return;
-    }
+        if ($existing) {
+            $decrementColumn = $columnMap[$existing['reaction']];
+            $pdo->exec(
+                sprintf(
+                    'UPDATE post_engagement_totals SET %s = GREATEST(%s - 1, 0) WHERE post_path = %s',
+                    $decrementColumn,
+                    $decrementColumn,
+                    $pdo->quote($path)
+                )
+            );
 
-    if ($existing) {
-        $decrementColumn = $columnMap[$existing['reaction']];
+            $update = $pdo->prepare(
+                'UPDATE post_engagement_reactions
+                 SET reaction = :reaction, updated_at = CURRENT_TIMESTAMP
+                 WHERE id = :id'
+            );
+            $update->execute([
+                ':reaction' => $reaction,
+                ':id' => $existing['id'],
+            ]);
+        } else {
+            $insert = $pdo->prepare(
+                'INSERT INTO post_engagement_reactions (post_path, visitor_hash, reaction)
+                 VALUES (:post_path, :visitor_hash, :reaction)'
+            );
+            $insert->execute([
+                ':post_path' => $path,
+                ':visitor_hash' => $visitorHash,
+                ':reaction' => $reaction,
+            ]);
+        }
+
+        $incrementColumn = $columnMap[$reaction];
         $pdo->exec(
             sprintf(
-                'UPDATE post_engagement_totals SET %s = GREATEST(%s - 1, 0) WHERE post_path = %s',
-                $decrementColumn,
-                $decrementColumn,
+                'UPDATE post_engagement_totals SET %s = %s + 1 WHERE post_path = %s',
+                $incrementColumn,
+                $incrementColumn,
                 $pdo->quote($path)
             )
         );
 
-        $update = $pdo->prepare(
-            'UPDATE post_engagement_reactions
-             SET reaction = :reaction, updated_at = CURRENT_TIMESTAMP
-             WHERE id = :id'
-        );
-        $update->execute([
-            ':reaction' => $reaction,
-            ':id' => $existing['id'],
-        ]);
-    } else {
-        $insert = $pdo->prepare(
-            'INSERT INTO post_engagement_reactions (post_path, visitor_hash, reaction)
-             VALUES (:post_path, :visitor_hash, :reaction)'
-        );
-        $insert->execute([
-            ':post_path' => $path,
-            ':visitor_hash' => $visitorHash,
-            ':reaction' => $reaction,
-        ]);
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
     }
-
-    $incrementColumn = $columnMap[$reaction];
-    $pdo->exec(
-        sprintf(
-            'UPDATE post_engagement_totals SET %s = %s + 1 WHERE post_path = %s',
-            $incrementColumn,
-            $incrementColumn,
-            $pdo->quote($path)
-        )
-    );
-
-    $pdo->commit();
 }
 
 function insertComment(PDO $pdo, array $comment): void
@@ -943,11 +1058,17 @@ function updateInquiryStatus(PDO $pdo, int $inquiryId, string $status): void
 
 function deleteInquiry(PDO $pdo, int $inquiryId): void
 {
+    requireExistingInquiry($pdo, $inquiryId);
     $pdo->beginTransaction();
-    $pdo->prepare('DELETE FROM contact_inquiry_comments WHERE inquiry_id = :id')->execute([':id' => $inquiryId]);
-    $pdo->prepare('DELETE FROM contact_inquiry_replies WHERE inquiry_id = :id')->execute([':id' => $inquiryId]);
-    $pdo->prepare('DELETE FROM contact_inquiries WHERE id = :id')->execute([':id' => $inquiryId]);
-    $pdo->commit();
+    try {
+        $pdo->prepare('DELETE FROM contact_inquiry_comments WHERE inquiry_id = :id')->execute([':id' => $inquiryId]);
+        $pdo->prepare('DELETE FROM contact_inquiry_replies WHERE inquiry_id = :id')->execute([':id' => $inquiryId]);
+        $pdo->prepare('DELETE FROM contact_inquiries WHERE id = :id')->execute([':id' => $inquiryId]);
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
+    }
 }
 
 function addInquiryComment(PDO $pdo, array $comment): void
@@ -1123,23 +1244,28 @@ function ensureRateLimit(PDO $pdo, array $config, string $action, string $finger
     $expiresAt = date('Y-m-d H:i:s', ($bucket + 1) * $windowSeconds);
 
     $pdo->beginTransaction();
-    $pdo->prepare('DELETE FROM api_rate_limits WHERE expires_at < CURRENT_TIMESTAMP')->execute();
-    $statement = $pdo->prepare(
-        'INSERT INTO api_rate_limits (rate_key, action_name, request_fingerprint, hits, expires_at)
-         VALUES (:rate_key, :action_name, :request_fingerprint, 1, :expires_at)
-         ON DUPLICATE KEY UPDATE hits = hits + 1, expires_at = VALUES(expires_at), updated_at = CURRENT_TIMESTAMP'
-    );
-    $statement->execute([
-        ':rate_key' => $rateKey,
-        ':action_name' => $action,
-        ':request_fingerprint' => $fingerprint,
-        ':expires_at' => $expiresAt,
-    ]);
+    try {
+        $pdo->prepare('DELETE FROM api_rate_limits WHERE expires_at < CURRENT_TIMESTAMP')->execute();
+        $statement = $pdo->prepare(
+            'INSERT INTO api_rate_limits (rate_key, action_name, request_fingerprint, hits, expires_at)
+             VALUES (:rate_key, :action_name, :request_fingerprint, 1, :expires_at)
+             ON DUPLICATE KEY UPDATE hits = hits + 1, expires_at = VALUES(expires_at), updated_at = CURRENT_TIMESTAMP'
+        );
+        $statement->execute([
+            ':rate_key' => $rateKey,
+            ':action_name' => $action,
+            ':request_fingerprint' => $fingerprint,
+            ':expires_at' => $expiresAt,
+        ]);
 
-    $check = $pdo->prepare('SELECT hits FROM api_rate_limits WHERE rate_key = :rate_key LIMIT 1');
-    $check->execute([':rate_key' => $rateKey]);
-    $hits = (int)$check->fetchColumn();
-    $pdo->commit();
+        $check = $pdo->prepare('SELECT hits FROM api_rate_limits WHERE rate_key = :rate_key LIMIT 1');
+        $check->execute([':rate_key' => $rateKey]);
+        $hits = (int)$check->fetchColumn();
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
+    }
 
     if ($hits > $maxHits) {
         throw new RuntimeException('Rate limit exceeded');
@@ -1169,6 +1295,10 @@ function safeHandleException(Throwable $e, array $config, ?PDO $pdo, string $act
     $message = $e->getMessage();
     $status = 500;
 
+    if ($pdo) {
+        rollbackIfNeeded($pdo);
+    }
+
     if (stripos($message, 'not found') !== false) {
         $status = 404;
     } elseif (stripos($message, 'not allowed') !== false || stripos($message, 'authorization failed') !== false || stripos($message, 'origin not allowed') !== false) {
@@ -1177,7 +1307,9 @@ function safeHandleException(Throwable $e, array $config, ?PDO $pdo, string $act
         stripos($message, 'invalid ') === 0 ||
         stripos($message, 'missing ') === 0 ||
         stripos($message, 'spam rejected') === 0 ||
-        stripos($message, 'delete confirmation') === 0
+        stripos($message, 'delete confirmation') === 0 ||
+        stripos($message, 'request body') === 0 ||
+        stripos($message, 'content-type') === 0
     ) {
         $status = 400;
     } elseif (stripos($message, 'rate limit exceeded') !== false) {
@@ -1197,6 +1329,13 @@ function safeHandleException(Throwable $e, array $config, ?PDO $pdo, string $act
 
     $publicMessage = $debug || $status < 500 ? $message : 'Server error';
     respond($status, ['ok' => false, 'error' => $publicMessage]);
+}
+
+function rollbackIfNeeded(PDO $pdo): void
+{
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
 }
 
 function isHttpsRequest(): bool
