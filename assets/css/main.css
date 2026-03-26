@@ -839,6 +839,13 @@ ul, ol {
   box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.2);
 }
 
+.post-reaction-button.is-disabled,
+.post-reaction-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .engagement-feedback {
   min-height: 1.5em;
   font-size: 0.92rem;

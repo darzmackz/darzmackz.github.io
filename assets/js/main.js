@@ -112,6 +112,7 @@
     var utterancesIssueTerm = root.getAttribute('data-utterances-issue-term') || 'pathname';
     var utterancesTheme = root.getAttribute('data-utterances-theme') || 'github-dark';
     var reactionStorageKey = 'postReaction:' + postPath;
+    var counterUnavailable = false;
 
     function setFeedback(el, message, isError) {
       if (!el) return;
@@ -124,6 +125,10 @@
     }
 
     function fetchCounter(method, key) {
+      if (counterUnavailable) {
+        return Promise.reject(new Error('Counter service unavailable'));
+      }
+
       var url = counterUrl() + '/' + method + '/' + encodeURIComponent(namespace) + '/' + encodeURIComponent(key);
       return window.fetch(url, {
         method: 'GET',
@@ -135,6 +140,9 @@
           throw new Error('Counter request failed');
         }
         return response.json();
+      }).catch(function (error) {
+        counterUnavailable = true;
+        throw error;
       });
     }
 
@@ -160,11 +168,24 @@
           try { window.sessionStorage.setItem(sessionKey, '1'); } catch (e) {}
         }
       }).catch(function () {
-        viewCountEl.textContent = 'Unavailable';
+        viewCountEl.textContent = 'Offline';
       });
     }
 
+    function setReactionButtonsDisabled(message) {
+      root.querySelectorAll('[data-reaction]').forEach(function (button) {
+        button.disabled = true;
+        button.classList.add('is-disabled');
+      });
+      setFeedback(reactionFeedback, message, true);
+    }
+
     function updateReactionButtons() {
+      if (counterUnavailable) {
+        setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
+        return;
+      }
+
       var savedReaction = '';
       try {
         savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
@@ -179,10 +200,7 @@
             countEl.textContent = formatCount(data.value);
           }
         }).catch(function () {
-          var countEl = button.querySelector('[data-reaction-count]');
-          if (countEl) {
-            countEl.textContent = '-';
-          }
+          setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
         });
       });
     }
@@ -212,7 +230,7 @@
             updateReactionButtons();
             setFeedback(reactionFeedback, 'Reaction saved: ' + emoji, false);
           }).catch(function () {
-            setFeedback(reactionFeedback, 'Reaction could not be saved right now.', true);
+            setReactionButtonsDisabled('Reactions are temporarily unavailable because the counter service cannot be reached.');
           });
         });
       });
@@ -264,6 +282,7 @@
     function syncCommentsTheme() {
       var frame = commentsHost ? commentsHost.querySelector('iframe.utterances-frame') : null;
       if (!frame || !frame.contentWindow) return;
+      if (!frame.src || frame.src.indexOf('https://utteranc.es/') !== 0) return;
       frame.contentWindow.postMessage({
         type: 'set-theme',
         theme: resolveUtterancesTheme()
@@ -285,7 +304,9 @@
       script.setAttribute('input-position', 'top');
       commentsHost.appendChild(script);
       commentsHost.setAttribute('data-comments-loaded', 'true');
-      window.setTimeout(syncCommentsTheme, 1200);
+      script.addEventListener('load', function () {
+        window.setTimeout(syncCommentsTheme, 300);
+      }, { once: true });
     }
 
     updateViewCount();

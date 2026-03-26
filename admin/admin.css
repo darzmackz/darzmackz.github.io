@@ -701,6 +701,41 @@ button,
   border-color:rgba(96,165,250,.18);
 }
 
+.post-engagement-admin,
+.engagement-admin-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+
+.metrics-pill{
+  background:rgba(15,23,42,.92);
+  border-color:rgba(96,165,250,.18);
+  color:#dbeafe;
+}
+
+.metrics-pill-offline{
+  color:#fca5a5;
+  border-color:rgba(239,68,68,.3);
+}
+
+.metrics-pill-fire{
+  color:#fdba74;
+}
+
+.metrics-pill-love{
+  color:#fda4af;
+}
+
+.metrics-pill-wow{
+  color:#c4b5fd;
+}
+
+.metrics-pill-helpful{
+  color:#86efac;
+}
+
 .posts-toolbar{
   display:flex;
   flex-direction:column;
