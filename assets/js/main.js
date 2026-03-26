@@ -104,16 +104,22 @@
     var postPath = root.getAttribute('data-post-path') || window.location.pathname;
     var postTitle = root.getAttribute('data-post-title') || document.title;
     var engagementApi = (root.getAttribute('data-engagement-api') || '').trim();
+    var postDate = root.getAttribute('data-post-date') || '';
+    var postDescription = root.getAttribute('data-post-description') || '';
+    var postCategories = (root.getAttribute('data-post-categories') || '').split('|').filter(Boolean);
+    var postTags = (root.getAttribute('data-post-tags') || '').split('|').filter(Boolean);
     var viewCountEl = root.querySelector('[data-view-count]');
     var shareFeedback = root.querySelector('[data-share-feedback]');
     var reactionFeedback = root.querySelector('[data-reaction-feedback]');
-    var commentsHost = root.querySelector('[data-comments-host]');
-    var utterancesRepo = root.getAttribute('data-utterances-repo') || '';
-    var utterancesIssueTerm = root.getAttribute('data-utterances-issue-term') || 'pathname';
-    var utterancesTheme = root.getAttribute('data-utterances-theme') || 'github-dark';
+    var commentsList = root.querySelector('[data-comments-list]');
+    var commentsEmpty = root.querySelector('[data-comments-empty]');
+    var commentForm = root.querySelector('[data-comment-form]');
+    var commentFeedback = root.querySelector('[data-comment-feedback]');
     var reactionStorageKey = 'postReaction:' + postPath;
     var visitorTokenKey = 'engagementVisitorToken';
     var engagementUnavailable = false;
+    var commenterNameKey = 'commenterName';
+    var commenterEmailKey = 'commenterEmail';
 
     function setFeedback(el, message, isError) {
       if (!el) return;
@@ -188,6 +194,127 @@
     function formatCount(value) {
       var count = Number(value || 0);
       return count.toLocaleString();
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatCommentDate(value) {
+      if (!value) return '';
+      var parsed = new Date(value);
+      if (isNaN(parsed.getTime())) return value;
+      return parsed.toLocaleString();
+    }
+
+    function renderComments(items) {
+      if (!commentsList || !commentsEmpty) return;
+      if (!items.length) {
+        commentsList.innerHTML = '';
+        commentsEmpty.hidden = false;
+        commentsEmpty.textContent = 'No comments yet. Start the conversation.';
+        return;
+      }
+
+      commentsEmpty.hidden = true;
+      commentsList.innerHTML = items.map(function (comment) {
+        var author = escapeHtml(comment.author_name || 'Anonymous');
+        var message = escapeHtml(comment.comment_body || '').replace(/\n/g, '<br>');
+        var website = comment.author_website ? '<a href="' + escapeHtml(comment.author_website) + '" target="_blank" rel="noopener">' + author + '</a>' : author;
+        return '<article class="post-comment-item">' +
+          '<header class="post-comment-head">' +
+          '<strong>' + website + '</strong>' +
+          '<time datetime="' + escapeHtml(comment.created_at || '') + '">' + escapeHtml(formatCommentDate(comment.created_at || '')) + '</time>' +
+          '</header>' +
+          '<p class="post-comment-body">' + message + '</p>' +
+          '</article>';
+      }).join('');
+    }
+
+    function loadComments() {
+      if (!commentsList || !commentsEmpty) return;
+      if (!engagementApi) {
+        commentsEmpty.hidden = false;
+        commentsEmpty.textContent = 'Set engagement_api_base in _config.yml to enable comments.';
+        return;
+      }
+
+      commentsEmpty.hidden = false;
+      commentsEmpty.textContent = 'Loading comments...';
+      requestEngagement('get-comments', { method: 'GET', query: { path: postPath } }).then(function (data) {
+        renderComments(data.comments || []);
+      }).catch(function () {
+        commentsEmpty.hidden = false;
+        commentsEmpty.textContent = 'Comments are temporarily unavailable.';
+      });
+    }
+
+    function syncMetadata() {
+      if (!engagementApi) return;
+      requestEngagement('sync-post', {
+        method: 'POST',
+        body: {
+          path: postPath,
+          title: postTitle,
+          url: postUrl,
+          description: postDescription,
+          published_at: postDate,
+          categories: postCategories,
+          tags: postTags
+        }
+      }).catch(function () {});
+    }
+
+    function bindComments() {
+      if (!commentForm) return;
+      var nameInput = commentForm.querySelector('[name="name"]');
+      var emailInput = commentForm.querySelector('[name="email"]');
+      var websiteInput = commentForm.querySelector('[name="website"]');
+      var messageInput = commentForm.querySelector('[name="message"]');
+      var honeypotInput = commentForm.querySelector('[name="company"]');
+
+      try {
+        if (nameInput) nameInput.value = window.localStorage.getItem(commenterNameKey) || '';
+        if (emailInput) emailInput.value = window.localStorage.getItem(commenterEmailKey) || '';
+      } catch (e) {}
+
+      commentForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!engagementApi) {
+          setFeedback(commentFeedback, 'Comments are not configured yet.', true);
+          return;
+        }
+
+        var payload = {
+          path: postPath,
+          title: postTitle,
+          url: postUrl,
+          author_name: nameInput ? nameInput.value.trim() : '',
+          author_email: emailInput ? emailInput.value.trim() : '',
+          author_website: websiteInput ? websiteInput.value.trim() : '',
+          comment_body: messageInput ? messageInput.value.trim() : '',
+          company: honeypotInput ? honeypotInput.value.trim() : '',
+          visitor_token: getVisitorToken()
+        };
+
+        requestEngagement('comment', { method: 'POST', body: payload }).then(function (data) {
+          try {
+            if (nameInput) window.localStorage.setItem(commenterNameKey, nameInput.value.trim());
+            if (emailInput) window.localStorage.setItem(commenterEmailKey, emailInput.value.trim());
+          } catch (e) {}
+          if (messageInput) messageInput.value = '';
+          if (websiteInput) websiteInput.value = '';
+          setFeedback(commentFeedback, data && data.message ? data.message : 'Comment posted successfully.', false);
+          renderComments(data.comments || []);
+        }).catch(function () {
+          setFeedback(commentFeedback, 'Your comment could not be submitted right now.', true);
+        });
+      });
     }
 
     function updateViewCount() {
@@ -342,46 +469,66 @@
       }
     }
 
-    function resolveUtterancesTheme() {
-      return html.getAttribute('data-theme') === 'dark' ? utterancesTheme : 'github-light';
-    }
-
-    function syncCommentsTheme() {
-      var frame = commentsHost ? commentsHost.querySelector('iframe.utterances-frame') : null;
-      if (!frame || !frame.contentWindow) return;
-      if (!frame.src || frame.src.indexOf('https://utteranc.es/') !== 0) return;
-      frame.contentWindow.postMessage({
-        type: 'set-theme',
-        theme: resolveUtterancesTheme()
-      }, 'https://utteranc.es');
-    }
-
-    function loadComments() {
-      if (!commentsHost || !utterancesRepo) return;
-      if (commentsHost.getAttribute('data-comments-loaded') === 'true') return;
-
-      var script = document.createElement('script');
-      script.src = 'https://utteranc.es/client.js';
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      script.setAttribute('repo', utterancesRepo);
-      script.setAttribute('issue-term', utterancesIssueTerm);
-      script.setAttribute('label', 'blog-comment');
-      script.setAttribute('theme', resolveUtterancesTheme());
-      script.setAttribute('input-position', 'top');
-      commentsHost.appendChild(script);
-      commentsHost.setAttribute('data-comments-loaded', 'true');
-      script.addEventListener('load', function () {
-        window.setTimeout(syncCommentsTheme, 300);
-      }, { once: true });
-    }
-
+    syncMetadata();
     updateViewCount();
     bindShareActions();
     bindReactions();
     updateReactionButtons();
     loadComments();
-    document.addEventListener('site-theme-change', syncCommentsTheme);
+    bindComments();
+  }
+
+  function initContactForm() {
+    var form = document.querySelector('[data-contact-form]');
+    if (!form) return;
+
+    var apiBase = (document.body.getAttribute('data-site-api') || '').trim();
+    var feedback = document.querySelector('[data-contact-feedback]');
+
+    function setContactFeedback(message, isError) {
+      if (!feedback) return;
+      feedback.textContent = message || '';
+      feedback.classList.toggle('is-error', Boolean(isError));
+    }
+
+    function requestContact(action, body) {
+      if (!apiBase) {
+        return Promise.reject(new Error('API not configured'));
+      }
+
+      var separator = apiBase.indexOf('?') === -1 ? '?' : '&';
+      return window.fetch(apiBase + separator + 'action=' + encodeURIComponent(action), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body || {})
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('Contact request failed');
+        }
+        return response.json();
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var formData = new FormData(form);
+      requestContact('inquiry', {
+        name: String(formData.get('name') || '').trim(),
+        email: String(formData.get('email') || '').trim(),
+        subject: String(formData.get('subject') || '').trim(),
+        message: String(formData.get('message') || '').trim(),
+        company: String(formData.get('company') || '').trim(),
+        page_url: window.location.href
+      }).then(function (data) {
+        form.reset();
+        setContactFeedback(data && data.message ? data.message : 'Your message has been sent.', false);
+      }).catch(function () {
+        setContactFeedback(apiBase ? 'Your message could not be sent right now.' : 'Set engagement_api_base in _config.yml to enable inquiries.', true);
+      });
+    });
   }
 
   function queueAdsenseSlots() {
@@ -481,6 +628,7 @@
   bindImageFallbacks();
   initBlogArchive();
   initPostEngagement();
+  initContactForm();
 
   var adsClient = document.body.getAttribute('data-adsense-client');
   if (adsClient) {

@@ -859,6 +859,50 @@ ul, ol {
   min-height: 220px;
 }
 
+.post-comments-list,
+.post-comment-form {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.post-comment-item {
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-bg-alt);
+}
+
+.post-comment-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  align-items: baseline;
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.post-comment-head time {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.post-comment-body {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.post-comments-empty {
+  color: var(--color-text-muted);
+}
+
+.comment-form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .post-navigation {
   display: flex;
   justify-content: space-between;

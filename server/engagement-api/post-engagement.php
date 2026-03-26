@@ -11,47 +11,130 @@ $config = require $configPath;
 
 handleCors($config);
 
-$action = $_GET['action'] ?? '';
+$action = trim((string)($_GET['action'] ?? ''));
 
 try {
     $pdo = createPdo($config);
 
+    if ($action === '') {
+        respond(400, ['ok' => false, 'error' => 'Missing action']);
+    }
+
     if ($action === 'get') {
-        $path = normalizePath($_GET['path'] ?? '');
+        $path = normalizePath((string)($_GET['path'] ?? ''));
         ensurePath($path);
         respond(200, buildStatsResponse($pdo, $path));
     }
 
+    if ($action === 'get-comments') {
+        $path = normalizePath((string)($_GET['path'] ?? ''));
+        ensurePath($path);
+        respond(200, [
+            'ok' => true,
+            'path' => $path,
+            'comments' => fetchApprovedComments($pdo, $path),
+        ]);
+    }
+
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        respond(405, ['ok' => false, 'error' => 'Method not allowed']);
+        respond(405, ['ok' => false, 'error' => 'Method not allowed for this action']);
     }
 
-    $input = json_decode(file_get_contents('php://input') ?: '{}', true);
-    if (!is_array($input)) {
-        respond(400, ['ok' => false, 'error' => 'Invalid JSON body']);
+    $input = decodeJsonBody();
+
+    if ($action === 'sync-post') {
+        $path = normalizePath((string)($input['path'] ?? ''));
+        ensurePath($path);
+        upsertPostMetadata($pdo, [
+            'path' => $path,
+            'title' => limitString((string)($input['title'] ?? ''), 255),
+            'url' => limitString((string)($input['url'] ?? ''), 500),
+            'description' => limitString((string)($input['description'] ?? ''), 5000),
+            'published_at' => normalizeDateTime((string)($input['published_at'] ?? '')),
+            'categories' => normalizeStringArray($input['categories'] ?? []),
+            'tags' => normalizeStringArray($input['tags'] ?? []),
+        ]);
+        respond(200, ['ok' => true, 'message' => 'Post metadata synced']);
     }
-
-    $path = normalizePath($input['path'] ?? '');
-    $title = trim((string)($input['title'] ?? ''));
-    $url = trim((string)($input['url'] ?? ''));
-    $visitorToken = trim((string)($input['visitor_token'] ?? ''));
-
-    ensurePath($path);
-    ensureVisitorToken($visitorToken);
-
-    ensureTotalsRow($pdo, $path, $title, $url);
-    $visitorHash = visitorHash($visitorToken);
 
     if ($action === 'view') {
-        registerView($pdo, $path, $visitorHash, (int)($config['view_cooldown_seconds'] ?? 21600));
+        $path = normalizePath((string)($input['path'] ?? ''));
+        $title = limitString((string)($input['title'] ?? ''), 255);
+        $url = limitString((string)($input['url'] ?? ''), 500);
+        $visitorToken = trim((string)($input['visitor_token'] ?? ''));
+        ensurePath($path);
+        ensureVisitorToken($visitorToken);
+        ensureTotalsRow($pdo, $path, $title, $url);
+        registerView($pdo, $path, visitorHash($visitorToken), (int)($config['view_cooldown_seconds'] ?? 21600));
         respond(200, buildStatsResponse($pdo, $path));
     }
 
     if ($action === 'react') {
+        $path = normalizePath((string)($input['path'] ?? ''));
+        $title = limitString((string)($input['title'] ?? ''), 255);
+        $url = limitString((string)($input['url'] ?? ''), 500);
+        $visitorToken = trim((string)($input['visitor_token'] ?? ''));
         $reaction = trim((string)($input['reaction'] ?? ''));
+        ensurePath($path);
+        ensureVisitorToken($visitorToken);
         ensureReaction($reaction);
-        registerReaction($pdo, $path, $visitorHash, $reaction);
+        ensureTotalsRow($pdo, $path, $title, $url);
+        registerReaction($pdo, $path, visitorHash($visitorToken), $reaction);
         respond(200, buildStatsResponse($pdo, $path));
+    }
+
+    if ($action === 'comment') {
+        $path = normalizePath((string)($input['path'] ?? ''));
+        $title = limitString((string)($input['title'] ?? ''), 255);
+        $url = limitString((string)($input['url'] ?? ''), 500);
+        $visitorToken = trim((string)($input['visitor_token'] ?? ''));
+        $authorName = limitString(trim((string)($input['author_name'] ?? '')), 80);
+        $authorEmail = normalizeEmail((string)($input['author_email'] ?? ''));
+        $authorWebsite = normalizeWebsite((string)($input['author_website'] ?? ''));
+        $commentBody = limitString(trim((string)($input['comment_body'] ?? '')), 2000);
+        $honeypot = trim((string)($input['company'] ?? ''));
+
+        ensurePath($path);
+        ensureVisitorToken($visitorToken);
+        ensureCommentInput($authorName, $authorEmail, $commentBody, $honeypot);
+        ensureTotalsRow($pdo, $path, $title, $url);
+        insertComment($pdo, [
+            'post_path' => $path,
+            'author_name' => $authorName,
+            'author_email_hash' => hash('sha256', strtolower($authorEmail)),
+            'author_website' => $authorWebsite,
+            'comment_body' => $commentBody,
+            'visitor_hash' => visitorHash($visitorToken),
+        ]);
+        respond(200, [
+            'ok' => true,
+            'message' => 'Comment posted successfully.',
+            'comments' => fetchApprovedComments($pdo, $path),
+        ]);
+    }
+
+    if ($action === 'inquiry') {
+        $name = limitString(trim((string)($input['name'] ?? '')), 120);
+        $email = normalizeEmail((string)($input['email'] ?? ''));
+        $subject = limitString(trim((string)($input['subject'] ?? '')), 255);
+        $message = limitString(trim((string)($input['message'] ?? '')), 5000);
+        $pageUrl = limitString(trim((string)($input['page_url'] ?? '')), 500);
+        $honeypot = trim((string)($input['company'] ?? ''));
+
+        ensureInquiryInput($name, $email, $message, $honeypot);
+        insertInquiry($pdo, [
+            'sender_name' => $name,
+            'sender_email_hash' => hash('sha256', strtolower($email)),
+            'sender_email_mask' => maskEmail($email),
+            'subject' => $subject,
+            'message_body' => $message,
+            'page_url' => $pageUrl,
+            'ip_hash' => requestIpHash(),
+        ]);
+        respond(200, [
+            'ok' => true,
+            'message' => 'Your message has been sent successfully.',
+        ]);
     }
 
     respond(400, ['ok' => false, 'error' => 'Unsupported action']);
@@ -94,6 +177,15 @@ function createPdo(array $config): PDO
     ]);
 }
 
+function decodeJsonBody(): array
+{
+    $input = json_decode(file_get_contents('php://input') ?: '{}', true);
+    if (!is_array($input)) {
+        throw new RuntimeException('Invalid JSON body');
+    }
+    return $input;
+}
+
 function normalizePath(string $path): string
 {
     $path = trim($path);
@@ -104,6 +196,63 @@ function normalizePath(string $path): string
         $path = '/' . $path;
     }
     return rtrim($path, '/') . '/';
+}
+
+function normalizeDateTime(string $value): ?string
+{
+    $value = trim($value);
+    if ($value === '') {
+        return null;
+    }
+    $timestamp = strtotime($value);
+    if ($timestamp === false) {
+        return null;
+    }
+    return date('Y-m-d H:i:s', $timestamp);
+}
+
+function normalizeStringArray($value): array
+{
+    if (!is_array($value)) {
+        return [];
+    }
+    $items = [];
+    foreach ($value as $item) {
+        $text = trim((string)$item);
+        if ($text !== '') {
+            $items[] = limitString($text, 80);
+        }
+    }
+    return array_values(array_unique($items));
+}
+
+function normalizeEmail(string $email): string
+{
+    $email = trim($email);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new RuntimeException('Invalid email address');
+    }
+    return $email;
+}
+
+function normalizeWebsite(string $website): string
+{
+    $website = trim($website);
+    if ($website === '') {
+        return '';
+    }
+    if (!preg_match('~^https?://~i', $website)) {
+        $website = 'https://' . $website;
+    }
+    if (!filter_var($website, FILTER_VALIDATE_URL)) {
+        throw new RuntimeException('Invalid website URL');
+    }
+    return limitString($website, 255);
+}
+
+function limitString(string $value, int $maxLength): string
+{
+    return mb_substr($value, 0, $maxLength);
 }
 
 function ensurePath(string $path): void
@@ -127,11 +276,54 @@ function ensureReaction(string $reaction): void
     }
 }
 
+function ensureCommentInput(string $authorName, string $authorEmail, string $commentBody, string $honeypot): void
+{
+    if ($honeypot !== '') {
+        throw new RuntimeException('Spam rejected');
+    }
+    if ($authorName === '' || $commentBody === '') {
+        throw new RuntimeException('Missing required comment fields');
+    }
+    if ($authorEmail === '') {
+        throw new RuntimeException('Email is required');
+    }
+}
+
+function ensureInquiryInput(string $name, string $email, string $message, string $honeypot): void
+{
+    if ($honeypot !== '') {
+        throw new RuntimeException('Spam rejected');
+    }
+    if ($name === '' || $email === '' || $message === '') {
+        throw new RuntimeException('Missing required inquiry fields');
+    }
+}
+
 function visitorHash(string $visitorToken): string
 {
     $ip = $_SERVER['REMOTE_ADDR'] ?? '';
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
     return hash('sha256', $visitorToken . '|' . $ip . '|' . $userAgent);
+}
+
+function requestIpHash(): string
+{
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    return hash('sha256', $ip);
+}
+
+function maskEmail(string $email): string
+{
+    $parts = explode('@', $email, 2);
+    if (count($parts) !== 2) {
+        return '';
+    }
+    $local = $parts[0];
+    $domain = $parts[1];
+    if (strlen($local) <= 2) {
+        return substr($local, 0, 1) . '*@' . $domain;
+    }
+    return substr($local, 0, 2) . str_repeat('*', max(1, strlen($local) - 2)) . '@' . $domain;
 }
 
 function ensureTotalsRow(PDO $pdo, string $path, string $title, string $url): void
@@ -147,6 +339,30 @@ function ensureTotalsRow(PDO $pdo, string $path, string $title, string $url): vo
         ':post_path' => $path,
         ':post_title' => $title,
         ':post_url' => $url,
+    ]);
+}
+
+function upsertPostMetadata(PDO $pdo, array $post): void
+{
+    $statement = $pdo->prepare(
+        'INSERT INTO post_metadata (post_path, post_title, post_url, post_description, published_at, categories_json, tags_json)
+         VALUES (:post_path, :post_title, :post_url, :post_description, :published_at, :categories_json, :tags_json)
+         ON DUPLICATE KEY UPDATE
+         post_title = VALUES(post_title),
+         post_url = VALUES(post_url),
+         post_description = VALUES(post_description),
+         published_at = VALUES(published_at),
+         categories_json = VALUES(categories_json),
+         tags_json = VALUES(tags_json)'
+    );
+    $statement->execute([
+        ':post_path' => $post['path'],
+        ':post_title' => $post['title'],
+        ':post_url' => $post['url'],
+        ':post_description' => $post['description'],
+        ':published_at' => $post['published_at'],
+        ':categories_json' => json_encode($post['categories'], JSON_UNESCAPED_SLASHES),
+        ':tags_json' => json_encode($post['tags'], JSON_UNESCAPED_SLASHES),
     ]);
 }
 
@@ -277,6 +493,51 @@ function registerReaction(PDO $pdo, string $path, string $visitorHash, string $r
     $pdo->commit();
 }
 
+function insertComment(PDO $pdo, array $comment): void
+{
+    $statement = $pdo->prepare(
+        'INSERT INTO post_comments (post_path, author_name, author_email_hash, author_website, comment_body, visitor_hash, status)
+         VALUES (:post_path, :author_name, :author_email_hash, :author_website, :comment_body, :visitor_hash, "approved")'
+    );
+    $statement->execute([
+        ':post_path' => $comment['post_path'],
+        ':author_name' => $comment['author_name'],
+        ':author_email_hash' => $comment['author_email_hash'],
+        ':author_website' => $comment['author_website'],
+        ':comment_body' => $comment['comment_body'],
+        ':visitor_hash' => $comment['visitor_hash'],
+    ]);
+}
+
+function fetchApprovedComments(PDO $pdo, string $path): array
+{
+    $statement = $pdo->prepare(
+        'SELECT id, author_name, author_website, comment_body, created_at
+         FROM post_comments
+         WHERE post_path = :post_path AND status = "approved"
+         ORDER BY created_at DESC'
+    );
+    $statement->execute([':post_path' => $path]);
+    return $statement->fetchAll() ?: [];
+}
+
+function insertInquiry(PDO $pdo, array $inquiry): void
+{
+    $statement = $pdo->prepare(
+        'INSERT INTO contact_inquiries (sender_name, sender_email_hash, sender_email_mask, subject, message_body, page_url, ip_hash, status)
+         VALUES (:sender_name, :sender_email_hash, :sender_email_mask, :subject, :message_body, :page_url, :ip_hash, "new")'
+    );
+    $statement->execute([
+        ':sender_name' => $inquiry['sender_name'],
+        ':sender_email_hash' => $inquiry['sender_email_hash'],
+        ':sender_email_mask' => $inquiry['sender_email_mask'],
+        ':subject' => $inquiry['subject'],
+        ':message_body' => $inquiry['message_body'],
+        ':page_url' => $inquiry['page_url'],
+        ':ip_hash' => $inquiry['ip_hash'],
+    ]);
+}
+
 function buildStatsResponse(PDO $pdo, string $path): array
 {
     $statement = $pdo->prepare(
@@ -325,4 +586,3 @@ function respond(int $status, array $payload): void
     echo json_encode($payload, JSON_UNESCAPED_SLASHES);
     exit;
 }
-

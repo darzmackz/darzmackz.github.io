@@ -1,11 +1,14 @@
 # Engagement API
 
-This folder contains a small PHP + MySQL backend for blog visitor counts and reactions.
+This folder contains a small PHP + MySQL backend for blog visitor counts, reactions, comments, post metadata, and contact inquiries.
 
 ## What it does
 
 - Tracks per-post visitor counts
 - Tracks per-post reactions
+- Stores approved post comments
+- Stores contact and inquiry submissions
+- Syncs post metadata into MySQL
 - Limits repeat visitor increments with a cooldown window
 - Allows one active reaction per visitor token per post
 - Returns aggregate counts for the blog frontend and admin panel
@@ -75,6 +78,59 @@ Response:
   "url": "https://example.com/2026/03/25/example-post/",
   "visitor_token": "visitor-abc123",
   "reaction": "love"
+}
+```
+
+### Get comments
+
+`GET post-engagement.php?action=get-comments&path=/2026/03/25/example-post/`
+
+### Submit a comment
+
+`POST post-engagement.php?action=comment`
+
+```json
+{
+  "path": "/2026/03/25/example-post/",
+  "title": "Example Post",
+  "url": "https://example.com/2026/03/25/example-post/",
+  "visitor_token": "visitor-abc123",
+  "author_name": "Jane",
+  "author_email": "jane@example.com",
+  "author_website": "https://example.com",
+  "comment_body": "Great post!",
+  "company": ""
+}
+```
+
+### Submit an inquiry
+
+`POST post-engagement.php?action=inquiry`
+
+```json
+{
+  "name": "Jane",
+  "email": "jane@example.com",
+  "subject": "Collaboration",
+  "message": "I'd like to work with you.",
+  "page_url": "https://darzmackz.github.io/contact/",
+  "company": ""
+}
+```
+
+### Sync post metadata
+
+`POST post-engagement.php?action=sync-post`
+
+```json
+{
+  "path": "/2026/03/25/example-post/",
+  "title": "Example Post",
+  "url": "https://example.com/2026/03/25/example-post/",
+  "description": "Post summary",
+  "published_at": "2026-03-25T00:00:00+08:00",
+  "categories": ["music", "feature"],
+  "tags": ["lyrics", "karaoke"]
 }
 ```
 

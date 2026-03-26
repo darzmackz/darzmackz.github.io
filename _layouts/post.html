@@ -58,10 +58,11 @@ layout: default
     data-post-url="{{ page.url | absolute_url }}"
     data-post-path="{{ page.url }}"
     data-post-title="{{ page.title | escape }}"
+    data-post-date="{{ page.date | date_to_xmlschema }}"
+    data-post-description="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}"
+    data-post-categories="{% if page.categories %}{{ page.categories | join: '|' | escape }}{% endif %}"
+    data-post-tags="{% if page.tags %}{{ page.tags | join: '|' | escape }}{% endif %}"
     data-engagement-api="{{ site.engagement_api_base }}"
-    data-utterances-repo="{{ site.utterances_repo }}"
-    data-utterances-issue-term="{{ site.utterances_issue_term | default: 'pathname' }}"
-    data-utterances-theme="{{ site.utterances_theme | default: 'github-dark' }}"
   >
     <div class="post-engagement-summary">
       <div class="engagement-stat-card">
@@ -114,13 +115,35 @@ layout: default
     <div class="post-comments" aria-labelledby="post-comments-title">
       <div class="post-comments-head">
         <h2 id="post-comments-title">Comments</h2>
-        <p>Comments are powered by GitHub Discussions-style issue threads through Utterances.</p>
+        <p>Join the conversation with comments stored on the site database.</p>
       </div>
-      {% if site.utterances_repo and site.utterances_repo != "" %}
-      <div class="post-comments-frame" data-comments-host></div>
-      {% else %}
-      <p class="post-comments-fallback">Set <code>utterances_repo</code> in <code>_config.yml</code> to enable comments.</p>
-      {% endif %}
+      <div class="post-comments-list" data-comments-list>
+        <p class="post-comments-empty" data-comments-empty>Loading comments...</p>
+      </div>
+      <form class="post-comment-form" data-comment-form>
+        <div class="form-group">
+          <label for="comment-name">Name</label>
+          <input type="text" id="comment-name" name="name" maxlength="80" required />
+        </div>
+        <div class="form-group">
+          <label for="comment-email">Email</label>
+          <input type="email" id="comment-email" name="email" maxlength="160" required />
+        </div>
+        <div class="form-group">
+          <label for="comment-website">Website</label>
+          <input type="url" id="comment-website" name="website" placeholder="https://example.com" />
+        </div>
+        <div class="form-group">
+          <label for="comment-message">Comment</label>
+          <textarea id="comment-message" name="message" rows="5" maxlength="2000" required></textarea>
+        </div>
+        <div class="comment-form-honeypot" aria-hidden="true">
+          <label for="comment-company">Company</label>
+          <input type="text" id="comment-company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" type="submit">Post Comment</button>
+        <span class="engagement-feedback" data-comment-feedback aria-live="polite"></span>
+      </form>
     </div>
   </section>
 

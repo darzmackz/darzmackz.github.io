@@ -52,3 +52,4 @@ Some pages may embed or link to third-party content such as YouTube videos. Thos
 ## Contact
 
 If you have privacy questions, please use the [contact page]({{ '/contact/' | relative_url }}). For related advertising transparency details, you can also review the [advertising disclosure]({{ '/disclosure/' | relative_url }}).
+

@@ -79,7 +79,7 @@ If you are contacting the site for policy, copyright, or advertising-related rea
   <div class="contact-form">
     <h3>Send a Message</h3>
     <p class="form-note">Use this form for collaboration requests, music-related questions, business contact, or technical inquiries.</p>
-    <form action="https://formspree.io/f/xpqyzezn" method="POST">
+    <form data-contact-form>
       <div class="form-group">
         <label for="contact-name">Your Name</label>
         <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
@@ -96,9 +96,14 @@ If you are contacting the site for policy, copyright, or advertising-related rea
         <label for="contact-message">Message</label>
         <textarea id="contact-message" name="message" placeholder="Write your message here." required></textarea>
       </div>
+      <div class="comment-form-honeypot" aria-hidden="true">
+        <label for="contact-company">Company</label>
+        <input type="text" id="contact-company" name="company" tabindex="-1" autocomplete="off" />
+      </div>
       <button type="submit" class="btn btn-primary">Send Message</button>
+      <span class="engagement-feedback" data-contact-feedback aria-live="polite"></span>
     </form>
-    <p class="form-note">This form is powered by Formspree and is only used to receive direct inquiries. Messages are not sold or shared for unrelated purposes.</p>
+    <p class="form-note">This form is stored through the site's self-hosted contact and inquiry API so messages can be reviewed directly.</p>
   </div>
 </div>
 

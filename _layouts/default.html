@@ -78,7 +78,7 @@
   <meta name="google-adsense-account" content="{{ site.google_adsense_publisher_id }}" />
   {% endif %}
 </head>
-<body{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %} data-adsense-client="{{ site.google_adsense_publisher_id }}"{% endif %}>
+<body{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %} data-adsense-client="{{ site.google_adsense_publisher_id }}"{% endif %}{% if site.engagement_api_base and site.engagement_api_base != "" %} data-site-api="{{ site.engagement_api_base }}"{% endif %}>
   <a href="#main" class="skip-link">Skip to main content</a>
 
   {% include header.html %}
