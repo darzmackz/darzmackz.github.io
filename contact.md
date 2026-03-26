@@ -103,7 +103,6 @@ If you are contacting the site for policy, copyright, or advertising-related rea
       <button type="submit" class="btn btn-primary">Send Message</button>
       <span class="engagement-feedback" data-contact-feedback aria-live="polite"></span>
     </form>
-    <p class="form-note">This form is stored through the site's self-hosted contact and inquiry API so messages can be reviewed directly.</p>
   </div>
 </div>
 

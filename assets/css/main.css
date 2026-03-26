@@ -774,9 +774,28 @@ ul, ol {
 }
 
 .post-share-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-sm);
+}
+
+.post-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.post-share-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  flex: 0 0 auto;
 }
 
 .post-share-copy,
@@ -794,6 +813,12 @@ ul, ol {
   background: var(--color-bg-alt);
   border-color: var(--color-primary);
   text-decoration: none;
+}
+
+@media (min-width: 769px) {
+  .post-share-actions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .post-reactions-head h2,
