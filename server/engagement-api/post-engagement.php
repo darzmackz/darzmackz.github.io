@@ -1792,21 +1792,3 @@ function respond(int $status, array $payload): void
     echo json_encode($payload, JSON_UNESCAPED_SLASHES);
     exit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
