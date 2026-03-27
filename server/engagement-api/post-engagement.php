@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 const PUBLIC_GET_ACTIONS = ['get', 'get-comments'];
-const ADMIN_GET_ACTIONS = ['admin-list-inquiries', 'admin-get-inquiry'];
+const ADMIN_GET_ACTIONS = ['admin-list-inquiries', 'admin-get-inquiry', 'admin-get-dashboard-snapshot', 'admin-get-site-data'];
 const POST_ACTIONS = [
     'sync-post',
     'view',
@@ -13,12 +13,15 @@ const POST_ACTIONS = [
     'admin-delete-inquiry',
     'admin-add-inquiry-comment',
     'admin-reply-inquiry',
+    'admin-sync-site-data',
 ];
 const ALL_ACTIONS = [
     'get',
     'get-comments',
     'admin-list-inquiries',
     'admin-get-inquiry',
+    'admin-get-dashboard-snapshot',
+    'admin-get-site-data',
     'sync-post',
     'view',
     'react',
@@ -28,6 +31,7 @@ const ALL_ACTIONS = [
     'admin-delete-inquiry',
     'admin-add-inquiry-comment',
     'admin-reply-inquiry',
+    'admin-sync-site-data',
 ];
 
 $configPath = __DIR__ . '/config.php';
@@ -112,12 +116,31 @@ try {
         respond(200, ['ok' => true, 'inquiry' => $inquiry]);
     }
 
+    if ($action === 'admin-get-dashboard-snapshot') {
+        assertAllowedOrigin($config);
+        assertAdminAuthorized($config);
+        ensureRateLimit($pdo, $config, 'admin-get-dashboard-snapshot', clientFingerprint(), 3600, 240);
+        respond(200, [
+            'ok' => true,
+            'dashboard' => buildAdminDashboardSnapshot($pdo),
+        ]);
+    }
+
+    if ($action === 'admin-get-site-data') {
+        assertAllowedOrigin($config);
+        assertAdminAuthorized($config);
+        ensureRateLimit($pdo, $config, 'admin-get-site-data', clientFingerprint(), 3600, 240);
+        respond(200, [
+            'ok' => true,
+            'site_data' => buildAdminSiteDataPayload($pdo),
+        ]);
+    }
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         respond(405, ['ok' => false, 'error' => 'Method not allowed for this action']);
     }
 
     assertAllowedOrigin($config);
-    assertJsonRequest($config);
+    assertJsonRequest($config, $action);
     $input = decodeJsonBody();
 
     if ($action === 'sync-post') {
@@ -346,6 +369,25 @@ try {
         ]);
     }
 
+    if ($action === 'admin-sync-site-data') {
+        assertAdminAuthorized($config);
+        ensureRateLimit($pdo, $config, 'admin-sync-site-data', clientFingerprint(), 3600, 60);
+        syncAdminSiteData($pdo, $input);
+
+        $posts = normalizeContentItemsPayload($input['posts'] ?? [], 'post');
+        $pages = normalizeContentItemsPayload($input['pages'] ?? [], 'page');
+        $portfolio = normalizeContentItemsPayload($input['portfolio'] ?? [], 'portfolio');
+        logAuditEvent($pdo, 'admin_site_data_synced', [
+            'posts' => count($posts),
+            'pages' => count($pages),
+            'portfolio' => count($portfolio),
+        ], 'admin');
+        respond(200, [
+            'ok' => true,
+            'message' => 'Site data synced.',
+            'dashboard' => buildAdminDashboardSnapshot($pdo),
+        ]);
+    }
     respond(400, ['ok' => false, 'error' => 'Unsupported action']);
 } catch (Throwable $e) {
     safeHandleException($e, $config, $pdo ?? null, $action, $debug);
@@ -427,9 +469,12 @@ function assertAdminAuthorized(array $config): void
     }
 }
 
-function assertJsonRequest(array $config): void
+function assertJsonRequest(array $config, string $action = ''): void
 {
     $maxBodyBytes = (int)($config['request_limits']['max_body_bytes'] ?? 16384);
+    if ($action === 'admin-sync-site-data') {
+        $maxBodyBytes = max($maxBodyBytes, (int)($config['request_limits']['admin_sync_max_body_bytes'] ?? 1048576));
+    }
     $contentLength = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
     if ($contentLength < 1) {
         throw new RuntimeException('Request body is required');
@@ -1188,6 +1233,404 @@ function sendInquiryReply(array $config, string $email, string $subject, string 
     ];
 }
 
+function StringOrEmpty($value): string
+{
+    return is_string($value) ? $value : '';
+}
+function normalizeContentItemsPayload($items, string $type): array
+{
+    if (!is_array($items)) {
+        return [];
+    }
+
+    $normalized = [];
+    foreach (array_values($items) as $index => $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+
+        $key = slugifySnapshotKey((string)($item['key'] ?? $item['name'] ?? $item['path'] ?? $index));
+        if ($key === '') {
+            continue;
+        }
+
+        $pathValue = $type === 'portfolio' ? '' : normalizePath((string)($item['path'] ?? ''));
+        $title = limitString(normalizeText((string)($item['title'] ?? '')), 255);
+        $status = limitString(strtolower(normalizeText((string)($item['status'] ?? ''))), 40);
+        $publishedAt = normalizeDateTime((string)($item['published_at'] ?? ''));
+        $wordCount = max(0, (int)($item['word_count'] ?? 0));
+        $sortOrder = max(0, (int)($item['sort_order'] ?? $index));
+        $meta = is_array($item['meta'] ?? null) ? $item['meta'] : [];
+        $url = trim((string)($item['url'] ?? ''));
+        if ($url !== '') {
+            $url = normalizePageUrl($url);
+        }
+
+        $searchParts = [$title, $key, $pathValue, $url, json_encode($meta, JSON_UNESCAPED_SLASHES)];
+
+        $normalized[] = [
+            'item_type' => $type,
+            'item_key' => limitString($key, 255),
+            'item_path' => limitString($pathValue, 255),
+            'item_url' => limitString($url, 500),
+            'title' => $title,
+            'status' => $status,
+            'published_at' => $publishedAt,
+            'sort_order' => $sortOrder,
+            'word_count' => $wordCount,
+            'meta' => $meta,
+            'search_text' => limitString(normalizeMultilineText(implode(' ', array_filter($searchParts))), 10000),
+        ];
+    }
+
+    return $normalized;
+}
+
+function normalizeSitemapPayload($items): array
+{
+    if (!is_array($items)) {
+        return [];
+    }
+
+    $normalized = [];
+    foreach (array_values($items) as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+        $loc = trim((string)($item['loc'] ?? $item['url'] ?? ''));
+        if ($loc === '') {
+            continue;
+        }
+        $normalized[] = [
+            'loc' => normalizePageUrl($loc),
+            'type' => limitString(normalizeText((string)($item['type'] ?? 'page')), 40),
+            'lastmod' => normalizeDateTime((string)($item['lastmod'] ?? '')),
+        ];
+    }
+
+    return $normalized;
+}
+
+function normalizeHealthPayload($items): array
+{
+    if (!is_array($items)) {
+        return [];
+    }
+
+    $normalized = [];
+    foreach (array_values($items) as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+        $title = limitString(normalizeText((string)($item['t'] ?? $item['title'] ?? '')), 160);
+        $detail = limitString(normalizeText((string)($item['d'] ?? $item['detail'] ?? '')), 500);
+        if ($title === '' && $detail === '') {
+            continue;
+        }
+        $normalized[] = ['t' => $title, 'd' => $detail];
+    }
+
+    return $normalized;
+}
+
+function slugifySnapshotKey(string $value): string
+{
+    $value = strtolower(normalizeText($value));
+    $value = preg_replace('/[^a-z0-9]+/', '-', $value) ?? '';
+    return trim($value, '-');
+}
+
+function syncAdminSiteData(PDO $pdo, array $input): void
+{
+    $posts = normalizeContentItemsPayload($input['posts'] ?? [], 'post');
+    $pages = normalizeContentItemsPayload($input['pages'] ?? [], 'page');
+    $portfolio = normalizeContentItemsPayload($input['portfolio'] ?? [], 'portfolio');
+    $sitemap = normalizeSitemapPayload($input['sitemap'] ?? []);
+    $health = normalizeHealthPayload($input['health'] ?? []);
+
+    $pdo->beginTransaction();
+    try {
+        replaceSiteContentItems($pdo, 'post', $posts);
+        replaceSiteContentItems($pdo, 'page', $pages);
+        replaceSiteContentItems($pdo, 'portfolio', $portfolio);
+        saveSiteSnapshot($pdo, 'sitemap', ['items' => $sitemap, 'count' => count($sitemap)]);
+        saveSiteSnapshot($pdo, 'content_health', ['items' => $health, 'count' => count($health)]);
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
+    }
+}
+
+function replaceSiteContentItems(PDO $pdo, string $type, array $items): void
+{
+    $delete = $pdo->prepare('DELETE FROM site_content_items WHERE item_type = :item_type');
+    $delete->execute([':item_type' => $type]);
+
+    if (!$items) {
+        return;
+    }
+
+    $insert = $pdo->prepare(
+        'INSERT INTO site_content_items (item_type, item_key, item_path, item_url, title, status, published_at, sort_order, word_count, meta_json, search_text, indexed_at)
+         VALUES (:item_type, :item_key, :item_path, :item_url, :title, :status, :published_at, :sort_order, :word_count, :meta_json, :search_text, CURRENT_TIMESTAMP)'
+    );
+
+    foreach ($items as $item) {
+        $insert->execute([
+            ':item_type' => $type,
+            ':item_key' => $item['item_key'],
+            ':item_path' => $item['item_path'],
+            ':item_url' => $item['item_url'],
+            ':title' => $item['title'],
+            ':status' => $item['status'],
+            ':published_at' => $item['published_at'],
+            ':sort_order' => $item['sort_order'],
+            ':word_count' => $item['word_count'],
+            ':meta_json' => json_encode($item['meta'], JSON_UNESCAPED_SLASHES),
+            ':search_text' => $item['search_text'],
+        ]);
+    }
+}
+
+function saveSiteSnapshot(PDO $pdo, string $key, array $payload): void
+{
+    $statement = $pdo->prepare(
+        'INSERT INTO site_snapshots (snapshot_key, payload_json, generated_at)
+         VALUES (:snapshot_key, :payload_json, CURRENT_TIMESTAMP)
+         ON DUPLICATE KEY UPDATE payload_json = VALUES(payload_json), generated_at = CURRENT_TIMESTAMP'
+    );
+    $statement->execute([
+        ':snapshot_key' => $key,
+        ':payload_json' => json_encode($payload, JSON_UNESCAPED_SLASHES),
+    ]);
+}
+
+function fetchSiteSnapshot(PDO $pdo, string $key): array
+{
+    $statement = $pdo->prepare(
+        'SELECT payload_json, generated_at
+         FROM site_snapshots
+         WHERE snapshot_key = :snapshot_key
+         LIMIT 1'
+    );
+    $statement->execute([':snapshot_key' => $key]);
+    $row = $statement->fetch();
+    if (!$row) {
+        return [];
+    }
+
+    $payload = json_decode((string)$row['payload_json'], true);
+    if (!is_array($payload)) {
+        $payload = [];
+    }
+    $payload['generated_at'] = $row['generated_at'];
+    return $payload;
+}
+
+function fetchSiteContentItems(PDO $pdo, string $type): array
+{
+    $statement = $pdo->prepare(
+        'SELECT item_key, item_path, item_url, title, status, published_at, sort_order, word_count, meta_json, indexed_at
+         FROM site_content_items
+         WHERE item_type = :item_type
+         ORDER BY published_at DESC, sort_order ASC, updated_at DESC'
+    );
+    $statement->execute([':item_type' => $type]);
+    $items = [];
+    while ($row = $statement->fetch()) {
+        $meta = json_decode((string)$row['meta_json'], true);
+        $item = [
+            'key' => $row['item_key'],
+            'path' => $row['item_path'],
+            'url' => $row['item_url'],
+            'title' => $row['title'],
+            'status' => $row['status'],
+            'published_at' => $row['published_at'],
+            'sort_order' => (int)$row['sort_order'],
+            'word_count' => (int)$row['word_count'],
+            'meta' => is_array($meta) ? $meta : [],
+            'indexed_at' => $row['indexed_at'],
+        ];
+        if ($type === 'post') {
+            $item['name'] = $row['item_key'];
+        }
+        $items[] = $item;
+    }
+
+    if ($type !== 'post' || !$items) {
+        return $items;
+    }
+
+    $metricsStatement = $pdo->query(
+        'SELECT post_path, views, fire_count, love_count, mindblown_count, helpful_count
+         FROM post_engagement_totals'
+    );
+    $metricsMap = [];
+    while ($row = $metricsStatement->fetch()) {
+        $reactions = [
+            'fire' => (int)$row['fire_count'],
+            'love' => (int)$row['love_count'],
+            'mindblown' => (int)$row['mindblown_count'],
+            'helpful' => (int)$row['helpful_count'],
+        ];
+        $metricsMap[(string)$row['post_path']] = [
+            'path' => $row['post_path'],
+            'views' => (int)$row['views'],
+            'reactions' => $reactions,
+            'total_reactions' => array_sum($reactions),
+        ];
+    }
+
+    foreach ($items as &$item) {
+        $item['engagement'] = $metricsMap[$item['path']] ?? [
+            'path' => $item['path'],
+            'views' => 0,
+            'reactions' => ['fire' => 0, 'love' => 0, 'mindblown' => 0, 'helpful' => 0],
+            'total_reactions' => 0,
+        ];
+    }
+    unset($item);
+
+    return $items;
+}
+
+function buildAdminDashboardSnapshot(PDO $pdo): array
+{
+    $posts = fetchSiteContentItems($pdo, 'post');
+    $pages = fetchSiteContentItems($pdo, 'page');
+    $portfolio = fetchSiteContentItems($pdo, 'portfolio');
+    $health = fetchSiteSnapshot($pdo, 'content_health');
+
+    $published = 0;
+    $drafts = 0;
+    $scheduled = 0;
+    $wordsPublished = 0;
+    $postsWithDescriptions = 0;
+    $postsWithSocialImages = 0;
+    $totalViews = 0;
+    $totalReactions = 0;
+
+    foreach ($posts as $post) {
+        if (($post['status'] ?? '') === 'published') {
+            $published += 1;
+            $wordsPublished += (int)($post['word_count'] ?? 0);
+        } elseif (($post['status'] ?? '') === 'draft') {
+            $drafts += 1;
+        } elseif (($post['status'] ?? '') === 'scheduled') {
+            $scheduled += 1;
+        }
+
+        $meta = is_array($post['meta'] ?? null) ? $post['meta'] : [];
+        if (!empty($meta['description'])) {
+            $postsWithDescriptions += 1;
+        }
+        if (!empty($meta['social_image'])) {
+            $postsWithSocialImages += 1;
+        }
+
+        $metrics = is_array($post['engagement'] ?? null) ? $post['engagement'] : [];
+        $totalViews += (int)($metrics['views'] ?? 0);
+        $totalReactions += (int)($metrics['total_reactions'] ?? 0);
+    }
+
+    $latestPosts = $posts;
+    usort($latestPosts, static function (array $a, array $b): int {
+        return strcmp((string)($b['published_at'] ?? ''), (string)($a['published_at'] ?? ''));
+    });
+    usort($posts, static function (array $a, array $b): int {
+        $viewDiff = (int)($b['engagement']['views'] ?? 0) <=> (int)($a['engagement']['views'] ?? 0);
+        if ($viewDiff !== 0) {
+            return $viewDiff;
+        }
+        return (int)($b['engagement']['total_reactions'] ?? 0) <=> (int)($a['engagement']['total_reactions'] ?? 0);
+    });
+
+    $topPosts = array_slice(array_values(array_filter($posts, static function (array $post): bool {
+        return ($post['status'] ?? '') === 'published';
+    })), 0, 5);
+
+    $indexablePages = 0;
+    $trackedPolicyPages = [];
+    foreach ($pages as $page) {
+        $meta = is_array($page['meta'] ?? null) ? $page['meta'] : [];
+        if (empty($meta['noindex'])) {
+            $indexablePages += 1;
+        }
+        $trackedPolicyPages[] = $page['key'];
+    }
+
+    $latestPost = $latestPosts[0]['title'] ?? 'No posts yet';
+    $generatedAt = latestAdminDataTimestamp($posts, $pages, $portfolio, $health['generated_at'] ?? null);
+
+    return [
+        'generated_at' => $generatedAt,
+        'stats' => [
+            ['label' => 'Published Posts', 'value' => $published],
+            ['label' => 'Drafts', 'value' => $drafts],
+            ['label' => 'Scheduled', 'value' => $scheduled],
+            ['label' => 'Pages', 'value' => count($pages)],
+            ['label' => 'Portfolio Items', 'value' => count($portfolio)],
+            ['label' => 'Words Published', 'value' => $wordsPublished],
+        ],
+        'analytics' => [
+            ['label' => 'Average words per post', 'value' => count($posts) > 0 ? (int)round($wordsPublished / max(1, $published)) : 0],
+            ['label' => 'Posts with meta descriptions', 'value' => $postsWithDescriptions . ' of ' . count($posts)],
+            ['label' => 'Posts with social images', 'value' => $postsWithSocialImages . ' of ' . count($posts)],
+            ['label' => 'Tracked views', 'value' => $totalViews],
+            ['label' => 'Tracked reactions', 'value' => $totalReactions],
+        ],
+        'summary' => [
+            ['label' => 'Latest post', 'value' => $latestPost],
+            ['label' => 'Indexable pages', 'value' => $indexablePages],
+            ['label' => 'Tracked policy pages', 'value' => implode(', ', $trackedPolicyPages)],
+        ],
+        'health' => is_array($health['items'] ?? null) ? $health['items'] : [],
+        'engagement' => array_map(static function (array $post): array {
+            return [
+                'title' => $post['title'] ?: ($post['name'] ?? $post['key']),
+                'path' => $post['path'],
+                'views' => (int)($post['engagement']['views'] ?? 0),
+                'total_reactions' => (int)($post['engagement']['total_reactions'] ?? 0),
+                'reactions' => $post['engagement']['reactions'] ?? ['fire' => 0, 'love' => 0, 'mindblown' => 0, 'helpful' => 0],
+            ];
+        }, $topPosts),
+    ];
+}
+
+function buildAdminSiteDataPayload(PDO $pdo): array
+{
+    $posts = fetchSiteContentItems($pdo, 'post');
+    $pages = fetchSiteContentItems($pdo, 'page');
+    $portfolio = fetchSiteContentItems($pdo, 'portfolio');
+    $sitemap = fetchSiteSnapshot($pdo, 'sitemap');
+
+    return [
+        'generated_at' => latestAdminDataTimestamp($posts, $pages, $portfolio, $sitemap['generated_at'] ?? null),
+        'posts' => $posts,
+        'pages' => $pages,
+        'portfolio' => $portfolio,
+        'sitemap' => is_array($sitemap['items'] ?? null) ? $sitemap['items'] : [],
+        'dashboard' => buildAdminDashboardSnapshot($pdo),
+    ];
+}
+
+function latestAdminDataTimestamp(array $posts, array $pages, array $portfolio, ?string $snapshotGeneratedAt): string
+{
+    $timestamps = [];
+    foreach ([$posts, $pages, $portfolio] as $items) {
+        foreach ($items as $item) {
+            if (!empty($item['indexed_at'])) {
+                $timestamps[] = strtotime((string)$item['indexed_at']) ?: 0;
+            }
+        }
+    }
+    if ($snapshotGeneratedAt) {
+        $timestamps[] = strtotime($snapshotGeneratedAt) ?: 0;
+    }
+    $timestamp = max($timestamps ?: [time()]);
+    return date('Y-m-d H:i:s', $timestamp);
+}
 function buildStatsResponse(PDO $pdo, string $path): array
 {
     $statement = $pdo->prepare(
@@ -1349,5 +1792,21 @@ function respond(int $status, array $payload): void
     echo json_encode($payload, JSON_UNESCAPED_SLASHES);
     exit;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

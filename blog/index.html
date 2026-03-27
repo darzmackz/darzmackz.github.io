@@ -43,15 +43,16 @@ permalink: /blog/
         <input
           type="search"
           id="blog-search"
+          name="blog_search"
           placeholder="Search posts by title, category, or tag"
           autocomplete="off"
           data-blog-filter="search"
         >
       </label>
 
-      <label class="blog-filter-field">
+      <label class="blog-filter-field" for="blog-year">
         <span>Year</span>
-        <select data-blog-filter="year">
+        <select id="blog-year" name="blog_year" data-blog-filter="year">
           <option value="">All years</option>
           {% assign previous_year = '' %}
           {% for post in published_posts %}
@@ -64,9 +65,9 @@ permalink: /blog/
         </select>
       </label>
 
-      <label class="blog-filter-field">
+      <label class="blog-filter-field" for="blog-category">
         <span>Category</span>
-        <select data-blog-filter="category">
+        <select id="blog-category" name="blog_category" data-blog-filter="category">
           <option value="">All categories</option>
           {% assign seen_categories = '|' %}
           {% for post in published_posts %}

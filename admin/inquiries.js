@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   if (typeof window === 'undefined' || typeof sections === 'undefined') return;
 
   var KEY_ADMIN_API_KEY = 'admin_api_key_local';
@@ -167,7 +167,7 @@
       var heading = kind === 'comments' ? 'Comment' : (item.reply_subject || 'Reply');
       return '<article class="inquiry-timeline-item">' +
         '<div class="inquiry-timeline-head"><strong>' + esc(heading) + '</strong>' + extra + '</div>' +
-        '<div class="muted">' + subtitle + ' � ' + esc(formatDate(item.created_at)) + '</div>' +
+        '<div class="muted">' + subtitle + ' • ' + esc(formatDate(item.created_at)) + '</div>' +
         '<p>' + esc(body || '').replace(/\n/g, '<br>') + '</p>' +
       '</article>';
     }).join('');
@@ -192,13 +192,13 @@
       '</div>' +
       '<div class="inquiry-message"><h4>Original Message</h4><p>' + esc(inquiry.message_body || '').replace(/\n/g, '<br>') + '</p></div>' +
       '<div class="inquiry-actions-bar">' +
-        '<label class="fg"><span>Status</span><select id="inquiry-status-select"><option value="new">New</option><option value="read">Read</option><option value="replied">Replied</option><option value="closed">Closed</option><option value="spam">Spam</option></select></label>' +
+        '<div class="fg"><label for="inquiry-status-select">Status</label><select id="inquiry-status-select" name="inquiry_status"><option value="new">New</option><option value="read">Read</option><option value="replied">Replied</option><option value="closed">Closed</option><option value="spam">Spam</option></select></div>' +
         '<button class="btn has-icon" type="button" data-action="save-inquiry-status" data-id="' + inquiry.id + '">Save Status</button>' +
         '<button class="btn d has-icon" type="button" data-action="delete-inquiry" data-id="' + inquiry.id + '">Delete Inquiry</button>' +
       '</div>' +
       '<div class="grid g2 inquiry-detail-panels">' +
-        '<div class="card card-soft"><h4>Reply</h4><div class="fg"><label for="inquiry-reply-subject">Subject</label><input id="inquiry-reply-subject" value="' + esc(inquiry.subject || '') + '"></div><div class="fg"><label for="inquiry-reply-message">Reply message</label><textarea id="inquiry-reply-message" rows="8"></textarea></div><div class="fg"><label for="inquiry-reply-note">Optional note</label><textarea id="inquiry-reply-note" rows="4" placeholder="Internal context or a public follow-up comment."></textarea></div><div class="fg"><label for="inquiry-reply-visibility">Optional note visibility</label><select id="inquiry-reply-visibility"><option value="internal">Internal</option><option value="public">Public</option></select></div><button class="btn p" type="button" data-action="reply-inquiry" data-id="' + inquiry.id + '">Send Reply</button></div>' +
-        '<div class="card card-soft"><h4>Add Comment</h4><div class="fg"><label for="inquiry-comment-body">Comment</label><textarea id="inquiry-comment-body" rows="6" placeholder="Add an internal note or a public comment."></textarea></div><div class="fg"><label for="inquiry-comment-visibility">Visibility</label><select id="inquiry-comment-visibility"><option value="internal">Internal</option><option value="public">Public</option></select></div><button class="btn" type="button" data-action="comment-inquiry" data-id="' + inquiry.id + '">Add Comment</button></div>' +
+        '<div class="card card-soft"><h4>Reply</h4><div class="fg"><label for="inquiry-reply-subject">Subject</label><input id="inquiry-reply-subject" name="inquiry_reply_subject" value="' + esc(inquiry.subject || '') + '"></div><div class="fg"><label for="inquiry-reply-message">Reply message</label><textarea id="inquiry-reply-message" name="inquiry_reply_message" rows="8"></textarea></div><div class="fg"><label for="inquiry-reply-note">Optional note</label><textarea id="inquiry-reply-note" name="inquiry_reply_note" rows="4" placeholder="Internal context or a public follow-up comment."></textarea></div><div class="fg"><label for="inquiry-reply-visibility">Optional note visibility</label><select id="inquiry-reply-visibility" name="inquiry_reply_visibility"><option value="internal">Internal</option><option value="public">Public</option></select></div><button class="btn p" type="button" data-action="reply-inquiry" data-id="' + inquiry.id + '">Send Reply</button></div>' +
+        '<div class="card card-soft"><h4>Add Comment</h4><div class="fg"><label for="inquiry-comment-body">Comment</label><textarea id="inquiry-comment-body" name="inquiry_comment_body" rows="6" placeholder="Add an internal note or a public comment."></textarea></div><div class="fg"><label for="inquiry-comment-visibility">Visibility</label><select id="inquiry-comment-visibility" name="inquiry_comment_visibility"><option value="internal">Internal</option><option value="public">Public</option></select></div><button class="btn" type="button" data-action="comment-inquiry" data-id="' + inquiry.id + '">Add Comment</button></div>' +
       '</div>' +
       '<div id="inquiry-detail-alert"></div>' +
       '<div class="grid g2 inquiry-history-grid">' +

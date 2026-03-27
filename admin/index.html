@@ -184,7 +184,7 @@ sitemap: false
                 <div id="post-template-card">
                   <h3>Workflow</h3>
                   <div class="fg">
-                    <label>Status</label>
+                    <label for="pe-status">Status</label>
                     <select id="pe-status">
                       <option value="published">Published</option>
                       <option value="draft">Draft</option>
@@ -205,21 +205,21 @@ sitemap: false
 
               <div class="card">
                 <h3>Post Details</h3>
-                <div class="fg"><label>Title *</label><input id="pe-title"></div>
-                <div class="fg"><label>Date</label><input type="date" id="pe-date"></div>
-                <div class="fg"><label>Slug / Filename</label><input id="pe-file" placeholder="2026-03-20-post-title.md"></div>
+                <div class="fg"><label for="pe-title">Title *</label><input id="pe-title"></div>
+                <div class="fg"><label for="pe-date">Date</label><input type="date" id="pe-date"></div>
+                <div class="fg"><label for="pe-file">Slug / Filename</label><input id="pe-file" placeholder="2026-03-20-post-title.md"></div>
                 <div class="code" id="pe-slug">/preview/</div>
-                <div class="fg"><label>Categories</label><input id="pe-cats" placeholder="music, karaoke"></div>
-                <div class="fg"><label>Tags</label><input id="pe-tags" placeholder="lyrics, opm"></div>
-                <div class="fg"><label>YouTube Video ID</label><input id="pe-youtube"></div>
+                <div class="fg"><label for="pe-cats">Categories</label><input id="pe-cats" placeholder="music, karaoke"></div>
+                <div class="fg"><label for="pe-tags">Tags</label><input id="pe-tags" placeholder="lyrics, opm"></div>
+                <div class="fg"><label for="pe-youtube">YouTube Video ID</label><input id="pe-youtube"></div>
               </div>
 
               <div class="card">
                 <h3>SEO Fields</h3>
-                <div class="fg"><label>Meta Description / Excerpt</label><textarea id="pe-desc"></textarea></div>
-                <div class="fg"><label>SEO Title</label><input id="pe-seo-title"></div>
-                <div class="fg"><label>Social Image</label><input id="pe-social" placeholder="/assets/images/example.png"></div>
-                <div class="fg"><label>Canonical URL</label><input id="pe-canonical" placeholder="https://example.com/post-url"></div>
+                <div class="fg"><label for="pe-desc">Meta Description / Excerpt</label><textarea id="pe-desc"></textarea></div>
+                <div class="fg"><label for="pe-seo-title">SEO Title</label><input id="pe-seo-title"></div>
+                <div class="fg"><label for="pe-social">Social Image</label><input id="pe-social" placeholder="/assets/images/example.png"></div>
+                <div class="fg"><label for="pe-canonical">Canonical URL</label><input id="pe-canonical" placeholder="https://example.com/post-url"></div>
               </div>
 
               <div class="card">
@@ -230,7 +230,7 @@ sitemap: false
               <div class="card">
                 <h3>Quick Media Upload</h3>
                 <div class="fg">
-                  <label>Image Upload</label>
+                  <label for="pe-media">Image Upload</label>
                   <input type="file" id="pe-media" accept="image/*">
                 </div>
                 <button class="btn has-icon" type="button" data-action="upload-editor-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload and Insert Image</span></button>
@@ -291,18 +291,18 @@ sitemap: false
           </div>
           <div id="pf-editor-alert"></div>
           <div class="card card-narrow">
-            <div class="fg"><label>Icon / Emoji *</label><input id="pf-icon" maxlength="8" placeholder="e.g. &#127908;"></div>
-            <div class="fg"><label>Title *</label><input id="pf-title"></div>
-            <div class="fg"><label>Subtitle</label><input id="pf-subtitle"></div>
-            <div class="fg"><label>Description</label><textarea id="pf-description"></textarea></div>
+            <div class="fg"><label for="pf-icon">Icon / Emoji *</label><input id="pf-icon" maxlength="8" placeholder="e.g. &#127908;"></div>
+            <div class="fg"><label for="pf-title">Title *</label><input id="pf-title"></div>
+            <div class="fg"><label for="pf-subtitle">Subtitle</label><input id="pf-subtitle"></div>
+            <div class="fg"><label for="pf-description">Description</label><textarea id="pf-description"></textarea></div>
             <div class="fg">
-              <label>Tech / Skills Badges</label>
+              <label for="pf-tags">Tech / Skills Badges</label>
               <div class="tags" id="pf-tags-box">
                 <input id="pf-tags" placeholder="Type and press Enter or comma">
               </div>
             </div>
-            <div class="fg"><label>Button Link</label><input id="pf-link"></div>
-            <div class="fg"><label>Button Label</label><input id="pf-link-text"></div>
+            <div class="fg"><label for="pf-link">Button Link</label><input id="pf-link"></div>
+            <div class="fg"><label for="pf-link-text">Button Label</label><input id="pf-link-text"></div>
           </div>
         </section>
 
@@ -340,13 +340,13 @@ sitemap: false
             <div class="stack">
               <div class="card">
                 <h3>Page SEO</h3>
-                <div class="fg"><label>Title</label><input id="pg-title"></div>
-                <div class="fg"><label>Description</label><textarea id="pg-desc"></textarea></div>
-                <div class="fg"><label>SEO Title</label><input id="pg-seo"></div>
-                <div class="fg"><label>Social Image</label><input id="pg-social"></div>
-                <div class="fg"><label>Canonical URL</label><input id="pg-canonical"></div>
-                <div class="fg"><label>Permalink</label><input id="pg-permalink"></div>
-                <div class="fg fg-checkbox"><label><input type="checkbox" id="pg-noindex"> Noindex page</label></div>
+                <div class="fg"><label for="pg-title">Title</label><input id="pg-title"></div>
+                <div class="fg"><label for="pg-desc">Description</label><textarea id="pg-desc"></textarea></div>
+                <div class="fg"><label for="pg-seo">SEO Title</label><input id="pg-seo"></div>
+                <div class="fg"><label for="pg-social">Social Image</label><input id="pg-social"></div>
+                <div class="fg"><label for="pg-canonical">Canonical URL</label><input id="pg-canonical"></div>
+                <div class="fg"><label for="pg-permalink">Permalink</label><input id="pg-permalink"></div>
+                <div class="fg fg-checkbox"><input type="checkbox" id="pg-noindex"><label for="pg-noindex">Noindex page</label></div>
               </div>
               <div class="card">
                 <h3>Checklist</h3>
@@ -443,25 +443,25 @@ sitemap: false
             <div class="stack">
               <form class="card" data-submit-action="save-token">
                 <h3>GitHub Access Token</h3>
-                <div class="fg"><label>Personal Access Token</label><input type="password" id="st-token" placeholder="ghp_..." autocomplete="current-password"></div>
+                <div class="fg"><label for="st-token">Personal Access Token</label><input type="password" id="st-token" name="github_token" placeholder="ghp_..." autocomplete="current-password"></div>
                 <button class="btn p" type="submit">Save Token</button>
               </form>
 
               <div class="card">
                 <h3>Search Console, AdSense, and Engagement API</h3>
-                <div class="fg"><label>Google Site Verification</label><input id="st-verify"></div>
-                <div class="fg"><label>AdSense Publisher ID</label><input id="st-pub"></div>
-                <div class="fg"><label>Post Ad Slot ID</label><input id="st-post-slot"></div>
-                <div class="fg"><label>Header Ad Slot ID</label><input id="st-head-slot"></div>
-                <div class="fg"><label>Footer Ad Slot ID</label><input id="st-foot-slot"></div>
-                <div class="fg"><label>Engagement API Base URL</label><input id="st-engagement-api" placeholder="https://your-server.example.com/post-engagement.php"></div>
+                <div class="fg"><label for="st-verify">Google Site Verification</label><input id="st-verify"></div>
+                <div class="fg"><label for="st-pub">AdSense Publisher ID</label><input id="st-pub"></div>
+                <div class="fg"><label for="st-post-slot">Post Ad Slot ID</label><input id="st-post-slot"></div>
+                <div class="fg"><label for="st-head-slot">Header Ad Slot ID</label><input id="st-head-slot"></div>
+                <div class="fg"><label for="st-foot-slot">Footer Ad Slot ID</label><input id="st-foot-slot"></div>
+                <div class="fg"><label for="st-engagement-api">Engagement API Base URL</label><input id="st-engagement-api" placeholder="https://your-server.example.com/post-engagement.php"></div>
                 <button class="btn p" type="button" data-action="save-integrations">Save Integrations</button>
               </div>
 
               <div class="card">
                 <h3>robots.txt and ads.txt</h3>
-                <div class="fg"><label>robots.txt</label><textarea id="st-robots" class="large"></textarea></div>
-                <div class="fg"><label>ads.txt</label><textarea id="st-ads" class="large"></textarea></div>
+                <div class="fg"><label for="st-robots">robots.txt</label><textarea id="st-robots" class="large"></textarea></div>
+                <div class="fg"><label for="st-ads">ads.txt</label><textarea id="st-ads" class="large"></textarea></div>
                 <button class="btn p" type="button" data-action="save-text-files">Save robots.txt and ads.txt</button>
               </div>
             </div>
@@ -541,17 +541,17 @@ sitemap: false
                   <p class="muted">Keep local admin access secure on this device.</p>
                 </div>
                 <div class="settings-form-grid">
-                  <div class="fg"><label>Current Password</label><input type="password" id="st-old" autocomplete="current-password"></div>
-                  <div class="fg"><label>New Password</label><input type="password" id="st-new" autocomplete="new-password"></div>
-                  <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm" autocomplete="new-password"></div>
+                  <div class="fg"><label for="st-old">Current Password</label><input type="password" id="st-old" name="current_password" autocomplete="current-password"></div>
+                  <div class="fg"><label for="st-new">New Password</label><input type="password" id="st-new" name="new_password" autocomplete="new-password"></div>
+                  <div class="fg"><label for="st-confirm">Confirm New Password</label><input type="password" id="st-confirm" name="confirm_password" autocomplete="new-password"></div>
                 </div>
                 <button class="btn p has-icon" type="submit"><svg class="ui-icon" aria-hidden="true"><use href="#icon-lock"></use></svg><span>Change Password</span></button>
               </form>
 
               <form class="card" data-submit-action="save-inquiry-settings">
                 <h3>Inquiry Management Security</h3>
-                <div class="fg"><label>Admin API Key</label><input type="password" id="st-admin-api-key" placeholder="Configured only on your PHP server" autocomplete="current-password"></div>
-                <div class="fg"><label>Admin Display Name</label><input id="st-admin-name" placeholder="Admin"></div>
+                <div class="fg"><label for="st-admin-api-key">Admin API Key</label><input type="password" id="st-admin-api-key" name="admin_api_key" placeholder="Configured only on your PHP server" autocomplete="current-password"></div>
+                <div class="fg"><label for="st-admin-name">Admin Display Name</label><input id="st-admin-name" name="admin_display_name" placeholder="Admin"></div>
                 <button class="btn p" type="submit">Save Inquiry Security Settings</button>
               </form>
 
@@ -572,5 +572,3 @@ sitemap: false
   <script src="{{ '/admin/inquiries.js' | relative_url }}"></script>
 </body>
 </html>
-
-

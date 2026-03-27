@@ -1,6 +1,6 @@
 # Engagement API
 
-This folder contains the PHP + MySQL backend that powers visitor counts, reactions, post metadata sync, database-backed comments, and contact/inquiry management for the site and admin panel.
+This folder contains the PHP + MySQL backend that powers visitor counts, reactions, post metadata sync, database-backed comments, contact/inquiry management, and the admin content index/dashboard snapshots for the site and admin panel.
 
 ## What it does
 
@@ -11,6 +11,7 @@ This folder contains the PHP + MySQL backend that powers visitor counts, reactio
 - Encrypts inquiry email addresses at rest
 - Lets the admin panel list, review, reply to, comment on, update, and delete inquiries
 - Syncs post metadata into MySQL for reporting and management
+- Stores lightweight content indexes for posts, pages, portfolio items, sitemap data, and dashboard health snapshots
 - Applies per-endpoint rate limiting and audit logging
 
 ## Files
@@ -18,6 +19,7 @@ This folder contains the PHP + MySQL backend that powers visitor counts, reactio
 - `config.example.php`: copy to `config.php` and fill in your server values
 - `schema.sql`: full schema for fresh installs
 - `migrations/2026-03-26-inquiry-management.sql`: upgrade script for older installs
+- `migrations/2026-03-27-admin-site-index.sql`: adds content-index and snapshot tables for faster admin loads
 - `post-engagement.php`: the public and admin API endpoint
 
 ## Required config
@@ -32,7 +34,7 @@ Add these values to `config.php`:
 ## Deployment
 
 1. For a fresh install, import `schema.sql` into MySQL.
-2. For an existing install, run `migrations/2026-03-26-inquiry-management.sql` and then review `schema.sql`.
+2. For an existing install, run `migrations/2026-03-26-inquiry-management.sql`, then `migrations/2026-03-27-admin-site-index.sql`, and then review `schema.sql`.
 3. Copy `config.example.php` to `config.php`.
 4. Fill in database credentials, `encryption_key`, `admin_api_key`, allowed origins, and optional mail settings.
 5. Upload `config.php` and `post-engagement.php` to your PHP-capable server.
@@ -123,10 +125,13 @@ Endpoints:
 
 - `GET action=admin-list-inquiries`
 - `GET action=admin-get-inquiry&id=123`
+- `GET action=admin-get-dashboard-snapshot`
+- `GET action=admin-get-site-data`
 - `POST action=admin-update-inquiry`
 - `POST action=admin-add-inquiry-comment`
 - `POST action=admin-reply-inquiry`
 - `POST action=admin-delete-inquiry`
+- `POST action=admin-sync-site-data`
 
 ## Security notes
 
