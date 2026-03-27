@@ -153,11 +153,7 @@
     function requestEngagement(action, options) {
       var requestOptions = options || {};
       if (!engagementApi) {
-        engagementUnavailable = true;
         return Promise.reject(new Error('Engagement API not configured'));
-      }
-      if (engagementUnavailable) {
-        return Promise.reject(new Error('Engagement API unavailable'));
       }
 
       var method = requestOptions.method || 'GET';
@@ -185,12 +181,11 @@
           if (!response.ok || data.ok === false) {
             throw new Error(data.error || data.message || 'Engagement request failed');
           }
+          engagementUnavailable = false;
           return data;
         });
       }).catch(function (error) {
-        if (error && error.name === 'TypeError') {
-          engagementUnavailable = true;
-        }
+        engagementUnavailable = true;
         throw error;
       });
     }
@@ -685,4 +680,3 @@
     });
   }
 })();
-

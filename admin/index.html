@@ -17,7 +17,7 @@ sitemap: false
   <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/admin/admin.css' | relative_url }}">
 </head>
-<body>
+<body{% if site.engagement_api_base and site.engagement_api_base != '' %} data-admin-api="{{ site.engagement_api_base }}"{% endif %}>
   <svg class="icon-sprite" aria-hidden="true" focusable="false">
     <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 2 5 5v6c0 5 3.4 9.6 7 11 3.6-1.4 7-6 7-11V5l-7-3Z" fill="currentColor"/><path d="M12 7.2a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4Zm-3.5 8.2c.3-1.8 1.8-3 3.5-3s3.2 1.2 3.5 3" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></symbol>
     <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"/></symbol>
@@ -572,7 +572,6 @@ sitemap: false
   <script src="{{ '/admin/inquiries.js' | relative_url }}"></script>
 </body>
 </html>
-
 
 
 
