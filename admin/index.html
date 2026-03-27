@@ -75,7 +75,6 @@ sitemap: false
           <button class="btn g sm has-icon" id="nav-posts" type="button" data-action="show-section" data-section="posts"><svg class="ui-icon" aria-hidden="true"><use href="#icon-posts"></use></svg><span>Posts</span></button>
           <button class="btn g sm has-icon" id="nav-portfolio" type="button" data-action="show-section" data-section="portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg><span>Portfolio</span></button>
           <button class="btn g sm has-icon" id="nav-pages" type="button" data-action="show-section" data-section="pages"><svg class="ui-icon" aria-hidden="true"><use href="#icon-pages"></use></svg><span>Pages</span></button>
-          <button class="btn g sm has-icon" id="nav-media" type="button" data-action="show-section" data-section="media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-image"></use></svg><span>Media</span></button>
           <button class="btn g sm has-icon" id="nav-inquiries" type="button" data-action="show-section" data-section="inquiries"><svg class="ui-icon" aria-hidden="true"><use href="#icon-pages"></use></svg><span>Inquiries</span></button>
           <button class="btn g sm has-icon" id="nav-settings" type="button" data-action="show-section" data-section="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-settings"></use></svg><span>Settings</span></button>
           <button class="btn g sm has-icon" type="button" data-action="logout"><svg class="ui-icon" aria-hidden="true"><use href="#icon-logout"></use></svg><span>Logout</span></button>
@@ -128,7 +127,6 @@ sitemap: false
               <h3>Quick Actions</h3>
               <div class="stack section-offset-sm">
                 <button class="btn p has-icon" type="button" data-action="open-post-editor"><svg class="ui-icon" aria-hidden="true"><use href="#icon-plus"></use></svg><span>New Post</span></button>
-                <button class="btn has-icon" type="button" data-action="show-section" data-section="media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-image"></use></svg><span>Open Media Library</span></button>
                 <button class="btn has-icon" type="button" data-action="show-section" data-section="settings"><svg class="ui-icon" aria-hidden="true"><use href="#icon-settings"></use></svg><span>Open Integrations</span></button>
               </div>
             </div>
@@ -227,14 +225,6 @@ sitemap: false
                 <div id="post-checks" class="checks section-offset-sm"></div>
               </div>
 
-              <div class="card">
-                <h3>Quick Media Upload</h3>
-                <div class="fg">
-                  <label for="pe-media">Image Upload</label>
-                  <input type="file" id="pe-media" accept="image/*">
-                </div>
-                <button class="btn has-icon" type="button" data-action="upload-editor-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload and Insert Image</span></button>
-              </div>
             </div>
 
             <div class="stack">
@@ -372,25 +362,6 @@ sitemap: false
               </div>
             </div>
           </div>
-        </section>
-
-        <section id="sec-media" class="hidden stack">
-          <div class="header">
-            <div>
-              <h2>Media Library</h2>
-              <p class="muted section-copy">Upload, copy, and reuse brand and content assets from one gallery.</p>
-            </div>
-            <div class="row">
-              <input type="file" id="media-upload" accept="image/*" multiple>
-              <button class="btn p has-icon" type="button" data-action="upload-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-upload"></use></svg><span>Upload Images</span></button>
-              <button class="btn has-icon" type="button" data-action="load-media"><svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg><span>Refresh</span></button>
-            </div>
-          </div>
-          <div id="media-alert"></div>
-          <div class="card">
-            <p class="muted">Images are uploaded to <code>assets/images/</code>. Each item includes copy buttons for Markdown and direct paths.</p>
-          </div>
-          <div id="media-wrap" class="grid media"></div>
         </section>
 
         <section id="sec-inquiries" class="hidden stack">
