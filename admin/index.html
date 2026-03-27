@@ -441,11 +441,11 @@ sitemap: false
           <div id="settings-alert"></div>
           <div class="grid g2">
             <div class="stack">
-              <div class="card">
+              <form class="card" data-submit-action="save-token">
                 <h3>GitHub Access Token</h3>
-                <div class="fg"><label>Personal Access Token</label><input type="password" id="st-token" placeholder="ghp_..."></div>
-                <button class="btn p" type="button" data-action="save-token">Save Token</button>
-              </div>
+                <div class="fg"><label>Personal Access Token</label><input type="password" id="st-token" placeholder="ghp_..." autocomplete="current-password"></div>
+                <button class="btn p" type="submit">Save Token</button>
+              </form>
 
               <div class="card">
                 <h3>Search Console, AdSense, and Engagement API</h3>
@@ -535,25 +535,25 @@ sitemap: false
                 </div>
               </div>
 
-              <div class="card settings-card">
+              <form class="card settings-card" data-submit-action="change-password">
                 <div class="settings-card-head">
                   <h3>Change Password</h3>
                   <p class="muted">Keep local admin access secure on this device.</p>
                 </div>
                 <div class="settings-form-grid">
-                  <div class="fg"><label>Current Password</label><input type="password" id="st-old"></div>
-                  <div class="fg"><label>New Password</label><input type="password" id="st-new"></div>
-                  <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm"></div>
+                  <div class="fg"><label>Current Password</label><input type="password" id="st-old" autocomplete="current-password"></div>
+                  <div class="fg"><label>New Password</label><input type="password" id="st-new" autocomplete="new-password"></div>
+                  <div class="fg"><label>Confirm New Password</label><input type="password" id="st-confirm" autocomplete="new-password"></div>
                 </div>
-                <button class="btn p has-icon" type="button" data-action="change-password"><svg class="ui-icon" aria-hidden="true"><use href="#icon-lock"></use></svg><span>Change Password</span></button>
-              </div>
+                <button class="btn p has-icon" type="submit"><svg class="ui-icon" aria-hidden="true"><use href="#icon-lock"></use></svg><span>Change Password</span></button>
+              </form>
 
-              <div class="card">
+              <form class="card" data-submit-action="save-inquiry-settings">
                 <h3>Inquiry Management Security</h3>
-                <div class="fg"><label>Admin API Key</label><input type="password" id="st-admin-api-key" placeholder="Configured only on your PHP server"></div>
+                <div class="fg"><label>Admin API Key</label><input type="password" id="st-admin-api-key" placeholder="Configured only on your PHP server" autocomplete="current-password"></div>
                 <div class="fg"><label>Admin Display Name</label><input id="st-admin-name" placeholder="Admin"></div>
-                <button class="btn p" type="button" data-action="save-inquiry-settings">Save Inquiry Security Settings</button>
-              </div>
+                <button class="btn p" type="submit">Save Inquiry Security Settings</button>
+              </form>
 
               <div class="card">
                 <h3>Danger Zone</h3>
@@ -572,6 +572,5 @@ sitemap: false
   <script src="{{ '/admin/inquiries.js' | relative_url }}"></script>
 </body>
 </html>
-
 
 
