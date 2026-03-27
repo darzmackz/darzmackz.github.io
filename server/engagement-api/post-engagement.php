@@ -1483,8 +1483,13 @@ function fetchSiteContentItems(PDO $pdo, string $type): array
     }
 
     foreach ($items as &$item) {
-        $item['engagement'] = $metricsMap[$item['path']] ?? [
-            'path' => $item['path'],
+        $sitePath = '';
+        if (is_array($item['meta'] ?? null)) {
+            $sitePath = normalizePath((string)($item['meta']['site_path'] ?? ''));
+        }
+        $engagementPath = $sitePath !== '' ? $sitePath : $item['path'];
+        $item['engagement'] = $metricsMap[$engagementPath] ?? [
+            'path' => $engagementPath,
             'views' => 0,
             'reactions' => ['fire' => 0, 'love' => 0, 'mindblown' => 0, 'helpful' => 0],
             'total_reactions' => 0,
@@ -1587,9 +1592,13 @@ function buildAdminDashboardSnapshot(PDO $pdo): array
         ],
         'health' => is_array($health['items'] ?? null) ? $health['items'] : [],
         'engagement' => array_map(static function (array $post): array {
+            $sitePath = '';
+            if (is_array($post['meta'] ?? null)) {
+                $sitePath = normalizePath((string)($post['meta']['site_path'] ?? ''));
+            }
             return [
                 'title' => $post['title'] ?: ($post['name'] ?? $post['key']),
-                'path' => $post['path'],
+                'path' => $sitePath !== '' ? $sitePath : $post['path'],
                 'views' => (int)($post['engagement']['views'] ?? 0),
                 'total_reactions' => (int)($post['engagement']['total_reactions'] ?? 0),
                 'reactions' => $post['engagement']['reactions'] ?? ['fire' => 0, 'love' => 0, 'mindblown' => 0, 'helpful' => 0],
