@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["taylor", "swift", "fortnight", "feat", "post", "malone", "karaoke", "metaxenopy"]
 youtube_id: "X6yYmM9DW60"
 description: "A draft post for Taylor Swift - Fortnight (feat. Post Malone) focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Taylor Swift - Fortnight (feat. Post Malone) | METAXENOPY.TY"
+seo_title: "Taylor Swift - Fortnight (feat. Post Malone) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Taylor Swift - Fortnight (feat. Post Malone)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-18
 - Available video types: karaoke

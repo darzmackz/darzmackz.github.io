@@ -6,7 +6,7 @@ categories: ["music", "youtube"]
 tags: ["music", "stay", "and", "chill", "video", "metaxenopy"]
 youtube_id: "zNHd6Lu05iU"
 description: "A structured draft post for Music: Stay and Chill based on the available YouTube upload."
-seo_title: "Music: Stay and Chill | METAXENOPY.TY"
+seo_title: "Music: Stay and Chill | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: Music: Stay and Chill
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2023-06-14
 - Available video types: video

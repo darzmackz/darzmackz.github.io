@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["linkin", "park", "what", "ive", "done", "karaoke", "metaxenopy"]
 youtube_id: "1enfuB90vUw"
 description: "A draft post for Linkin Park - What I've Done focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Linkin Park - What I've Done | METAXENOPY.TY"
+seo_title: "Linkin Park - What I've Done | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Linkin Park - What I've Done
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-15
 - Available video types: karaoke

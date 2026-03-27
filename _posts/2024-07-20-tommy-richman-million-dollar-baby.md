@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["tommy", "richman", "million", "dollar", "baby", "karaoke", "metaxenopy"]
 youtube_id: "l1n9mbUywxM"
 description: "A draft post for Tommy Richman - Million Dollar Baby focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Tommy Richman - Million Dollar Baby | METAXENOPY.TY"
+seo_title: "Tommy Richman - Million Dollar Baby | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Tommy Richman - Million Dollar Baby
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-20
 - Available video types: karaoke

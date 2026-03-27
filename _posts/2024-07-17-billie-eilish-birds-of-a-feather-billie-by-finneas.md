@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["billie", "eilish", "birds", "feather", "finneas", "karaoke", "metaxenopy"]
 youtube_id: "E8BIGG3JrrI"
 description: "A draft post for Billie Eilish - Birds Of A Feather (Billie By Finneas) focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Billie Eilish - Birds Of A Feather (Billie By Finneas) | METAXENOPY.TY"
+seo_title: "Billie Eilish - Birds Of A Feather (Billie By Finneas) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Billie Eilish - Birds Of A Feather (Billie By Finneas)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-17
 - Available video types: karaoke

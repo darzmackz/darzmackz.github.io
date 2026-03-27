@@ -6,7 +6,7 @@ categories: ["music", "youtube"]
 tags: ["salamin", "was", "released", "the", "late", "90searly", "2000s", "music", "salaminsalamin", "biniph"]
 youtube_id: "9T9uTpeaVFw"
 description: "A structured draft post for If Salamin Salamin was released in the late 90s/early 2000s #music #salaminsalamin #biniph #y2k based on the available YouTube upload."
-seo_title: "If Salamin Salamin was released in the late 90s/early 2000s #music #salaminsalamin #biniph #y2k | METAXENOPY.TY"
+seo_title: "If Salamin Salamin was released in the late 90s/early 2000s #music #salaminsalamin #biniph #y2k | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: If Salamin Salamin was released in the late 90s/early 2000s #music #salaminsalamin #biniph #y2k
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-05
 - Available video types: video

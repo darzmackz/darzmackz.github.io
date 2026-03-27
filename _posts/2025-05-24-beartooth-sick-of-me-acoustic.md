@@ -6,7 +6,7 @@ categories: [music, youtube, lyrics, karaoke, alternative]
 tags: [beartooth, sick-of-me-acoustic, karaoke, lyrics, acoustic, alternative-rock, emotional, sing-along]
 youtube_id: "RVwCdRBDdp8"
 description: "Experience “Sick Of Me (Acoustic)” by Beartooth with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this raw and stripped-down rendition."
-seo_title: "Beartooth - Sick Of Me (Acoustic) | METAXENOPY.TY| Lyrics & Karaoke Version"
+seo_title: "Beartooth - Sick Of Me (Acoustic) | METAXENOPY.YT| Lyrics & Karaoke Version"
 status: "published"
 published: true
 ---

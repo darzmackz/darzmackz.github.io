@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["slipknot", "snuff", "karaoke", "metaxenopy"]
 youtube_id: "E94kkCcR65w"
 description: "A draft post for Slipknot - Snuff focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Slipknot - Snuff | METAXENOPY.TY"
+seo_title: "Slipknot - Snuff | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Slipknot - Snuff
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-06
 - Available video types: karaoke

@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["lionel", "richie", "stuck", "you", "karaoke", "metaxenopy"]
 youtube_id: "0I-XxaJVKds"
 description: "A draft post for Lionel Richie - Stuck On You focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Lionel Richie - Stuck On You | METAXENOPY.TY"
+seo_title: "Lionel Richie - Stuck On You | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: Lionel Richie - Stuck On You
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-20
 - Available video types: karaoke

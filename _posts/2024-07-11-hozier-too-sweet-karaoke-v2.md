@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["hozier", "too", "sweet", "karaoke", "metaxenopy"]
 youtube_id: "bf71c34m6HE"
 description: "A draft post for Hozier - Too Sweet (Karaoke V2) focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Hozier - Too Sweet (Karaoke V2) | METAXENOPY.TY"
+seo_title: "Hozier - Too Sweet (Karaoke V2) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Hozier - Too Sweet (Karaoke V2)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-11
 - Available video types: karaoke

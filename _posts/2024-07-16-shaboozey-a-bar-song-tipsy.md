@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["shaboozey", "bar", "song", "tipsy", "karaoke", "metaxenopy"]
 youtube_id: "YjUxD0lRVGg"
 description: "A draft post for Shaboozey - A Bar Song Tipsy focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Shaboozey - A Bar Song Tipsy | METAXENOPY.TY"
+seo_title: "Shaboozey - A Bar Song Tipsy | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Shaboozey - A Bar Song Tipsy
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-16
 - Available video types: karaoke

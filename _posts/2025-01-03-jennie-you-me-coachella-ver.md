@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["jennie", "you", "coachella", "ver", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "OtlaO6_ysOU"
 description: "A draft post for JENNIE - YOU & ME (Coachella ver.) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "JENNIE - YOU & ME (Coachella ver.) | METAXENOPY.TY"
+seo_title: "JENNIE - YOU & ME (Coachella ver.) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: JENNIE - YOU & ME (Coachella ver.)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2025-01-03
 - Available video types: lyrics, karaoke

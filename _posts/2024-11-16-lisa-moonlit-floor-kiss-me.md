@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["lisa", "moonlit", "floor", "kiss", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "ld7p7eUJAnU"
 description: "A draft post for LISA - MOONLIT FLOOR (KISS ME) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "LISA - MOONLIT FLOOR (KISS ME) | METAXENOPY.TY"
+seo_title: "LISA - MOONLIT FLOOR (KISS ME) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: LISA - MOONLIT FLOOR (KISS ME)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-16
 - Available video types: lyrics, karaoke

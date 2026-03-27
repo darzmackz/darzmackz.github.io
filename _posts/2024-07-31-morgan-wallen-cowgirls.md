@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["morgan", "wallen", "cowgirls", "lyrics", "metaxenopy"]
 youtube_id: "-kao0Q8F3I0"
 description: "A draft post for Morgan Wallen - Cowgirls focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "Morgan Wallen - Cowgirls | METAXENOPY.TY"
+seo_title: "Morgan Wallen - Cowgirls | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Morgan Wallen - Cowgirls
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-31
 - Available video types: lyrics

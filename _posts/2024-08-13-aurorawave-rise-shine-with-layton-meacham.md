@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "rise", "shine", "with", "layton", "meacham", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "UbyYAH5jWsM"
 description: "A draft post for aurorawave - RISE & SHINE. (with Layton Meacham) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - RISE & SHINE. (with Layton Meacham) | METAXENOPY.TY"
+seo_title: "aurorawave - RISE & SHINE. (with Layton Meacham) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - RISE & SHINE. (with Layton Meacham)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-13
 - Available video types: karaoke, lyrics

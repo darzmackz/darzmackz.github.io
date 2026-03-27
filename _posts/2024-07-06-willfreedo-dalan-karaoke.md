@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["willfreedo", "dalan", "karaoke", "metaxenopy"]
 youtube_id: "T1pLodJg2SE"
 description: "A draft post for Willfreedo - Dalan Karaoke focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Willfreedo - Dalan Karaoke | METAXENOPY.TY"
+seo_title: "Willfreedo - Dalan Karaoke | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: Willfreedo - Dalan Karaoke
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-06
 - Available video types: karaoke

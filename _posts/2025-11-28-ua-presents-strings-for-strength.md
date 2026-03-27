@@ -6,7 +6,7 @@ categories: [music, live-session, charity, performance, youtube]
 tags: [strings-for-strength, ua-sessions, underground-apparel, dionela, midnasty, john-roa, project-romeo, live-music, charity-event]
 youtube_id: "HNsHpWkmBn0"
 description: "Watch UA PRESENTS | Strings for Strength, a live session featuring Dionela, Midnasty, John Roa, and Project Romeo—all for a meaningful cause supporting children battling cancer."
-seo_title: "UA PRESENTS | Strings for Strength | METAXENOPY.TY"
+seo_title: "UA PRESENTS | Strings for Strength | METAXENOPY.YT"
 status: "published"
 published: true
 ---

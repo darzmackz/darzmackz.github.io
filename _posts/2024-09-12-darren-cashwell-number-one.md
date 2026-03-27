@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["darren", "cashwell", "number", "one", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "Eh-6M8pBvUk"
 description: "A draft post for Darren Cashwell - Number One that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Darren Cashwell - Number One | METAXENOPY.TY"
+seo_title: "Darren Cashwell - Number One | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: Darren Cashwell - Number One
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-12
 - Available video types: karaoke, lyrics

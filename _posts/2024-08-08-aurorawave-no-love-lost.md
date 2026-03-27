@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "love", "lost", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "Piz1sAbeHgc"
 description: "A draft post for aurorawave - NO LOVE LOST. that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - NO LOVE LOST. | METAXENOPY.TY"
+seo_title: "aurorawave - NO LOVE LOST. | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - NO LOVE LOST.
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-08
 - Available video types: lyrics, karaoke

@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["six", "part", "invention", "falling", "love", "karaoke", "metaxenopy"]
 youtube_id: "3sNrJX6SrXw"
 description: "A draft post for Six Part Invention - Falling In Love focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Six Part Invention - Falling In Love | METAXENOPY.TY"
+seo_title: "Six Part Invention - Falling In Love | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Six Part Invention - Falling In Love
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-22
 - Available video types: karaoke

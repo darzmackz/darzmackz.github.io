@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["aurorawave", "kindness", "with", "attila", "lyrics", "metaxenopy"]
 youtube_id: "3sv0lP1kJIs"
 description: "A draft post for aurorawave - KINDNESS. (with Attila) focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "aurorawave - KINDNESS. (with Attila) | METAXENOPY.TY"
+seo_title: "aurorawave - KINDNESS. (with Attila) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - KINDNESS. (with Attila)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-09
 - Available video types: lyrics

@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "background", "noise", "with", "satsang", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "Ibdn9gZuIg4"
 description: "A draft post for aurorawave - BACKGROUND NOISE. (with Satsang) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - BACKGROUND NOISE. (with Satsang) | METAXENOPY.TY"
+seo_title: "aurorawave - BACKGROUND NOISE. (with Satsang) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - BACKGROUND NOISE. (with Satsang)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-19
 - Available video types: lyrics, karaoke

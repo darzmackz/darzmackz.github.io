@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["palagi", "tjxkz", "live", "session", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "G8xBcTAtAAY"
 description: "A draft post for PALAGI - TJxKZ (LIVE SESSION) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "PALAGI - TJxKZ (LIVE SESSION) | METAXENOPY.TY"
+seo_title: "PALAGI - TJxKZ (LIVE SESSION) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: PALAGI - TJxKZ (LIVE SESSION)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-23
 - Available video types: lyrics, karaoke

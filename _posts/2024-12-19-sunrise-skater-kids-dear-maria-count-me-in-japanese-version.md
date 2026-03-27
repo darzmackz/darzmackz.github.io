@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["sunrise", "skater", "kids", "dear", "maria", "count", "japanese", "version", "karaoke", "lyrics"]
 youtube_id: "21MRUXEtO-E"
 description: "A draft post for Sunrise Skater Kids - Dear Maria, Count Me In (Japanese Version) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Sunrise Skater Kids - Dear Maria, Count Me In (Japanese Version) | METAXENOPY.TY"
+seo_title: "Sunrise Skater Kids - Dear Maria, Count Me In (Japanese Version) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: Sunrise Skater Kids - Dear Maria, Count Me In (Japanese Version)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-12-19
 - Available video types: karaoke, lyrics

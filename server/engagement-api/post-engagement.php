@@ -1172,7 +1172,7 @@ function sendInquiryReply(array $config, string $email, string $subject, string 
         ];
     }
 
-    $fromName = trim((string)($mail['from_name'] ?? 'METAXENOPY.TY'));
+    $fromName = trim((string)($mail['from_name'] ?? 'METAXENOPY.YT'));
     $headers = [
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
@@ -1180,7 +1180,7 @@ function sendInquiryReply(array $config, string $email, string $subject, string 
         'Reply-To: ' . $fromAddress,
     ];
 
-    $sent = @mail($email, $subject !== '' ? $subject : 'Reply from METAXENOPY.TY', $message, implode("\r\n", $headers));
+    $sent = @mail($email, $subject !== '' ? $subject : 'Reply from METAXENOPY.YT', $message, implode("\r\n", $headers));
     return [
         'channel' => 'mail',
         'status' => $sent ? 'sent' : 'failed',

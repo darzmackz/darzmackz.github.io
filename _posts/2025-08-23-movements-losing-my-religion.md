@@ -6,7 +6,7 @@ categories: [music, youtube, lyrics, karaoke, alternative]
 tags: [movements, losing-my-religion, songs-that-saved-my-life, karaoke, lyrics, post-hardcore, alternative-rock, rem-cover]
 youtube_id: "P2t54IM5IoA"
 description: "Experience “Losing My Religion” by Movements with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this emotional post-hardcore cover."
-seo_title: "Movements - Losing My Religion | METAXENOPY.TY"
+seo_title: "Movements - Losing My Religion | METAXENOPY.YT"
 status: "published"
 published: true
 ---

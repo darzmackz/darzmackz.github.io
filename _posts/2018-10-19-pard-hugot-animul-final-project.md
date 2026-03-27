@@ -6,7 +6,7 @@ categories: ["music", "youtube"]
 tags: ["pard", "hugot", "animul", "final", "project", "video", "metaxenopy"]
 youtube_id: "Y0stDENDFSQ"
 description: "A structured draft post for P.A.R.D - Hugot [Animul Final Project] based on the available YouTube upload."
-seo_title: "P.A.R.D - Hugot [Animul Final Project] | METAXENOPY.TY"
+seo_title: "P.A.R.D - Hugot [Animul Final Project] | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: P.A.R.D - Hugot [Animul Final Project]
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2018-10-19
 - Available video types: video

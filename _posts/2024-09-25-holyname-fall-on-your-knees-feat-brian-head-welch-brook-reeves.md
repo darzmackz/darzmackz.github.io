@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["holyname", "fall", "your", "knees", "feat", "brian", "head", "welch", "brook", "reeves"]
 youtube_id: "NARu3oKhVEY"
 description: "A draft post for HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves) focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves) | METAXENOPY.TY"
+seo_title: "HolyName - Fall On Your Knees (feat  Brian \"Head\" Welch & Brook Reeves) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: HolyName - Fall On Your Knees (feat  Brian "Head" Welch & Brook Reeves)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-25
 - Available video types: lyrics

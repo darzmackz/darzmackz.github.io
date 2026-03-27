@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["linkin", "park", "lost", "the", "echo", "karaoke", "metaxenopy"]
 youtube_id: "GiZ7IUzX1D8"
 description: "A draft post for Linkin Park - Lost In The Echo focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Linkin Park - Lost In The Echo | METAXENOPY.TY"
+seo_title: "Linkin Park - Lost In The Echo | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Linkin Park - Lost In The Echo
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-12
 - Available video types: karaoke

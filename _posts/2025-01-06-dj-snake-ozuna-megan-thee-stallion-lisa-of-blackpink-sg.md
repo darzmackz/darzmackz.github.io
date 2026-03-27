@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["snake", "ozuna", "megan", "thee", "stallion", "lisa", "blackpink", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "NI5dKF4bSNE"
 description: "A draft post for DJ Snake, Ozuna, Megan Thee Stallion, LISA of BLACKPINK - SG that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "DJ Snake, Ozuna, Megan Thee Stallion, LISA of BLACKPINK - SG | METAXENOPY.TY"
+seo_title: "DJ Snake, Ozuna, Megan Thee Stallion, LISA of BLACKPINK - SG | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: DJ Snake, Ozuna, Megan Thee Stallion, LISA of BLACKPINK - SG
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2025-01-06
 - Available video types: lyrics, karaoke

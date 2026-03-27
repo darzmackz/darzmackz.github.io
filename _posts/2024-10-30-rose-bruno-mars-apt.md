@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["rose", "bruno", "mars", "apt", "lyrics", "metaxenopy"]
 youtube_id: "jQpHeh1CSUE"
 description: "A draft post for ROSÉ & Bruno Mars - APT. focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "ROSÉ & Bruno Mars - APT. | METAXENOPY.TY"
+seo_title: "ROSÉ & Bruno Mars - APT. | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: ROSÉ & Bruno Mars - APT.
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-10-30
 - Available video types: lyrics

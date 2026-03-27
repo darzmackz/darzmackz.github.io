@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["jennie", "solo", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "m3x9HltqhU4"
 description: "A draft post for JENNIE - SOLO that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "JENNIE - SOLO | METAXENOPY.TY"
+seo_title: "JENNIE - SOLO | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: JENNIE - SOLO
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-18
 - Available video types: lyrics, karaoke

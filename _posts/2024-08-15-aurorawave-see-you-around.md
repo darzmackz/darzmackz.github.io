@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "see", "you", "around", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "73YzMFwfVDs"
 description: "A draft post for aurorawave - SEE YOU AROUND. that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - SEE YOU AROUND. | METAXENOPY.TY"
+seo_title: "aurorawave - SEE YOU AROUND. | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - SEE YOU AROUND.
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-15
 - Available video types: lyrics, karaoke

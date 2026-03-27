@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["morgan", "wallen", "lies", "karaoke", "metaxenopy"]
 youtube_id: "Le4eGzuDJ2M"
 description: "A draft post for Morgan Wallen - Lies Lies Lies focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Morgan Wallen - Lies Lies Lies | METAXENOPY.TY"
+seo_title: "Morgan Wallen - Lies Lies Lies | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Morgan Wallen - Lies Lies Lies
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-19
 - Available video types: karaoke

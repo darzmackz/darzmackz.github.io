@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["aurorawave", "inferno", "with", "brandon", "saller", "and", "dan", "jacobs", "atreyu", "lyrics"]
 youtube_id: "wrjTeZWa4cA"
 description: "A draft post for aurorawave - INFERNO (with Brandon Saller and Dan Jacobs of Atreyu) focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "aurorawave - INFERNO (with Brandon Saller and Dan Jacobs of Atreyu) | METAXENOPY.TY"
+seo_title: "aurorawave - INFERNO (with Brandon Saller and Dan Jacobs of Atreyu) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - INFERNO (with Brandon Saller and Dan Jacobs of Atreyu)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-19
 - Available video types: lyrics

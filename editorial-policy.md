@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "Editorial Policy"
-description: "Editorial standards and content approach for METAXENOPY.TY."
+description: "Editorial standards and content approach for METAXENOPY.YT."
 permalink: /editorial-policy/
 ---
 
-METAXENOPY.TY publishes original website content connected to the work, interests, and public creator activity of KENJI, also known as Kent Harvey Plando.
+METAXENOPY.YT publishes original website content connected to the work, interests, and public creator activity of KENJI, also known as Kent Harvey Plando.
 
 ## What This Site Publishes
 

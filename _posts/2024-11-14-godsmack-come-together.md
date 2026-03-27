@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["godsmack", "come", "together", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "UDhSHZgJeNw"
 description: "A draft post for Godsmack - Come Together that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Godsmack - Come Together | METAXENOPY.TY"
+seo_title: "Godsmack - Come Together | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: Godsmack - Come Together
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-14
 - Available video types: lyrics, karaoke

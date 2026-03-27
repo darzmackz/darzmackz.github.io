@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["aurorawave", "kindness", "with", "attila", "scream", "vocals", "karaoke", "metaxenopy"]
 youtube_id: "Dhj2dlyag14"
 description: "A draft post for aurorawave - KINDNESS. (with Attila) [SCREAM VOCALS on Karaoke] focused on the karaoke version for sing-along readers and viewers."
-seo_title: "aurorawave - KINDNESS. (with Attila) [SCREAM VOCALS on Karaoke] | METAXENOPY.TY"
+seo_title: "aurorawave - KINDNESS. (with Attila) [SCREAM VOCALS on Karaoke] | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - KINDNESS. (with Attila) [SCREAM VOCALS on Karaoke]
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-09
 - Available video types: karaoke

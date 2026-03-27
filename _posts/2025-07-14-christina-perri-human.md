@@ -6,7 +6,7 @@ categories: [music, youtube, lyrics, karaoke, pop]
 tags: [christina-perri, human, karaoke, lyrics, pop, ballad, sing-along, emotional]
 youtube_id: "Xidwi28A0Yc"
 description: "Experience “Human” by Christina Perri with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this emotional ballad."
-seo_title: "Christina Perri - Human | METAXENOPY.TY | Lyrics & Karaoke Sing Along"
+seo_title: "Christina Perri - Human | METAXENOPY.YT | Lyrics & Karaoke Sing Along"
 status: "published"
 published: true
 ---

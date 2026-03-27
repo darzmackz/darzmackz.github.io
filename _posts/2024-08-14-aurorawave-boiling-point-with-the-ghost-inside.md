@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics"]
 tags: ["aurorawave", "boiling", "point", "with", "the", "ghost", "inside", "lyrics", "metaxenopy"]
 youtube_id: "HaW298EBqnY"
 description: "A draft post for aurorawave - BOILING POINT. (with The Ghost Inside) focused on the available lyrics version with a cleaner reading and listening experience."
-seo_title: "aurorawave - BOILING POINT. (with The Ghost Inside) | METAXENOPY.TY"
+seo_title: "aurorawave - BOILING POINT. (with The Ghost Inside) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - BOILING POINT. (with The Ghost Inside)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-14
 - Available video types: lyrics

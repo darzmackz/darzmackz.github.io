@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Welcome to METAXENOPY.TY: Lyrics, Karaoke, and Tech by KENJI"
+title: "Welcome to METAXENOPY.YT: Lyrics, Karaoke, and Tech by KENJI"
 date: 2025-03-01 08:00:00 +0000
 categories: [welcome, lyrics, karaoke]
 tags: [lyrics, karaoke, opm, filipino, music, youtube, metaxenopy, system-analyst]
-description: "An introduction to METAXENOPY.TY, the personal website of KENJI featuring lyrics, karaoke content, and practical tech insights."
-excerpt: "Welcome to METAXENOPY.TY, the personal website of KENJI, where lyrics, karaoke content, and practical tech insights come together."
+description: "An introduction to METAXENOPY.YT, the personal website of KENJI featuring lyrics, karaoke content, and practical tech insights."
+excerpt: "Welcome to METAXENOPY.YT, the personal website of KENJI, where lyrics, karaoke content, and practical tech insights come together."
 published: true
 ---
 
-Welcome to **METAXENOPY.TY**. This site is where I share content connected to my work as a creator and my background in systems and technical support.
+Welcome to **METAXENOPY.YT**. This site is where I share content connected to my work as a creator and my background in systems and technical support.
 
 ## What This Site Covers
 

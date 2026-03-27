@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["aurorawave", "boiling", "point", "with", "the", "ghost", "inside", "vox", "off", "scream"]
 youtube_id: "quQ01lImEKY"
 description: "A draft post for aurorawave - BOILING POINT. (with The Ghost Inside) [VOX off SCREAM Karaoke] focused on the karaoke version for sing-along readers and viewers."
-seo_title: "aurorawave - BOILING POINT. (with The Ghost Inside) [VOX off SCREAM Karaoke] | METAXENOPY.TY"
+seo_title: "aurorawave - BOILING POINT. (with The Ghost Inside) [VOX off SCREAM Karaoke] | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - BOILING POINT. (with The Ghost Inside) [VOX off SCREAM Karaoke]
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-14
 - Available video types: karaoke

@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["lisa", "lalisa", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "NCwV0KvT2ns"
 description: "A draft post for LISA - LALISA that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "LISA - LALISA | METAXENOPY.TY"
+seo_title: "LISA - LALISA | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: LISA - LALISA
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-19
 - Available video types: karaoke, lyrics

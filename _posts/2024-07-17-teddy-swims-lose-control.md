@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["teddy", "swims", "lose", "control", "karaoke", "metaxenopy"]
 youtube_id: "IEpK3oV6788"
 description: "A draft post for Teddy Swims - Lose Control focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Teddy Swims - Lose Control | METAXENOPY.TY"
+seo_title: "Teddy Swims - Lose Control | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Teddy Swims - Lose Control
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-17
 - Available video types: karaoke

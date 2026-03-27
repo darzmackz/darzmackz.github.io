@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["sabrina", "carpenter", "espresso", "karaoke", "metaxenopy"]
 youtube_id: "I9IwelMsIvE"
 description: "A draft post for Sabrina Carpenter - Espresso focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Sabrina Carpenter - Espresso | METAXENOPY.TY"
+seo_title: "Sabrina Carpenter - Espresso | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Sabrina Carpenter - Espresso
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-18
 - Available video types: karaoke

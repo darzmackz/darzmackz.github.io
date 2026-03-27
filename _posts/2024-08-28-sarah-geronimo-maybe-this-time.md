@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["sarah", "geronimo", "maybe", "this", "time", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "bgIY2sfii6Y"
 description: "A draft post for Sarah Geronimo - Maybe This Time that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Sarah Geronimo - Maybe This Time | METAXENOPY.TY"
+seo_title: "Sarah Geronimo - Maybe This Time | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: Sarah Geronimo - Maybe This Time
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-28
 - Available video types: lyrics, karaoke

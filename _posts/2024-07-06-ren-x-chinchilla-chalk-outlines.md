@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["ren", "chinchilla", "chalk", "outlines", "karaoke", "metaxenopy"]
 youtube_id: "oWEGNltWcuA"
 description: "A draft post for Ren X Chinchilla - Chalk Outlines focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Ren X Chinchilla - Chalk Outlines | METAXENOPY.TY"
+seo_title: "Ren X Chinchilla - Chalk Outlines | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Ren X Chinchilla - Chalk Outlines
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-06
 - Available video types: karaoke

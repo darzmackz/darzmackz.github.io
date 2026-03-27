@@ -6,7 +6,7 @@ categories: [music, youtube, opm, community]
 tags: [oni, demi, buhi, feat, fangs, video, metaxenopy, opm, filipino-music, support, community, charity]
 youtube_id: "LrpfVJsXfiM"
 description: "Watch “Buhi Pa” by Oni Demi featuring Fangs—a powerful release tied to real-life struggles and a call for support for those affected by recent tragedies."
-seo_title: "Oni Demi - Buhi Pa (feat. Fangs) | METAXENOPY.TY"
+seo_title: "Oni Demi - Buhi Pa (feat. Fangs) | METAXENOPY.YT"
 status: "published"
 published: true
 ---

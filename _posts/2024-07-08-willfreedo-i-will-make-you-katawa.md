@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["willfreedo", "will", "make", "you", "katawa", "karaoke", "metaxenopy"]
 youtube_id: "oT5fFf_3R_E"
 description: "A draft post for Willfreedo - I Will Make You Katawa focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Willfreedo - I Will Make You Katawa | METAXENOPY.TY"
+seo_title: "Willfreedo - I Will Make You Katawa | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: Willfreedo - I Will Make You Katawa
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-08
 - Available video types: karaoke

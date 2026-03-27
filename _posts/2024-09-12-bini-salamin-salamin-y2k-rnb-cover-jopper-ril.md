@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["bini", "salamin", "y2k", "rnb", "cover", "jopper", "ril", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "5pqlTg8c3nQ"
 description: "A draft post for BINI - Salamin, Salamin (Y2K RNB Cover Jopper Ril) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "BINI - Salamin, Salamin (Y2K RNB Cover Jopper Ril) | METAXENOPY.TY"
+seo_title: "BINI - Salamin, Salamin (Y2K RNB Cover Jopper Ril) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: BINI - Salamin, Salamin (Y2K RNB Cover Jopper Ril)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-12
 - Available video types: karaoke, lyrics

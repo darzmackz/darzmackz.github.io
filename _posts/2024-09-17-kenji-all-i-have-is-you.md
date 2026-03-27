@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["kenji", "all", "have", "you", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "ZBEy1nRbYoM"
 description: "A draft post for KENJI - All I Have Is You that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "KENJI - All I Have Is You | METAXENOPY.TY"
+seo_title: "KENJI - All I Have Is You | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: KENJI - All I Have Is You
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-17
 - Available video types: karaoke, lyrics

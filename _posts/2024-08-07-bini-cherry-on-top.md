@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["bini", "cherry", "top", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "7rphErLE_sY"
 description: "A draft post for BINI - Cherry On Top that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "BINI - Cherry On Top | METAXENOPY.TY"
+seo_title: "BINI - Cherry On Top | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: BINI - Cherry On Top
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-07
 - Available video types: karaoke, lyrics

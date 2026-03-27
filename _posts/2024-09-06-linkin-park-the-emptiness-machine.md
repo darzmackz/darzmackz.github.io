@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["linkin", "park", "the", "emptiness", "machine", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "gkoId2srXtM"
 description: "A draft post for Linkin Park - The Emptiness Machine that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Linkin Park - The Emptiness Machine | METAXENOPY.TY"
+seo_title: "Linkin Park - The Emptiness Machine | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: Linkin Park - The Emptiness Machine
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-09-06
 - Available video types: karaoke, lyrics

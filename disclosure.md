@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "Advertising Disclosure"
-description: "Advertising disclosure for METAXENOPY.TY."
+description: "Advertising disclosure for METAXENOPY.YT."
 permalink: /disclosure/
 ---
 
-METAXENOPY.TY may participate in advertising programs, including Google AdSense. This page explains how advertising is handled on the site.
+METAXENOPY.YT may participate in advertising programs, including Google AdSense. This page explains how advertising is handled on the site.
 
 ## Ad Disclosure
 

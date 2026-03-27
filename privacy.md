@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "Privacy Policy"
-description: "Privacy Policy for METAXENOPY.TY."
+description: "Privacy Policy for METAXENOPY.YT."
 permalink: /privacy/
 ---
 
-METAXENOPY.TY respects your privacy. This page explains the information that may be collected when you browse the site, react to posts, leave comments, or contact the publisher directly.
+METAXENOPY.YT respects your privacy. This page explains the information that may be collected when you browse the site, react to posts, leave comments, or contact the publisher directly.
 
 This website is published through GitHub Pages and may also use third-party services for search verification, advertising operations, and analytics-related features. The goal of this page is to explain those relationships clearly.
 

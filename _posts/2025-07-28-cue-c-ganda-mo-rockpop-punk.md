@@ -6,7 +6,7 @@ categories: [music, youtube, lyrics, karaoke, opm]
 tags: [cue, ganda, rockpop, punk, lyrics, karaoke, metaxenopy, pop-punk, rock, filipino-music]
 youtube_id: "JYzo2ZSKNLo"
 description: "Enjoy “Ganda Mo” by Cue C in a rock/pop punk style with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this fresh OPM twist."
-seo_title: "Cue C - Ganda Mo (Rock/Pop Punk) | METAXENOPY.TY"
+seo_title: "Cue C - Ganda Mo (Rock/Pop Punk) | METAXENOPY.YT"
 status: "published"
 published: true
 ---

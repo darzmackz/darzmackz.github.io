@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["lady", "gaga", "bruno", "mars", "die", "with", "smile", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "P-msE94d2CU"
 description: "A draft post for Lady Gaga, Bruno Mars - Die With A Smile that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Lady Gaga, Bruno Mars - Die With A Smile | METAXENOPY.TY"
+seo_title: "Lady Gaga, Bruno Mars - Die With A Smile | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: Lady Gaga, Bruno Mars - Die With A Smile
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-19
 - Available video types: karaoke, lyrics

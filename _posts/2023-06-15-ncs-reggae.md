@@ -6,7 +6,7 @@ categories: ["music", "youtube"]
 tags: ["ncs", "reggae", "video", "metaxenopy"]
 youtube_id: "CNLeroJ1StA"
 description: "A structured draft post for NCS - Reggae based on the available YouTube upload."
-seo_title: "NCS - Reggae | METAXENOPY.TY"
+seo_title: "NCS - Reggae | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -49,7 +49,7 @@ Requirements:
 Available source data:
 - Final post title: NCS - Reggae
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2023-06-15
 - Available video types: video

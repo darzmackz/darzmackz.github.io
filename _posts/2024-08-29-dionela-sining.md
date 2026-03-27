@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["dionela", "sining", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "lLZstmyrZ5c"
 description: "A draft post for Dionela - sining that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Dionela - sining | METAXENOPY.TY"
+seo_title: "Dionela - sining | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: Dionela - sining
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-29
 - Available video types: karaoke, lyrics

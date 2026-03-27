@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["sunrise", "skater", "kids", "not", "okay", "japanese", "version", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "U8ShezIm2Z8"
 description: "A draft post for Sunrise Skater Kids - I'm Not Okay (Japanese Version) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Sunrise Skater Kids - I'm Not Okay (Japanese Version) | METAXENOPY.TY"
+seo_title: "Sunrise Skater Kids - I'm Not Okay (Japanese Version) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: Sunrise Skater Kids - I'm Not Okay (Japanese Version)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-29
 - Available video types: lyrics, karaoke

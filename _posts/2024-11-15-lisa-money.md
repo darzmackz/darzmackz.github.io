@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["lisa", "money", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "KCp56teTf-k"
 description: "A draft post for LISA - MONEY that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "LISA - MONEY | METAXENOPY.TY"
+seo_title: "LISA - MONEY | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: LISA - MONEY
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-11-15
 - Available video types: lyrics, karaoke

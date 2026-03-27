@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "life", "with", "surfer", "girl", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "tHHEHiBVIwU"
 description: "A draft post for aurorawave - LIFE. (with Surfer Girl) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - LIFE. (with Surfer Girl) | METAXENOPY.TY"
+seo_title: "aurorawave - LIFE. (with Surfer Girl) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - LIFE. (with Surfer Girl)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-12
 - Available video types: lyrics, karaoke

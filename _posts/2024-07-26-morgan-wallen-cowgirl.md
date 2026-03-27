@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["morgan", "wallen", "cowgirl", "karaoke", "metaxenopy"]
 youtube_id: "ywEf6W5ggjw"
 description: "A draft post for Morgan Wallen - Cowgirl focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Morgan Wallen - Cowgirl | METAXENOPY.TY"
+seo_title: "Morgan Wallen - Cowgirl | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Morgan Wallen - Cowgirl
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-26
 - Available video types: karaoke

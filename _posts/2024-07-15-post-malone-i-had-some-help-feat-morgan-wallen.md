@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["post", "malone", "had", "some", "help", "feat", "morgan", "wallen", "karaoke", "metaxenopy"]
 youtube_id: "-EO1B2Ooku8"
 description: "A draft post for Post Malone - I Had Some Help (feat. Morgan Wallen) focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Post Malone - I Had Some Help (feat. Morgan Wallen) | METAXENOPY.TY"
+seo_title: "Post Malone - I Had Some Help (feat. Morgan Wallen) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Post Malone - I Had Some Help (feat. Morgan Wallen)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-15
 - Available video types: karaoke

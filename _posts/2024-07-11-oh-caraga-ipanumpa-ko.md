@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["caraga", "ipanumpa", "karaoke", "metaxenopy"]
 youtube_id: "YcN5AJHUei0"
 description: "A draft post for Oh! Caraga - Ipanumpa Ko focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Oh! Caraga - Ipanumpa Ko | METAXENOPY.TY"
+seo_title: "Oh! Caraga - Ipanumpa Ko | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Oh! Caraga - Ipanumpa Ko
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-11
 - Available video types: karaoke

@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["aurorawave", "turn", "the", "page", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "-qywXIR82pI"
 description: "A draft post for aurorawave - Turn The Page that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "aurorawave - Turn The Page | METAXENOPY.TY"
+seo_title: "aurorawave - Turn The Page | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: aurorawave - Turn The Page
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2025-01-07
 - Available video types: karaoke, lyrics

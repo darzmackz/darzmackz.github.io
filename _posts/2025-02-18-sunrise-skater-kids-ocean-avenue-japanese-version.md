@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["sunrise", "skater", "kids", "ocean", "avenue", "japanese", "version", "karaoke", "lyrics", "metaxenopy"]
 youtube_id: "LQjVoYG87Ps"
 description: "A draft post for Sunrise Skater Kids - Ocean Avenue (Japanese Version) that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "Sunrise Skater Kids - Ocean Avenue (Japanese Version) | METAXENOPY.TY"
+seo_title: "Sunrise Skater Kids - Ocean Avenue (Japanese Version) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -53,7 +53,7 @@ Requirements:
 Available source data:
 - Final post title: Sunrise Skater Kids - Ocean Avenue (Japanese Version)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2025-02-18
 - Available video types: karaoke, lyrics

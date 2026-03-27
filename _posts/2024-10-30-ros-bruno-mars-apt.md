@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["ros", "bruno", "mars", "apt", "karaoke", "metaxenopy"]
 youtube_id: "JBbntdZkL0g"
 description: "A draft post for ROSÉ & Bruno Mars - APT. focused on the karaoke version for sing-along readers and viewers."
-seo_title: "ROSÉ & Bruno Mars - APT. | METAXENOPY.TY"
+seo_title: "ROSÉ & Bruno Mars - APT. | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: ROSÉ & Bruno Mars - APT.
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-10-30
 - Available video types: karaoke

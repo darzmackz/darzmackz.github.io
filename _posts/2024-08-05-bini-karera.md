@@ -6,7 +6,7 @@ categories: ["music", "youtube", "lyrics", "karaoke"]
 tags: ["bini", "karera", "lyrics", "karaoke", "metaxenopy"]
 youtube_id: "Y9jVJzWWCP8"
 description: "A draft post for BINI - Karera that combines both lyrics and karaoke versions into one cleaner, more useful blog entry."
-seo_title: "BINI - Karera | METAXENOPY.TY"
+seo_title: "BINI - Karera | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -48,7 +48,7 @@ Requirements:
 Available source data:
 - Final post title: BINI - Karera
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-08-05
 - Available video types: lyrics, karaoke

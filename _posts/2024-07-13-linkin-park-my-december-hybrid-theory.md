@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["linkin", "park", "december", "hybrid", "theory", "karaoke", "metaxenopy"]
 youtube_id: "dwvFB4wPQBw"
 description: "A draft post for Linkin Park - My December (Hybrid Theory) focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Linkin Park - My December (Hybrid Theory) | METAXENOPY.TY"
+seo_title: "Linkin Park - My December (Hybrid Theory) | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Linkin Park - My December (Hybrid Theory)
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-13
 - Available video types: karaoke

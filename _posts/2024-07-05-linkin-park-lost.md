@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["linkin", "park", "lost", "karaoke", "metaxenopy"]
 youtube_id: "TAkDU25hjW4"
 description: "A draft post for Linkin Park - Lost focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Linkin Park - Lost | METAXENOPY.TY"
+seo_title: "Linkin Park - Lost | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Linkin Park - Lost
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-05
 - Available video types: karaoke

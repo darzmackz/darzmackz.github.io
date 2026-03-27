@@ -34,6 +34,6 @@ return [
     'mail' => [
         'enabled' => false,
         'from_address' => 'no-reply@example.com',
-        'from_name' => 'METAXENOPY.TY',
+        'from_name' => 'METAXENOPY.YT',
     ],
 ];

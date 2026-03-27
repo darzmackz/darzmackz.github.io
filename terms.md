@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "Terms of Use"
-description: "Terms of use for visitors of METAXENOPY.TY."
+description: "Terms of use for visitors of METAXENOPY.YT."
 permalink: /terms/
 ---
 
-These terms explain the basic expectations for using METAXENOPY.TY.
+These terms explain the basic expectations for using METAXENOPY.YT.
 
 ## General Use
 
@@ -21,7 +21,7 @@ You agree not to:
 
 ## Content Ownership
 
-Unless otherwise stated, original text, branding, and site presentation belong to the publisher of METAXENOPY.TY. Embedded third-party media, trademarks, song titles, and platform names belong to their respective owners.
+Unless otherwise stated, original text, branding, and site presentation belong to the publisher of METAXENOPY.YT. Embedded third-party media, trademarks, song titles, and platform names belong to their respective owners.
 
 ## External Links
 

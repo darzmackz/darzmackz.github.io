@@ -6,7 +6,7 @@ categories: [music, youtube, karaoke, opm]
 tags: [cdmc, perfect-weather, digikal-version, karaoke, opm, cebu-band, reggae, local-music]
 youtube_id: "hxOJll7D5e4"
 description: "Sing along to “Perfect Weather (Digikal Version)” by CDMC with this karaoke version—perfect for fans who want to enjoy and perform this local Cebu-based track."
-seo_title: "CDMC - Perfect Weather (Digikal Version) | METAXENOPY.TY"
+seo_title: "CDMC - Perfect Weather (Digikal Version) | METAXENOPY.YT"
 status: "published"
 published: true
 ---

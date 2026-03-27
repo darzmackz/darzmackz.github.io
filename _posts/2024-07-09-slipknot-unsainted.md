@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["slipknot", "unsainted", "karaoke", "metaxenopy"]
 youtube_id: "G3J-_NQpB-I"
 description: "A draft post for Slipknot - Unsainted focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Slipknot - Unsainted | METAXENOPY.TY"
+seo_title: "Slipknot - Unsainted | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Slipknot - Unsainted
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-09
 - Available video types: karaoke

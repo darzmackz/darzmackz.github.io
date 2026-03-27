@@ -6,7 +6,7 @@ categories: ["music", "youtube", "karaoke"]
 tags: ["miley", "cyrus", "flowers", "karaoke", "metaxenopy"]
 youtube_id: "ru-OZxTOh1c"
 description: "A draft post for Miley Cyrus - Flowers focused on the karaoke version for sing-along readers and viewers."
-seo_title: "Miley Cyrus - Flowers | METAXENOPY.TY"
+seo_title: "Miley Cyrus - Flowers | METAXENOPY.YT"
 published: false
 status: "draft"
 ---
@@ -45,7 +45,7 @@ Requirements:
 Available source data:
 - Final post title: Miley Cyrus - Flowers
 - Channel: METAXENOPY
-- Site title: METAXENOPY.TY
+- Site title: METAXENOPY.YT
 - Site author: Kent Harvey Plando
 - YouTube publish date: 2024-07-13
 - Available video types: karaoke
