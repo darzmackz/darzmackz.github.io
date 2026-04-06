@@ -5,10 +5,10 @@ date: "2025-07-09 12:00:00 +0800"
 categories: [music, youtube, lyrics, karaoke, reggae]
 tags: [iya-terra, dont-matta, reggae, karaoke, lyrics, chill-music, positive-vibes, conscious-music]
 youtube_id: "4e5Itet0JAM"
-description: "Experience ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDonÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t MattaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â by Iya Terra with both lyrics and karaoke versionsÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âperfect for fans who want to follow the words or sing along to this uplifting reggae track."
+description: "Experience 'Don't Matta' by Iya Terra with both lyrics and karaoke versions - perfect for fans who want to follow the words or sing along to this uplifting reggae track."
 seo_title: "Iya Terra - Don't Matta | METAXENOPY.YT| Lyrics & Karaoke Reggae Vibes"
 status: "draft"
-published: true
+published: false
 ---
 
 ## Watch the Lyrics Version
@@ -19,7 +19,7 @@ If you want to fully connect with the message behind *Don't Matta*, the lyrics v
 
 # Iya Terra - Don't Matta
 
-Some songs are meant to lift your spiritÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âand *Don't Matta* by **Iya Terra** does exactly that. With its smooth reggae rhythm and positive message, it creates a space where you can relax, reflect, and let go of unnecessary weight.
+Some songs are meant to lift your spirit - and *Don't Matta* by **Iya Terra** does exactly that. With its smooth reggae rhythm and positive message, it creates a space where you can relax, reflect, and let go of unnecessary weight.
 
 The track carries a laid-back yet meaningful tone, reminding listeners to focus on what truly matters and not get caught up in the noise.
 
@@ -27,7 +27,7 @@ The track carries a laid-back yet meaningful tone, reminding listeners to focus 
 
 ## Sing Along with the Karaoke Version
 
-If you want to express that message in your own way, the karaoke version gives you the perfect opportunity. Whether you're vibing alone or sharing the moment with others, itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s all about feeling the music and making it your own.
+If you want to express that message in your own way, the karaoke version gives you the perfect opportunity. Whether you're vibing alone or sharing the moment with others, it's all about feeling the music and making it your own.
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/GG8hh7C0CLA" frameborder="0" allowfullscreen></iframe>
 
@@ -41,7 +41,7 @@ What makes *Don't Matta* stand out is its simplicity and truth. The lyrics are e
 
 ## Final Thoughts
 
-*Don't Matta* is more than just a songÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬ÂitÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s a reminder to stay grounded and keep your energy focused on what truly matters. Whether you're following the lyrics or singing along, itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s a track that leaves you feeling lighter.
+*Don't Matta* is more than just a song - it's a reminder to stay grounded and keep your energy focused on what truly matters. Whether you're following the lyrics or singing along, it's a track that leaves you feeling lighter.
 
 ---
 

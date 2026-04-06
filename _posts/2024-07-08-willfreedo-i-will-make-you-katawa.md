@@ -24,7 +24,7 @@ status: "draft"
 
 ### Source Description Snippets
 
-- Willfreedo - I Will Make You Katawa (Karaoke): SUPPORT LOCAL! Subscribe to our channel: https://www.youtube.com/WillfreedoPH Here's the karaoke version of “I Will Make You Katawa” by Willfreedo. Stream "I Will Make You Katawa" here: https://open.spotify.com/track/1clZO33bUNRdQ46YF7nacM YouTube Music: https://www.youtube.com/watch?v=TqGOfAgJo3Q&t=0s Deezer: https://deezer.page.link/SwQAEuCNNHu6... Follow us on Facebook: https://www.facebook.com
+- Willfreedo - I Will Make You Katawa (Karaoke): SUPPORT LOCAL! Subscribe to our channel: https://www.youtube.com/WillfreedoPH Here's the karaoke version of 'I Will Make You Katawa' by Willfreedo. Stream "I Will Make You Katawa" here: https://open.spotify.com/track/1clZO33bUNRdQ46YF7nacM YouTube Music: https://www.youtube.com/watch?v=TqGOfAgJo3Q&t=0s Deezer: https://deezer.page.link/SwQAEuCNNHu6... Follow us on Facebook: https://www.facebook.com
 
 ## AI_DRAFT_PROMPT
 
@@ -58,7 +58,7 @@ Video sources:
 - Willfreedo - I Will Make You Katawa (Karaoke) => https://www.youtube.com/watch?v=oT5fFf_3R_E
 
 Source description snippets:
-- Willfreedo - I Will Make You Katawa (Karaoke): SUPPORT LOCAL! Subscribe to our channel: https://www.youtube.com/WillfreedoPH Here's the karaoke version of “I Will Make You Katawa” by Willfreedo. Stream "I Will Make You Katawa" here: https://open.spotify.com/track/1clZO33bUNRdQ46YF7nacM YouTube Music: https://www.youtube.com/watch?v=TqGOfAgJo3Q&t=0s Deezer: https://deezer.page.link/SwQAEuCNNHu6... Follow us on Facebook: https://www.facebook.com
+- Willfreedo - I Will Make You Katawa (Karaoke): SUPPORT LOCAL! Subscribe to our channel: https://www.youtube.com/WillfreedoPH Here's the karaoke version of 'I Will Make You Katawa' by Willfreedo. Stream "I Will Make You Katawa" here: https://open.spotify.com/track/1clZO33bUNRdQ46YF7nacM YouTube Music: https://www.youtube.com/watch?v=TqGOfAgJo3Q&t=0s Deezer: https://deezer.page.link/SwQAEuCNNHu6... Follow us on Facebook: https://www.facebook.com
 
 Return the final answer in this exact order:
 1. SEO Title

@@ -5,10 +5,10 @@ date: "2025-04-12 12:00:00 +0800"
 categories: [music, youtube, lyrics, karaoke, alternative]
 tags: [the-used, all-that-ive-got, karaoke, lyrics, alternative-rock, emo, post-hardcore, sing-along]
 youtube_id: "Cs3Z1hPBV98"
-description: "Experience ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œAll That I've GotÃƒÂ¢Ã¢â€šÂ¬Ã‚Â by The Used with both lyrics and karaoke versionsÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âperfect for fans who want to follow the words or sing along to this emotional alternative track."
+description: "Experience 'All That I've Got' by The Used with both lyrics and karaoke versions - perfect for fans who want to follow the words or sing along to this emotional alternative track."
 seo_title: "The Used - All That I've Got | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
 status: "draft"
-published: true
+published: false
 ---
 
 ## Watch the Lyrics Version
@@ -19,7 +19,7 @@ If you want to fully connect with the emotion behind *All That I've Got*, the ly
 
 # The Used - All That I've Got
 
-Some songs stay with you because of how real they feelÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âand *All That I've Got* by **The Used** is one of those tracks. With its emotional delivery and powerful sound, it captures a sense of vulnerability that resonates deeply with listeners.
+Some songs stay with you because of how real they feel - and *All That I've Got* by **The Used** is one of those tracks. With its emotional delivery and powerful sound, it captures a sense of vulnerability that resonates deeply with listeners.
 
 The song blends melodic elements with heavier moments, creating a balance that feels both expressive and impactful.
 
@@ -27,7 +27,7 @@ The song blends melodic elements with heavier moments, creating a balance that f
 
 ## Sing Along with the Karaoke Version
 
-If you want to bring that emotion into your own voice, the karaoke version gives you the perfect chance. Whether you're practicing or just singing your heart out, itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s a great way to experience the song more personally.
+If you want to bring that emotion into your own voice, the karaoke version gives you the perfect chance. Whether you're practicing or just singing your heart out, it's a great way to experience the song more personally.
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/SGDr_igdGFs" frameborder="0" allowfullscreen></iframe>
 
@@ -41,7 +41,7 @@ What makes *All That I've Got* stand out is its honesty. The lyrics and delivery
 
 ## Final Thoughts
 
-*All That I've Got* remains a powerful track that continues to resonate with fans. Whether you're following the lyrics or singing along, itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s a song that leaves a lasting impression.
+*All That I've Got* remains a powerful track that continues to resonate with fans. Whether you're following the lyrics or singing along, it's a song that leaves a lasting impression.
 
 ---
 

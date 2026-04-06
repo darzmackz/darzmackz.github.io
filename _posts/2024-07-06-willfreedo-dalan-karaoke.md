@@ -24,7 +24,7 @@ status: "draft"
 
 ### Source Description Snippets
 
-- Willfreedo - Dalan Karaoke: SUPPORT LOCAL ARTIST Subscribe to their channel: https://www.youtube.com/WillfreedoPH Here's the karaoke music video of “Dalan” by Willfreedo. Stream "Dalan" here: https://open.spotify.com/track/0NXuq7Myjw66hgMHIBH5Qq YouTube Music: • Dalan Follow them on Facebook: https://www.facebook.com/WillfreedoPH Instagram: https://www.instagram.com/willfreedo_/ Twitter: https://x.com/WFDdgteofficial/ TikTok
+- Willfreedo - Dalan Karaoke: SUPPORT LOCAL ARTIST Subscribe to their channel: https://www.youtube.com/WillfreedoPH Here's the karaoke music video of 'Dalan' by Willfreedo. Stream "Dalan" here: https://open.spotify.com/track/0NXuq7Myjw66hgMHIBH5Qq YouTube Music: • Dalan Follow them on Facebook: https://www.facebook.com/WillfreedoPH Instagram: https://www.instagram.com/willfreedo_/ Twitter: https://x.com/WFDdgteofficial/ TikTok
 
 ## AI_DRAFT_PROMPT
 
@@ -58,7 +58,7 @@ Video sources:
 - Willfreedo - Dalan Karaoke => https://www.youtube.com/watch?v=T1pLodJg2SE
 
 Source description snippets:
-- Willfreedo - Dalan Karaoke: SUPPORT LOCAL ARTIST Subscribe to their channel: https://www.youtube.com/WillfreedoPH Here's the karaoke music video of “Dalan” by Willfreedo. Stream "Dalan" here: https://open.spotify.com/track/0NXuq7Myjw66hgMHIBH5Qq YouTube Music: • Dalan Follow them on Facebook: https://www.facebook.com/WillfreedoPH Instagram: https://www.instagram.com/willfreedo_/ Twitter: https://x.com/WFDdgteofficial/ TikTok
+- Willfreedo - Dalan Karaoke: SUPPORT LOCAL ARTIST Subscribe to their channel: https://www.youtube.com/WillfreedoPH Here's the karaoke music video of 'Dalan' by Willfreedo. Stream "Dalan" here: https://open.spotify.com/track/0NXuq7Myjw66hgMHIBH5Qq YouTube Music: • Dalan Follow them on Facebook: https://www.facebook.com/WillfreedoPH Instagram: https://www.instagram.com/willfreedo_/ Twitter: https://x.com/WFDdgteofficial/ TikTok
 
 Return the final answer in this exact order:
 1. SEO Title
