@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, the-judge, cut-my-lip, clancy-world-tour, studio-versi
 youtube_id: "TtgAUQqgUG4"
 description: "Experience “The Judge // Cut My Lip” from The Clancy World Tour Studio Version with both lyrics and karaoke videos—perfect for fans who want to follow the words or sing along to this seamless studio-style performance."
 seo_title: "Twenty One Pilots - The Judge // Cut My Lip (The Clancy World Tour Studio Version) | METAXENOPY.YT"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

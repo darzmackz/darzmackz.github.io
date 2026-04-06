@@ -5,7 +5,18 @@ description: "Portfolio of KENJI (Kent Harvey Plando), including systems work, s
 permalink: /portfolio/
 ---
 
-This page highlights my professional background, technical experience, and creator-focused projects. For collaboration or questions, please use the [contact page]({{ '/contact/' | relative_url }}).
+This page highlights the work I can actually stand behind: systems support, server and infrastructure tasks, and the creator projects I maintain under the METAXENOPY name. If you want the broader story behind the site, visit the [About page]({{ '/about/' | relative_url }}). For direct inquiries, use the [contact page]({{ '/contact/' | relative_url }}).
+
+## What I Work On
+
+My background is split between two areas that support each other well.
+
+- Day-to-day technical work involving databases, servers, networking, support, and troubleshooting.
+- Creator and publishing work involving lyric videos, karaoke uploads, and maintaining this public website.
+
+That combination matters because a lot of creator work becomes more sustainable when the technical side is handled carefully. I approach deployments, site maintenance, and content structure with the same mindset: keep things readable, stable, and easy to maintain.
+
+## Selected Experience
 
 <div class="portfolio-grid">
 {% for item in site.data.portfolio %}
@@ -27,3 +38,11 @@ This page highlights my professional background, technical experience, and creat
   </div>
 {% endfor %}
 </div>
+
+## What This Portfolio Shows
+
+- Practical systems experience, not just tool lists.
+- A maintained public website that supports the creator brand with clear ownership and navigation.
+- Ongoing music-related publishing through the METAXENOPY channel and blog.
+
+If you want to see the publishing side in action, head to the [blog]({{ '/blog/' | relative_url }}). If you want a quick summary of who I am and how the site is structured, go back to the [homepage]({{ '/' | relative_url }}).

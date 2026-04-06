@@ -7,8 +7,8 @@ tags: [the-used, all-that-ive-got, karaoke, lyrics, alternative-rock, emo, post-
 youtube_id: "Cs3Z1hPBV98"
 description: "Experience “All That I've Got” by The Used with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this emotional alternative track."
 seo_title: "The Used - All That I've Got | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

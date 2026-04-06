@@ -7,8 +7,8 @@ tags: [iya-terra, together, reggae, karaoke, lyrics, chill-music, positive-vibes
 youtube_id: "ujSmVABRSt4"
 description: "Experience “Together” by Iya Terra with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this uplifting reggae anthem."
 seo_title: "Iya Terra - Together | METAXENOPY.YT| Lyrics & Karaoke Reggae Vibes"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

@@ -7,8 +7,8 @@ tags: [thy infinity, demonyo, lyrics, karaoke, metaxenopy, metal, rock, heavy-mu
 youtube_id: "zbj00czLsWY"
 description: "Experience “Demonyo” by Thy Infinity with both lyrics and karaoke versions—perfect for fans who want to follow the words or unleash their voice on this intense metal/rock track."
 seo_title: "Thy Infinity - Demonyo | METAXENOPY.YT"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

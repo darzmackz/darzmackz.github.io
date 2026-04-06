@@ -7,8 +7,8 @@ tags: [silverstein, disarm, songs-that-saved-my-life-vol-2, karaoke, lyrics, pos
 youtube_id: "aOet_ZQr2hc"
 description: "Experience “Disarm” by Silverstein with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this emotional post-hardcore cover."
 seo_title: "Silverstein - Disarm | METAXENOPY.YT"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

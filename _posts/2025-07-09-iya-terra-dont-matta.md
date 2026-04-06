@@ -7,8 +7,8 @@ tags: [iya-terra, dont-matta, reggae, karaoke, lyrics, chill-music, positive-vib
 youtube_id: "4e5Itet0JAM"
 description: "Experience “Don’t Matta” by Iya Terra with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this uplifting reggae track."
 seo_title: "Iya Terra - Don't Matta | METAXENOPY.YT| Lyrics & Karaoke Reggae Vibes"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

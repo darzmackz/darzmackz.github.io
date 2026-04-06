@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, the-line, karaoke, lyrics, arcane, league-of-legends, 
 youtube_id: "-mokxreUkFQ"
 description: "Experience “The Line” by Twenty One Pilots with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this haunting track featured in Arcane."
 seo_title: "Twenty One Pilot - The Line | METAXENOPY.YT| Lyrics & Karaoke (Arcane Soundtrack)"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, scaled-and-icy, livestream-experience, qanda, tyler-jo
 youtube_id: "K_yXlukwaMY"
 description: "Go behind the scenes of the Scaled and Icy Livestream Experience with this exclusive Q&A featuring Tyler Joseph and Josh Dun—offering insight into their creativity, humor, and vision."
 seo_title: "Twenty One Pilots - Scaled and Icy Livestream Experience Q&A | METAXENOPY.YT"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 # Twenty One Pilots - Scaled and Icy Livestream Experience Q&A

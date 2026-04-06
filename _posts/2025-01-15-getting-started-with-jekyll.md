@@ -23,6 +23,8 @@ Jekyll is one of the simplest ways to publish a fast static website, especially 
 
 Jekyll turns Markdown, layouts, and data files into a complete static site. That makes it a good fit for personal websites, blogs, and documentation pages where speed and low maintenance matter.
 
+It is also a practical choice if you want a site that is easy to audit. You can keep posts in plain files, manage templates directly, and see exactly what is being published without a heavy CMS in the middle.
+
 ## Quick Start
 
 ```bash
@@ -50,3 +52,15 @@ The most common folders you will work with are:
 3. Let GitHub build and publish the site from the selected branch.
 
 That is often enough to launch a reliable personal site with minimal overhead.
+
+## When Jekyll Is A Good Fit
+
+Jekyll works best when:
+
+- you want a blog or personal site with a stable structure
+- you are comfortable editing Markdown and templates directly
+- you prefer low hosting complexity over dynamic site features
+
+If your main goal is publishing clear pages, owning your content, and keeping the site lightweight, Jekyll is still a strong option.
+
+For a live example of how I use it, see the [homepage]({{ '/' | relative_url }}) and [portfolio]({{ '/portfolio/' | relative_url }}).

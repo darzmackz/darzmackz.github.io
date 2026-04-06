@@ -7,8 +7,8 @@ tags: [beartooth, hated-acoustic, karaoke, lyrics, acoustic, alternative-rock, e
 youtube_id: "ehlIAq22rRo"
 description: "Experience “Hated (Acoustic)” by Beartooth with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this stripped-down and emotional version."
 seo_title: "Beartooth - Hated (Acoustic) | METAXENOPY.YT | Lyrics & Karaoke Version"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version

@@ -7,8 +7,8 @@ tags: [beartooth, sick-of-me, karaoke, lyrics, alternative-rock, post-hardcore, 
 youtube_id: "CF_NKg54DfU"
 description: "Experience “Sick of Me” by Beartooth with both lyrics and karaoke versions—perfect for fans who want to follow the words or sing along to this intense and emotional track."
 seo_title: "Beartooth - Sick of Me | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
-status: "published"
-published: true
+status: "draft"
+published: false
 ---
 
 ## Watch the Lyrics Version
