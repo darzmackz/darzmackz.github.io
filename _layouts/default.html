@@ -78,6 +78,16 @@
   })(window,document,'script','dataLayer','{{ site.google_tag_manager_id }}');</script>
   <!-- End Google Tag Manager -->
   {% endif %}
+  {% if site.google_analytics_id != "" %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics_id }}', { 'anonymize_ip': true });
+  </script>
+  {% endif %}
   <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   {% seo %}
@@ -109,16 +119,6 @@
   {% include footer.html %}
 
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
-  {% if site.google_analytics_id != "" %}
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics_id }}', { 'anonymize_ip': true });
-  </script>
-  {% endif %}
   <button class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
   </button>
