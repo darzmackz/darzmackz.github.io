@@ -7,8 +7,8 @@ tags: [neck-deep, torn, songs-that-saved-my-life, karaoke, lyrics, pop-punk, alt
 youtube_id: "GC2Pjrw9dKk"
 description: "Experience 'Torn' by Neck Deep with both lyrics and karaoke versions - perfect for fans who want to follow the words or sing along to this emotional pop-punk cover."
 seo_title: "Neck Deep - Torn | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Watch the Lyrics Version

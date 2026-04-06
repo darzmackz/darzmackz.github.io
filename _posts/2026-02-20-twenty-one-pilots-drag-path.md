@@ -7,8 +7,8 @@ tags: [twenty, one, pilots, drag, path, karaoke, metaxenopy]
 youtube_id: "05yNDPAoZQE"
 description: "Sing along to 'Drag Path' with this karaoke version - perfect for practice, covers, or simply enjoying the instrumental side of the track."
 seo_title: "Twenty One Pilots - Drag Path | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Sing Along with the Karaoke Version

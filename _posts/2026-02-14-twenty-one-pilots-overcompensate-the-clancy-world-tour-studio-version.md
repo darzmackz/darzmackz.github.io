@@ -7,8 +7,8 @@ tags: [twenty, one, pilots, overcompensate, the, clancy, world, tour, studio, ve
 youtube_id: "DH_HjKMcAto"
 description: "Experience 'Overcompensate' from The Clancy World Tour Studio Version with both lyrics and karaoke videos - perfect for fans who want to follow the words or sing along to this intense studio-style performance."
 seo_title: "Twenty One Pilots - Overcompensate (The Clancy World Tour Studio Version) | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Watch the Lyrics Version

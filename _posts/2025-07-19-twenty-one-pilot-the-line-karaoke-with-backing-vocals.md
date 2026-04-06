@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, the-line, karaoke, backing-vocals, arcane, alternative
 youtube_id: "wzKzqWOSf4g"
 description: "Sing along to 'The Line' by Twenty One Pilots with this karaoke version featuring backing vocals - perfect for fans who want a more immersive and emotional performance."
 seo_title: "Twenty One Pilot - The Line (Karaoke with Backing Vocals) | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 # Twenty One Pilot - The Line (Karaoke with Backing Vocals)

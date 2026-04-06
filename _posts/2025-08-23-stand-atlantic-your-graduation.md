@@ -7,8 +7,8 @@ tags: [stand-atlantic, your-graduation, songs-that-saved-my-life, karaoke, lyric
 youtube_id: "OVG6UsSHUdw"
 description: "Experience 'Your Graduation' by Stand Atlantic with both lyrics and karaoke versions - perfect for fans who want to relive the emotion or sing along to this powerful pop-punk cover."
 seo_title: "Stand Atlantic - Your Graduation | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Watch the Lyrics Version

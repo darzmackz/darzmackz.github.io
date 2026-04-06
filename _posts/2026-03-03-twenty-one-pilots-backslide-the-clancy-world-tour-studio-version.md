@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, backslide, clancy-world-tour, studio-version, alexbequ
 youtube_id: "SWyv4WbGmCs"
 description: "Experience 'Backslide' from The Clancy World Tour Studio Version with both lyrics and karaoke videos - perfect for fans who want to dive into the words or sing along to this reimagined performance."
 seo_title: "Twenty One Pilots - Backslide (The Clancy World Tour Studio Version) | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 # Twenty One Pilots - Backslide (The Clancy World Tour Studio Version)

@@ -7,8 +7,8 @@ tags: [twenty, one, pilots, holding, you, vignette, the, clancy, world, tour]
 youtube_id: "3bmeB_RGmAk"
 description: "Experience 'Holding On To You / Vignette' from The Clancy World Tour Studio Version with both lyrics and karaoke videos - perfect for fans who want to follow the words or sing along to this seamless studio-style transition."
 seo_title: "Twenty One Pilots - Holding On To You / Vignette (The Clancy World Tour Studio Version) | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Watch the Lyrics Version

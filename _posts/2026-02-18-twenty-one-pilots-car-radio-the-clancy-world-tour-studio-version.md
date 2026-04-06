@@ -7,8 +7,8 @@ tags: [twenty-one-pilots, car-radio, clancy-world-tour, studio-version, alexbequ
 youtube_id: "_r_jV3ETyY8"
 description: "Experience 'Car Radio' from The Clancy World Tour Studio Version with both lyrics and karaoke videos - perfect for fans who want to follow the words or sing along to this powerful studio-style performance."
 seo_title: "Twenty One Pilots - Car Radio (The Clancy World Tour Studio Version) | METAXENOPY.YT"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Watch the Lyrics Version
