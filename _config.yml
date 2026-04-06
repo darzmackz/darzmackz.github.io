@@ -67,6 +67,9 @@ google_site_verification: "y1RnX2M59JUTP0DcEu3M700QxbPb7-b6vZPvAxMGnNY"
 webmaster_verifications:
   google: ""
 
+google_analytics_id: "G-95BK8YGLFS"
+google_tag_manager_id: ""
+
 utterances_repo: "darzmackz/darzmackz.github.io"
 utterances_issue_term: "pathname"
 utterances_theme: "github-dark"
