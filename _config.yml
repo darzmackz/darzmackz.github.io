@@ -68,7 +68,7 @@ webmaster_verifications:
   google: ""
 
 google_analytics_id: "G-95BK8YGLFS"
-google_tag_manager_id: ""
+google_tag_manager_id: "GTM-TTPZ4C2F"
 
 utterances_repo: "darzmackz/darzmackz.github.io"
 utterances_issue_term: "pathname"
