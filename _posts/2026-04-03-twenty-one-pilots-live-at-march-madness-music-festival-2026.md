@@ -7,8 +7,8 @@ tags: [twenty one pilots, march madness music festival]
 youtube_id: "q9jf_WaZ1xo&t=736s"
 description: "Watch Twenty One Pilots live at the NCAA March Madness Music Festival AT&T Block Party in Indianapolis. Full concert experience featuring Overcompensate, Heathens, Ride, Stressed Out, Trees, and more from their headline performance."
 seo_title: "Twenty One Pilots Live at March Madness Music Festival 2026"
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 # Twenty One Pilots - March Madness Music Festival (AT&T Block Party)
@@ -78,20 +78,15 @@ This performance highlights Twenty One Pilots’ ability to command massive fest
 - Seven Nation Army (Cover)  
 - Stressed Out  
 - Trees (Intro)  
-- Trees  
+- Trees
+- Lavish (END)
 
 ---
 
-## Notes
+## Follow METAXENOPY on YouTube
 
-- This is a **live concert recording**, not an official studio release.  
-- Audio includes crowd interaction, live mixing, and performance variations.  
-- Setlist may vary slightly depending on the live arrangement.
+I also publish lyrics and karaoke content on the **METAXENOPY** YouTube channel.
 
----
+[Subscribe to METAXENOPY on YouTube](https://www.youtube.com/@metaxenopy?sub_confirmation=1)
 
-## Tags
-
-Twenty One Pilots, TOP live, March Madness Music Festival, NCAA Final Four, AT&T Block Party, Indianapolis, Twenty One Pilots concert, TOP full concert, alternative music, live performance
-
----
+If you have a song request or topic idea, visit the [contact page]({{ '/contact/' | relative_url }}).
