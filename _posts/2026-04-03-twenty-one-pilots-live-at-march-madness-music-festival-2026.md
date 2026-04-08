@@ -68,6 +68,10 @@ This post keeps the spotlight on **Tyler Joseph and Josh Dun**. The full festiva
 
 ---
 
+<!-- post-video -->
+
+---
+
 ## Why This Set Works
 
 Twenty One Pilots are built for a stage like this because their live show does not depend on one sound. The set can jump from a heavy opener to piano fragments, drum features, older fan favorites, covers, and crowd-first closers without feeling random. That is why the March Madness Music Festival setting makes sense: it is a public, high-energy event, but the band still gets to bring the intensity of a dedicated tour stop.

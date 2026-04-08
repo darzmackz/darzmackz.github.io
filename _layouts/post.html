@@ -6,6 +6,24 @@ layout: default
 {% if read_minutes < 1 %}
   {% assign read_minutes = 1 %}
 {% endif %}
+{% assign youtube_id = page.youtube_id | default: '' | strip %}
+{% capture post_video_embed %}
+  {% if youtube_id != '' %}
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/{{ youtube_id }}"
+      title="{{ page.title }}"
+      loading="lazy"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {% endif %}
+{% endcapture %}
+{% assign post_content_parts = content | split: '<!-- post-video -->' %}
+{% assign post_heading_parts = content | split: '</h2>' %}
 <article class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
@@ -33,22 +51,24 @@ layout: default
     {% endif %}
   </header>
 
-  {% if page.youtube_id %}
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/{{ page.youtube_id }}"
-      title="{{ page.title }}"
-      loading="lazy"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
-  </div>
-  {% endif %}
-
   <div class="post-content">
-    {{ content }}
+    {% if youtube_id != '' and post_content_parts.size > 1 %}
+      {{ post_content_parts[0] }}
+      {{ post_video_embed }}
+      {% for content_part in post_content_parts offset:1 %}
+        {{ content_part }}
+      {% endfor %}
+    {% elsif youtube_id != '' and post_heading_parts.size > 1 %}
+      {{ post_heading_parts[0] }}</h2>
+      {{ post_video_embed }}
+      {% for content_part in post_heading_parts offset:1 %}
+        {% unless forloop.first %}</h2>{% endunless %}
+        {{ content_part }}
+      {% endfor %}
+    {% else %}
+      {{ content }}
+      {{ post_video_embed }}
+    {% endif %}
   </div>
 
   <section
