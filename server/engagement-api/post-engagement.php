@@ -57,12 +57,14 @@ try {
     if ($action === 'get') {
         $path = normalizePath((string)($_GET['path'] ?? ''));
         ensurePath($path);
+        setPublicJsonCacheHeaders(15, 45);
         respond(200, buildStatsResponse($pdo, $path));
     }
 
     if ($action === 'get-comments') {
         $path = normalizePath((string)($_GET['path'] ?? ''));
         ensurePath($path);
+        setPublicJsonCacheHeaders(30, 120);
         respond(200, [
             'ok' => true,
             'path' => $path,
@@ -406,6 +408,7 @@ function handleCors(array $config): void
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, X-Admin-Key');
     header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: no-store, max-age=0');
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     header('X-Frame-Options: DENY');
@@ -420,6 +423,11 @@ function handleCors(array $config): void
         http_response_code(204);
         exit;
     }
+}
+
+function setPublicJsonCacheHeaders(int $maxAge, int $staleWhileRevalidate): void
+{
+    header(sprintf('Cache-Control: public, max-age=%d, stale-while-revalidate=%d', $maxAge, $staleWhileRevalidate));
 }
 
 function bootstrapRuntime(array $config): void

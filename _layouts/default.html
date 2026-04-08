@@ -33,9 +33,13 @@
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
+  {% if page.layout == 'post' and page.youtube_id %}
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+  {% endif %}
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
   {% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %}
   <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
   {% endif %}
   <script type="application/ld+json">
   {
@@ -69,26 +73,17 @@
   }
   </script>
   <script>if(window.top!==window.self){try{window.top.location=window.self.location;}catch(e){window.self.location=window.self.location;}}</script>
-  {% if site.google_tag_manager_id != "" %}
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','{{ site.google_tag_manager_id }}');</script>
-  <!-- End Google Tag Manager -->
-  {% endif %}
-  {% if site.google_analytics_id != "" %}
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics_id }}', { 'anonymize_ip': true });
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme === 'dark' || theme === 'light') {
+        document.documentElement.setAttribute('data-theme', theme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
   </script>
-  {% endif %}
-  <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   {% seo %}
   {% feed_meta %}
@@ -99,7 +94,7 @@
   <meta name="google-adsense-account" content="{{ site.google_adsense_publisher_id }}" />
   {% endif %}
 </head>
-<body{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %} data-adsense-client="{{ site.google_adsense_publisher_id }}"{% endif %}{% if site.engagement_api_base and site.engagement_api_base != "" %} data-site-api="{{ site.engagement_api_base }}"{% endif %}>
+<body{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" %} data-adsense-client="{{ site.google_adsense_publisher_id }}"{% endif %}{% if site.google_analytics_id != "" %} data-ga-id="{{ site.google_analytics_id }}"{% endif %}{% if site.google_tag_manager_id != "" %} data-gtm-id="{{ site.google_tag_manager_id }}"{% endif %}{% if site.engagement_api_base and site.engagement_api_base != "" %} data-site-api="{{ site.engagement_api_base }}"{% endif %}>
   {% if site.google_tag_manager_id != "" %}
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager_id }}"
@@ -124,5 +119,4 @@
   </button>
 </body>
 </html>
-
 

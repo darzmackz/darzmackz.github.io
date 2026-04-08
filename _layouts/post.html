@@ -89,10 +89,6 @@ layout: default
     data-post-url="{{ page.url | absolute_url }}"
     data-post-path="{{ page.url }}"
     data-post-title="{{ page.title | escape }}"
-    data-post-date="{{ page.date | date_to_xmlschema }}"
-    data-post-description="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}"
-    data-post-categories="{% if page.categories %}{{ page.categories | join: '|' | escape }}{% endif %}"
-    data-post-tags="{% if page.tags %}{{ page.tags | join: '|' | escape }}{% endif %}"
     data-engagement-api="{{ site.engagement_api_base }}"
   >
     <div class="post-engagement-summary">

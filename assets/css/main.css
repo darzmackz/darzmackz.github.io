@@ -400,6 +400,14 @@ ul, ol {
   margin-bottom: var(--spacing-2xl);
 }
 
+.section-panel + .section-panel,
+.post-engagement,
+.post-resource-panel,
+.post-navigation {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
 .section-intro {
   margin-bottom: var(--spacing-lg);
 }
@@ -561,6 +569,8 @@ ul, ol {
 .post-list-item {
   border-bottom: 1px solid var(--color-border);
   padding: var(--spacing-lg) 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 220px;
 }
 
 .post-list-item:first-child {
@@ -642,6 +652,7 @@ ul, ol {
 
 .video-wrapper {
   position: relative;
+  aspect-ratio: 16 / 9;
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   overflow: hidden;

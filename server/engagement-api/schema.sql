@@ -81,7 +81,8 @@ CREATE TABLE IF NOT EXISTS post_comments (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     KEY post_comments_path_idx (post_path),
-    KEY post_comments_status_idx (status)
+    KEY post_comments_status_idx (status),
+    KEY post_comments_public_lookup_idx (post_path, status, created_at)
 );
 
 CREATE TABLE IF NOT EXISTS contact_inquiries (
