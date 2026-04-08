@@ -136,7 +136,13 @@ sitemap: false
         <section id="sec-posts" class="hidden stack">
           <div class="header">
             <div>
-              <h2>Posts</h2>
+              <div class="section-title-row">
+                <h2>Posts</h2>
+                <button class="btn btn-add has-icon" type="button" data-action="sync-site-data">
+                  <svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>
+                  <span>Sync Database</span>
+                </button>
+              </div>
               <p class="muted section-copy">Manage drafts, scheduled posts, and published content in one place.</p>
             </div>
             <div class="filter-bar">
@@ -156,10 +162,6 @@ sitemap: false
               <button class="btn p btn-add has-icon" type="button" data-action="open-post-editor">
                 <svg class="ui-icon" aria-hidden="true"><use href="#icon-plus"></use></svg>
                 <span>New Post</span>
-              </button>
-              <button class="btn has-icon" type="button" data-action="sync-site-data">
-                <svg class="ui-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>
-                <span>Sync Database</span>
               </button>
             </div>
           </div>

@@ -282,6 +282,13 @@ button,
   max-width:56rem;
 }
 
+.section-title-row{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:var(--space-2);
+}
+
 .stack{
   display:flex;
   flex-direction:column;
@@ -1390,6 +1397,17 @@ button,
   .filter-bar{
     grid-template-columns:minmax(0,1.4fr) minmax(220px,.7fr) auto;
     align-items:center;
+  }
+
+  .section-title-row{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:var(--space-3);
+  }
+
+  .section-title-row .btn{
+    flex:0 0 auto;
   }
 
   .posts-toolbar{
