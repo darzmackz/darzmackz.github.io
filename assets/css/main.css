@@ -658,6 +658,50 @@ ul, ol {
   height: 100%;
 }
 
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #0f172a;
+  color: #f8fafc;
+  cursor: pointer;
+}
+
+.video-placeholder:hover,
+.video-placeholder:focus-visible {
+  background: #111827;
+}
+
+.video-play-mark {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #ef4444;
+  position: relative;
+}
+
+.video-play-mark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 22px solid #fff;
+}
+
+.video-placeholder-text {
+  font-weight: 700;
+}
+
 .post-content {
   max-width: 760px;
 }

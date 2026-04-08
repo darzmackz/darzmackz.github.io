@@ -9,16 +9,22 @@ layout: default
 {% assign youtube_id = page.youtube_id | default: '' | strip %}
 {% capture post_video_embed %}
   {% if youtube_id != '' %}
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/{{ youtube_id }}"
-      title="{{ page.title }}"
-      loading="lazy"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
+  <div class="video-wrapper video-wrapper-deferred" data-youtube-embed data-youtube-src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}">
+    <button class="video-placeholder" type="button" aria-label="Load video: {{ page.title | escape }}">
+      <span class="video-play-mark" aria-hidden="true"></span>
+      <span class="video-placeholder-text">Play Video</span>
+    </button>
+    <noscript>
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}"
+        title="{{ page.title }}"
+        loading="lazy"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </noscript>
   </div>
   {% endif %}
 {% endcapture %}

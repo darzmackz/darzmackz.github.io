@@ -18,6 +18,27 @@
     });
   }
 
+  function initDeferredVideos() {
+    document.querySelectorAll('[data-youtube-embed]').forEach(function (wrapper) {
+      var button = wrapper.querySelector('.video-placeholder');
+      var src = wrapper.getAttribute('data-youtube-src') || '';
+      if (!button || !src) return;
+
+      button.addEventListener('click', function () {
+        var iframe = document.createElement('iframe');
+        iframe.src = src + (src.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1';
+        iframe.title = button.getAttribute('aria-label') || 'Embedded video';
+        iframe.loading = 'lazy';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        wrapper.innerHTML = '';
+        wrapper.appendChild(iframe);
+      }, { once: true });
+    });
+  }
+
   function initBlogArchive() {
     var archive = document.querySelector('[data-blog-archive]');
     if (!archive) return;
@@ -118,6 +139,7 @@
     var reactionStorageKey = 'postReaction:' + postPath;
     var visitorTokenKey = 'engagementVisitorToken';
     var engagementUnavailable = false;
+    var engagementStatsRequest = null;
     var commenterNameKey = 'commenterName';
     var commenterEmailKey = 'commenterEmail';
 
@@ -186,8 +208,16 @@
         });
       }).catch(function (error) {
         engagementUnavailable = true;
+        if (action === 'get') engagementStatsRequest = null;
         throw error;
       });
+    }
+
+    function getEngagementStats() {
+      if (!engagementStatsRequest) {
+        engagementStatsRequest = requestEngagement('get', { method: 'GET', query: { path: postPath } });
+      }
+      return engagementStatsRequest;
     }
 
     function formatCount(value) {
@@ -322,7 +352,7 @@
     }
 
     function updateViewCount() {
-      if (!viewCountEl) return;
+      if (!viewCountEl) return getEngagementStats();
       viewCountEl.textContent = '...';
 
       var sessionKey = 'viewed:' + postPath;
@@ -332,7 +362,7 @@
       } catch (e) {}
 
       var request = viewedThisSession ?
-        requestEngagement('get', { method: 'GET', query: { path: postPath } }) :
+        getEngagementStats() :
         requestEngagement('view', {
           method: 'POST',
           body: {
@@ -344,6 +374,7 @@
         });
 
       request.then(function (data) {
+        engagementStatsRequest = Promise.resolve(data);
         viewCountEl.textContent = formatCount(data.views);
         if (!viewedThisSession) {
           try { window.sessionStorage.setItem(sessionKey, '1'); } catch (e) {}
@@ -351,6 +382,8 @@
       }).catch(function () {
         viewCountEl.textContent = engagementApi ? 'Offline' : 'Setup needed';
       });
+
+      return request;
     }
 
     function setReactionButtonsDisabled(message) {
@@ -361,7 +394,26 @@
       setFeedback(reactionFeedback, message, true);
     }
 
-    function updateReactionButtons() {
+    function renderReactionButtons(data) {
+      var reactions = data.reactions || {};
+      var savedReaction = '';
+      try {
+        savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
+      } catch (e) {}
+
+      root.querySelectorAll('[data-reaction]').forEach(function (button) {
+        var reaction = button.getAttribute('data-reaction');
+        button.classList.toggle('is-selected', reaction === savedReaction);
+        button.disabled = false;
+        button.classList.remove('is-disabled');
+        var countEl = button.querySelector('[data-reaction-count]');
+        if (countEl) {
+          countEl.textContent = formatCount(reactions[reaction]);
+        }
+      });
+    }
+
+    function updateReactionButtons(statsRequest) {
       if (!engagementApi) {
         setReactionButtonsDisabled('Set engagement_api_base in _config.yml to enable reactions.');
         return;
@@ -372,23 +424,8 @@
         return;
       }
 
-      var savedReaction = '';
-      try {
-        savedReaction = window.localStorage.getItem(reactionStorageKey) || '';
-      } catch (e) {}
-
-      requestEngagement('get', { method: 'GET', query: { path: postPath } }).then(function (data) {
-        var reactions = data.reactions || {};
-        root.querySelectorAll('[data-reaction]').forEach(function (button) {
-          var reaction = button.getAttribute('data-reaction');
-          button.classList.toggle('is-selected', reaction === savedReaction);
-          button.disabled = false;
-          button.classList.remove('is-disabled');
-          var countEl = button.querySelector('[data-reaction-count]');
-          if (countEl) {
-            countEl.textContent = formatCount(reactions[reaction]);
-          }
-        });
+      (statsRequest || getEngagementStats()).then(function (data) {
+        renderReactionButtons(data);
       }).catch(function () {
         setReactionButtonsDisabled('Reactions are temporarily unavailable because the engagement API cannot be reached.');
       });
@@ -421,11 +458,8 @@
             }
           }).then(function (data) {
             try { window.localStorage.setItem(reactionStorageKey, reaction); } catch (e) {}
-            var countEl = button.querySelector('[data-reaction-count]');
-            if (countEl) {
-              countEl.textContent = formatCount(data.reactions && data.reactions[reaction]);
-            }
-            updateReactionButtons();
+            engagementStatsRequest = Promise.resolve(data);
+            renderReactionButtons(data);
             setFeedback(reactionFeedback, 'Reaction saved: ' + emoji, false);
           }).catch(function () {
             setReactionButtonsDisabled('Reactions are temporarily unavailable because the engagement API cannot be reached.');
@@ -474,10 +508,10 @@
     }
 
     syncMetadata();
-    updateViewCount();
+    var statsRequest = updateViewCount();
     bindShareActions();
     bindReactions();
-    updateReactionButtons();
+    updateReactionButtons(statsRequest);
     loadComments();
     bindComments();
   }
@@ -641,6 +675,7 @@
   }
 
   bindImageFallbacks();
+  initDeferredVideos();
   initBlogArchive();
   initPostEngagement();
   initContactForm();
