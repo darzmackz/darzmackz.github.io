@@ -50,13 +50,21 @@ defaults:
       image: "/assets/images/logo.png"
 
 exclude:
+  - .env
+  - .env.*
   - Gemfile
   - Gemfile.lock
   - README.md
   - .gitignore
+  - "*.sql"
+  - "*.log"
+  - "*.bak"
+  - "*.backup"
+  - "*.tmp"
   - server
   - scripts
   - vendor
+  - node_modules
 
 google_adsense_enabled: true
 google_adsense_publisher_id: "ca-pub-9496975311042369"

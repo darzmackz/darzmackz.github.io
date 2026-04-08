@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /server/
+Disallow: /scripts/
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.env$
+Disallow: /*.log$
+Disallow: /*.bak$
+Disallow: /*.backup$
+Disallow: /*.tmp$
 Sitemap: https://darzmackz.github.io/sitemap.xml
