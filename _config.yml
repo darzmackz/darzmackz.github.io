@@ -58,6 +58,7 @@ exclude:
 
 google_adsense_enabled: true
 google_adsense_publisher_id: "ca-pub-9496975311042369"
+google_funding_choices_enabled: true
 google_adsense_post_slot_id: ""
 google_adsense_header_slot_id: ""
 google_adsense_footer_slot_id: ""

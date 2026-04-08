@@ -1,5 +1,11 @@
 (function () {
   var html = document.documentElement;
+  var consentState = null;
+  var consentStorageKey = 'siteConsent:v1';
+
+  function usesFundingChoices() {
+    return document.body.getAttribute('data-funding-choices') === 'true';
+  }
 
   function bindImageFallbacks() {
     document.querySelectorAll('[data-image-error="hide"]').forEach(function (img) {
@@ -677,6 +683,55 @@
     });
   }
 
+  var adsLoaded = false;
+  function loadAdsense() {
+    var adsClient = document.body.getAttribute('data-adsense-client') || '';
+    if (!adsClient || adsLoaded) return;
+    if (!usesFundingChoices() && !readConsentState().ads) return;
+    adsLoaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsClient);
+    script.crossOrigin = 'anonymous';
+    script.addEventListener('load', function () {
+      queueAdsenseSlots();
+      window.setTimeout(checkAdblockRecovery, 1800);
+    }, { once: true });
+    script.addEventListener('error', function () {
+      showAdblockRecovery();
+    }, { once: true });
+    document.head.appendChild(script);
+  }
+
+  function showAdblockRecovery() {
+    if (!usesFundingChoices() && !readConsentState().ads) return;
+    var recovery = document.querySelector('[data-adblock-recovery]');
+    if (!recovery) return;
+    try {
+      if (window.sessionStorage.getItem('adblockRecoveryDismissed') === '1') return;
+    } catch (e) {}
+    recovery.hidden = false;
+  }
+
+  function checkAdblockRecovery() {
+    if (!usesFundingChoices() && !readConsentState().ads) return;
+    var hasSlots = Boolean(document.querySelector('.adsbygoogle'));
+    var stillPending = Boolean(document.querySelector('.adsbygoogle[data-ads-slot-state="queued"], .adsbygoogle[data-ads-slot-state="pending"]'));
+    if (hasSlots && stillPending) showAdblockRecovery();
+  }
+
+  function initAdblockRecovery() {
+    var recovery = document.querySelector('[data-adblock-recovery]');
+    if (!recovery) return;
+    var dismiss = recovery.querySelector('[data-adblock-dismiss]');
+    if (dismiss) {
+      dismiss.addEventListener('click', function () {
+        recovery.hidden = true;
+        try { window.sessionStorage.setItem('adblockRecoveryDismissed', '1'); } catch (e) {}
+      });
+    }
+  }
+
   function scheduleIdleTask(callback, timeout) {
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(callback, { timeout: timeout || 3000 });
@@ -685,13 +740,134 @@
     }
   }
 
+  function defaultConsentState() {
+    return {
+      essential: true,
+      analytics: false,
+      ads: false,
+      savedAt: ''
+    };
+  }
+
+  function readConsentState() {
+    if (consentState) return consentState;
+    try {
+      var stored = window.localStorage.getItem(consentStorageKey);
+      if (stored) {
+        consentState = Object.assign(defaultConsentState(), JSON.parse(stored));
+        return consentState;
+      }
+    } catch (e) {}
+    consentState = defaultConsentState();
+    return consentState;
+  }
+
+  function hasStoredConsent() {
+    try {
+      return Boolean(window.localStorage.getItem(consentStorageKey));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function writeConsentState(nextState) {
+    consentState = Object.assign(defaultConsentState(), nextState, {
+      essential: true,
+      savedAt: new Date().toISOString()
+    });
+    try {
+      window.localStorage.setItem(consentStorageKey, JSON.stringify(consentState));
+    } catch (e) {}
+    applyConsentState(consentState);
+    return consentState;
+  }
+
+  function applyConsentState(state) {
+    var nextState = state || readConsentState();
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'update', {
+      ad_storage: nextState.ads ? 'granted' : 'denied',
+      ad_user_data: nextState.ads ? 'granted' : 'denied',
+      ad_personalization: nextState.ads ? 'granted' : 'denied',
+      analytics_storage: nextState.analytics ? 'granted' : 'denied'
+    });
+    window.dispatchEvent(new CustomEvent('site-consent-change', { detail: nextState }));
+  }
+
+  function initConsentManagement() {
+    var panel = document.querySelector('[data-consent-panel]');
+    var options = panel ? panel.querySelector('[data-consent-options]') : null;
+    var saveButton = panel ? panel.querySelector('[data-consent-action="save"]') : null;
+    var analyticsInput = panel ? panel.querySelector('[data-consent-input="analytics"]') : null;
+    var adsInput = panel ? panel.querySelector('[data-consent-input="ads"]') : null;
+    var stored = hasStoredConsent();
+    var state = readConsentState();
+
+    applyConsentState(state);
+
+    function syncInputs() {
+      if (analyticsInput) analyticsInput.checked = Boolean(readConsentState().analytics);
+      if (adsInput) adsInput.checked = Boolean(readConsentState().ads);
+    }
+
+    function showPanel(showOptions) {
+      if (!panel) return;
+      syncInputs();
+      panel.hidden = false;
+      if (options) options.hidden = !showOptions;
+      if (saveButton) saveButton.hidden = !showOptions;
+    }
+
+    function hidePanel() {
+      if (panel) panel.hidden = true;
+    }
+
+    if (panel) {
+      panel.addEventListener('click', function (event) {
+        var actionButton = event.target.closest('[data-consent-action]');
+        if (!actionButton) return;
+        var action = actionButton.getAttribute('data-consent-action');
+
+        if (action === 'accept') {
+          writeConsentState({ analytics: true, ads: true });
+          hidePanel();
+          loadMarketingScripts();
+          loadAdsense();
+        } else if (action === 'reject') {
+          writeConsentState({ analytics: false, ads: false });
+          hidePanel();
+        } else if (action === 'customize') {
+          showPanel(true);
+        } else if (action === 'save') {
+          writeConsentState({
+            analytics: Boolean(analyticsInput && analyticsInput.checked),
+            ads: Boolean(adsInput && adsInput.checked)
+          });
+          hidePanel();
+          loadMarketingScripts();
+          loadAdsense();
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-consent-open]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        showPanel(true);
+      });
+    });
+
+    if (!stored && !usesFundingChoices()) showPanel(false);
+  }
+
   function loadMarketingScripts() {
     var gtmId = document.body.getAttribute('data-gtm-id') || '';
     var gaId = document.body.getAttribute('data-ga-id') || '';
+    var consent = readConsentState();
 
     window.dataLayer = window.dataLayer || [];
 
-    if (gaId && !window.__gaLoaded) {
+    if (gaId && consent.analytics && !window.__gaLoaded) {
       window.__gaLoaded = true;
       window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
       window.gtag('js', new Date());
@@ -703,7 +879,7 @@
       document.head.appendChild(gaScript);
     }
 
-    if (gtmId && !window.__gtmLoaded) {
+    if (gtmId && (consent.analytics || consent.ads) && !window.__gtmLoaded) {
       window.__gtmLoaded = true;
       window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
 
@@ -756,7 +932,7 @@
       if (!Object.keys(metrics).length) return;
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'web_vitals', web_vitals: metrics });
-      if (typeof window.gtag === 'function') {
+      if (readConsentState().analytics && typeof window.gtag === 'function') {
         Object.keys(metrics).forEach(function (name) {
           window.gtag('event', name, {
             event_category: 'Web Vitals',
@@ -857,6 +1033,8 @@
   initPostEngagement();
   initContactForm();
   initWebVitalsReporting();
+  initAdblockRecovery();
+  initConsentManagement();
 
   window.addEventListener('load', function () {
     scheduleIdleTask(loadMarketingScripts, 3000);
@@ -868,19 +1046,6 @@
 
   var adsClient = document.body.getAttribute('data-adsense-client');
   if (adsClient) {
-    var adsLoaded = false;
-
-    function loadAdsense() {
-      if (adsLoaded) return;
-      adsLoaded = true;
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsClient);
-      script.crossOrigin = 'anonymous';
-      script.addEventListener('load', queueAdsenseSlots, { once: true });
-      document.head.appendChild(script);
-    }
-
     function scheduleAdsense() {
       scheduleIdleTask(loadAdsense, 4000);
     }
