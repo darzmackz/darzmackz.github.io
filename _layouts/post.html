@@ -7,12 +7,13 @@ layout: default
   {% assign read_minutes = 1 %}
 {% endif %}
 {% assign youtube_id = page.youtube_id | default: '' | strip %}
+{% assign youtube_video_id = youtube_id | split: '?' | first | split: '&' | first %}
 {% capture post_video_embed %}
   {% if youtube_id != '' %}
   <div class="video-wrapper video-wrapper-deferred" data-youtube-embed data-youtube-src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}">
     <button class="video-placeholder" type="button" aria-label="Load video: {{ page.title | escape }}">
+      <img src="https://i.ytimg.com/vi/{{ youtube_video_id }}/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" data-image-error="hide">
       <span class="video-play-mark" aria-hidden="true"></span>
-      <span class="video-placeholder-text">Play Video</span>
     </button>
     <noscript>
       <iframe

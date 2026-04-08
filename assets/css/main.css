@@ -661,30 +661,58 @@ ul, ol {
 .video-placeholder {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-content: center;
-  gap: var(--spacing-sm);
+  display: block;
   width: 100%;
   height: 100%;
   border: 0;
   background: #0f172a;
-  color: #f8fafc;
   cursor: pointer;
+  padding: 0;
 }
 
 .video-placeholder:hover,
 .video-placeholder:focus-visible {
-  background: #111827;
+  background: #0f172a;
+}
+
+.video-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.34));
+  transition: background 0.2s ease;
+}
+
+.video-placeholder:hover::after,
+.video-placeholder:focus-visible::after {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.24));
 }
 
 .video-play-mark {
   display: inline-block;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 52px;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   background: #ef4444;
-  position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-placeholder:hover .video-play-mark,
+.video-placeholder:focus-visible .video-play-mark {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: #dc2626;
 }
 
 .video-play-mark::after {
@@ -696,10 +724,6 @@ ul, ol {
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
   border-left: 22px solid #fff;
-}
-
-.video-placeholder-text {
-  font-weight: 700;
 }
 
 .post-content {
