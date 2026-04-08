@@ -8,16 +8,20 @@ layout: default
 {% endif %}
 {% assign youtube_id = page.youtube_id | default: '' | strip %}
 {% assign youtube_video_id = youtube_id | split: '?' | first | split: '&' | first %}
+{% assign has_inline_youtube = false %}
+{% if content contains 'youtube.com/embed' or content contains 'youtube-nocookie.com/embed' %}
+  {% assign has_inline_youtube = true %}
+{% endif %}
 {% capture post_video_embed %}
-  {% if youtube_id != '' %}
-  <div class="video-wrapper video-wrapper-deferred" data-youtube-embed data-youtube-src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}">
+  {% if youtube_video_id != '' and has_inline_youtube == false %}
+  <div class="video-wrapper video-wrapper-deferred" data-youtube-embed data-youtube-src="https://www.youtube-nocookie.com/embed/{{ youtube_video_id }}">
     <button class="video-placeholder" type="button" aria-label="Load video: {{ page.title | escape }}">
-      <img src="https://i.ytimg.com/vi/{{ youtube_video_id }}/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" data-image-error="hide">
+      <img src="https://i.ytimg.com/vi/{{ youtube_video_id }}/maxresdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" data-image-error="youtube-thumbnail">
       <span class="video-play-mark" aria-hidden="true"></span>
     </button>
     <noscript>
       <iframe
-        src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}"
+        src="https://www.youtube-nocookie.com/embed/{{ youtube_video_id }}"
         title="{{ page.title }}"
         loading="lazy"
         frameborder="0"

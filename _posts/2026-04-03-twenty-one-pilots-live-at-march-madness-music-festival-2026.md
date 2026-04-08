@@ -4,7 +4,7 @@ title: "Twenty One Pilots Live at March Madness Music Festival 2026"
 date: "2026-04-03 12:00:00 +0800"
 categories: [music festival, live, youtube]
 tags: [twenty one pilots, march madness music festival, at&t block party, ncaa, live performance]
-youtube_id: "q9jf_WaZ1xo?start=736"
+youtube_id: "q9jf_WaZ1xo"
 description: "Watch Twenty One Pilots live at the 2026 NCAA March Madness Music Festival AT&T Block Party in Indianapolis, with a focused guide to their headline performance at American Legion Mall."
 seo_title: "Twenty One Pilots Live at March Madness Music Festival 2026 | AT&T Block Party"
 social_image: "/assets/images/top-discography/band-2022.jpg"
