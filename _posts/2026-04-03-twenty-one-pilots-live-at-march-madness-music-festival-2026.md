@@ -12,11 +12,6 @@ status: "published"
 published: true
 ---
 
-<figure>
-  <img src="/assets/images/top-discography/band-2022.jpg" alt="Twenty One Pilots performing live" style="display:block;margin:1.25rem auto;border-radius:8px;max-width:100%;width:900px;" />
-  <figcaption style="text-align:center;font-size:0.95rem;">Twenty One Pilots brought their festival-scale live energy to the 2026 March Madness Music Festival weekend in Indianapolis.</figcaption>
-</figure>
-
 <div style="display:grid;gap:0.9rem;margin:1.5rem 0;padding:1rem;border:1px solid rgba(148,163,184,0.28);border-radius:8px;background:#0f172a;color:#f8fafc;">
   <div style="display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;justify-content:space-between;">
     <span style="display:inline-flex;align-items:center;min-height:34px;padding:0.35rem 0.65rem;border:1px solid rgba(248,250,252,0.26);border-radius:8px;font-size:0.9rem;font-weight:700;">AT&amp;T Block Party</span>
@@ -28,6 +23,11 @@ published: true
   </div>
   <p style="margin:0;color:#cbd5e1;">A focused watch guide for Tyler Joseph and Josh Dun's March Madness Music Festival set, built around the live performance video and the songs that shaped the night.</p>
 </div>
+
+<figure>
+  <img src="/assets/images/top-discography/band-2022.jpg" alt="Twenty One Pilots performing live" style="display:block;margin:1.25rem auto;border-radius:8px;max-width:100%;width:900px;" />
+  <figcaption style="text-align:center;font-size:0.95rem;">Twenty One Pilots brought their festival-scale live energy to the 2026 March Madness Music Festival weekend in Indianapolis.</figcaption>
+</figure>
 
 ## Twenty One Pilots - March Madness Music Festival 2026
 
