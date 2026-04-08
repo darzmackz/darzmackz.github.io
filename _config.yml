@@ -54,6 +54,8 @@ exclude:
   - Gemfile.lock
   - README.md
   - .gitignore
+  - server
+  - scripts
   - vendor
 
 google_adsense_enabled: true
