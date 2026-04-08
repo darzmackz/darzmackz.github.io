@@ -61,6 +61,21 @@ exclude:
   - "*.bak"
   - "*.backup"
   - "*.tmp"
+  - "*.key"
+  - "*.pem"
+  - "*.crt"
+  - "*.p12"
+  - "*.pfx"
+  - "*.zip"
+  - "*.tar"
+  - "*.tar.gz"
+  - "*.tgz"
+  - "*.7z"
+  - "*.rar"
+  - "*.sh"
+  - "*.ps1"
+  - "*.bat"
+  - "*.cmd"
   - server
   - scripts
   - vendor
