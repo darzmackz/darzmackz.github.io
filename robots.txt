@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /robots.txt
+Allow: /sitemap.xml
 Disallow: /admin/
 Disallow: /server/
 Disallow: /scripts/
