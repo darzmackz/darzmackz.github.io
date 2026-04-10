@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Allow: /robots.txt
 Allow: /sitemap.xml
+Allow: /sitemap/
+Allow: /sitemap/sitemap.xml
 Disallow: /admin/
 Disallow: /server/
 Disallow: /scripts/
@@ -27,4 +29,4 @@ Disallow: /*.sh$
 Disallow: /*.ps1$
 Disallow: /*.bat$
 Disallow: /*.cmd$
-Sitemap: https://darzmackz.github.io/sitemap.xml
+Sitemap: https://darzmackz.github.io/sitemap/sitemap.xml

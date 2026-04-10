@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /sitemap/sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% assign sitemap_pages = site.pages | where_exp: "item", "item.sitemap != false and item.noindex != true and item.name != '404.html' and item.url != '/sitemap.xml' and item.url != '/sitemap/sitemap.xml' and item.url != '/admin/'" %}
+{% for item in sitemap_pages %}
+  <url>
+    <loc>{{ item.url | absolute_url }}</loc>
+  </url>
+{% endfor %}
+{% assign sitemap_posts = site.posts | where_exp: "post", "post.published != false" %}
+{% for post in sitemap_posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+  </url>
+{% endfor %}
+</urlset>
