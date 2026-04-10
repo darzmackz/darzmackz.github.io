@@ -7,7 +7,11 @@ sitemap: false
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% assign sitemap_pages = site.pages | where_exp: "item", "item.sitemap != false and item.noindex != true and item.name != '404.html' and item.url != '/sitemap.xml' and item.url != '/sitemap/sitemap.xml'" %}
+  {% assign sitemap_pages = site.pages | where_exp: "item", "item.sitemap != false" %}
+  {% assign sitemap_pages = sitemap_pages | where_exp: "item", "item.noindex != true" %}
+  {% assign sitemap_pages = sitemap_pages | where_exp: "item", "item.name != '404.html'" %}
+  {% assign sitemap_pages = sitemap_pages | where_exp: "item", "item.url != '/sitemap.xml'" %}
+  {% assign sitemap_pages = sitemap_pages | where_exp: "item", "item.url != '/sitemap/sitemap.xml'" %}
   {% for item in sitemap_pages %}
     <url>
       <loc>{{ item.url | absolute_url }}</loc>
