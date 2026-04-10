@@ -29,4 +29,5 @@ Disallow: /*.sh$
 Disallow: /*.ps1$
 Disallow: /*.bat$
 Disallow: /*.cmd$
+Sitemap: https://darzmackz.github.io/sitemap.xml
 Sitemap: https://darzmackz.github.io/sitemap/sitemap.xml
