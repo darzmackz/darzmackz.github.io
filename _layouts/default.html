@@ -33,8 +33,12 @@
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
-  {% if page.layout == 'post' and page.youtube_id %}
+  {% assign page_youtube_id = page.youtube_id | default: '' | strip | split: '?' | first | split: '&' | first %}
+  {% assign page_youtube_id_length = page_youtube_id | size %}
+  {% if page.layout == 'post' %}
+  {% if page_youtube_id_length > 0 %}
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+  {% endif %}
   {% endif %}
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
   <link rel="dns-prefetch" href="//www.google-analytics.com" />
