@@ -28,7 +28,7 @@ published: true
   </video>
 </div>
 
-<p><a href="https://regencydrive.crownregency.net/index.php/s/BINI" target="_blank" rel="noopener">Open the Nextcloud share page in a new tab if the embedded player does not load</a></p>
+<p><a href="https://regencydrive.crownregency.net/index.php/s/BINI" target="_blank" rel="noopener">Open CrownDrive page in a new tab if the embedded player does not load</a></p>
 
 The global music stage witnessed a historic milestone as **BINI** performed live at Coachella 2026, marking the first time a Filipino girl group graced one of the world's most influential music festivals.
 

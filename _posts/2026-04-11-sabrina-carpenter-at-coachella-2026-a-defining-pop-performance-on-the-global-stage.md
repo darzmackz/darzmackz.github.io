@@ -28,7 +28,7 @@ published: true
   </video>
 </div>
 
-<p><a href="https://regencydrive.crownregency.net/index.php/s/SABRINA" target="_blank" rel="noopener">Open the Nextcloud share page in a new tab if the embedded player does not load</a></p>
+<p><a href="https://regencydrive.crownregency.net/index.php/s/SABRINA" target="_blank" rel="noopener">Open the CrownDrive share page in a new tab if the embedded player does not load</a></p>
 
 The global stage welcomed a commanding performance from **Sabrina Carpenter** at Coachella 2026, further solidifying her position as one of the leading voices in modern pop music.
 
