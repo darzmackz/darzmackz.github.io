@@ -13,6 +13,8 @@ const POST_ACTIONS = [
     'admin-delete-inquiry',
     'admin-add-inquiry-comment',
     'admin-reply-inquiry',
+    'admin-upsert-site-post',
+    'admin-delete-site-post',
     'admin-sync-site-data',
 ];
 const ALL_ACTIONS = [
@@ -31,6 +33,8 @@ const ALL_ACTIONS = [
     'admin-delete-inquiry',
     'admin-add-inquiry-comment',
     'admin-reply-inquiry',
+    'admin-upsert-site-post',
+    'admin-delete-site-post',
     'admin-sync-site-data',
 ];
 
@@ -369,6 +373,46 @@ try {
             'delivery' => $delivery,
             'inquiry' => fetchInquiryDetail($pdo, $inquiryId, $config),
         ]);
+    }
+
+    if ($action === 'admin-upsert-site-post') {
+        assertAdminAuthorized($config);
+        ensureRateLimit($pdo, $config, 'admin-upsert-site-post', clientFingerprint(), 3600, 240);
+
+        $posts = normalizeContentItemsPayload([$input['post'] ?? null], 'post');
+        if (!$posts) {
+            respond(400, ['ok' => false, 'error' => 'Missing or invalid post payload']);
+        }
+
+        $post = $posts[0];
+        upsertSiteContentItem($pdo, $post);
+        syncPostMetadataFromContentItem($pdo, $post);
+        logAuditEvent($pdo, 'admin_site_post_upserted', [
+            'item_key' => $post['item_key'],
+            'item_path' => $post['item_path'],
+            'status' => $post['status'],
+        ], 'admin');
+        respond(200, ['ok' => true, 'message' => 'Post database record updated.']);
+    }
+
+    if ($action === 'admin-delete-site-post') {
+        assertAdminAuthorized($config);
+        ensureRateLimit($pdo, $config, 'admin-delete-site-post', clientFingerprint(), 3600, 120);
+
+        $itemKey = slugifySnapshotKey((string)($input['key'] ?? $input['name'] ?? ''));
+        $itemPath = normalizePath((string)($input['path'] ?? ''));
+        $sitePath = normalizePath((string)($input['site_path'] ?? ''));
+        if ($itemKey === '' && $itemPath === '' && $sitePath === '') {
+            respond(400, ['ok' => false, 'error' => 'Missing post identifier']);
+        }
+
+        deleteSitePostData($pdo, $itemKey, $itemPath, $sitePath);
+        logAuditEvent($pdo, 'admin_site_post_deleted', [
+            'item_key' => $itemKey,
+            'item_path' => $itemPath,
+            'site_path' => $sitePath,
+        ], 'admin');
+        respond(200, ['ok' => true, 'message' => 'Post database record deleted.']);
     }
 
     if ($action === 'admin-sync-site-data') {
@@ -1398,6 +1442,101 @@ function replaceSiteContentItems(PDO $pdo, string $type, array $items): void
             ':meta_json' => json_encode($item['meta'], JSON_UNESCAPED_SLASHES),
             ':search_text' => $item['search_text'],
         ]);
+    }
+}
+
+function upsertSiteContentItem(PDO $pdo, array $item): void
+{
+    $statement = $pdo->prepare(
+        'INSERT INTO site_content_items (item_type, item_key, item_path, item_url, title, status, published_at, sort_order, word_count, meta_json, search_text, indexed_at)
+         VALUES (:item_type, :item_key, :item_path, :item_url, :title, :status, :published_at, :sort_order, :word_count, :meta_json, :search_text, CURRENT_TIMESTAMP)
+         ON DUPLICATE KEY UPDATE
+         item_path = VALUES(item_path),
+         item_url = VALUES(item_url),
+         title = VALUES(title),
+         status = VALUES(status),
+         published_at = VALUES(published_at),
+         sort_order = VALUES(sort_order),
+         word_count = VALUES(word_count),
+         meta_json = VALUES(meta_json),
+         search_text = VALUES(search_text),
+         indexed_at = CURRENT_TIMESTAMP'
+    );
+
+    $statement->execute([
+        ':item_type' => $item['item_type'],
+        ':item_key' => $item['item_key'],
+        ':item_path' => $item['item_path'],
+        ':item_url' => $item['item_url'],
+        ':title' => $item['title'],
+        ':status' => $item['status'],
+        ':published_at' => $item['published_at'],
+        ':sort_order' => $item['sort_order'],
+        ':word_count' => $item['word_count'],
+        ':meta_json' => json_encode($item['meta'], JSON_UNESCAPED_SLASHES),
+        ':search_text' => $item['search_text'],
+    ]);
+}
+
+function syncPostMetadataFromContentItem(PDO $pdo, array $item): void
+{
+    $meta = is_array($item['meta'] ?? null) ? $item['meta'] : [];
+    $path = normalizePath((string)($meta['site_path'] ?? $item['item_path'] ?? ''));
+    if ($path === '') {
+        return;
+    }
+
+    $title = limitString(normalizeText((string)($item['title'] ?? '')), 255);
+    $url = normalizePageUrl((string)($item['item_url'] ?? ''));
+    $description = limitString(normalizeText((string)($meta['description'] ?? '')), 5000);
+    $publishedAt = normalizeDateTime((string)($item['published_at'] ?? ($meta['date'] ?? '')));
+    $categories = normalizeStringArray($meta['categories'] ?? []);
+    $tags = normalizeStringArray($meta['tags'] ?? []);
+
+    ensureTotalsRow($pdo, $path, $title, $url);
+    upsertPostMetadata($pdo, [
+        'path' => $path,
+        'title' => $title,
+        'url' => $url,
+        'description' => $description,
+        'published_at' => $publishedAt,
+        'categories' => $categories,
+        'tags' => $tags,
+    ]);
+}
+
+function deleteSitePostData(PDO $pdo, string $itemKey, string $itemPath, string $sitePath): void
+{
+    $pdo->beginTransaction();
+    try {
+        if ($itemKey !== '') {
+            $deleteItem = $pdo->prepare('DELETE FROM site_content_items WHERE item_type = :item_type AND item_key = :item_key');
+            $deleteItem->execute([
+                ':item_type' => 'post',
+                ':item_key' => $itemKey,
+            ]);
+        }
+
+        $paths = array_values(array_unique(array_filter([$itemPath, $sitePath])));
+        if ($paths) {
+            $pathPlaceholders = implode(', ', array_fill(0, count($paths), '?'));
+            foreach ([
+                'DELETE FROM post_metadata WHERE post_path IN (' . $pathPlaceholders . ')',
+                'DELETE FROM post_engagement_totals WHERE post_path IN (' . $pathPlaceholders . ')',
+                'DELETE FROM post_engagement_views WHERE post_path IN (' . $pathPlaceholders . ')',
+                'DELETE FROM post_engagement_reactions WHERE post_path IN (' . $pathPlaceholders . ')',
+                'DELETE FROM post_comments WHERE post_path IN (' . $pathPlaceholders . ')',
+                'DELETE FROM site_content_items WHERE item_type = "post" AND item_path IN (' . $pathPlaceholders . ')',
+            ] as $sql) {
+                $statement = $pdo->prepare($sql);
+                $statement->execute($paths);
+            }
+        }
+
+        $pdo->commit();
+    } catch (Throwable $e) {
+        rollbackIfNeeded($pdo);
+        throw $e;
     }
 }
 
