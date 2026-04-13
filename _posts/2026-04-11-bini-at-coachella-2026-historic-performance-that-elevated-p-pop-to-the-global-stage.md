@@ -12,28 +12,23 @@ published: true
 
 ## BINI at Coachella 2026: A Defining Moment for P-pop
 
-<p>
-  <img
-    src="{{ '/assets/images/coachella-2026/BINI-thumb.png' | relative_url }}"
-    alt="BINI at Coachella 2026 thumbnail"
-    loading="lazy"
-    style="display: block; width: 100%; max-width: 760px; margin: 0 auto 1rem; border-radius: 1rem; background: #0f172a; object-fit: contain;"
-  >
-</p>
-
 <div class="video-wrapper">
-  <iframe
-    src="https://regencydrive.crownregency.net/index.php/s/BINI"
-    title="BINI at Coachella 2026 video"
-    loading="lazy"
-    frameborder="0"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen
-  ></iframe>
+  <video
+    data-v-74a71570=""
+    autoplay
+    controls
+    controlslist="nodownload"
+    playsinline
+    src="https://regencydrive.crownregency.net/public.php/dav/files/BINI/"
+    preload="metadata"
+    poster="{{ '/assets/images/coachella-2026/BINI-thumb.png' | relative_url }}"
+    style="width: 100%; height: 100%; background: #0f172a; object-fit: contain;"
+  >
+    Your browser does not support HTML5 video.
+  </video>
 </div>
 
-<p><a href="https://regencydrive.crownregency.net/index.php/s/BINI" target="_blank" rel="noopener">Open the Nextcloud share page in a new tab if the embed does not load</a></p>
+<p><a href="https://regencydrive.crownregency.net/index.php/s/BINI" target="_blank" rel="noopener">Open the Nextcloud share page in a new tab if the embedded player does not load</a></p>
 
 The global music stage witnessed a historic milestone as **BINI** performed live at Coachella 2026, marking the first time a Filipino girl group graced one of the world's most influential music festivals.
 
