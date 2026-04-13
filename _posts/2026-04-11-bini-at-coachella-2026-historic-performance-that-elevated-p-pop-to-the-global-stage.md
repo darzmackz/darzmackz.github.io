@@ -14,6 +14,8 @@ published: true
 
 <video data-v-74a71570="" autoplay="autoplay" playsinline="true" src="https://regencydrive.crownregency.net/public.php/dav/files/BINI/" preload="metadata" style="height: 446px; width: 792px;"> Your browser does not support videos. </video>
 
+<iframe width="100%" height="400" src="https://regencydrive.crownregency.net/public.php/dav/files/BINI/" frameborder="0" allowfullscreen></iframe>
+
 The global music stage witnessed a historic milestone as **BINI** performed live at Coachella 2026, marking the first time a Filipino girl group graced one of the world’s most influential music festivals.
 
 This moment represents more than just a performance—it signals the continued rise of **P-pop** and the growing global recognition of Filipino talent.
