@@ -33,6 +33,9 @@
   <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" />
+  {% if page.video_poster and page.video_poster != '' %}
+  <link rel="preload" href="{{ page.video_poster | relative_url }}" as="image" fetchpriority="high" />
+  {% endif %}
   {% assign page_youtube_id = page.youtube_id | default: '' | strip | split: '?' | first | split: '&' | first %}
   {% assign page_youtube_id_length = page_youtube_id | size %}
   {% if page.layout == 'post' %}

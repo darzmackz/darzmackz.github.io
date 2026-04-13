@@ -6,6 +6,7 @@ categories: [music, concert, live-performance]
 tags: [BINI, BINI Coachella 2026, PPOP, OPM, Filipino girl group, Coachella performance, Pantropiko, Karera, Shagidi, BINI live, BINI global, PPOP rise, Filipino pride, live concert, music festival, Coachella 2026]
 description: "BINI makes history at Coachella 2026 as the first Filipino girl group to perform on the global stage, showcasing P-pop excellence through a powerful and high-energy live set."
 seo_title: "BINI Coachella 2026 Performance - First Filipino Girl Group to Perform Live"
+video_poster: "/assets/images/coachella-2026/BINI-thumb.png"
 status: "published"
 published: true
 ---
@@ -21,7 +22,7 @@ published: true
     playsinline
     src="https://regencydrive.crownregency.net/public.php/dav/files/BINI/"
     preload="metadata"
-    poster="{{ '/assets/images/coachella-2026/BINI-thumb.png' | relative_url }}"
+    poster="{{ page.video_poster | relative_url }}"
     style="width: 100%; height: 100%; background: #0f172a; object-fit: contain;"
   >
     Your browser does not support HTML5 video.
@@ -42,7 +43,8 @@ BINI delivered a high-energy set filled with precision, confidence, and artistry
 
 - Pantropiko
 - Karera
-- Shagidi
+- Blush
+- and much more
 
 Each song showcased their signature blend of synchronized choreography and strong live vocals, drawing attention from both international audiences and media outlets.
 
