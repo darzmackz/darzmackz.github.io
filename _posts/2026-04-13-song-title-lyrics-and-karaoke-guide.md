@@ -5,8 +5,8 @@ date: "2026-04-13 12:00:00 +0800"
 categories: [music, lyrics, karaoke]
 tags: [lyrics, karaoke, music]
 description: "A clear and useful introduction to the song, lyrics, and karaoke angle."
-status: "draft"
-published: false
+status: "published"
+published: true
 ---
 
 ## Song Overview
