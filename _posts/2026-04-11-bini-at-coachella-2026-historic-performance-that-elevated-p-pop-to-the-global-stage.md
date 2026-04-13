@@ -16,7 +16,6 @@ published: true
 <div class="video-wrapper">
   <video
     data-v-74a71570=""
-    autoplay
     controls
     controlslist="nodownload"
     playsinline
