@@ -9,6 +9,10 @@ description: "Experience 'Hated (Acoustic)' by Beartooth with both lyrics and ka
 seo_title: "Beartooth - Hated (Acoustic) | METAXENOPY.YT | Lyrics & Karaoke Version"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

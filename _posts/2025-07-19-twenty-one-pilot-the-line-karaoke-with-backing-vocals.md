@@ -9,6 +9,10 @@ description: "Sing along to 'The Line' by Twenty One Pilots with this karaoke ve
 seo_title: "Twenty One Pilot - The Line (Karaoke with Backing Vocals) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 # Twenty One Pilot - The Line (Karaoke with Backing Vocals)

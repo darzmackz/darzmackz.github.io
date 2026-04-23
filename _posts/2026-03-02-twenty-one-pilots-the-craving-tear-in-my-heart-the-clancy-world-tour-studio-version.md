@@ -9,6 +9,10 @@ description: "Explore 'The Craving // Tear In My Heart' from The Clancy World To
 seo_title: "Twenty One Pilots - The Craving // Tear In My Heart (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

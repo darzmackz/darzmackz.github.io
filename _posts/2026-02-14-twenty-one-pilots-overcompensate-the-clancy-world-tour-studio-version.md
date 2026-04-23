@@ -9,6 +9,10 @@ description: "Experience 'Overcompensate' from The Clancy World Tour Studio Vers
 seo_title: "Twenty One Pilots - Overcompensate (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

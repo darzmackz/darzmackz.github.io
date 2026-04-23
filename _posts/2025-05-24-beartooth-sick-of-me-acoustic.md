@@ -9,6 +9,10 @@ description: "Experience 'Sick Of Me (Acoustic)' by Beartooth with both lyrics a
 seo_title: "Beartooth - Sick Of Me (Acoustic) | METAXENOPY.YT| Lyrics & Karaoke Version"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

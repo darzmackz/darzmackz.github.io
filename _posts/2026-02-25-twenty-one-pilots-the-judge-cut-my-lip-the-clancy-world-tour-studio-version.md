@@ -9,6 +9,10 @@ description: "Experience 'The Judge // Cut My Lip' from The Clancy World Tour St
 seo_title: "Twenty One Pilots - The Judge // Cut My Lip (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

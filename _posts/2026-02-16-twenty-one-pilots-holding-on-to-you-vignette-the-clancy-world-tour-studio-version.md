@@ -9,6 +9,10 @@ description: "Experience 'Holding On To You / Vignette' from The Clancy World To
 seo_title: "Twenty One Pilots - Holding On To You / Vignette (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

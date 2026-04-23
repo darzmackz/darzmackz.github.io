@@ -9,6 +9,10 @@ description: "Experience 'Car Radio' from The Clancy World Tour Studio Version w
 seo_title: "Twenty One Pilots - Car Radio (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

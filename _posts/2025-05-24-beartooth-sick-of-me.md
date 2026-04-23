@@ -9,6 +9,10 @@ description: "Experience 'Sick of Me' by Beartooth with both lyrics and karaoke 
 seo_title: "Beartooth - Sick of Me | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

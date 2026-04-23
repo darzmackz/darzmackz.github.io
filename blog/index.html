@@ -41,15 +41,17 @@ permalink: /blog/
 </section>
 
 {% assign published_posts = site.posts | where_exp: "post", "post.published != false" %}
-{% if published_posts.size > 0 %}
+{% assign visible_posts = published_posts | where_exp: "post", "post.archive != false and post.noindex != true" %}
+{% assign supplemental_posts = published_posts | where_exp: "post", "post.archive == false or post.noindex == true" %}
+{% if visible_posts.size > 0 %}
 <section class="blog-archive" aria-label="Blog archive" data-blog-archive>
   <div class="blog-tools card">
     <div class="blog-tools-head">
       <div>
         <h2>Browse the Archive</h2>
-        <p class="muted">Search by title, or narrow the archive by year and category.</p>
+        <p class="muted">Search the main archive of original guides, commentary, and reference posts by title, year, and category.</p>
       </div>
-      <p class="blog-results" data-blog-results>{{ published_posts.size }} posts</p>
+      <p class="blog-results" data-blog-results>{{ visible_posts.size }} posts</p>
     </div>
 
     <div class="blog-filters" role="search">
@@ -70,7 +72,7 @@ permalink: /blog/
         <select id="blog-year" name="blog_year" data-blog-filter="year">
           <option value="">All years</option>
           {% assign previous_year = '' %}
-          {% for post in published_posts %}
+          {% for post in visible_posts %}
             {% assign post_year = post.date | date: "%Y" %}
             {% unless post_year == previous_year %}
           <option value="{{ post_year }}">{{ post_year }}</option>
@@ -85,7 +87,7 @@ permalink: /blog/
         <select id="blog-category" name="blog_category" data-blog-filter="category">
           <option value="">All categories</option>
           {% assign seen_categories = '|' %}
-          {% for post in published_posts %}
+          {% for post in visible_posts %}
             {% for category in post.categories %}
               {% assign normalized_category = category | downcase %}
               {% assign category_token = '|' | append: normalized_category | append: '|' %}
@@ -105,7 +107,7 @@ permalink: /blog/
   <p class="blog-empty text-muted is-hidden" data-blog-empty>No posts match the current search and filters.</p>
 
   <ul class="post-list" data-blog-list>
-  {% for post in published_posts %}
+  {% for post in visible_posts %}
   <li
     class="post-list-item"
     data-post-item
@@ -130,6 +132,18 @@ permalink: /blog/
   {% endfor %}
 </ul>
 </section>
+{% if supplemental_posts.size > 0 %}
+<section class="blog-intro-grid" aria-label="Archive curation note">
+  <div class="info-card">
+    <h2>Why Some Pages Are Not Listed Here</h2>
+    <p>Supplemental lyric, karaoke, and watch-note pages can stay available for direct visitors without being part of the main indexed archive. This keeps the public blog focused on pages with stronger standalone value.</p>
+  </div>
+  <div class="info-card">
+    <h2>Main Archive Standard</h2>
+    <p>Posts listed here are the ones intended to stand on their own in search and review. Companion pages for specific uploads are handled more conservatively.</p>
+  </div>
+</section>
+{% endif %}
 {% else %}
 <p class="text-muted">No posts yet. Check back soon for new content.</p>
 {% endif %}

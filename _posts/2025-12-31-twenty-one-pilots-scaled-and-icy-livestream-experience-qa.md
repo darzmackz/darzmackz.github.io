@@ -9,6 +9,10 @@ description: "Go behind the scenes of the Scaled and Icy Livestream Experience w
 seo_title: "Twenty One Pilots - Scaled and Icy Livestream Experience Q&A | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 # Twenty One Pilots - Scaled and Icy Livestream Experience Q&A

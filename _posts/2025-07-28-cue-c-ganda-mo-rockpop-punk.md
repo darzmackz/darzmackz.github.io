@@ -9,6 +9,10 @@ description: "Enjoy 'Ganda Mo' by Cue C in a rock/pop punk style with both lyric
 seo_title: "Cue C - Ganda Mo (Rock/Pop Punk) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

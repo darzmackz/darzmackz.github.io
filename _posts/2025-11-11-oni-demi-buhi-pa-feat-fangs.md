@@ -9,6 +9,10 @@ description: "Watch 'Buhi Pa' by Oni Demi featuring Fangs - a powerful release t
 seo_title: "Oni Demi - Buhi Pa (feat. Fangs) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 # Oni Demi - Buhi Pa (feat. Fangs)

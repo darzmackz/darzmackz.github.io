@@ -9,6 +9,10 @@ description: "Experience 'Disarm' by Silverstein with both lyrics and karaoke ve
 seo_title: "Silverstein - Disarm | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

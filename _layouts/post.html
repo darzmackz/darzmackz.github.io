@@ -59,6 +59,18 @@ layout: default
     {% endif %}
   </header>
 
+  {% if page.noindex %}
+  <section class="post-resource-panel" aria-label="Supplemental article note">
+    <h2>Companion Page</h2>
+    <p>This page supports a specific METAXENOPY upload and stays out of search indexing while the main public archive stays focused on original guides, commentary, and reference pieces.</p>
+    <div class="post-resource-links">
+      <a href="{{ '/blog/' | relative_url }}">Browse the main archive</a>
+      <a href="{{ '/editorial-policy/' | relative_url }}">Read the editorial policy</a>
+      <a href="{{ '/about/' | relative_url }}">About the publisher</a>
+    </div>
+  </section>
+  {% endif %}
+
   {{ post_video_embed }}
 
   <div class="post-content">

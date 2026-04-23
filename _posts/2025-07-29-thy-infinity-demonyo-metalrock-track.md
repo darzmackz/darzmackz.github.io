@@ -9,6 +9,10 @@ description: "Experience 'Demonyo' by Thy Infinity with both lyrics and karaoke 
 seo_title: "Thy Infinity - Demonyo | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

@@ -3,6 +3,7 @@ layout: default
 title: "Home"
 description: "METAXENOPY.YT is the home of KENJI's music writing, karaoke work, and practical tech background."
 ---
+{% assign visible_posts = site.posts | where_exp: "post", "post.published != false and post.archive != false and post.noindex != true" %}
 
 <section class="hero">
   <div class="container">
@@ -141,6 +142,27 @@ description: "METAXENOPY.YT is the home of KENJI's music writing, karaoke work, 
 
 <section class="section-panel">
   <div class="section-intro">
+    <h2 class="section-title">Archive Focus</h2>
+    <p class="section-copy">The homepage and public archive now highlight the strongest standalone articles first. Supplemental lyric or karaoke companion pages can remain available for direct visitors without defining the site's overall quality.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>Indexable Articles</h3>
+      <p>Search-facing pages are reserved for posts with stronger original commentary, reference value, or long-form fan context.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Supplemental Pages</h3>
+      <p>Upload companion pages can still support the channel, but they do not need to drive the site's search profile or ad quality signals.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Smaller, Stronger Archive</h3>
+      <p>The goal is a more useful public archive instead of a larger archive filled with interchangeable song pages.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-panel">
+  <div class="section-intro">
     <h2 class="section-title">Ownership And Contact</h2>
     <p class="section-copy">This site is published under my real name and creator identity, with the main trust and policy pages linked in plain view.</p>
   </div>
@@ -164,14 +186,14 @@ description: "METAXENOPY.YT is the home of KENJI's music writing, karaoke work, 
   <p class="mt-lg"><a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Contact the Publisher</a></p>
 </section>
 
-{% if site.posts.size > 0 %}
+{% if visible_posts.size > 0 %}
 <section class="section-panel">
   <div class="section-intro">
     <h2 class="section-title">Latest Posts</h2>
     <p class="section-copy">Recent updates from the blog, including music features and creator-focused content.</p>
   </div>
   <ul class="post-list">
-    {% for post in site.posts limit:3 %}
+    {% for post in visible_posts limit:3 %}
     <li class="post-list-item">
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <div class="post-meta">

@@ -9,6 +9,10 @@ description: "Experience 'The Line' by Twenty One Pilots with both lyrics and ka
 seo_title: "Twenty One Pilot - The Line | METAXENOPY.YT| Lyrics & Karaoke (Arcane Soundtrack)"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

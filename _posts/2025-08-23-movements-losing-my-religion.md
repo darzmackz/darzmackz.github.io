@@ -9,6 +9,10 @@ description: "Experience 'Losing My Religion' by Movements with both lyrics and 
 seo_title: "Movements - Losing My Religion | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

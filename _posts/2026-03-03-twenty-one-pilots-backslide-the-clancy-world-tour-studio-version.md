@@ -9,6 +9,10 @@ description: "Experience 'Backslide' from The Clancy World Tour Studio Version w
 seo_title: "Twenty One Pilots - Backslide (The Clancy World Tour Studio Version) | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 # Twenty One Pilots - Backslide (The Clancy World Tour Studio Version)

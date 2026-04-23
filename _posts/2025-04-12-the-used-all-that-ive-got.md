@@ -9,6 +9,10 @@ description: "Experience 'All That I've Got' by The Used with both lyrics and ka
 seo_title: "The Used - All That I've Got | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

@@ -1,4 +1,4 @@
-{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" and site.google_adsense_post_slot_id != "" %}
+{% if site.google_adsense_enabled and site.google_adsense_publisher_id != "" and site.google_adsense_post_slot_id != "" and page.adsense != false and page.noindex != true %}
 <div class="ad-slot ad-slot-post" aria-label="Advertisement">
   <ins class="adsbygoogle adsbygoogle-block"
        data-ads-slot-state="pending"

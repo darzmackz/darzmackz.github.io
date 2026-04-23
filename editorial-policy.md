@@ -30,6 +30,15 @@ Whenever possible, posts are written to include:
 - enough context to help a reader understand why the topic matters
 - direct links to related pages, contact information, or source material where appropriate
 
+## Main Archive vs Supplemental Pages
+
+The site now treats published pages in two different ways:
+
+- **Main archive articles** are the posts meant to stand on their own for readers, search engines, and review teams. These are the stronger original guides, commentary pieces, and reference posts shown in the public archive.
+- **Supplemental pages** may still exist for direct visitors coming from a specific video or share link, but they are handled more conservatively when they are too narrow or repetitive to represent the site's overall editorial quality.
+
+Supplemental pages can be kept out of search indexing, out of the main blog archive, or out of advertising placements when that better reflects their role.
+
 ## Corrections and Updates
 
 If a published page needs a factual correction, clarification, or content improvement, it may be updated to improve usefulness and accuracy. Reasonable correction requests can be sent through the [contact page]({{ '/contact/' | relative_url }}).

@@ -9,6 +9,10 @@ description: "Experience 'Torn' by Neck Deep with both lyrics and karaoke versio
 seo_title: "Neck Deep - Torn | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

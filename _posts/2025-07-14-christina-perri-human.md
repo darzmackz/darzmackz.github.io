@@ -9,6 +9,10 @@ description: "Experience 'Human' by Christina Perri with both lyrics and karaoke
 seo_title: "Christina Perri - Human | METAXENOPY.YT | Lyrics & Karaoke Sing Along"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

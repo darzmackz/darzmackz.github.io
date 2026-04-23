@@ -9,6 +9,10 @@ description: "Experience 'Hated' by Beartooth with both lyrics and karaoke versi
 seo_title: "Beartooth - Hated | METAXENOPY.YT | Lyrics & Karaoke (Sing Along Version)"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

@@ -9,6 +9,10 @@ description: "Experience 'Your Graduation' by Stand Atlantic with both lyrics an
 seo_title: "Stand Atlantic - Your Graduation | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

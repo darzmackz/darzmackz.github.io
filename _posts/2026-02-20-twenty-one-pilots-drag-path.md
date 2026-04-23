@@ -9,6 +9,10 @@ description: "Sing along to 'Drag Path' with this karaoke version - perfect for 
 seo_title: "Twenty One Pilots - Drag Path | METAXENOPY.YT"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Sing Along with the Karaoke Version

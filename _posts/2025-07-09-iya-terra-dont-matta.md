@@ -9,6 +9,10 @@ description: "Experience 'Don't Matta' by Iya Terra with both lyrics and karaoke
 seo_title: "Iya Terra - Don't Matta | METAXENOPY.YT| Lyrics & Karaoke Reggae Vibes"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version

@@ -9,6 +9,10 @@ description: "Experience 'Together' by Iya Terra with both lyrics and karaoke ve
 seo_title: "Iya Terra - Together | METAXENOPY.YT| Lyrics & Karaoke Reggae Vibes"
 status: "published"
 published: true
+noindex: true
+sitemap: false
+archive: false
+adsense: false
 ---
 
 ## Watch the Lyrics Version
